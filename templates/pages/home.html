@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+
+    {% include 'components/home/landingPage.html' %}
+
+    {% include 'components/home/form.html' %}
+
+    {% include 'components/home/chart.html' %}
+
+<script>
+    document.getElementById("chartForm").addEventListener("submit", function(e){
+        e.preventDefault(); // Stop form from reloading page
+        let formData = new FormData(this);
+
+        drawEmptyChart(document.getElementById('Chart'))
+
+        fetch("", {   // <-- your backend route
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())  // or .json()
+        .then(data => {
+            //document.getElementById("result").innerText = data;
+            //console.log(data['data'])
+            addPlanetSymbols(data['data'])
+            dynamicSymbolCircle(data['acs'][0], data['acs'][1])
+            })
+        .catch(error => console.log("Error:", error));
+    });
+</script>
+
+{% endblock %}
+
+
