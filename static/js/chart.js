@@ -98,28 +98,31 @@ function houseCircle(deg){
 
 
 
-function dynamicSymbolCircle(acsDeg, acsSign){
+function dynamicSymbolCircle(ascDeg){
   let signsIndex;
   let houseNum = 12;
 
   let signsDeg = {
-    'Aries': 360,
-    'Taurus': 330,
-    'Gemini': 300,
-    'Cancer': 270,
-    'Leo': 240,
-    'Virgo': 210,
-    'Libra': 180,
-    'Scorpio': 150,
-    'Sagittarius': 120,
-    'Capricorn': 90,
-    'Aquarius': 60,
-    'Pisces': 30
+    'aries': 360,
+    'taurus': 330,
+    'gemini': 300,
+    'cancer': 270,
+    'leo': 240,
+    'virgo': 210,
+    'libra': 180,
+    'scorpio': 150,
+    'sagittarius': 120,
+    'capricorn': 90,
+    'aquarius': 60,
+    'pisces': 30
   };
 
-  startdeg = signsDeg[acsSign]
+  startdeg = signsDeg[signs[parseInt(ascDeg / 30)]]
 
-  drawLine(startdeg - acsDeg, rHouseCircle, rDegCircle, true);
+
+  console.log(signs[parseInt(ascDeg / 30)])
+  console.log(startdeg)
+  drawLine(360 - ascDeg, rHouseCircle, rDegCircle, true);
   for (let deg = 0; deg < 360; deg += 2.5) {
      
     if(deg % 30 == 0){
