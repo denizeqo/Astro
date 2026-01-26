@@ -50,6 +50,7 @@
     outline: none;
     transition: 0.3s;
     margin-bottom: 20px;
+    width: 50%;
 }
 
 .formInput input{

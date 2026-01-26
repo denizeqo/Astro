@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from .chartUtility import *
 
 from flatlib.chart import Chart
 from flatlib.datetime import Datetime
@@ -20,37 +21,26 @@ def Home(request):
         latitude = float(request.POST.get('latitude'))
         longitude = float(request.POST.get('longitude'))
 
-        latDeg = int(latitude)
-        latMin =int((latitude - latDeg) * 60)
-
-        latStr = str(latDeg) + 'n' + str(latMin)
-
-        lonDeg = int(longitude)
-        lonMin = int((longitude - lonDeg) * 60)
-
-        lonStr = str(lonDeg) + 'e' + str(lonMin)
-
-
-
-
-
-        dateOfBirth = '/'.join(dateOfBirth.split('-'))
+        lat, lon = getLonLat(latitude, longitude)
+        dateOfBirth, timeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
 
         date = Datetime(dateOfBirth, timeOfBirth, '+00:00')
-        pos = GeoPos(latStr, lonStr)
+        pos = GeoPos(lat, lon)
         chart = Chart(date, pos)
 
         asc = chart.get(const.ASC)
+        mc = chart.get(const.MC)
+        ic = chart.get(const.IC)
+        dsc = chart.get(const.DESC)
+
+
         sun = chart.get(const.SUN)
-        print(sun.lon)
+        print(ic.lon)
+        print(mc.lon)
         print(asc.lon)
+        print(dsc.lon)
 
-        print(dateOfBirth)
-        print(timeOfBirth)
-        print(latStr)
-        print(lonStr)
-
-        return JsonResponse({'asc':asc.lon})
+        return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon})
 
 
     return render(request, 'pages/home.html')

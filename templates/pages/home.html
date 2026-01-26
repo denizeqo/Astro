@@ -15,7 +15,7 @@
         e.preventDefault(); // Stop form from reloading page
         let formData = new FormData(this);
 
-       // emptyChart(document.getElementById('Chart'))
+       drawEmptyChart(document.getElementById('Chart'))
 
         fetch("", {   // <-- your backend route
             method: "POST",
@@ -26,7 +26,8 @@
             //document.getElementById("result").innerText = data;
             //console.log(data['data'])
             //addPlanetSymbols(data['data'])
-            dynamicSymbolCircle(data['asc'])
+            dynamicChart(data['asc']);
+            dynamicAscMcIcDsc(data['asc'], data['mc'], data['ic'], data['dsc']);
             
             })
         .catch(error => console.log("Error:", error));
