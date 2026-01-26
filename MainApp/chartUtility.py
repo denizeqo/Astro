@@ -3,7 +3,7 @@ from datetime import datetime
 import pytz
 
 
-
+tf = TimezoneFinder()
 
 def getLonLat(lat, lon):
 
@@ -19,13 +19,11 @@ def getLonLat(lat, lon):
 
 
 def getUTCDateTime(date, time, lat, lon):
-
-    tf = TimezoneFinder()
+    
     tz_name = tf.timezone_at(lat=lat, lng=lon)
 
     fmt = "%Y-%m-%d %H:%M"
     dateTime = date + ' ' + time
-
     dt = datetime.strptime(dateTime, fmt)
 
     tz = pytz.timezone(tz_name)
