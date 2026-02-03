@@ -7,9 +7,10 @@ const cy = 450;
 
 // Circle radius
 const rDegCircle = 380;
-const rHouseCircle = 120;
+const rStaticHouseCircle = 120;
 const rDynamicHouseCircle = 100;
-const rSymbolCircle = 320;
+const rDynamicSymbolCircle = 320;
+const rPlanetsCircle = 295;
 
 
 // Ticket height
@@ -18,14 +19,14 @@ const tickLength = 15;
 
 // Radius of text
 const rDegText = rDegCircle + majorTickLength + 22;
-const rHouseText = rHouseCircle + 10;
-const rCenterText = rHouseCircle - 45;
+const rStaticHouseText = rStaticHouseCircle + 10;
+const rCenterText = rStaticHouseCircle - 45;
 const rDynamicHouseText = rDynamicHouseCircle + 10;
 
 // Radius of symbols
 const rStaticSymbolChart = rDegCircle + 10;
-const rDynamicSymbolChart = rSymbolCircle + 10;
-const rHouseSign = rSymbolCircle + 35;
+const rDynamicSymbolChart = rDynamicSymbolCircle + 10;
+const rStaticHouseSign = rDynamicSymbolCircle + 35;
 
 
 // Signs list
@@ -59,52 +60,46 @@ drawEmptyChart(svg)
 // Static Part
 function staticDegCircle(deg){
 
-    // Check if the line needs to be longer or not
-    const isMajor = deg % 10 === 0;
+  // Check if the line needs to be longer or not
+  const isMajor = deg % 10 === 0;
+  const isHouse = deg % 30 === 0;
 
-    // Finds in which radius the line starts and ends
-    var rOut = (isMajor) ? rDegCircle + majorTickLength : rDegCircle + tickLength;
-    var rIn = (isMajor) ? rDegCircle - majorTickLength : rDegCircle - tickLength;
+  // Finds in which radius the line starts and ends
+  var rOut = (isMajor) ? rDegCircle + majorTickLength : rDegCircle + tickLength;
+  var rIn = (isMajor) ? rDegCircle - majorTickLength : rDegCircle - tickLength;
 
+
+  if (isHouse){
+    drawLine(deg, rOut, rDynamicSymbolCircle + 20, isMajor);
+    drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, isMajor);
+    drawLine(deg, rDynamicSymbolCircle, rStaticHouseCircle + 20, false);
+
+    addText(houseNum, deg + 15, rStaticHouseText);
+    addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rStaticHouseSign);
+
+    houseNum--;
+  }
+  else{
     drawLine(deg, rOut, rIn, isMajor);
+  }
 
-    if (isMajor) {
-      // Write Deg Text
-      var text = (deg == 0) ? deg + '°' : (360 - deg) + '°';
-      addText(text, deg, rDegText);
-    }
+
+  if (isMajor) {
+    // Write Deg Text
+    var text = (deg == 0) ? deg + '°' : (360 - deg) + '°';
+    addText(text, deg, rDegText);
+  }
 }
 
 function staticSymbolCircle(deg){
 
-    var rOut = rSymbolCircle + 20;
-    var rIn = rSymbolCircle;
+    var rOut = rDynamicSymbolCircle + 20;
+    var rIn = rDynamicSymbolCircle;
 
     var signsIndex = ((deg + 30 - (2.5 * houseNum))  / 2.5) % 12;
 
     addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolChart);
 }
-
-function staticHouseCircle(deg){
-
-  const isHouse = deg % 30 === 0;
-
-  if (isHouse){
-    drawLine(deg, rDegCircle, rSymbolCircle + 20, false);
-    drawLine(deg, rSymbolCircle, rDynamicHouseCircle, false);
-
-    addText(houseNum, deg + 15, rHouseText);
-    addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rHouseSign);
-
-    houseNum--;
-  }
-}
-
-
-
-
-
-
 
 
 
@@ -127,38 +122,64 @@ function dynamicChart(ascDeg){
     signsIndex = ((deg + 30 +  - (2.5 * houseNum))  / 2.5) % 12;
 
     addSymbol(signs[11 - signsIndex], 9, 1.3 + startdeg + deg, rDynamicSymbolChart);
-    drawLine(startdeg + deg, rSymbolCircle + 20, rSymbolCircle, true);
+    drawLine(startdeg + deg, rDynamicSymbolCircle + 20, rDynamicSymbolCircle, true);
   }
 }
 
 function  dynamicAscMcIcDsc(asc, mc, ic, dsc){
 
-  addText('ASC', 360 - asc, rCenterText);
+  addAngledText('ASC', 360 - asc, rCenterText);
   drawLine(360 - asc, rDynamicHouseCircle - 5, rDegCircle, true);
 
-  addText('MC', 360 - mc, rCenterText);
+  addAngledText('MC', 360 - mc, rCenterText);
   drawLine(360 - mc, rDynamicHouseCircle - 5, rDegCircle, true);
 
-  addText('IC', 360 - ic, rCenterText);
+  addAngledText('IC', 360 - ic, rCenterText);
   drawLine(360 - ic, rDynamicHouseCircle - 5, rDegCircle, true);
 
-  addText('DSC', 360 - dsc, rCenterText);
+  addAngledText('DSC', 360 - dsc, rCenterText);
   drawLine(360 - dsc, rDynamicHouseCircle - 5, rDegCircle, true);
 
 }
 
 
-function addPlanetSymbols(data){
+function addPlanetSymbols(planets){
 
-  for (let row in data){
-    console.log(row)
-    console.log(data[row]['degree'])
-    let deg = parseInt(data[row]['degree']);
-    console.log(deg)
-    deg = signsDeg[data[row]['sign']] - deg;
-    console.log(deg)
-    addSymbol('aries', 15, deg, 250);
-  }
+  sun = 360 - planets['sun']
+  addSymbol('sun', 25, sun, rPlanetsCircle);
+  drawLine(sun, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  moon = 360 - planets['moon']
+  addSymbol('moon', 25, moon, rPlanetsCircle);
+  drawLine(moon, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  mercury =  360 - planets['mercury']
+  addSymbol('mercury', 25, mercury, rPlanetsCircle);
+  drawLine(mercury, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  venus = 360 - planets['venus']
+  addSymbol('venus', 25, venus, rPlanetsCircle);
+  drawLine(venus, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  mars = 360 - planets['mars']
+  addSymbol('mars', 25, mars, rPlanetsCircle);
+  drawLine(mars, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  jupiter = 360 - planets['jupiter']
+  addSymbol('jupiter', 25, jupiter, rPlanetsCircle);
+  drawLine(jupiter, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  saturn = 360 - planets['saturn']
+  addSymbol('saturn', 25, saturn, rPlanetsCircle);
+  drawLine(saturn, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+
+  uranus = 360 - planets['uranus']
+
+  neptune = 360 - planets['neptunes']
+
+  pluto = 360 - plantes['pluto']
+
+  chiron = 360 - planets['chiron']
 
 }
 
@@ -178,7 +199,7 @@ function drawLine(deg, rOut, rIn, isMajor=false){
     line.setAttribute('y1', y1);
     line.setAttribute('x2', x2);
     line.setAttribute('y2', y2);
-    line.setAttribute('class', 'tick' + (isMajor ? ' major' : ''));
+    line.setAttribute('class', (isMajor ? ' major' : ' tick'));
     svg.appendChild(line);
 }
 
@@ -227,10 +248,59 @@ function addSymbol(symbolId, symbolSize, deg, radius){
 
 }
 
+function addAngledText(text, deg, radius) {
+
+    const rad = (deg - 180) * Math.PI / 180;
+
+    const tx = cx + Math.cos(rad) * radius;
+    const ty = cy + Math.sin(rad) * radius;
+
+    // Flip text if upside down
+    if (deg > 90 && deg < 270) {
+        deg += 180;
+    }
+
+    const label = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'text'
+    );
+
+    label.setAttribute('x', tx);
+    label.setAttribute('y', ty);
+    label.setAttribute(
+        'transform',
+        `rotate(${deg} ${tx} ${ty})`
+    );
+
+    label.setAttribute('text-anchor', 'middle');
+    label.setAttribute('dominant-baseline', 'middle');
+    label.setAttribute('class', 'degree');
+
+    label.textContent = text;
+    svg.appendChild(label);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 function drawEmptyChart(svg){
 
   svg.innerHTML= `<defs>
+            <svg id="jupiter" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
+            <svg id="saturn" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
+            <svg id="mars" viewBox="0 0 32 32" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
+            <svg id="venus" viewBox="0 0 32 32" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="6"/><line x1="16" y1="17" x2="16" y2="26"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
+            <svg id="mercury" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
+            <svg id="sun" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
+            <svg id="moon" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
             <svg id="gemini" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> <g id="Horoscope"> <path d="M33,34.1V11.9A26.5,26.5,0,0,0,43.4,5.4a1.9,1.9,0,0,0,0-2.8,1.9,1.9,0,0,0-2.8,0,23.6,23.6,0,0,1-33.2,0,1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8A26.5,26.5,0,0,0,15,11.9V34.1A26.5,26.5,0,0,0,4.6,40.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,23.6,23.6,0,0,1,33.2,0,1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8A26.5,26.5,0,0,0,33,34.1ZM19,33V13a27.3,27.3,0,0,0,5,.5,27.3,27.3,0,0,0,5-.5V33a27.3,27.3,0,0,0-5-.5A27.3,27.3,0,0,0,19,33Z"></path> </g> </g> </g></svg>
             <svg id="aries" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 4.19056C0 2.42846 1.42846 1 3.19056 1C4.72033 1 6.03482 2.08579 6.32371 3.58803L8 12.3047L9.67629 3.58803C9.96518 2.08579 11.2797 1 12.8094 1C14.5715 1 16 2.42846 16 4.19056V6H14V4.19056C14 3.53303 13.467 3 12.8094 3C12.2386 3 11.7481 3.40516 11.6403 3.96573L9.32602 16H6.67398L4.3597 3.96573C4.2519 3.40516 3.7614 3 3.19056 3C2.53303 3 2 3.53303 2 4.19056V6H0V4.19056Z" fill="#ffffff"></path> </g></svg>
             <svg id="taurus" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 2.20914 4 0H2C2 2.08697 3.06551 3.92508 4.68221 5C3.06551 6.07492 2 7.91303 2 10C2 13.3137 4.68629 16 8 16C11.3137 16 14 13.3137 14 10C14 7.91303 12.9345 6.07492 11.3178 5C12.9345 3.92508 14 2.08697 14 0H12C12 2.20914 10.2091 4 8 4ZM8 6C5.79086 6 4 7.79086 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 7.79086 10.2091 6 8 6Z" fill="#ffffff"></path> </g></svg>
@@ -243,8 +313,6 @@ function drawEmptyChart(svg){
             <svg id="capricorn" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1H1C1.91694 1 2.73781 1.41138 3.28809 2.05964C4.00095 1.40184 4.95354 1 6 1C8.20914 1 10 2.79086 10 5V7.53513C10.5883 7.19479 11.2714 7 12 7C14.2091 7 16 8.79086 16 11C16 13.2091 14.2091 15 12 15C10.8053 15 9.73295 14.4762 9 13.6458C8.26706 14.4762 7.19469 15 6 15V13C7.10457 13 8 12.1046 8 11V5C8 3.89543 7.10457 3 6 3C4.89543 3 4 3.89543 4 5V13H2V4C2 3.44772 1.55228 3 1 3H0V1ZM10 11C10 12.1046 10.8954 13 12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11Z" fill="#ffffff"></path> </g></svg>
             <svg id="aquarius" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4.50005 1.34827L8.00005 3.34827L11.5 1.34827L15.4962 3.63177L14.5039 5.36826L11.5 3.65177L8.00005 5.65177L4.50005 3.65177L1.49618 5.36826L0.503906 3.63177L4.50005 1.34827Z" fill="#ffffff"></path> <path d="M4.50005 10.3483L8.00005 12.3483L11.5 10.3483L15.4962 12.6318L14.5039 14.3683L11.5 12.6518L8.00005 14.6518L4.50005 12.6518L1.49618 14.3683L0.503906 12.6318L4.50005 10.3483Z" fill="#ffffff"></path> <path d="M4.50005 5.84827L0.503906 8.13177L1.49618 9.86826L4.50005 8.15177L8.00005 10.1518L11.5 8.15177L14.5039 9.86826L15.4962 8.13177L11.5 5.84827L8.00005 7.84827L4.50005 5.84827Z" fill="#ffffff"></path> </g></svg>
             <svg id="pisces" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4.94517 8.99997H2V6.99997H4.94517C4.71828 4.94564 3.80038 3.10059 2.42738 1.70002L3.85558 0.299927C5.58105 2.06004 6.72069 4.40009 6.95516 6.99997H9.04493C9.2794 4.40009 10.419 2.06004 12.1445 0.299927L13.5727 1.70002C12.1997 3.10059 11.2818 4.94564 11.0549 6.99997H14V8.99997H11.0549C11.2818 11.0543 12.1997 12.8994 13.5727 14.2999L12.1445 15.7C10.419 13.9399 9.2794 11.5999 9.04493 8.99997H6.95516C6.72069 11.5999 5.58105 13.9399 3.85558 15.7L2.42738 14.2999C3.80038 12.8994 4.71828 11.0543 4.94517 8.99997Z" fill="#ffffff"></path> </g></svg>
-            <svg id="sun" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ffffff;" d="M256.011,0c-141.375,0-256,114.617-256,256c0,141.375,114.625,256,256,256 c141.383,0,255.977-114.625,255.977-256C511.987,114.617,397.394,0,256.011,0z M421.925,421.938 c-21.562,21.562-46.625,38.469-74.562,50.297c-28.906,12.234-59.656,18.422-91.352,18.422c-31.688,0-62.406-6.188-91.328-18.422 c-27.953-11.828-53.047-28.734-74.609-50.297c-21.547-21.562-38.469-46.656-50.281-74.594C27.542,318.422,21.354,287.688,21.354,256 s6.188-62.422,18.438-91.336c11.812-27.938,28.734-53.039,50.281-74.602c21.562-21.555,46.656-38.477,74.609-50.297 c28.922-12.227,59.641-18.43,91.328-18.43c31.695,0,62.445,6.203,91.352,18.43c27.938,11.82,53,28.742,74.562,50.297 c21.562,21.562,38.5,46.664,50.312,74.602c12.219,28.914,18.438,59.648,18.438,91.336s-6.219,62.422-18.438,91.344 C460.425,375.281,443.487,400.375,421.925,421.938z"></path> <path style="fill:#ffffff;" d="M330.644,256c0,41.219-33.406,74.625-74.633,74.625c-41.188,0-74.594-33.406-74.594-74.625 c0-41.211,33.406-74.609,74.594-74.609C297.237,181.391,330.644,214.789,330.644,256z"></path> </g></svg>
-            <svg id="moon" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon glyph" stroke="#ffffff" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.144"></g><g id="SVGRepo_iconCarrier"><path d="M5,21.21A10,10,0,1,0,5,2.79,10,10,0,0,1,5,21.21Z"></path></g></svg>
         </defs>
 
         <circle cx="450" cy="450" r="380" fill="none" stroke="#fff" stroke-width="2" />
@@ -261,7 +329,7 @@ function drawEmptyChart(svg){
   houseNum = 12;
 
   for (let deg = 0; deg < 360; deg += 2.5) {
-    staticHouseCircle(deg);
+    //staticHouseCircle(deg);
     staticDegCircle(deg);
     staticSymbolCircle(deg); 
   }

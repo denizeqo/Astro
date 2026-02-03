@@ -28,7 +28,8 @@
             //addPlanetSymbols(data['data'])
             dynamicChart(data['asc']);
             dynamicAscMcIcDsc(data['asc'], data['mc'], data['ic'], data['dsc']);
-            
+            addPlanetSymbols(data['planets'])
+     
             })
         .catch(error => console.log("Error:", error));
     });

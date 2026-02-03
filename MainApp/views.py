@@ -26,21 +26,33 @@ def Home(request):
 
         date = Datetime(dateOfBirth, timeOfBirth, '+00:00')
         pos = GeoPos(lat, lon)
-        chart = Chart(date, pos)
+        chart = Chart(date, pos, hsys=const.HOUSES_WHOLE_SIGN)
 
         asc = chart.get(const.ASC)
         mc = chart.get(const.MC)
         ic = chart.get(const.IC)
         dsc = chart.get(const.DESC)
-
-
+        
         sun = chart.get(const.SUN)
-        print(ic.lon)
-        print(mc.lon)
-        print(asc.lon)
-        print(dsc.lon)
 
-        return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon})
+        for obj in chart.objects:
+            print(obj)
+
+        planets = {
+            'sun': chart.get(const.SUN).lon,
+            'moon': chart.get(const.MOON).lon,
+            'mercury': chart.get(const.MERCURY).lon,
+            'venus': chart.get(const.VENUS).lon,
+            'mars': chart.get(const.MARS).lon,
+            'jupiter':chart.get(const.JUPITER).lon,
+            'saturn': chart.get(const.SATURN).lon,
+            #'uranus': chart.getObject(const.URANUS).lon,
+            #'neptune': chart.get(const.NEPTUNE).lon,
+            #'pluto': chart.get(const.PLUTO).lon,
+            #'chiron': chart.get(const.CHIRON).lon
+        }
+
+        return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon, 'planets':planets})
 
 
     return render(request, 'pages/home.html')
