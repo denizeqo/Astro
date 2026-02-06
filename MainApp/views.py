@@ -6,6 +6,7 @@ from flatlib.chart import Chart
 from flatlib.datetime import Datetime
 from flatlib.geopos import GeoPos
 from flatlib import const
+import swisseph as swe
 
 # Create your views here.
 def Home(request):
@@ -24,9 +25,27 @@ def Home(request):
         lat, lon = getLonLat(latitude, longitude)
         dateOfBirth, timeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
 
+        objects = [
+                    const.SUN,
+                    const.MOON,
+                    const.MERCURY,
+                    const.VENUS,
+                    const.MARS,
+                    const.JUPITER,
+                    const.SATURN,
+                    const.URANUS,
+                    const.NEPTUNE,
+                    const.PLUTO,
+                    const.CHIRON,
+                    const.NORTH_NODE,
+                    const.SOUTH_NODE,
+                ]
+        
+        swe.set_ephe_path(r"C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe")
+
         date = Datetime(dateOfBirth, timeOfBirth, '+00:00')
         pos = GeoPos(lat, lon)
-        chart = Chart(date, pos, hsys=const.HOUSES_WHOLE_SIGN)
+        chart = Chart(date, pos, IDs=objects)
 
         asc = chart.get(const.ASC)
         mc = chart.get(const.MC)
@@ -46,10 +65,10 @@ def Home(request):
             'mars': chart.get(const.MARS).lon,
             'jupiter':chart.get(const.JUPITER).lon,
             'saturn': chart.get(const.SATURN).lon,
-            #'uranus': chart.getObject(const.URANUS).lon,
-            #'neptune': chart.get(const.NEPTUNE).lon,
-            #'pluto': chart.get(const.PLUTO).lon,
-            #'chiron': chart.get(const.CHIRON).lon
+            'uranus': chart.getObject(const.URANUS).lon,
+            'neptune': chart.get(const.NEPTUNE).lon,
+            'pluto': chart.get(const.PLUTO).lon,
+            'chiron': chart.get(const.CHIRON).lon
         }
 
         return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon, 'planets':planets})
