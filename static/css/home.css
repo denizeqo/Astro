@@ -138,3 +138,68 @@
 }
 
 
+/* Chart Section */
+.tick {
+        stroke: #888;
+        stroke-width: 0.6;
+}
+
+.major {
+    stroke: #fff;
+    stroke-width: 1;
+}
+
+.degree {
+    fill: #fff;
+    font-size: 15px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.house {
+    fill: #fff;
+    font-size: 9px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+
+/* Table Section */
+.transparent-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.transparent-table th,
+.transparent-table td {
+  border: 1px solid white;
+  padding: 10px 5px;
+  background: transparent;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.transparent-table td span{
+    font-family: 'Poppins', sans-serif;
+}
+
+.transparent-table .planetCell{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.transparent-table th {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+}
+
+.transparent-table tr:hover td {
+  background: rgba(255, 255, 255, 0.08); /* optional hover */
+}

@@ -51,11 +51,7 @@ const signsDeg = {
     'aquarius': 60,
     'pisces': 30
   };
-
-
-
-drawEmptyChart(svg)
-
+  
 
 // Static Part
 function staticDegCircle(deg){
@@ -148,9 +144,6 @@ function  dynamicAscMcIcDsc(asc, mc, ic, dsc){
 
 function addPlanetSymbols(planets){
 
-
-  spacePlanets(planets);
-
   sun = 360 - planets['sun']
   addSymbol('sun', 25, sun, rPlanetsCircle);
   drawLine(sun, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
@@ -208,45 +201,47 @@ function addPlanetSymbols(planets){
 
 }
 
+function tableData(planets){
 
-function spacePlanets(planets){
+  const tbody = document.getElementById('planetsTable');
 
-  var dist;
-  var newPlanetsList = {};
+  for (let planet in planets){
 
-  for (let i in planets){
-    for (let j in planets){
+    let tr = document.createElement("tr");
 
-      dist = planets[i] - planets[j];
-      
-      if (dist <= 10 && dist > 0){
-        newPlanetsList[i] = planets[i] + 20;
-        console.log(dist)
-        console.log(i)
-        console.log(j)
-        console.log('bb')
-        break;
+    let planetName = planet;
+    let planetDeg = planets[planet].toFixed(2) + '°';
+    let planetHouseNum = parseInt(planets[planet] / 30) + 1;
+    let planetSign = signs[parseInt(planets[planet] / 30)]
 
-      }else if ((dist >= -10 && dist < 0)){
-        newPlanetsList[i] = planets[i] - 20;
-        console.log(dist)
-        console.log(i)
-        console.log(j)
-        console.log('cc')
-        break;
-      }else{
-        newPlanetsList[i] = planets[i];
-      }
-    }
+
+    let planetNameCol = document.createElement("td");
+    planetNameCol.textContent = planetName;
+    tr.appendChild(planetNameCol);
+
+    let planetSignCol = document.createElement("td");
+    planetSignCol.textContent = planetSign;
+    tr.appendChild(planetSignCol);
+
+    let planetHouseNumCol = document.createElement("td");
+    planetHouseNumCol.textContent = planetHouseNum;
+    tr.appendChild(planetHouseNumCol);
+
+    let planetDegCol = document.createElement("td");
+    planetDegCol.textContent = planetDeg;
+    tr.appendChild(planetDegCol);
+
+    tbody.appendChild(tr);
   }
 
-  console.log(planets)
-  console.log(newPlanetsList)
 
-  return newPlanetsList
+  let table = document.getElementById('ChartTable');
+  table.classList.remove('hiddenWidget')
 
 
 }
+
+
 
 
 // Chart Utility
@@ -402,6 +397,9 @@ function drawEmptyChart(svg){
     staticDegCircle(deg);
     staticSymbolCircle(deg); 
   }
+
+  let ChartWidget = document.getElementById('ChartWidget');
+  ChartWidget.classList.remove('hiddenWidget')
 
 }
 

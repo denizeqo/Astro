@@ -54,9 +54,6 @@ def Home(request):
         
         sun = chart.get(const.SUN)
 
-        for obj in chart.objects:
-            print(obj)
-
         planets = {
             'sun': chart.get(const.SUN).lon,
             'moon': chart.get(const.MOON).lon,

@@ -10,6 +10,15 @@
 
     {% include 'components/home/chart.html' %}
 
+    {% include 'components/home/table.html' %}
+
+
+
+
+
+{% load static %}
+<script src="{% static 'js/chart.js' %}"></script>
+
 <script>
     document.getElementById("chartForm").addEventListener("submit", function(e){
         e.preventDefault(); // Stop form from reloading page
@@ -28,7 +37,8 @@
             //addPlanetSymbols(data['data'])
             dynamicChart(data['asc']);
             dynamicAscMcIcDsc(data['asc'], data['mc'], data['ic'], data['dsc']);
-            addPlanetSymbols(data['planets'])
+            addPlanetSymbols(data['planets']);
+            tableData(data['planets']);
      
             })
         .catch(error => console.log("Error:", error));

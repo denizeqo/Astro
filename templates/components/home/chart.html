@@ -1,44 +1,4 @@
-
-<style>
-    .chart{
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 1070px;
-        max-width: 95%;
-    }
-
-    .tick {
-        stroke: #888;
-        stroke-width: 0.6;
-    }
-
-    .major {
-        stroke: #fff;
-        stroke-width: 1;
-    }
-
-    .degree {
-        fill: #fff;
-        font-size: 15px;
-        text-anchor: middle;
-        dominant-baseline: middle;
-    }
-
-    .house {
-        fill: #fff;
-        font-size: 9px;
-        font-weight: bold;
-        text-anchor: middle;
-        dominant-baseline: middle;
-    }
-
-</style>
-
-
-
-<section class="chart glassBg">
+<section id="ChartWidget" class="widget glassBg hiddenWidget">
 
     <svg id="Chart" viewBox="0 0 900 900">
         <defs>
@@ -76,6 +36,3 @@
         <circle cx="450" cy="450" r="100" fill="none" stroke="#fff" stroke-width="1" />
     </svg>
 </section>
-
-{% load static %}
-<script src="{% static 'js/chart.js' %}"></script>
