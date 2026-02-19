@@ -28,6 +28,14 @@ const rStaticSymbolChart = rDegCircle + 10;
 const rDynamicSymbolChart = rDynamicSymbolCircle + 10;
 const rStaticHouseSign = rDynamicSymbolCircle + 35;
 
+//Planets orbite
+const rMoon = rStaticHouseCircle + 40;
+const rMercury = rMoon + 20;
+const rVenus = rMercury + 20;
+const rSun = rVenus + 20;
+const rMars = rSun + 20;
+const rJupiter = rMars + 20;
+const rSaturn = rJupiter + 20;
 
 // Signs list
 const signs = [
@@ -145,59 +153,59 @@ function  dynamicAscMcIcDsc(asc, mc, ic, dsc){
 function addPlanetSymbols(planets){
 
   sun = 360 - planets['sun']
-  addSymbol('sun', 25, sun, rPlanetsCircle);
+  addSymbol('sun', 20, sun, rSun);
   drawLine(sun, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['sun'])  + ' °', sun, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['sun'])  + ' °', sun + 8, rSun)
 
   moon = 360 - planets['moon']
-  addSymbol('moon', 25, moon, rPlanetsCircle);
+  addSymbol('moon', 20, moon, rMoon);
   drawLine(moon, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['moon']) + ' °', moon, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
 
   mercury =  360 - planets['mercury']
-  addSymbol('mercury', 25, mercury, rPlanetsCircle);
+  addSymbol('mercury', 20, mercury, rMercury);
   drawLine(mercury, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['mercury']) + ' °', mercury, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['mercury']) + ' °', mercury + 10, rMercury)
 
   venus = 360 - planets['venus']
-  addSymbol('venus', 25, venus, rPlanetsCircle);
+  addSymbol('venus', 20, venus, rVenus);
   drawLine(venus, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['venus']) + ' °', venus, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['venus']) + ' °', venus + 9, rVenus)
 
   mars = 360 - planets['mars']
-  addSymbol('mars', 25, mars, rPlanetsCircle);
+  addSymbol('mars', 20, mars, rMars);
   drawLine(mars, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['mars']) + ' °', mars, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['mars']) + ' °', mars + 7, rMars)
 
   jupiter = 360 - planets['jupiter']
-  addSymbol('jupiter', 25, jupiter, rPlanetsCircle);
+  addSymbol('jupiter', 20, jupiter, rJupiter);
   drawLine(jupiter, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['jupiter']) + ' °', jupiter, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['jupiter']) + ' °', jupiter + 6, rJupiter)
 
   saturn = 360 - planets['saturn']
-  addSymbol('saturn', 25, saturn, rPlanetsCircle);
+  addSymbol('saturn', 20, saturn, rSaturn);
   drawLine(saturn, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['saturn'])  + ' °', saturn, rPlanetsCircle - 30)
+  addAngledText2(parseInt(planets['saturn'])  + ' °', saturn + 5, rSaturn)
 
-  uranus = 360 - planets['uranus']
-  addSymbol('uranus', 25, uranus, rPlanetsCircle);
-  drawLine(uranus, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['uranus']) + ' °', uranus, rPlanetsCircle - 30)
+  //uranus = 360 - planets['uranus']
+  //addSymbol('uranus', 25, uranus, rPlanetsCircle);
+  //drawLine(uranus, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  //addText(parseInt(planets['uranus']) + ' °', uranus, rPlanetsCircle - 30)
 
-  neptune = 360 - planets['neptune']
-  addSymbol('neptune', 25, neptune, rPlanetsCircle);
-  drawLine(neptune, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['neptune']) + ' °', neptune, rPlanetsCircle - 30)
+  //neptune = 360 - planets['neptune']
+  //addSymbol('neptune', 25, neptune, rPlanetsCircle);
+  //drawLine(neptune, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  //addText(parseInt(planets['neptune']) + ' °', neptune, rPlanetsCircle - 30)
 
-  pluto = 360 - planets['pluto']
-  addSymbol('pluto', 25, pluto, rPlanetsCircle);
-  drawLine(pluto, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['pluto']) + ' °', pluto, rPlanetsCircle - 30)
+  //pluto = 360 - planets['pluto']
+  //addSymbol('pluto', 25, pluto, rPlanetsCircle);
+  //drawLine(pluto, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  //addText(parseInt(planets['pluto']) + ' °', pluto, rPlanetsCircle - 30)
 
-  chiron = 360 - planets['chiron']
-  addSymbol('chiron', 25, chiron, rPlanetsCircle);
-  drawLine(chiron, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  addText(parseInt(planets['chiron']) + ' °', chiron, rPlanetsCircle - 30)
+  //chiron = 360 - planets['chiron']
+  //addSymbol('chiron', 25, chiron, rPlanetsCircle);
+  //drawLine(chiron, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  //addText(parseInt(planets['chiron']) + ' °', chiron, rPlanetsCircle - 30)
 
 }
 
@@ -340,6 +348,39 @@ function addAngledText(text, deg, radius) {
     svg.appendChild(label);
 }
 
+function addAngledText2(text, deg, radius) {
+
+    const rad = (deg - 180) * Math.PI / 180;
+
+    const tx = cx + Math.cos(rad) * radius;
+    const ty = cy + Math.sin(rad) * radius;
+
+    // Flip text if upside down
+    if (deg > 0 && deg < 180) {
+        deg -= 90;
+    }else{
+      deg += 90;
+    }
+
+    const label = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'text'
+    );
+
+    label.setAttribute('x', tx);
+    label.setAttribute('y', ty);
+    label.setAttribute(
+        'transform',
+        `rotate(${deg} ${tx} ${ty})`
+    );
+
+    label.setAttribute('text-anchor', 'middle');
+    label.setAttribute('dominant-baseline', 'middle');
+    label.setAttribute('class', 'degree');
+
+    label.textContent = text;
+    svg.appendChild(label);
+}
 
 
 

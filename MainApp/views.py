@@ -51,8 +51,6 @@ def Home(request):
         mc = chart.get(const.MC)
         ic = chart.get(const.IC)
         dsc = chart.get(const.DESC)
-        
-        sun = chart.get(const.SUN)
 
         planets = {
             'sun': chart.get(const.SUN).lon,
