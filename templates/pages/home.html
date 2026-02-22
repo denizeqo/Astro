@@ -25,6 +25,8 @@
         let formData = new FormData(this);
 
        drawEmptyChart(document.getElementById('Chart'))
+       emptyTable(document.getElementById('starsTable'))
+       emptyTable(document.getElementById('planetsTable'))
 
         fetch("", {   // <-- your backend route
             method: "POST",
@@ -38,7 +40,9 @@
             dynamicChart(data['asc']);
             dynamicAscMcIcDsc(data['asc'], data['mc'], data['ic'], data['dsc']);
             addPlanetSymbols(data['planets']);
-            tableData(data['planets']);
+            tableData(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
+            tableData(data['planets'], document.getElementById('planetsTable'), document.getElementById('ChartTable'));
+            addStarsSymbol(data['stars']);
      
             })
         .catch(error => console.log("Error:", error));

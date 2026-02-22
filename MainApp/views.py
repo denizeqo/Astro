@@ -52,6 +52,44 @@ def Home(request):
         ic = chart.get(const.IC)
         dsc = chart.get(const.DESC)
 
+        stars = {
+            'algenib': chart.getFixedStar(const.STAR_ALGENIB).lon,
+            'alpheratz': chart.getFixedStar(const.STAR_ALPHERATZ).lon,
+            'algol': chart.getFixedStar(const.STAR_ALGOL).lon,
+            'alcyone': chart.getFixedStar(const.STAR_ALCYONE).lon,
+            'aldebaran': chart.getFixedStar(const.STAR_ALDEBARAN).lon,
+            'rigel': chart.getFixedStar(const.STAR_RIGEL).lon,
+            'capella': chart.getFixedStar(const.STAR_CAPELLA).lon,
+            'betelgeuse': chart.getFixedStar(const.STAR_BETELGEUSE).lon,
+            'sirius': chart.getFixedStar(const.STAR_SIRIUS).lon,
+            'canopus': chart.getFixedStar(const.STAR_CANOPUS).lon,
+            'castor': chart.getFixedStar(const.STAR_CASTOR).lon,
+            'pollux': chart.getFixedStar(const.STAR_POLLUX).lon,
+            'procyon': chart.getFixedStar(const.STAR_PROCYON).lon,
+            'asellus_borealis': chart.getFixedStar(const.STAR_ASELLUS_BOREALIS).lon,
+            'asellus_australis': chart.getFixedStar(const.STAR_ASELLUS_AUSTRALIS).lon,
+            'alphard': chart.getFixedStar(const.STAR_ALPHARD).lon,
+            'regulus': chart.getFixedStar(const.STAR_REGULUS).lon,
+            'denebola': chart.getFixedStar(const.STAR_DENEBOLA).lon,
+            'algorab': chart.getFixedStar(const.STAR_ALGORAB).lon,
+            'spica': chart.getFixedStar(const.STAR_SPICA).lon,
+            'arcturus': chart.getFixedStar(const.STAR_ARCTURUS).lon,
+            'alphecca': chart.getFixedStar(const.STAR_ALPHECCA).lon,
+            'zuben_elgenubi': chart.getFixedStar(const.STAR_ZUBEN_ELGENUBI).lon,
+            'zuben_elschemali': chart.getFixedStar(const.STAR_ZUBEN_ELSCHEMALI).lon,
+            'unukalhai': chart.getFixedStar(const.STAR_UNUKALHAI).lon,
+            'agena': chart.getFixedStar(const.STAR_AGENA).lon,
+            'rigel_kentaurus': chart.getFixedStar(const.STAR_RIGEL_CENTAURUS).lon,
+            'antares': chart.getFixedStar(const.STAR_ANTARES).lon,
+            'lesath': chart.getFixedStar(const.STAR_LESATH).lon,
+            'vega': chart.getFixedStar(const.STAR_VEGA).lon,
+            'altair': chart.getFixedStar(const.STAR_ALTAIR).lon,
+            'deneb_algedi': chart.getFixedStar(const.STAR_DENEB_ALGEDI).lon,
+            'fomalhaut': chart.getFixedStar(const.STAR_FOMALHAUT).lon,
+            'deneb': chart.getFixedStar(const.STAR_DENEB_ADIGE).lon,
+            'achernar': chart.getFixedStar(const.STAR_ACHERNAR).lon,
+        }
+
         planets = {
             'sun': chart.get(const.SUN).lon,
             'moon': chart.get(const.MOON).lon,
@@ -66,7 +104,8 @@ def Home(request):
             'chiron': chart.get(const.CHIRON).lon
         }
 
-        return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon, 'planets':planets})
+        print(chart.getFixedStar(const.STAR_ALGENIB).lon)
 
+        return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon, 'planets':planets, 'stars':stars})
 
     return render(request, 'pages/home.html')

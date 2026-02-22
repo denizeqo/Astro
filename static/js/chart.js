@@ -14,7 +14,7 @@ const rPlanetsCircle = 295;
 
 
 // Ticket height
-const majorTickLength = 20;
+const majorTickLength = 25;
 const tickLength = 15;
 
 // Radius of text
@@ -209,16 +209,22 @@ function addPlanetSymbols(planets){
 
 }
 
-function tableData(planets){
+function addStarsSymbol(stars){
+  algenib = 360 - stars['algenib']
+  addSymbol('star', 10, 180, 445);
+  drawLine(algenib, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  //addText(parseInt(stars['algenib']) + ' °', algenib, 430 )
 
-  const tbody = document.getElementById('planetsTable');
+}
+
+function tableData(planets, tbody, table){
 
   for (let planet in planets){
 
     let tr = document.createElement("tr");
 
     let planetName = planet;
-    let planetDeg = planets[planet].toFixed(2) + '°';
+    let planetDeg = degMin(planets[planet])
     let planetHouseNum = parseInt(planets[planet] / 30) + 1;
     let planetSign = signs[parseInt(planets[planet] / 30)]
 
@@ -242,11 +248,7 @@ function tableData(planets){
     tbody.appendChild(tr);
   }
 
-
-  let table = document.getElementById('ChartTable');
-  table.classList.remove('hiddenWidget')
-
-
+  table.classList.remove('hiddenWidget');
 }
 
 
@@ -383,18 +385,24 @@ function addAngledText2(text, deg, radius) {
 }
 
 
+function degMin(lat){
+
+  latDeg = parseInt(lat);
+  latMin = parseInt((lat - latDeg) * 60);
+
+  return latDeg + '°' + latMin + "'";
+}
 
 
-
-
-
-
-
+function emptyTable(tbody){
+  tbody.innerHTML= '';
+}
 
 
 function drawEmptyChart(svg){
 
   svg.innerHTML= `<defs>
+            <svg id="star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 2L14.012 7.23109C14.294 7.96432 14.435 8.33093 14.6542 8.63931C14.8486 8.91262 15.0874 9.15141 15.3607 9.34575C15.6691 9.56503 16.0357 9.70603 16.7689 9.98804L22 12L16.7689 14.012C16.0357 14.294 15.6691 14.435 15.3607 14.6542C15.0874 14.8486 14.8486 15.0874 14.6542 15.3607C14.435 15.6691 14.294 16.0357 14.012 16.7689L12 22L9.98804 16.7689C9.70603 16.0357 9.56503 15.6691 9.34575 15.3607C9.15141 15.0874 8.91262 14.8486 8.63931 14.6542C8.33093 14.435 7.96432 14.294 7.23109 14.012L2 12L7.23108 9.98804C7.96431 9.70603 8.33093 9.56503 8.63931 9.34575C8.91262 9.15141 9.15141 8.91262 9.34575 8.63931C9.56503 8.33093 9.70603 7.96431 9.98804 7.23108L12 2Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
             <svg id="neptune" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
@@ -420,7 +428,8 @@ function drawEmptyChart(svg){
             <svg id="pisces" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4.94517 8.99997H2V6.99997H4.94517C4.71828 4.94564 3.80038 3.10059 2.42738 1.70002L3.85558 0.299927C5.58105 2.06004 6.72069 4.40009 6.95516 6.99997H9.04493C9.2794 4.40009 10.419 2.06004 12.1445 0.299927L13.5727 1.70002C12.1997 3.10059 11.2818 4.94564 11.0549 6.99997H14V8.99997H11.0549C11.2818 11.0543 12.1997 12.8994 13.5727 14.2999L12.1445 15.7C10.419 13.9399 9.2794 11.5999 9.04493 8.99997H6.95516C6.72069 11.5999 5.58105 13.9399 3.85558 15.7L2.42738 14.2999C3.80038 12.8994 4.71828 11.0543 4.94517 8.99997Z" fill="#ffffff"></path> </g></svg>
         </defs>
 
-        <circle cx="450" cy="450" r="380" fill="none" stroke="#fff" stroke-width="2" />
+        <circle cx="450" cy="450" r="380" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="450" cy="450" r="400" fill="none" stroke="#fff" stroke-width="1" />
         
         <circle cx="450" cy="450" r="320" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="340" fill="none" stroke="#fff" stroke-width="1" />
