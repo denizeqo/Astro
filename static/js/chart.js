@@ -59,6 +59,51 @@ const signsDeg = {
     'aquarius': 60,
     'pisces': 30
   };
+
+const decans = {
+    1:['mars', 'sun', 'jupiter'],
+    2:['venus', 'mercury', 'saturn'],
+    3:['mercury', 'venus', 'saturn'],
+    4:['moon', 'mars', 'jupiter'],
+    5:['sun', 'jupiter', 'mars'],
+    6:['mercury', 'saturn', 'venus'],
+    7:['venus', 'saturn', 'mercury'],
+    8:['mars', 'jupiter', 'moon'],
+    9:['jupiter', 'mars', 'sun'],
+    10:['saturn', 'venus', 'mercury'],
+    11:['saturn', 'mercury', 'venus'],
+    12:['jupiter', 'moon', 'mars']
+  };
+
+const terms = {
+  1:[6, 12, 20, 25],
+  2:[8, 14, 22, 27],
+  3:[6, 12, 17, 24],
+  4:[7, 13, 19, 26],
+  5:[6, 11, 18, 24],
+  6:[7, 17, 21, 28],
+  7:[6, 14, 21, 28],
+  8:[7, 11, 19, 24],
+  9:[12, 17, 21, 26],
+  10:[7, 14, 22, 26],
+  11:[7, 13, 20, 25],
+  12:[12, 16, 19, 28]
+}
+
+const termsSymbols = {
+    1:['jupiter', 'venus', 'mercury', 'mars', 'saturn'],
+    2:['venus', 'mercury', 'jupiter', 'saturn', 'mars'],
+    3:['mercury', 'jupiter', 'venus', 'mars', 'saturn'],
+    4:['mars', 'venus', 'mercury', 'jupiter', 'saturn'],
+    5:['jupiter', 'venus', 'saturn', 'mercury', 'mars'],
+    6:['mercury', 'venus', 'jupiter', 'mars', 'saturn'],
+    7:['saturn', 'mercury', 'jupiter', 'venus', 'mars'],
+    8:['mars', 'venus', 'mercury', 'jupiter', 'saturn'],
+    9:['jupiter', 'venus', 'mercury', 'saturn', 'mars'],
+    10:['mercury', 'jupiter', 'venus', 'saturn', 'mars'],
+    11:['mercury', 'venus', 'jupiter', 'mars', 'saturn'],
+    12:['venus', 'jupiter', 'mercury', 'mars', 'saturn']
+  };
   
 
 // Static Part
@@ -69,22 +114,45 @@ function staticDegCircle(deg){
   const isHouse = deg % 30 === 0;
 
   // Finds in which radius the line starts and ends
-  var rOut = (isMajor) ? rDegCircle + majorTickLength : rDegCircle + tickLength;
+  var rOut =  rDegCircle + majorTickLength;
   var rIn = (isMajor) ? rDegCircle - majorTickLength : rDegCircle - tickLength;
 
 
   if (isHouse){
-    drawLine(deg, rOut, rDynamicSymbolCircle + 20, isMajor);
+    drawLine(deg, rDegText - 15, rDynamicSymbolCircle - 20, isMajor);
+    //drawLine(deg, rOut, rDynamicSymbolCircle, isMajor);
     drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, isMajor);
-    drawLine(deg, rDynamicSymbolCircle, rStaticHouseCircle + 20, false);
+    //drawLine(deg, rDynamicSymbolCircle, rStaticHouseCircle + 20, false);
 
     addText(houseNum, deg + 15, rStaticHouseText);
-    addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rStaticHouseSign);
+    addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rDegText);
+
+    let decansSymbol = decans[houseNum];
+    addSymbol(decansSymbol[0], 10, deg + 25, rStaticSymbolChart - 20);
+    addSymbol(decansSymbol[1], 10, deg + 15, rStaticSymbolChart - 20);
+    addSymbol(decansSymbol[2], 10, deg + 5, rStaticSymbolChart - 20);
+    console.log(decansSymbol);
+
+    let termsLine = terms[houseNum];
+    drawLine(deg + 30 - termsLine[0], rDegCircle - 20, rDegCircle - 40, isMajor);
+    drawLine(deg + 30 - termsLine[1], rDegCircle - 20, rDegCircle - 40, isMajor);
+    drawLine(deg + 30 - termsLine[2], rDegCircle - 20, rDegCircle - 40, isMajor);
+    drawLine(deg + 30 - termsLine[3], rDegCircle - 20, rDegCircle - 40, isMajor);
+
+    let termsSymbols1 = termsSymbols[houseNum];
+    addSymbol(termsSymbols1[0], 10, deg + 30 - termsLine[0] / 2, rDegCircle - 30);
+    addSymbol(termsSymbols1[1], 10, deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rDegCircle - 30);
+    addSymbol(termsSymbols1[2], 10, deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rDegCircle - 30);
+    addSymbol(termsSymbols1[3], 10, deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rDegCircle - 30);
+    addSymbol(termsSymbols1[4], 10, deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rDegCircle - 30);
+
+
+
 
     houseNum--;
   }
   else{
-    drawLine(deg, rOut, rIn, isMajor);
+   //drawLine(deg, rOut, rDynamicSymbolCircle + 20, isMajor);
   }
 
 
@@ -92,6 +160,8 @@ function staticDegCircle(deg){
     // Write Deg Text
     var text = (deg == 0) ? deg + '°' : (360 - deg) + '°';
     addText(text, deg, rDegText);
+    drawLine(deg, rOut, rDynamicSymbolCircle + 40, isMajor);
+
   }
 }
 
@@ -103,6 +173,7 @@ function staticSymbolCircle(deg){
     var signsIndex = ((deg + 30 - (2.5 * houseNum))  / 2.5) % 12;
 
     addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolChart);
+    drawLine(deg, rDegCircle + 20, rDegCircle, true);
 }
 
 
@@ -119,6 +190,21 @@ function dynamicChart(ascDeg){
      
     if(deg % 30 == 0){
       addText(houseNum, startdeg + deg + 15, rDynamicHouseText);
+
+
+      let termsLine = terms[houseNum];
+      drawLine(startdeg + deg + 30 - termsLine[0], rDynamicSymbolCircle, rDynamicSymbolCircle - 20, true);
+      drawLine(startdeg + deg + 30 - termsLine[1], rDynamicSymbolCircle, rDynamicSymbolCircle - 20, true);
+      drawLine(startdeg + deg + 30 - termsLine[2], rDynamicSymbolCircle, rDynamicSymbolCircle - 20, true);
+      drawLine(startdeg + deg + 30 - termsLine[3], rDynamicSymbolCircle, rDynamicSymbolCircle- 20, true);
+
+      let termsSymbols1 = termsSymbols[houseNum];
+      addSymbol(termsSymbols1[0], 10, startdeg + deg + 30 - termsLine[0] / 2, rDynamicSymbolCircle - 10);
+      addSymbol(termsSymbols1[1], 10, startdeg + deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rDynamicSymbolCircle - 10);
+      addSymbol(termsSymbols1[2], 10, startdeg + deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rDynamicSymbolCircle - 10);
+      addSymbol(termsSymbols1[3], 10, startdeg + deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rDynamicSymbolCircle - 10);
+      addSymbol(termsSymbols1[4], 10, startdeg + deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rDynamicSymbolCircle - 10);
+
       houseNum--;
     }
 
@@ -133,58 +219,58 @@ function  dynamicAscMcIcDsc(asc, mc, ic, dsc){
 
   addAngledText('ASC', 360 - asc, rCenterText);
   drawLine(360 - asc, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
-  drawLine(360 - asc, rDynamicSymbolCircle + 20, rDegCircle, true);
+  //drawLine(360 - asc, rDynamicSymbolCircle + 20, rDegCircle, true);
 
   addAngledText('MC', 360 - mc, rCenterText);
   drawLine(360 - mc, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
-  drawLine(360 - mc, rDynamicSymbolCircle + 20, rDegCircle, true);
+  //drawLine(360 - mc, rDynamicSymbolCircle + 20, rDegCircle, true);
 
   addAngledText('IC', 360 - ic, rCenterText);
   drawLine(360 - ic, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
-  drawLine(360 - ic, rDynamicSymbolCircle + 20, rDegCircle, true);
+  //drawLine(360 - ic, rDynamicSymbolCircle + 20, rDegCircle, true);
 
   addAngledText('DSC', 360 - dsc, rCenterText);
   drawLine(360 - dsc, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
-  drawLine(360 - dsc, rDynamicSymbolCircle + 20, rDegCircle, true);
+  //drawLine(360 - dsc, rDynamicSymbolCircle + 20, rDegCircle, true);
 
 }
 
 
 function addPlanetSymbols(planets){
 
-  sun = 360 - planets['sun']
+  let sun = 360 - planets['sun']
   addSymbol('sun', 20, sun, rSun);
-  drawLine(sun, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(sun, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['sun'])  + ' °', sun + 8, rSun)
 
-  moon = 360 - planets['moon']
+  let moon = 360 - planets['moon']
   addSymbol('moon', 20, moon, rMoon);
-  drawLine(moon, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(moon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
 
-  mercury =  360 - planets['mercury']
+  let mercury =  360 - planets['mercury']
   addSymbol('mercury', 20, mercury, rMercury);
-  drawLine(mercury, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(mercury, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['mercury']) + ' °', mercury + 10, rMercury)
 
-  venus = 360 - planets['venus']
+  let venus = 360 - planets['venus']
   addSymbol('venus', 20, venus, rVenus);
-  drawLine(venus, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(venus, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['venus']) + ' °', venus + 9, rVenus)
 
-  mars = 360 - planets['mars']
+  let mars = 360 - planets['mars']
   addSymbol('mars', 20, mars, rMars);
-  drawLine(mars, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(mars, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['mars']) + ' °', mars + 7, rMars)
 
-  jupiter = 360 - planets['jupiter']
+  let jupiter = 360 - planets['jupiter']
   addSymbol('jupiter', 20, jupiter, rJupiter);
-  drawLine(jupiter, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(jupiter, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['jupiter']) + ' °', jupiter + 6, rJupiter)
 
-  saturn = 360 - planets['saturn']
+  let saturn = 360 - planets['saturn']
   addSymbol('saturn', 20, saturn, rSaturn);
-  drawLine(saturn, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  drawLine(saturn, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   addAngledText2(parseInt(planets['saturn'])  + ' °', saturn + 5, rSaturn)
 
   //uranus = 360 - planets['uranus']
@@ -431,8 +517,10 @@ function drawEmptyChart(svg){
         <circle cx="450" cy="450" r="380" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="400" fill="none" stroke="#fff" stroke-width="1" />
         
+        <circle cx="450" cy="450" r="300" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="320" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="340" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="450" cy="450" r="360" fill="none" stroke="#fff" stroke-width="1" />
 
         <circle cx="450" cy="450" r="140" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="120" fill="none" stroke="#fff" stroke-width="1" />
@@ -450,6 +538,8 @@ function drawEmptyChart(svg){
 
   let ChartWidget = document.getElementById('ChartWidget');
   ChartWidget.classList.remove('hiddenWidget')
+
+  console.log(svg)
 
 }
 
