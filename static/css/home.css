@@ -140,8 +140,8 @@
 
 /* Chart Section */
 .tick {
-        stroke: #888;
-        stroke-width: 0.6;
+        stroke: #ff0202;
+        stroke-width: 1;
 }
 
 .major {
@@ -152,6 +152,13 @@
 .degree {
     fill: #fff;
     font-size: 15px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.chartText{
+    fill: #fff;
+    font-size: 10px;
     text-anchor: middle;
     dominant-baseline: middle;
 }

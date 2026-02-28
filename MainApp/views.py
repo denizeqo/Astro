@@ -93,6 +93,8 @@ def Home(request):
         planets = {
             'sun': chart.get(const.SUN).lon,
             'moon': chart.get(const.MOON).lon,
+            'northMoon': chart.get(const.NORTH_NODE).lon,
+            'southMoon': chart.get(const.SOUTH_NODE).lon,
             'mercury': chart.get(const.MERCURY).lon,
             'venus': chart.get(const.VENUS).lon,
             'mars': chart.get(const.MARS).lon,
@@ -104,7 +106,9 @@ def Home(request):
             'chiron': chart.get(const.CHIRON).lon
         }
 
-        print(chart.getFixedStar(const.STAR_ALGENIB).lon)
+        print(chart.get(const.NORTH_NODE).lon)
+        for i in chart.objects:
+            print(i)
 
         return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon, 'planets':planets, 'stars':stars})
 

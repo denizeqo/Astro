@@ -5,31 +5,34 @@ const svg = document.getElementById('Chart');
 const cx = 450;
 const cy = 450;
 
-// Circle radius
-const rDegCircle = 380;
-const rStaticHouseCircle = 120;
-const rDynamicHouseCircle = 100;
-const rDynamicSymbolCircle = 320;
-const rPlanetsCircle = 295;
+const rInsideCircle = 80;
+const rOutsideCircle = 380;
+
+// Main Circle radius
+const rStaticHouseCircle = rInsideCircle;
+const rDynamicHouseCircle = rInsideCircle + 20;
+const rDynamicTermsCircle = rOutsideCircle - 80;
+const rDynamicSymbolCircle = rOutsideCircle - 60;
+const rStaticTermsCircle = rOutsideCircle - 20;
+const rStaticSymbolCircle = rOutsideCircle;
 
 
-// Ticket height
-const majorTickLength = 25;
-const tickLength = 15;
+// Symbols radius
+const rStaticHouseSymbol = rOutsideCircle + 40;
+const rDynamicTermsSymbol = rDynamicTermsCircle + 10;
+const rDynamicSymbolSymbol = rDynamicSymbolCircle + 10;
+const rStaticTermsSymbol = rStaticTermsCircle + 10;
+const rStaticSymbolSymbol = rStaticSymbolCircle + 10;
 
-// Radius of text
-const rDegText = rDegCircle + majorTickLength + 22;
-const rStaticHouseText = rStaticHouseCircle + 10;
-const rCenterText = rStaticHouseCircle - 45;
+// Text radius
+const rDegText = rOutsideCircle + 45;
+const rStaticHouseNum = rStaticHouseCircle + 10;
 const rDynamicHouseText = rDynamicHouseCircle + 10;
+const rAscText = rDynamicHouseCircle + 30;
 
-// Radius of symbols
-const rStaticSymbolChart = rDegCircle + 10;
-const rDynamicSymbolChart = rDynamicSymbolCircle + 10;
-const rStaticHouseSign = rDynamicSymbolCircle + 35;
 
 //Planets orbite
-const rMoon = rStaticHouseCircle + 40;
+const rMoon = rStaticHouseCircle + 80;
 const rMercury = rMoon + 20;
 const rVenus = rMercury + 20;
 const rSun = rVenus + 20;
@@ -75,7 +78,7 @@ const decans = {
     12:['jupiter', 'moon', 'mars']
   };
 
-const terms = {
+const termsPlaceList = {
   1:[6, 12, 20, 25],
   2:[8, 14, 22, 27],
   3:[6, 12, 17, 24],
@@ -90,7 +93,7 @@ const terms = {
   12:[12, 16, 19, 28]
 }
 
-const termsSymbols = {
+const termsSymbolsList = {
     1:['jupiter', 'venus', 'mercury', 'mars', 'saturn'],
     2:['venus', 'mercury', 'jupiter', 'saturn', 'mars'],
     3:['mercury', 'jupiter', 'venus', 'mars', 'saturn'],
@@ -104,77 +107,66 @@ const termsSymbols = {
     11:['mercury', 'venus', 'jupiter', 'mars', 'saturn'],
     12:['venus', 'jupiter', 'mercury', 'mars', 'saturn']
   };
-  
 
-// Static Part
-function staticDegCircle(deg){
+// Static Chart
+function staticChart(deg){
 
-  // Check if the line needs to be longer or not
   const isMajor = deg % 10 === 0;
   const isHouse = deg % 30 === 0;
 
-  // Finds in which radius the line starts and ends
-  var rOut =  rDegCircle + majorTickLength;
-  var rIn = (isMajor) ? rDegCircle - majorTickLength : rDegCircle - tickLength;
+  if (isMajor){
+    // Write Deg Text
+    var text = (deg == 0) ? deg + '°' : (360 - deg) + '°';
+    // Add Deg in the chart
+    addText(text, deg, rDegText);
 
+    if (isHouse){
+      // If isHouse true draw a longer line
+      drawLine(deg, rOutsideCircle + 30, rStaticTermsCircle, isMajor);
+      //  Seperate the dynamic
+      drawLine(deg, rDynamicSymbolCircle + 20, rDynamicTermsCircle, isMajor);
+      drawLine(deg, rDynamicHouseCircle + 20, rStaticHouseCircle, isMajor);
+    }else{
+      // Draw deg tick
+      drawLine(deg, rOutsideCircle + 23, rOutsideCircle, isMajor);
+    } 
+  }
 
   if (isHouse){
-    drawLine(deg, rDegText - 15, rDynamicSymbolCircle - 20, isMajor);
-    //drawLine(deg, rOut, rDynamicSymbolCircle, isMajor);
-    drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, isMajor);
-    //drawLine(deg, rDynamicSymbolCircle, rStaticHouseCircle + 20, false);
+    // Add house num in 
+    addText(houseNum, deg + 15, rStaticHouseCircle + 10);
 
-    addText(houseNum, deg + 15, rStaticHouseText);
-    addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rDegText);
+    // Add house symbol (symbols that are at degtext)
+    addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rStaticHouseSymbol);
 
-    //let decansSymbol = decans[houseNum];
-    //addSymbol(decansSymbol[0], 10, deg + 25, rStaticSymbolChart - 20);
-    //addSymbol(decansSymbol[1], 10, deg + 15, rStaticSymbolChart - 20);
-    //addSymbol(decansSymbol[2], 10, deg + 5, rStaticSymbolChart - 20);
-    //console.log(decansSymbol);
+    // Seperat a house for each term based on termsLine and houseNum
+    let termsLine = termsPlaceList[houseNum];
+    drawLine(deg + 30 - termsLine[0], rOutsideCircle, rStaticTermsCircle, isMajor);
+    drawLine(deg + 30 - termsLine[1], rOutsideCircle, rStaticTermsCircle, isMajor);
+    drawLine(deg + 30 - termsLine[2], rOutsideCircle, rStaticTermsCircle, isMajor);
+    drawLine(deg + 30 - termsLine[3], rOutsideCircle, rStaticTermsCircle, isMajor);
 
-    let termsLine = terms[houseNum];
-    drawLine(deg + 30 - termsLine[0], rDegCircle, rDegCircle - 20, isMajor);
-    drawLine(deg + 30 - termsLine[1], rDegCircle, rDegCircle - 20, isMajor);
-    drawLine(deg + 30 - termsLine[2], rDegCircle, rDegCircle - 20, isMajor);
-    drawLine(deg + 30 - termsLine[3], rDegCircle, rDegCircle - 20, isMajor);
-
-    let termsSymbols1 = termsSymbols[houseNum];
-    addSymbol(termsSymbols1[0], 10, deg + 30 - termsLine[0] / 2, rDegCircle - 10);
-    addSymbol(termsSymbols1[1], 10, deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rDegCircle - 10);
-    addSymbol(termsSymbols1[2], 10, deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rDegCircle - 10);
-    addSymbol(termsSymbols1[3], 10, deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rDegCircle - 10);
-    addSymbol(termsSymbols1[4], 10, deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rDegCircle - 10);
-
-
-
+    // Add terms Symbols based on 
+    let termsSymbols = termsSymbolsList[houseNum];
+    addSymbol(termsSymbols[0], 10, deg + 30 - termsLine[0] / 2, rStaticTermsSymbol);
+    addSymbol(termsSymbols[1], 10, deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rStaticTermsSymbol);
+    addSymbol(termsSymbols[2], 10, deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rStaticTermsSymbol);
+    addSymbol(termsSymbols[3], 10, deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rStaticTermsSymbol);
+    addSymbol(termsSymbols[4], 10, deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rStaticTermsSymbol);
 
     houseNum--;
   }
-  else{
-   //drawLine(deg, rOut, rDynamicSymbolCircle + 20, isMajor);
-  }
 
+  // create the static symbols chart( chart that is devidet at 144 at deg)
+  // find sing index
+  let signsIndex = ((deg + 30 - (2.5 * houseNum))  / 2.5) % 12;
 
-  if (isMajor) {
-    // Write Deg Text
-    var text = (deg == 0) ? deg + '°' : (360 - deg) + '°';
-    addText(text, deg, rDegText);
-    drawLine(deg, rOut, rDegCircle, isMajor);
-
-  }
+  // add the sing symbol
+  addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolSymbol);
+  // draw a line every 2.5 deg
+  drawLine(deg, rOutsideCircle + 20, rOutsideCircle, true);
 }
 
-function staticSymbolCircle(deg){
-
-    var rOut = rDynamicSymbolCircle + 20;
-    var rIn = rDynamicSymbolCircle;
-
-    var signsIndex = ((deg + 30 - (2.5 * houseNum))  / 2.5) % 12;
-
-    addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolChart);
-    drawLine(deg, rDegCircle + 20, rDegCircle, true);
-}
 
 
 
@@ -191,46 +183,45 @@ function dynamicChart(ascDeg){
     if(deg % 30 == 0){
       addText(houseNum, startdeg + deg + 15, rDynamicHouseText);
 
+      let termsLine = termsPlaceList[houseNum];
+      drawLine(startdeg + deg + 30 - termsLine[0], rDynamicTermsCircle, rDynamicSymbolCircle, true);
+      drawLine(startdeg + deg + 30 - termsLine[1], rDynamicTermsCircle, rDynamicSymbolCircle, true);
+      drawLine(startdeg + deg + 30 - termsLine[2], rDynamicTermsCircle, rDynamicSymbolCircle, true);
+      drawLine(startdeg + deg + 30 - termsLine[3], rDynamicTermsCircle, rDynamicSymbolCircle, true);
 
-      let termsLine = terms[houseNum];
-      drawLine(startdeg + deg + 30 - termsLine[0], rDynamicSymbolCircle, rDynamicSymbolCircle - 20, true);
-      drawLine(startdeg + deg + 30 - termsLine[1], rDynamicSymbolCircle, rDynamicSymbolCircle - 20, true);
-      drawLine(startdeg + deg + 30 - termsLine[2], rDynamicSymbolCircle, rDynamicSymbolCircle - 20, true);
-      drawLine(startdeg + deg + 30 - termsLine[3], rDynamicSymbolCircle, rDynamicSymbolCircle- 20, true);
-
-      let termsSymbols1 = termsSymbols[houseNum];
-      addSymbol(termsSymbols1[0], 10, startdeg + deg + 30 - termsLine[0] / 2, rDynamicSymbolCircle - 10);
-      addSymbol(termsSymbols1[1], 10, startdeg + deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rDynamicSymbolCircle - 10);
-      addSymbol(termsSymbols1[2], 10, startdeg + deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rDynamicSymbolCircle - 10);
-      addSymbol(termsSymbols1[3], 10, startdeg + deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rDynamicSymbolCircle - 10);
-      addSymbol(termsSymbols1[4], 10, startdeg + deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rDynamicSymbolCircle - 10);
+      let termsSymbols1 = termsSymbolsList[houseNum];
+      addSymbol(termsSymbols1[0], 10, startdeg + deg + 30 - termsLine[0] / 2, rDynamicTermsSymbol);
+      addSymbol(termsSymbols1[1], 10, startdeg + deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rDynamicTermsSymbol);
+      addSymbol(termsSymbols1[2], 10, startdeg + deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rDynamicTermsSymbol);
+      addSymbol(termsSymbols1[3], 10, startdeg + deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rDynamicTermsSymbol);
+      addSymbol(termsSymbols1[4], 10, startdeg + deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rDynamicTermsSymbol);
 
       houseNum--;
     }
 
     signsIndex = ((deg + 30 +  - (2.5 * houseNum))  / 2.5) % 12;
 
-    addSymbol(signs[11 - signsIndex], 9, 1.3 + startdeg + deg, rDynamicSymbolChart);
+    addSymbol(signs[11 - signsIndex], 9, 1.3 + startdeg + deg, rDynamicSymbolSymbol);
     drawLine(startdeg + deg, rDynamicSymbolCircle + 20, rDynamicSymbolCircle, true);
   }
 }
 
 function  dynamicAscMcIcDsc(asc, mc, ic, dsc){
 
-  addAngledText('ASC', 360 - asc, rCenterText);
-  drawLine(360 - asc, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
+  addAngledText2('ASC', 360 - asc, rAscText);
+  drawLine(360 - asc, rAscText + 10, rDynamicTermsCircle, true);
   //drawLine(360 - asc, rDynamicSymbolCircle + 20, rDegCircle, true);
 
-  addAngledText('MC', 360 - mc, rCenterText);
-  drawLine(360 - mc, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
+  addAngledText2('MC', 360 - mc, rAscText);
+  drawLine(360 - mc, rAscText + 10, rDynamicTermsCircle, true);
   //drawLine(360 - mc, rDynamicSymbolCircle + 20, rDegCircle, true);
 
-  addAngledText('IC', 360 - ic, rCenterText);
-  drawLine(360 - ic, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
+  addAngledText2('IC', 360 - ic, rAscText);
+  drawLine(360 - ic, rAscText + 10, rDynamicTermsCircle, true);
   //drawLine(360 - ic, rDynamicSymbolCircle + 20, rDegCircle, true);
 
-  addAngledText('DSC', 360 - dsc, rCenterText);
-  drawLine(360 - dsc, rDynamicHouseCircle - 5, rDynamicSymbolCircle, true);
+  addAngledText2('DSC', 360 - dsc, rAscText);
+  drawLine(360 - dsc, rAscText + 10, rDynamicTermsCircle, true);
   //drawLine(360 - dsc, rDynamicSymbolCircle + 20, rDegCircle, true);
 
 }
@@ -241,37 +232,47 @@ function addPlanetSymbols(planets){
   let sun = 360 - planets['sun']
   addSymbol('sun', 20, sun, rSun);
   drawLine(sun, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['sun'])  + ' °', sun + 8, rSun)
+  //addAngledText2(parseInt(planets['sun'])  + ' °', sun + 8, rSun)
 
   let moon = 360 - planets['moon']
   addSymbol('moon', 20, moon, rMoon);
   drawLine(moon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
+  //addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
+
+  let northMoon = 360 - planets['northMoon']
+  addSymbol('northMoon', 20, northMoon, rMoon);
+  drawLine(northMoon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  //addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
+
+  let southMoon = 360 - planets['southMoon']
+  addSymbol('southMoon', 20, southMoon, rMoon);
+  drawLine(southMoon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  //addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
 
   let mercury =  360 - planets['mercury']
   addSymbol('mercury', 20, mercury, rMercury);
   drawLine(mercury, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['mercury']) + ' °', mercury + 10, rMercury)
+  //addAngledText2(parseInt(planets['mercury']) + ' °', mercury + 10, rMercury)
 
   let venus = 360 - planets['venus']
   addSymbol('venus', 20, venus, rVenus);
   drawLine(venus, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['venus']) + ' °', venus + 9, rVenus)
+  //addAngledText2(parseInt(planets['venus']) + ' °', venus + 9, rVenus)
 
   let mars = 360 - planets['mars']
   addSymbol('mars', 20, mars, rMars);
   drawLine(mars, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['mars']) + ' °', mars + 7, rMars)
+  //addAngledText2(parseInt(planets['mars']) + ' °', mars + 7, rMars)
 
   let jupiter = 360 - planets['jupiter']
   addSymbol('jupiter', 20, jupiter, rJupiter);
   drawLine(jupiter, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['jupiter']) + ' °', jupiter + 6, rJupiter)
+  //addAngledText2(parseInt(planets['jupiter']) + ' °', jupiter + 6, rJupiter)
 
   let saturn = 360 - planets['saturn']
   addSymbol('saturn', 20, saturn, rSaturn);
   drawLine(saturn, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
-  addAngledText2(parseInt(planets['saturn'])  + ' °', saturn + 5, rSaturn)
+  //addAngledText2(parseInt(planets['saturn'])  + ' °', saturn + 5, rSaturn)
 
   //uranus = 360 - planets['uranus']
   //addSymbol('uranus', 25, uranus, rPlanetsCircle);
@@ -430,7 +431,8 @@ function addAngledText(text, deg, radius) {
 
     label.setAttribute('text-anchor', 'middle');
     label.setAttribute('dominant-baseline', 'middle');
-    label.setAttribute('class', 'degree');
+    label.setAttribute('class', 'chartText');
+    
 
     label.textContent = text;
     svg.appendChild(label);
@@ -464,7 +466,7 @@ function addAngledText2(text, deg, radius) {
 
     label.setAttribute('text-anchor', 'middle');
     label.setAttribute('dominant-baseline', 'middle');
-    label.setAttribute('class', 'degree');
+    label.setAttribute('class', 'chartText');
 
     label.textContent = text;
     svg.appendChild(label);
@@ -500,6 +502,8 @@ function drawEmptyChart(svg){
             <svg id="mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
             <svg id="sun" viewBox="0 0 32 32" fill="#FFDF22"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
             <svg id="moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="northMoon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
+            <svg id="southMoon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
             <svg id="gemini" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#EEDEC5" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> <g id="Horoscope"> <path d="M33,34.1V11.9A26.5,26.5,0,0,0,43.4,5.4a1.9,1.9,0,0,0,0-2.8,1.9,1.9,0,0,0-2.8,0,23.6,23.6,0,0,1-33.2,0,1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8A26.5,26.5,0,0,0,15,11.9V34.1A26.5,26.5,0,0,0,4.6,40.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,23.6,23.6,0,0,1,33.2,0,1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8A26.5,26.5,0,0,0,33,34.1ZM19,33V13a27.3,27.3,0,0,0,5,.5,27.3,27.3,0,0,0,5-.5V33a27.3,27.3,0,0,0-5-.5A27.3,27.3,0,0,0,19,33Z" fill=""></path> </g> </g> </g></svg>
             <svg id="aries" viewBox="0 0 16 16" fill="#E3242B" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 4.19056C0 2.42846 1.42846 1 3.19056 1C4.72033 1 6.03482 2.08579 6.32371 3.58803L8 12.3047L9.67629 3.58803C9.96518 2.08579 11.2797 1 12.8094 1C14.5715 1 16 2.42846 16 4.19056V6H14V4.19056C14 3.53303 13.467 3 12.8094 3C12.2386 3 11.7481 3.40516 11.6403 3.96573L9.32602 16H6.67398L4.3597 3.96573C4.2519 3.40516 3.7614 3 3.19056 3C2.53303 3 2 3.53303 2 4.19056V6H0V4.19056Z" fill=""></path> </g></svg>
             <svg id="taurus" viewBox="0 0 16 16" fill="#7BB369" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 2.20914 4 0H2C2 2.08697 3.06551 3.92508 4.68221 5C3.06551 6.07492 2 7.91303 2 10C2 13.3137 4.68629 16 8 16C11.3137 16 14 13.3137 14 10C14 7.91303 12.9345 6.07492 11.3178 5C12.9345 3.92508 14 2.08697 14 0H12C12 2.20914 10.2091 4 8 4ZM8 6C5.79086 6 4 7.79086 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 7.79086 10.2091 6 8 6Z" fill=""></path> </g></svg>
@@ -522,9 +526,10 @@ function drawEmptyChart(svg){
         <circle cx="450" cy="450" r="340" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="360" fill="none" stroke="#fff" stroke-width="1" />
 
-        <circle cx="450" cy="450" r="140" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="120" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="100" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="450" cy="450" r="80" fill="none" stroke="#fff" stroke-width="1" />
+
         `
 
 
@@ -532,8 +537,9 @@ function drawEmptyChart(svg){
 
   for (let deg = 0; deg < 360; deg += 2.5) {
     //staticHouseCircle(deg);
-    staticDegCircle(deg);
-    staticSymbolCircle(deg); 
+    //staticDegCircle(deg);
+    //staticSymbolCircle(deg); 
+    staticChart(deg);
   }
 
   let ChartWidget = document.getElementById('ChartWidget');
