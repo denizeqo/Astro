@@ -9,8 +9,8 @@ const rInsideCircle = 80;
 const rOutsideCircle = 380;
 
 // Main Circle radius
-const rStaticHouseCircle = rInsideCircle;
-const rDynamicHouseCircle = rInsideCircle + 20;
+const rDynamicHouseCircle = rInsideCircle;
+const rStaticHouseCircle = rInsideCircle + 20;
 const rDynamicTermsCircle = rOutsideCircle - 80;
 const rDynamicSymbolCircle = rOutsideCircle - 60;
 const rStaticTermsCircle = rOutsideCircle - 20;
@@ -28,11 +28,11 @@ const rStaticSymbolSymbol = rStaticSymbolCircle + 10;
 const rDegText = rOutsideCircle + 45;
 const rStaticHouseNum = rStaticHouseCircle + 10;
 const rDynamicHouseText = rDynamicHouseCircle + 10;
-const rAscText = rDynamicHouseCircle + 30;
+const rAscText = rStaticHouseCircle + 30;
 
 
 //Planets orbite
-const rMoon = rStaticHouseCircle + 80;
+const rMoon = rDynamicHouseCircle + 80;
 const rMercury = rMoon + 20;
 const rVenus = rMercury + 20;
 const rSun = rVenus + 20;
@@ -125,7 +125,7 @@ function staticChart(deg){
       drawLine(deg, rOutsideCircle + 30, rStaticTermsCircle, isMajor);
       //  Seperate the dynamic
       drawLine(deg, rDynamicSymbolCircle + 20, rDynamicTermsCircle, isMajor);
-      drawLine(deg, rDynamicHouseCircle + 20, rStaticHouseCircle, isMajor);
+      drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, isMajor);
     }else{
       // Draw deg tick
       drawLine(deg, rOutsideCircle + 23, rOutsideCircle, isMajor);
@@ -495,12 +495,12 @@ function drawEmptyChart(svg){
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
             <svg id="neptune" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
             <svg id="uranus" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
-            <svg id="jupiter" viewBox="0 0 32 32" fill="#ff5c00"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
+            <svg id="jupiter" viewBox="0 0 32 32" fill="#FFAF3D"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
             <svg id="saturn" viewBox="0 0 32 32" fill="#808080"><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
-            <svg id="mars" viewBox="0 0 32 32" fill="none" stroke="#880808" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
+            <svg id="mars" viewBox="0 0 32 32" fill="none" stroke="#E3242B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
             <svg id="venus" viewBox="0 0 32 32" fill="" stroke="#a8e4a0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="6"/><line x1="16" y1="17" x2="16" y2="26"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
             <svg id="mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
-            <svg id="sun" viewBox="0 0 32 32" fill="#FFDF22"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
+            <svg id="sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
             <svg id="moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
             <svg id="northMoon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
             <svg id="southMoon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
@@ -508,7 +508,7 @@ function drawEmptyChart(svg){
             <svg id="aries" viewBox="0 0 16 16" fill="#E3242B" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 4.19056C0 2.42846 1.42846 1 3.19056 1C4.72033 1 6.03482 2.08579 6.32371 3.58803L8 12.3047L9.67629 3.58803C9.96518 2.08579 11.2797 1 12.8094 1C14.5715 1 16 2.42846 16 4.19056V6H14V4.19056C14 3.53303 13.467 3 12.8094 3C12.2386 3 11.7481 3.40516 11.6403 3.96573L9.32602 16H6.67398L4.3597 3.96573C4.2519 3.40516 3.7614 3 3.19056 3C2.53303 3 2 3.53303 2 4.19056V6H0V4.19056Z" fill=""></path> </g></svg>
             <svg id="taurus" viewBox="0 0 16 16" fill="#7BB369" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 2.20914 4 0H2C2 2.08697 3.06551 3.92508 4.68221 5C3.06551 6.07492 2 7.91303 2 10C2 13.3137 4.68629 16 8 16C11.3137 16 14 13.3137 14 10C14 7.91303 12.9345 6.07492 11.3178 5C12.9345 3.92508 14 2.08697 14 0H12C12 2.20914 10.2091 4 8 4ZM8 6C5.79086 6 4 7.79086 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 7.79086 10.2091 6 8 6Z" fill=""></path> </g></svg>
             <svg id="cancer" viewBox="0 0 16 16" fill="#0077BE" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.11091 4.5214C4.88239 2.02543 8.29622 1.24283 11.0001 2.8039L12.0001 1.07185C8.17373 -1.13729 3.28101 0.173713 1.07187 4.00005C0.343994 5.26077 -0.00235856 6.64014 -0.00109519 8.00094L2.59202e-05 8.00094C0.000527265 9.93351 1.56734 11.5 3.50003 11.5C5.43302 11.5 7.00003 9.93301 7.00003 8.00001C7.00003 6.06701 5.43302 4.50001 3.50003 4.50001C3.3685 4.50001 3.23867 4.50727 3.11091 4.5214ZM3.50003 6.50001C2.6716 6.50001 2.00003 7.17158 2.00003 8.00001C2.00003 8.82844 2.6716 9.50001 3.50003 9.50001C4.32845 9.50001 5.00003 8.82844 5.00003 8.00001C5.00003 7.17158 4.32845 6.50001 3.50003 6.50001Z" fill=""></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8893 11.4786C12.7615 11.4927 12.6316 11.5 12.5 11.5C10.567 11.5 9.00003 9.93301 9.00003 8.00001C9.00003 6.06701 10.567 4.50001 12.5 4.50001C14.4327 4.50001 15.9995 6.06651 16 7.99907L16.0012 7.99907C16.0025 9.3599 15.6562 10.7393 14.9283 12.0001C12.7191 15.8264 7.82641 17.1374 4.00007 14.9283L5.00007 13.1962C7.70396 14.7573 11.1179 13.9747 12.8893 11.4786ZM12.5 6.50001C11.6716 6.50001 11 7.17158 11 8.00001C11 8.82844 11.6716 9.50001 12.5 9.50001C13.3285 9.50001 14 8.82844 14 8.00001C14 7.17158 13.3285 6.50001 12.5 6.50001Z" fill=""></path> </g></svg>
-            <svg id="leo" viewBox="0 0 16 16" fill="#F3500A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.36074 4.19126C6.23086 3.02232 7.14588 2 8.32201 2C9.57833 2 10.5148 3.15839 10.2516 4.38682L8.71738 11.5463C8.22619 13.8385 9.97358 16 12.3178 16C14.3514 16 16 14.3514 16 12.3178V10H14V12.3178C14 13.2469 13.2469 14 12.3178 14C11.2469 14 10.4486 13.0125 10.673 11.9654L12.2072 4.80587C12.7372 2.33242 10.8516 0 8.32201 0C5.95386 0 4.11145 2.05845 4.37297 4.41212L4.7993 8.2491C4.39758 8.0884 3.95911 8 3.5 8C1.567 8 0 9.567 0 11.5C0 13.433 1.567 15 3.5 15C5.433 15 7 13.433 7 11.5V9.94461L6.36074 4.19126ZM5 11.5C5 10.6716 4.32843 10 3.5 10C2.67157 10 2 10.6716 2 11.5C2 12.3284 2.67157 13 3.5 13C4.32843 13 5 12.3284 5 11.5Z" fill=""></path> </g></svg>
+            <svg id="leo" viewBox="0 0 16 16" fill="#FFEA99" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.36074 4.19126C6.23086 3.02232 7.14588 2 8.32201 2C9.57833 2 10.5148 3.15839 10.2516 4.38682L8.71738 11.5463C8.22619 13.8385 9.97358 16 12.3178 16C14.3514 16 16 14.3514 16 12.3178V10H14V12.3178C14 13.2469 13.2469 14 12.3178 14C11.2469 14 10.4486 13.0125 10.673 11.9654L12.2072 4.80587C12.7372 2.33242 10.8516 0 8.32201 0C5.95386 0 4.11145 2.05845 4.37297 4.41212L4.7993 8.2491C4.39758 8.0884 3.95911 8 3.5 8C1.567 8 0 9.567 0 11.5C0 13.433 1.567 15 3.5 15C5.433 15 7 13.433 7 11.5V9.94461L6.36074 4.19126ZM5 11.5C5 10.6716 4.32843 10 3.5 10C2.67157 10 2 10.6716 2 11.5C2 12.3284 2.67157 13 3.5 13C4.32843 13 5 12.3284 5 11.5Z" fill=""></path> </g></svg>
             <svg id="virgo" viewBox="0 0 16 16" fill="#9F8C76" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M1 3C1.55228 3 2 3.44772 2 4V14H4V4C4 3.44772 4.44772 3 5 3C5.55228 3 6 3.44772 6 4V14H8V4C8 3.44772 8.44772 3 9 3C9.55228 3 10 3.44772 10 4V9H9V11H10V13C10 14.6569 11.3431 16 13 16V14C12.4477 14 12 13.5523 12 13V11H13C14.6569 11 16 9.65685 16 8C16 6.34315 14.6569 5 13 5H12V4C12 2.34315 10.6569 1 9 1C8.23165 1 7.53076 1.28885 7 1.76389C6.46924 1.28885 5.76835 1 5 1C4.23165 1 3.53076 1.28885 3 1.76389C2.46924 1.28885 1.76835 1 1 1V3ZM12 7V9H13C13.5523 9 14 8.55228 14 8C14 7.44772 13.5523 7 13 7H12Z" fill=""></path> </g></svg>
             <svg id="libra" viewBox="0 0 16 16" fill="#008000" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 6C5 4.34315 6.34315 3 8 3C9.65685 3 11 4.34315 11 6C11 6.76152 10.7176 7.45464 10.2503 7.98409L10 8.26763V10H16V8H12.5837C12.8513 7.38734 13 6.71065 13 6C13 3.23858 10.7614 1 8 1C5.23858 1 3 3.23858 3 6C3 6.71065 3.14867 7.38734 3.41633 8H0V10H6V8.26763L5.74974 7.98409C5.28243 7.45464 5 6.76152 5 6Z" fill=""></path> <path d="M0 12V14H16V12H0Z" fill=""></path> </g></svg>
             <svg id="scorpio" viewBox="0 0 16 16" fill="#880808" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 3C0.552285 3 1 3.44772 1 4V14H3V4C3 3.44772 3.44772 3 4 3C4.55228 3 5 3.44772 5 4V14H7V4C7 3.44772 7.44772 3 8 3C8.55228 3 9 3.44772 9 4V11.1716C9 13.8443 12.2314 15.1828 14.1213 13.2929L14.4571 12.9571L15 13.5H16V10H12.5V11L13.0429 11.5429L12.7071 11.8787C12.0771 12.5086 11 12.0625 11 11.1716V4C11 2.34315 9.65685 1 8 1C7.23165 1 6.53076 1.28885 6 1.76389C5.46924 1.28885 4.76835 1 4 1C3.23165 1 2.53076 1.28885 2 1.76389C1.46924 1.28885 0.768354 1 0 1V3Z" fill=""></path> </g></svg>
@@ -530,6 +530,13 @@ function drawEmptyChart(svg){
         <circle cx="450" cy="450" r="100" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="80" fill="none" stroke="#fff" stroke-width="1" />
 
+        <circle cx="450" cy="450" r="160" fill="none" stroke="#ffffff50" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="180" fill="none" stroke="#ffffff40" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="200" fill="none" stroke="#ffffff40" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="220" fill="none" stroke="#ffffff40" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="240" fill="none" stroke="#ffffff40" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="260" fill="none" stroke="#ffffff40" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="280" fill="none" stroke="#ffffff40" stroke-width="0.2" />
         `
 
 
