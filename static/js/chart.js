@@ -231,67 +231,67 @@ function addPlanetSymbols(planets){
 
   let sun = 360 - planets['sun']
   addSymbol('sun', 20, sun, rSun);
-  drawLine(sun, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(sun, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#FFEA99')
   //addAngledText2(parseInt(planets['sun'])  + ' °', sun + 8, rSun)
 
   let moon = 360 - planets['moon']
   addSymbol('moon', 20, moon, rMoon);
-  drawLine(moon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(moon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#AAD5DB')
   //addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
 
   let northMoon = 360 - planets['northMoon']
   addSymbol('northMoon', 20, northMoon, rMoon);
-  drawLine(northMoon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(northMoon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#AAD5DB')
   //addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
 
   let southMoon = 360 - planets['southMoon']
   addSymbol('southMoon', 20, southMoon, rMoon);
-  drawLine(southMoon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(southMoon, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#AAD5DB')
   //addAngledText2(parseInt(planets['moon']) + ' °', moon + 11, rMoon)
 
   let mercury =  360 - planets['mercury']
   addSymbol('mercury', 20, mercury, rMercury);
-  drawLine(mercury, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(mercury, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#cdb891')
   //addAngledText2(parseInt(planets['mercury']) + ' °', mercury + 10, rMercury)
 
   let venus = 360 - planets['venus']
   addSymbol('venus', 20, venus, rVenus);
-  drawLine(venus, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(venus, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#a8e4a0')
   //addAngledText2(parseInt(planets['venus']) + ' °', venus + 9, rVenus)
 
   let mars = 360 - planets['mars']
   addSymbol('mars', 20, mars, rMars);
-  drawLine(mars, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(mars, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#E3242B')
   //addAngledText2(parseInt(planets['mars']) + ' °', mars + 7, rMars)
 
   let jupiter = 360 - planets['jupiter']
   addSymbol('jupiter', 20, jupiter, rJupiter);
-  drawLine(jupiter, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(jupiter, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#FFAF3D')
   //addAngledText2(parseInt(planets['jupiter']) + ' °', jupiter + 6, rJupiter)
 
   let saturn = 360 - planets['saturn']
   addSymbol('saturn', 20, saturn, rSaturn);
-  drawLine(saturn, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
+  drawLine(saturn, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#808080')
   //addAngledText2(parseInt(planets['saturn'])  + ' °', saturn + 5, rSaturn)
 
-  //uranus = 360 - planets['uranus']
-  //addSymbol('uranus', 25, uranus, rPlanetsCircle);
-  //drawLine(uranus, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  uranus = 360 - planets['uranus']
+  addSymbol('uranus', 20, uranus, rSaturn);
+  drawLine(uranus, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#4E9FE5')
   //addText(parseInt(planets['uranus']) + ' °', uranus, rPlanetsCircle - 30)
 
-  //neptune = 360 - planets['neptune']
-  //addSymbol('neptune', 25, neptune, rPlanetsCircle);
-  //drawLine(neptune, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  neptune = 360 - planets['neptune']
+  addSymbol('neptune', 20, neptune, rSaturn);
+  drawLine(neptune, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true, '#8968CD')
   //addText(parseInt(planets['neptune']) + ' °', neptune, rPlanetsCircle - 30)
 
-  //pluto = 360 - planets['pluto']
-  //addSymbol('pluto', 25, pluto, rPlanetsCircle);
-  //drawLine(pluto, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  pluto = 360 - planets['pluto']
+  addSymbol('pluto', 20, pluto, rSaturn);
+  drawLine(pluto, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   //addText(parseInt(planets['pluto']) + ' °', pluto, rPlanetsCircle - 30)
 
-  //chiron = 360 - planets['chiron']
-  //addSymbol('chiron', 25, chiron, rPlanetsCircle);
-  //drawLine(chiron, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
+  chiron = 360 - planets['chiron']
+  addSymbol('chiron', 20, chiron, rSaturn);
+  drawLine(chiron, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true)
   //addText(parseInt(planets['chiron']) + ' °', chiron, rPlanetsCircle - 30)
 
 }
@@ -342,7 +342,7 @@ function tableData(planets, tbody, table){
 
 
 // Chart Utility
-function drawLine(deg, rOut, rIn, isMajor=false){
+function drawLine(deg, rOut, rIn, isMajor=false, color='#ffffff'){
 
     var rad = (deg - 180) * Math.PI / 180;
     
@@ -356,7 +356,7 @@ function drawLine(deg, rOut, rIn, isMajor=false){
     line.setAttribute('y1', y1);
     line.setAttribute('x2', x2);
     line.setAttribute('y2', y2);
-    line.setAttribute('class', (isMajor ? ' major' : ' tick'));
+    line.setAttribute('stroke', color);
     svg.appendChild(line);
 }
 
@@ -493,8 +493,8 @@ function drawEmptyChart(svg){
             <svg id="star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 2L14.012 7.23109C14.294 7.96432 14.435 8.33093 14.6542 8.63931C14.8486 8.91262 15.0874 9.15141 15.3607 9.34575C15.6691 9.56503 16.0357 9.70603 16.7689 9.98804L22 12L16.7689 14.012C16.0357 14.294 15.6691 14.435 15.3607 14.6542C15.0874 14.8486 14.8486 15.0874 14.6542 15.3607C14.435 15.6691 14.294 16.0357 14.012 16.7689L12 22L9.98804 16.7689C9.70603 16.0357 9.56503 15.6691 9.34575 15.3607C9.15141 15.0874 8.91262 14.8486 8.63931 14.6542C8.33093 14.435 7.96432 14.294 7.23109 14.012L2 12L7.23108 9.98804C7.96431 9.70603 8.33093 9.56503 8.63931 9.34575C8.91262 9.15141 9.15141 8.91262 9.34575 8.63931C9.56503 8.33093 9.70603 7.96431 9.98804 7.23108L12 2Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
-            <svg id="neptune" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
-            <svg id="uranus" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
+            <svg id="neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
+            <svg id="uranus" viewBox="0 0 32 32" fill="#4E9FE5"><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
             <svg id="jupiter" viewBox="0 0 32 32" fill="#FFAF3D"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
             <svg id="saturn" viewBox="0 0 32 32" fill="#808080"><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
             <svg id="mars" viewBox="0 0 32 32" fill="none" stroke="#E3242B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
@@ -530,13 +530,13 @@ function drawEmptyChart(svg){
         <circle cx="450" cy="450" r="100" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="80" fill="none" stroke="#fff" stroke-width="1" />
 
-        <circle cx="450" cy="450" r="160" fill="none" stroke="#ffffff50" stroke-width="0.2" />
-        <circle cx="450" cy="450" r="180" fill="none" stroke="#ffffff40" stroke-width="0.2" />
-        <circle cx="450" cy="450" r="200" fill="none" stroke="#ffffff40" stroke-width="0.2" />
-        <circle cx="450" cy="450" r="220" fill="none" stroke="#ffffff40" stroke-width="0.2" />
-        <circle cx="450" cy="450" r="240" fill="none" stroke="#ffffff40" stroke-width="0.2" />
-        <circle cx="450" cy="450" r="260" fill="none" stroke="#ffffff40" stroke-width="0.2" />
-        <circle cx="450" cy="450" r="280" fill="none" stroke="#ffffff40" stroke-width="0.2" />
+        <circle cx="450" cy="450" r="160" fill="none" stroke="#AAD5DB50" stroke-width="1" />
+        <circle cx="450" cy="450" r="180" fill="none" stroke="#cdb89150" stroke-width="1" />
+        <circle cx="450" cy="450" r="200" fill="none" stroke="#a8e4a050" stroke-width="1" />
+        <circle cx="450" cy="450" r="220" fill="none" stroke="#FFEA9950" stroke-width="1" />
+        <circle cx="450" cy="450" r="240" fill="none" stroke="#E3242B50" stroke-width="1" />
+        <circle cx="450" cy="450" r="260" fill="none" stroke="#FFAF3D50" stroke-width="1" />
+        <circle cx="450" cy="450" r="280" fill="none" stroke="#80808050" stroke-width="1" />
         `
 
 
