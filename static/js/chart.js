@@ -108,11 +108,18 @@ const termsSymbolsList = {
     12:['venus', 'jupiter', 'mercury', 'mars', 'saturn']
   };
 
+const staticChartNum1 = []
+const staticChartNum2 = []
+var num1 = 1
+var num2 = 1
+
 // Static Chart
 function staticChart(deg){
 
   const isMajor = deg % 10 === 0;
   const isHouse = deg % 30 === 0;
+
+  
 
   if (isMajor){
     // Write Deg Text
@@ -163,8 +170,17 @@ function staticChart(deg){
 
   // add the sing symbol
   addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolSymbol);
+
+  num1 = (num1 >= 10) ? 1 : num1;
+  num2 = (num2 >= 100) ? 28 : num2;
+
+  staticChartNum1.push(num1)
+  staticChartNum2.push(num2)
+  num1 ++;
+  num2 ++;
   // draw a line every 2.5 deg
   drawLine(deg, rOutsideCircle + 20, rOutsideCircle, true);
+
 }
 
 
@@ -314,6 +330,7 @@ function tableData(planets, tbody, table){
     let planetDeg = degMin(planets[planet])
     let planetHouseNum = parseInt(planets[planet] / 30) + 1;
     let planetSign = signs[parseInt(planets[planet] / 30)]
+    let planetNum1 = parseInt(planets[planet] / 2.5)
 
 
     let planetNameCol = document.createElement("td");
@@ -331,6 +348,10 @@ function tableData(planets, tbody, table){
     let planetDegCol = document.createElement("td");
     planetDegCol.textContent = planetDeg;
     tr.appendChild(planetDegCol);
+
+    let planetNumCol = document.createElement("td");
+    planetNumCol.textContent = staticChartNum1[planetNum1] + '/' + staticChartNum2[planetNum1] ;
+    tr.appendChild(planetNumCol);
 
     tbody.appendChild(tr);
   }
@@ -548,6 +569,7 @@ function drawEmptyChart(svg){
     //staticSymbolCircle(deg); 
     staticChart(deg);
   }
+
 
   let ChartWidget = document.getElementById('ChartWidget');
   ChartWidget.classList.remove('hiddenWidget')
