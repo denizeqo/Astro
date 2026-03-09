@@ -38,6 +38,7 @@
     max-width: 95%;
     padding: 20px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .hiddenWidget{
@@ -167,6 +168,17 @@
     z-index: -1;
     display: block; 
     background-color: #0d0820;
+}
+
+#planetPopup{
+    background: rgba(0, 0, 0, 0.4);
+    position:absolute;
+    color: aliceblue;
+    border:1px solid #333;
+    padding:10px 15px;
+    border-radius:6px;
+    display:none;
+    z-index: 10;
 }
 
 
