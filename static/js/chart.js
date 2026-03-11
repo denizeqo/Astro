@@ -188,14 +188,14 @@ function staticChart(deg){
   // add the sing symbol
   addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolSymbol);
 
-  num1 = (num1 <= 1) ? 9 : num1;
+  num1 = (num1 <= 0) ? 9 : num1;
   num2 = (num2 >= 100) ? 28 : num2;
 
   num3 = num1 + ' ' + signs[11 - signsIndex].slice(0, 2).toUpperCase()
 
   staticChartNum1.push(num3)
   staticChartNum2.push( (deg / 2.5) % 12)
-  num1 ++;
+  num1 --;
   num2 ++;
   // draw a line every 2.5 deg
   drawLine(deg, rOutsideCircle + 20, rOutsideCircle, true);
