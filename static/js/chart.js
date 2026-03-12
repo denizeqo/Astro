@@ -125,18 +125,17 @@ const planetsOrbite = {
   'chiron': rSaturn
 }
 
-const staticChartNum1 = []
-const staticChartNum2 = []
-var num1 = 9
-var num2 = 1
+const staticChartNum = []
+const staticChartSymbols = []
+var num = 1
+
+
 
 // Static Chart
 function staticChart(deg){
 
   const isMajor = deg % 10 === 0;
   const isHouse = deg % 30 === 0;
-
-  let num3 = '';
 
   if (isMajor){
     // Write Deg Text
@@ -188,15 +187,13 @@ function staticChart(deg){
   // add the sing symbol
   addSymbol(signs[11 - signsIndex], 10, deg + 1.25, rStaticSymbolSymbol);
 
-  num1 = (num1 <= 0) ? 9 : num1;
-  num2 = (num2 >= 100) ? 28 : num2;
 
-  num3 = num1 + ' ' + signs[11 - signsIndex].slice(0, 2).toUpperCase()
 
-  staticChartNum1.push(num3)
-  staticChartNum2.push( (deg / 2.5) % 12)
-  num1 --;
-  num2 ++;
+  num = (num >= 100) ? 28 : num;
+
+  staticChartNum.unshift(num)
+  staticChartSymbols.push(signs[11 - signsIndex].slice(0, 2).toUpperCase())
+  num ++;
   // draw a line every 2.5 deg
   drawLine(deg, rOutsideCircle + 20, rOutsideCircle, true);
 
@@ -268,12 +265,18 @@ function addPlanetSymbols(planets){
 
     let planetNum = 143 - parseInt(planets[planet]/ 2.5);
 
-    let textSpace = 1800 / planetsOrbite[planet] ;
+    let textSpace = 1300 / planetsOrbite[planet] ;
 
     planetPosition = 360 - planets[planet]
     addSymbol(planet, 20, planetPosition, planetsOrbite[planet]);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true);
-    addAngledText2(staticChartNum1[planetNum], planetPosition + textSpace, planetsOrbite[planet]);
+
+    if (planetNum <= 44){
+      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet], staticChartSymbols[planetNum]);
+    }else{
+       addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet]);
+    }
+     
 
   }
 }
@@ -448,7 +451,7 @@ function addAngledText(text, deg, radius) {
     svg.appendChild(label);
 }
 
-function addAngledText2(text, deg, radius) {
+function addAngledText2(text, deg, radius, supText='') {
 
     const rad = (deg - 180) * Math.PI / 180;
 
@@ -478,7 +481,17 @@ function addAngledText2(text, deg, radius) {
     label.setAttribute('dominant-baseline', 'middle');
     label.setAttribute('class', 'chartText');
 
-    label.textContent = text;
+    const normal = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    normal.textContent = text;
+
+    const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    sup.textContent = supText;
+    sup.setAttribute("baseline-shift", "super");
+    sup.setAttribute("font-size", "70%");
+
+    label.appendChild(normal);
+    label.appendChild(sup);
+    
     svg.appendChild(label);
 }
 
@@ -559,8 +572,8 @@ function drawEmptyChart(svg){
     staticChart(deg);
   }
 
-    console.log(staticChartNum1)
-    console.log(staticChartNum2)
+    console.log(staticChartNum)
+    console.log(staticChartSymbols)
 
     console.log(11%12)
     console.log(0%12)
