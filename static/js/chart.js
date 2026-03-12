@@ -125,8 +125,8 @@ const planetsOrbite = {
   'chiron': rSaturn
 }
 
-const staticChartNum = []
-const staticChartSymbols = []
+var staticChartNum = []
+var staticChartSymbols = []
 var num = 1
 
 
@@ -276,8 +276,6 @@ function addPlanetSymbols(planets){
     }else{
        addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet]);
     }
-     
-
   }
 }
 
@@ -565,24 +563,16 @@ function drawEmptyChart(svg){
 
   houseNum = 12;
 
+  staticChartNum = []
+  staticChartSymbols = []
+  num = 1
+
   for (let deg = 0; deg < 360; deg += 2.5) {
     //staticHouseCircle(deg);
     //staticDegCircle(deg);
     //staticSymbolCircle(deg); 
     staticChart(deg);
   }
-
-    console.log(staticChartNum)
-    console.log(staticChartSymbols)
-
-    console.log(11%12)
-    console.log(0%12)
-    console.log(1%12)
-    console.log(2%12)
-    console.log(12%12)
-    console.log(13%12)
-    console.log(14%12)
-    
 
   let ChartWidget = document.getElementById('ChartWidget');
   ChartWidget.classList.remove('hiddenWidget')
