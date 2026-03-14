@@ -40,6 +40,9 @@ const rMars = rSun + 20;
 const rJupiter = rMars + 20;
 const rSaturn = rJupiter + 20;
 
+// Stars orbite
+const rStarts = rDynamicSymbolCircle + 30;
+
 // Signs list
 const signs = [
   'aries','taurus','gemini','cancer',
@@ -238,53 +241,59 @@ function dynamicChart(ascDeg){
   }
 }
 
-function  dynamicAscMcIcDsc(asc, mc, ic, dsc){
+function dynamicAscMcIcDsc(data){
 
-  addAngledText2('ASC', 360 - asc, rAscText);
-  drawLine(360 - asc, rAscText + 10, rDynamicTermsCircle, true);
-  //drawLine(360 - asc, rDynamicSymbolCircle + 20, rDegCircle, true);
+  for(let i in data) {
 
-  addAngledText2('MC', 360 - mc, rAscText);
-  drawLine(360 - mc, rAscText + 10, rDynamicTermsCircle, true);
-  //drawLine(360 - mc, rDynamicSymbolCircle + 20, rDegCircle, true);
+    let position = 360 - data[i]
+    addAngledText2(i.toUpperCase(), position, rAscText);
+    drawLine(position, rAscText + 10, rDynamicTermsCircle, true);
 
-  addAngledText2('IC', 360 - ic, rAscText);
-  drawLine(360 - ic, rAscText + 10, rDynamicTermsCircle, true);
-  //drawLine(360 - ic, rDynamicSymbolCircle + 20, rDegCircle, true);
+    let staticSymbolIndex = 143 - parseInt(data[i]/ 2.5);
 
-  addAngledText2('DSC', 360 - dsc, rAscText);
-  drawLine(360 - dsc, rAscText + 10, rDynamicTermsCircle, true);
-  //drawLine(360 - dsc, rDynamicSymbolCircle + 20, rDegCircle, true);
+    if (staticSymbolIndex <= 44){
+      let textSpace = 1300 / rAscText;
+      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, staticChartSymbols[staticSymbolIndex], 12);
+    }else{
+      let textSpace = 1000 / rAscText;
+      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, '', 12);
+    }
 
+  }
 }
+
 
 function addPlanetSymbols(planets){
 
   
   for (let planet in planets){
 
-    let planetNum = 143 - parseInt(planets[planet]/ 2.5);
-
-    let textSpace = 1300 / planetsOrbite[planet] ;
-
     planetPosition = 360 - planets[planet]
     addSymbol(planet, 20, planetPosition, planetsOrbite[planet]);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true);
 
+    let planetNum = 143 - parseInt(planets[planet]/ 2.5);
+
     if (planetNum <= 44){
-      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet], staticChartSymbols[planetNum]);
+      let textSpace = 1300 / planetsOrbite[planet] ;
+      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet], staticChartSymbols[planetNum], 13);
     }else{
-       addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet]);
+      let textSpace = 1000 / planetsOrbite[planet] ; 
+      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet], '', 13);
     }
   }
 }
 
 
 function addStarsSymbol(stars){
-  algenib = 360 - stars['algenib']
-  addSymbol('star', 10, 180, 445);
-  drawLine(algenib, rDynamicSymbolCircle, rPlanetsCircle + 20, true)
-  //addText(parseInt(stars['algenib']) + ' °', algenib, 430 )
+
+  for (let star in stars){
+    let position = 360 - stars[star]
+    addSymbol('star', 10, position, rStarts);
+    addSymbol('star', 10, position, 445);
+    drawLine(position, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 23, true);
+    drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true);
+  }
 }
 
 function tableData(planets, tbody, table){
@@ -297,7 +306,7 @@ function tableData(planets, tbody, table){
     let planetDeg = degMin(planets[planet])
     let planetHouseNum = parseInt(planets[planet] / 30) + 1;
     let planetSign = signs[parseInt(planets[planet] / 30)]
-    let planetNum1 = parseInt(planets[planet] / 2.5)
+    let planetNum1 =143 - parseInt(planets[planet] / 2.5)
 
 
     let planetNameCol = document.createElement("td");
@@ -317,7 +326,7 @@ function tableData(planets, tbody, table){
     tr.appendChild(planetDegCol);
 
     let planetNumCol = document.createElement("td");
-    planetNumCol.textContent = staticChartNum1[planetNum1] + '/' + staticChartNum2[planetNum1] ;
+    planetNumCol.textContent = staticChartNum[planetNum1];
     tr.appendChild(planetNumCol);
 
     tbody.appendChild(tr);
@@ -449,7 +458,7 @@ function addAngledText(text, deg, radius) {
     svg.appendChild(label);
 }
 
-function addAngledText2(text, deg, radius, supText='') {
+function addAngledText2(text, deg, radius, supText='', fontSize=10) {
 
     const rad = (deg - 180) * Math.PI / 180;
 
@@ -481,6 +490,7 @@ function addAngledText2(text, deg, radius, supText='') {
 
     const normal = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     normal.textContent = text;
+    normal.setAttribute('font-size', fontSize + 'px');
 
     const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     sup.textContent = supText;
@@ -511,7 +521,7 @@ function emptyTable(tbody){
 function drawEmptyChart(svg){
 
   svg.innerHTML= `<defs>
-            <svg id="star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 2L14.012 7.23109C14.294 7.96432 14.435 8.33093 14.6542 8.63931C14.8486 8.91262 15.0874 9.15141 15.3607 9.34575C15.6691 9.56503 16.0357 9.70603 16.7689 9.98804L22 12L16.7689 14.012C16.0357 14.294 15.6691 14.435 15.3607 14.6542C15.0874 14.8486 14.8486 15.0874 14.6542 15.3607C14.435 15.6691 14.294 16.0357 14.012 16.7689L12 22L9.98804 16.7689C9.70603 16.0357 9.56503 15.6691 9.34575 15.3607C9.15141 15.0874 8.91262 14.8486 8.63931 14.6542C8.33093 14.435 7.96432 14.294 7.23109 14.012L2 12L7.23108 9.98804C7.96431 9.70603 8.33093 9.56503 8.63931 9.34575C8.91262 9.15141 9.15141 8.91262 9.34575 8.63931C9.56503 8.33093 9.70603 7.96431 9.98804 7.23108L12 2Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <svg id="star" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="1.5" fill="white" style="filter: blur(0.8px);"/></svg>
             <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
             <svg id="neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>

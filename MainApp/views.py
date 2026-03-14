@@ -106,10 +106,17 @@ def Home(request):
             'chiron': chart.get(const.CHIRON).lon
         }
 
+        asc = {
+            'asc':asc.lon,
+            'mc':mc.lon,
+            'ic':ic.lon,
+            'dsc':dsc.lon
+        }
+
         print(chart.get(const.NORTH_NODE).lon)
         for i in chart.objects:
             print(i)
 
-        return JsonResponse({'asc':asc.lon, 'mc':mc.lon, 'ic':ic.lon, 'dsc':dsc.lon, 'planets':planets, 'stars':stars})
+        return JsonResponse({'asc':asc, 'planets':planets, 'stars':stars})
 
     return render(request, 'pages/home.html')

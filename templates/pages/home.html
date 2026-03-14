@@ -37,12 +37,12 @@
             //document.getElementById("result").innerText = data;
             //console.log(data['data'])
             //addPlanetSymbols(data['data'])
-            dynamicChart(data['asc']);
-            dynamicAscMcIcDsc(data['asc'], data['mc'], data['ic'], data['dsc']);
+            dynamicChart(data['asc']['asc']);
+            dynamicAscMcIcDsc(data['asc']);
             addPlanetSymbols(data['planets']);
             tableData(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
             tableData(data['planets'], document.getElementById('planetsTable'), document.getElementById('ChartTable'));
-            //addStarsSymbol(data['stars']);
+            addStarsSymbol(data['stars']);
      
             })
         .catch(error => console.log("Error:", error));
