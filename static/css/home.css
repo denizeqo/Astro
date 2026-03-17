@@ -142,16 +142,16 @@
 
 .degree {
     fill: #fff;
-    font-size: 15px;
+    font-size: 13px;
     text-anchor: middle;
     dominant-baseline: middle;
 }
 
 .chartText{
-    fill: #fff;
-    font-size: 10px;
     text-anchor: middle;
     dominant-baseline: middle;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
 }
 
 .house {

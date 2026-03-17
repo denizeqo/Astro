@@ -18,14 +18,14 @@ const rStaticSymbolCircle = rOutsideCircle;
 
 
 // Symbols radius
-const rStaticHouseSymbol = rOutsideCircle + 40;
+const rStaticHouseSymbol = rOutsideCircle - 20;
 const rDynamicTermsSymbol = rDynamicTermsCircle + 10;
 const rDynamicSymbolSymbol = rDynamicSymbolCircle + 10;
 const rStaticTermsSymbol = rStaticTermsCircle + 10;
 const rStaticSymbolSymbol = rStaticSymbolCircle + 10;
 
 // Text radius
-const rDegText = rOutsideCircle + 45;
+const rDegText = rOutsideCircle - 20;
 const rStaticHouseNum = rStaticHouseCircle + 10;
 const rDynamicHouseText = rDynamicHouseCircle + 10;
 const rAscText = rStaticHouseCircle + 30;
@@ -128,6 +128,10 @@ const planetsOrbite = {
   'chiron': rSaturn
 }
 
+numColors = {
+
+}
+
 var staticChartNum = []
 var staticChartSymbols = []
 var num = 1
@@ -148,13 +152,14 @@ function staticChart(deg){
 
     if (isHouse){
       // If isHouse true draw a longer line
-      drawLine(deg, rOutsideCircle + 30, rStaticTermsCircle, isMajor);
+      drawLine(deg, rOutsideCircle + 20, rOutsideCircle - 5, isMajor);
       //  Seperate the dynamic
-      drawLine(deg, rDynamicSymbolCircle + 20, rDynamicTermsCircle, isMajor);
+      drawLine(deg, rDynamicSymbolCircle + 25, rDynamicTermsCircle, isMajor);
       drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, isMajor);
     }else{
       // Draw deg tick
-      drawLine(deg, rOutsideCircle + 23, rOutsideCircle, isMajor);
+      drawLine(deg, rOutsideCircle, rOutsideCircle - 3, isMajor);
+      drawLine(deg, rDynamicSymbolCircle + 23, rDynamicSymbolCircle, isMajor);
     } 
   }
 
@@ -166,19 +171,19 @@ function staticChart(deg){
     addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rStaticHouseSymbol);
 
     // Seperat a house for each term based on termsLine and houseNum
-    let termsLine = termsPlaceList[houseNum];
-    drawLine(deg + 30 - termsLine[0], rOutsideCircle, rStaticTermsCircle, isMajor);
-    drawLine(deg + 30 - termsLine[1], rOutsideCircle, rStaticTermsCircle, isMajor);
-    drawLine(deg + 30 - termsLine[2], rOutsideCircle, rStaticTermsCircle, isMajor);
-    drawLine(deg + 30 - termsLine[3], rOutsideCircle, rStaticTermsCircle, isMajor);
+    //let termsLine = termsPlaceList[houseNum];
+    //drawLine(deg + 30 - termsLine[0], rOutsideCircle, rStaticTermsCircle, isMajor);
+    //drawLine(deg + 30 - termsLine[1], rOutsideCircle, rStaticTermsCircle, isMajor);
+    //drawLine(deg + 30 - termsLine[2], rOutsideCircle, rStaticTermsCircle, isMajor);
+    //drawLine(deg + 30 - termsLine[3], rOutsideCircle, rStaticTermsCircle, isMajor);
 
     // Add terms Symbols based on 
-    let termsSymbols = termsSymbolsList[houseNum];
-    addSymbol(termsSymbols[0], 10, deg + 30 - termsLine[0] / 2, rStaticTermsSymbol);
-    addSymbol(termsSymbols[1], 10, deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rStaticTermsSymbol);
-    addSymbol(termsSymbols[2], 10, deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rStaticTermsSymbol);
-    addSymbol(termsSymbols[3], 10, deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rStaticTermsSymbol);
-    addSymbol(termsSymbols[4], 10, deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rStaticTermsSymbol);
+    //let termsSymbols = termsSymbolsList[houseNum];
+    //addSymbol(termsSymbols[0], 10, deg + 30 - termsLine[0] / 2, rStaticTermsSymbol);
+    //addSymbol(termsSymbols[1], 10, deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rStaticTermsSymbol);
+    //addSymbol(termsSymbols[2], 10, deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rStaticTermsSymbol);
+    //addSymbol(termsSymbols[3], 10, deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rStaticTermsSymbol);
+    //addSymbol(termsSymbols[4], 10, deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rStaticTermsSymbol);
 
     houseNum--;
   }
@@ -243,6 +248,12 @@ function dynamicChart(ascDeg){
 
 function dynamicAscMcIcDsc(data){
 
+  colorMap = {
+    0 : '#ffffff',
+    1 : '#E3242B',
+    2 : '#4E9FE5'
+  }
+
   for(let i in data) {
 
     let position = 360 - data[i]
@@ -251,12 +262,14 @@ function dynamicAscMcIcDsc(data){
 
     let staticSymbolIndex = 143 - parseInt(data[i]/ 2.5);
 
+    let color = colorMap[staticChartNum[staticSymbolIndex ]%3]
+
     if (staticSymbolIndex <= 44){
-      let textSpace = 1300 / rAscText;
-      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, staticChartSymbols[staticSymbolIndex], 12);
+      let textSpace = 1500 / rAscText;
+      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, staticChartSymbols[staticSymbolIndex], 11, color=color);
     }else{
-      let textSpace = 1000 / rAscText;
-      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, '', 12);
+      let textSpace = 1200 / rAscText;
+      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, '', 11, color=color);
     }
 
   }
@@ -264,6 +277,12 @@ function dynamicAscMcIcDsc(data){
 
 
 function addPlanetSymbols(planets){
+
+  colorMap = {
+    0 : '#ffffff',
+    1 : '#E3242B',
+    2 : '#4E9FE5'
+  }
 
   
   for (let planet in planets){
@@ -273,13 +292,15 @@ function addPlanetSymbols(planets){
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true);
 
     let planetNum = 143 - parseInt(planets[planet]/ 2.5);
+    
+    let color = colorMap[staticChartNum[planetNum]%3]
 
     if (planetNum <= 44){
       let textSpace = 1300 / planetsOrbite[planet] ;
-      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet], staticChartSymbols[planetNum], 13);
+      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, staticChartSymbols[planetNum], 11, color=color);
     }else{
       let textSpace = 1000 / planetsOrbite[planet] ; 
-      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet], '', 13);
+      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, '', 11, color=color);
     }
   }
 }
@@ -289,11 +310,10 @@ function addStarsSymbol(stars){
 
   for (let star in stars){
     let position = 360 - stars[star]
-    addSymbol('star', 10, position, rStarts);
-    addSymbol('star', 10, position, 445);
-    drawLine(position, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 23, true);
+    addSymbol('star', 20, position, rStaticSymbolCircle + 35);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true);
   }
+
 }
 
 function tableData(planets, tbody, table){
@@ -458,7 +478,7 @@ function addAngledText(text, deg, radius) {
     svg.appendChild(label);
 }
 
-function addAngledText2(text, deg, radius, supText='', fontSize=10) {
+function addAngledText2(text, deg, radius, supText='', fontSize=10, color='#ffffff') {
 
     const rad = (deg - 180) * Math.PI / 180;
 
@@ -491,11 +511,15 @@ function addAngledText2(text, deg, radius, supText='', fontSize=10) {
     const normal = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     normal.textContent = text;
     normal.setAttribute('font-size', fontSize + 'px');
+    normal.setAttribute('fill', color);
+    normal.setAttribute('class', 'chartText')
 
     const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     sup.textContent = supText;
     sup.setAttribute("baseline-shift", "super");
-    sup.setAttribute("font-size", "70%");
+    sup.setAttribute("font-size", "50%");
+    sup.setAttribute('fill', color);
+    sup.setAttribute('class', 'chartText')
 
     label.appendChild(normal);
     label.appendChild(sup);
@@ -521,7 +545,7 @@ function emptyTable(tbody){
 function drawEmptyChart(svg){
 
   svg.innerHTML= `<defs>
-            <svg id="star" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="1.5" fill="white" style="filter: blur(0.8px);"/></svg>
+            <svg id="star" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" fill="white" style="filter: blur(1.5px);"/></svg>
             <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
             <svg id="neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
@@ -555,8 +579,7 @@ function drawEmptyChart(svg){
         <circle cx="450" cy="450" r="300" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="320" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="340" fill="none" stroke="#fff" stroke-width="1" />
-        <circle cx="450" cy="450" r="360" fill="none" stroke="#fff" stroke-width="1" />
-
+        
         <circle cx="450" cy="450" r="120" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="100" fill="none" stroke="#fff" stroke-width="1" />
         <circle cx="450" cy="450" r="80" fill="none" stroke="#fff" stroke-width="1" />

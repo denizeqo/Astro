@@ -9,11 +9,13 @@ def getLonLat(lat, lon):
 
     latDeg = int(lat)
     latMin =int((lat - latDeg) * 60)
-    latStr = str(latDeg) + 'n' + str(latMin)
+    direction = 'n' if latDeg >= 0 else 's'
+    latStr = str(abs(latDeg)) + direction + str(latMin)
 
     lonDeg = int(lon)
     lonMin = int((lon - lonDeg) * 60)
-    lonStr = str(lonDeg) + 'e' + str(lonMin)
+    direction = 'e' if lonDeg >= 0 else 'w'
+    lonStr = str(abs(lonDeg)) + direction + str(lonMin)
 
     return latStr, lonStr
 
