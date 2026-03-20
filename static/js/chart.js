@@ -41,7 +41,7 @@ const rJupiter = rMars + 20;
 const rSaturn = rJupiter + 20;
 
 // Stars orbite
-const rStarts = rDynamicSymbolCircle + 30;
+const rStarts = [rStaticSymbolCircle + 35, rStaticSymbolCircle + 50, rStaticSymbolCircle + 65];
 
 // Signs list
 const signs = [
@@ -128,9 +128,25 @@ const planetsOrbite = {
   'chiron': rSaturn
 }
 
-numColors = {
+starsData = {
+  'Deneb Kaitos': {'deg': 0.5, 'r': rStarts[0], 'color': '#FFEA99'},
+  'Kereb': {'deg': 2.3, 'r': rStarts[0], 'color': '#880808'},
+  'Algenib': {'deg': 7.6, 'r': rStarts[0], 'color': '#4E9FE5'},
+  'Erakis': {'deg': 10.3, 'r': rStarts[0], 'color': '#880808'},
+  'Alderamina' : {'deg': 12.7, 'r': rStarts[0], 'color': '#ffffff'},
+  'Alpheratz' : {'deg': 14.8, 'r': rStarts[0], 'color': '#ffed29'},
+  'Nodus 1' : {'deg': 17, 'r': rStarts[0], 'color': '#5c5c5c'},
+  'Nodus 2' : {'deg': 17, 'r': rStarts[1], 'color': '#FFEA99'},
+  'Baten Kaitos' : {'deg': 22.7, 'r': rStarts[0], 'color': '#FFAF3D'},
+  'Acamar' : {'deg': 24.5, 'r': rStarts[0], 'color': '#ffffff'},
+  'Curda' : {'deg': 26, 'r': rStarts[0], 'color': '#E3242B'},
+  'Al Pherg' : {'deg': 28, 'r': rStarts[0], 'color': '#ffed29'},
+  'Alrischa' : {'deg': 29.8, 'r': rStarts[0], 'color': '#4E9FE5'},
+
 
 }
+
+
 
 var staticChartNum = []
 var staticChartSymbols = []
@@ -309,8 +325,8 @@ function addPlanetSymbols(planets){
 function addStarsSymbol(stars){
 
   for (let star in stars){
-    let position = 360 - stars[star]
-    addSymbol('star', 20, position, rStaticSymbolCircle + 35);
+    let position = 360 - stars[star]['deg']
+    addSymbol('star', 20, position, stars[star]['r'], color=stars[star]['color']);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true);
   }
 
@@ -393,7 +409,7 @@ function addText(text, deg, radius){
 }
 
 
-function addSymbol(symbolId, symbolSize, deg, radius){
+function addSymbol(symbolId, symbolSize, deg, radius, color=''){
 
     var rad = (deg - 180) * Math.PI / 180;
     const x = cx + Math.cos(rad) * radius;
@@ -417,6 +433,10 @@ function addSymbol(symbolId, symbolSize, deg, radius){
   use.setAttribute('y', y - size / 2);
   use.setAttribute('width', size);
   use.setAttribute('height', size);
+
+  if (color){
+    use.setAttribute('fill', color);
+  }
 
   svg.appendChild(use);
 
@@ -545,7 +565,7 @@ function emptyTable(tbody){
 function drawEmptyChart(svg){
 
   svg.innerHTML= `<defs>
-            <svg id="star" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" fill="white" style="filter: blur(1.5px);"/></svg>
+            <svg id="star" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" style="filter: blur(1.5px);"/></svg>
             <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
             <svg id="neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
@@ -606,6 +626,8 @@ function drawEmptyChart(svg){
     //staticSymbolCircle(deg); 
     staticChart(deg);
   }
+
+  addStarsSymbol(starsData);
 
   let ChartWidget = document.getElementById('ChartWidget');
   ChartWidget.classList.remove('hiddenWidget')
