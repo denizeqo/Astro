@@ -41,7 +41,7 @@ const rJupiter = rMars + 20;
 const rSaturn = rJupiter + 20;
 
 // Stars orbite
-const rStarts = [rStaticSymbolCircle + 35, rStaticSymbolCircle + 50, rStaticSymbolCircle + 65];
+const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 45, rStaticSymbolCircle + 60, rStaticSymbolCircle + 37.5, rStaticSymbolCircle + 52.5];
 
 // Signs list
 const signs = [
@@ -129,21 +129,54 @@ const planetsOrbite = {
 }
 
 starsData = {
-  'Deneb Kaitos': {'deg': 0.5, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Kereb': {'deg': 2.3, 'r': rStarts[0], 'color': '#880808'},
-  'Algenib': {'deg': 7.6, 'r': rStarts[0], 'color': '#4E9FE5'},
-  'Erakis': {'deg': 10.3, 'r': rStarts[0], 'color': '#880808'},
-  'Alderamina' : {'deg': 12.7, 'r': rStarts[0], 'color': '#ffffff'},
-  'Alpheratz' : {'deg': 14.8, 'r': rStarts[0], 'color': '#ffed29'},
-  'Nodus 1' : {'deg': 17, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Nodus 2' : {'deg': 17, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Baten Kaitos' : {'deg': 22.7, 'r': rStarts[0], 'color': '#FFAF3D'},
-  'Acamar' : {'deg': 24.5, 'r': rStarts[0], 'color': '#ffffff'},
-  'Curda' : {'deg': 26, 'r': rStarts[0], 'color': '#E3242B'},
-  'Al Pherg' : {'deg': 28, 'r': rStarts[0], 'color': '#ffed29'},
-  'Alrischa' : {'deg': 29.8, 'r': rStarts[0], 'color': '#4E9FE5'},
+  // 1 House
+  'Deneb Kaitos': {'deg': 1.23, 'r': rStarts[0], 'color': '#FFEA99'},
+  'Kereb': {'deg': 1.38, 'r': rStarts[1], 'color': '#880808'},
+  'Algenib': {'deg': 9.48, 'r': rStarts[0], 'color': '#4E9FE5'},
+  'Erakis': {'deg': 10.2, 'r': rStarts[1], 'color': '#880808'},
+  'Alderamina' : {'deg': 13, 'r': rStarts[0], 'color': '#ffffff'},
+  'Alpheratz' : {'deg': 14.63, 'r': rStarts[0], 'color': '#ffed29'},
+  'Nodus 1' : {'deg': 17.46, 'r': rStarts[0], 'color': '#5c5c5c'},
+  'Nodus 2' : {'deg': 17.46, 'r': rStarts[1], 'color': '#FFEA99'},
+  'Baten Kaitos' : {'deg': 22.28, 'r': rStarts[0], 'color': '#FFAF3D'},
+  'Acamar' : {'deg': 23.36, 'r': rStarts[1], 'color': '#ffffff'},
+  'Curda' : {'deg': 24.53, 'r': rStarts[0], 'color': '#E3242B'},
+  'Al Pherg' : {'deg': 27, 'r': rStarts[0], 'color': '#ffed29'},
+  'Alrischa' : {'deg': 29.7, 'r': rStarts[0], 'color': '#4E9FE5'},
 
-
+  //2 House
+  'Mirach' : {'deg': 30.73, 'r': rStarts[1], 'color': '#E3242B'},
+  'Mira' : {'deg': 31.85, 'r': rStarts[0], 'color': '#E3242B'},
+  'Angetenar' : {'deg': 32.96, 'r': rStarts[2], 'color': '#ffed29'},
+  'Tyl' : {'deg': 33, 'r': rStarts[0], 'color': '#ffed29'},
+  'Mesarthim' : {'deg': 33.51, 'r': rStarts[1], 'color': '#4E9FE5'},
+  'Sheratan' : {'deg': 34.3, 'r': rStarts[0], 'color': '#ffffff'},
+  'Caph' : {'deg': 35.45, 'r': rStarts[1], 'color': '#ffed29'},
+  'Alfio' : {'deg': 35.86, 'r': rStarts[0], 'color': '#5c5c5c'},
+  'Metallah' : {'deg': 37.18, 'r': rStarts[1], 'color': '#ffffff'},
+  'Hamal' : {'deg': 37.98, 'r': rStarts[0], 'color': '#FFEA99'},
+  'Schedir' : {'deg': 38.11, 'r': rStarts[2], 'color': '#FFEA99'},
+  'Adhil' : {'deg': 38.18, 'r': rStarts[1], 'color': '#FFEA99'},
+  'Azha' : {'deg': 39.08, 'r': rStarts[1], 'color': '#8968CD'},
+  'Kaffaljidhma' : {'deg': 39.76, 'r': rStarts[2], 'color': '#FFAF3D'},
+  'Achirardo' : {'deg': 40.58, 'r': rStarts[0], 'color': '#E3242B'},
+  'Zibal' : {'deg': 44.15, 'r': rStarts[2], 'color': '#FFEA99'},
+  'Cih' : {'deg': 44.26, 'r': rStarts[0], 'color': '#4E9FE5'},
+  'Almach' : {'deg': 44.55, 'r': rStarts[1], 'color': '#ffed29'},
+  'Menkare' : {'deg': 44.65, 'r': rStarts[3], 'color': '#E3242B'},
+  'Rucha' : {'deg': 48.26, 'r': rStarts[0], 'color': '#ffffff'},
+  'Boteina' : {'deg': 51.18, 'r': rStarts[0], 'color': '#FFEA99'},
+  'Rana' : {'deg': 51.2, 'r': rStarts[0], 'color': '#FFEA99'},
+  'Zaurak' : {'deg': 54.2, 'r': rStarts[0], 'color': '#E3242B'},
+  'Capulo' : {'deg': 54.51, 'r': rStarts[1], 'color': '#5c5c5c'},
+  'Segnin' : {'deg': 55.1, 'r': rStarts[3], 'color': '#5c5c5c'},
+  'Algo' : {'deg': 56.50, 'r': rStarts[0], 'color': '#ffffff'},
+  'Misam' : {'deg': 58, 'r': rStarts[0], 'color': '#FFAF3D'},
+  'Miram' : {'deg': 59.1, 'r': rStarts[1], 'color': '#FFEA99'},
+  'Elettra' : {'deg': 59.75, 'r': rStarts[2], 'color': '#5c5c5c'},
+  'Beida' : {'deg': 59.76, 'r': rStarts[0], 'color': '#ffffff'},
+  'Celeno' : {'deg': 59.76, 'r': rStarts[3], 'color': '#ffffff'},
+  'Taigeta' : {'deg': 59.9, 'r': rStarts[4], 'color': '#ffffff'},
 }
 
 
@@ -326,8 +359,8 @@ function addStarsSymbol(stars){
 
   for (let star in stars){
     let position = 360 - stars[star]['deg']
-    addSymbol('star', 20, position, stars[star]['r'], color=stars[star]['color']);
-    drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true);
+    addSymbol('star', 12, position, stars[star]['r'], color=stars[star]['color']);
+    drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color=stars[star]['color']);
   }
 
 }
@@ -565,7 +598,8 @@ function emptyTable(tbody){
 function drawEmptyChart(svg){
 
   svg.innerHTML= `<defs>
-            <svg id="star" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" style="filter: blur(1.5px);"/></svg>
+            <svg id="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.245 4.174C11.4765 3.50808 11.5922 3.17513 11.7634 3.08285C11.9115 3.00298 12.0898 3.00298 12.238 3.08285C12.4091 3.17513 12.5248 3.50808 12.7563 4.174L14.2866 8.57639C14.3525 8.76592 14.3854 8.86068 14.4448 8.93125C14.4972 8.99359 14.5641 9.04218 14.6396 9.07278C14.725 9.10743 14.8253 9.10947 15.0259 9.11356L19.6857 9.20852C20.3906 9.22288 20.743 9.23007 20.8837 9.36432C21.0054 9.48051 21.0605 9.65014 21.0303 9.81569C20.9955 10.007 20.7146 10.2199 20.1528 10.6459L16.4387 13.4616C16.2788 13.5829 16.1989 13.6435 16.1501 13.7217C16.107 13.7909 16.0815 13.8695 16.0757 13.9507C16.0692 14.0427 16.0982 14.1387 16.1563 14.3308L17.506 18.7919C17.7101 19.4667 17.8122 19.8041 17.728 19.9793C17.6551 20.131 17.5108 20.2358 17.344 20.2583C17.1513 20.2842 16.862 20.0829 16.2833 19.6802L12.4576 17.0181C12.2929 16.9035 12.2106 16.8462 12.1211 16.8239C12.042 16.8043 11.9593 16.8043 11.8803 16.8239C11.7908 16.8462 11.7084 16.9035 11.5437 17.0181L7.71805 19.6802C7.13937 20.0829 6.85003 20.2842 6.65733 20.2583C6.49056 20.2358 6.34626 20.131 6.27337 19.9793C6.18915 19.8041 6.29123 19.4667 6.49538 18.7919L7.84503 14.3308C7.90313 14.1387 7.93218 14.0427 7.92564 13.9507C7.91986 13.8695 7.89432 13.7909 7.85123 13.7217C7.80246 13.6435 7.72251 13.5829 7.56262 13.4616L3.84858 10.6459C3.28678 10.2199 3.00588 10.007 2.97101 9.81569C2.94082 9.65014 2.99594 9.48051 3.11767 9.36432C3.25831 9.23007 3.61074 9.22289 4.31559 9.20852L8.9754 9.11356C9.176 9.10947 9.27631 9.10743 9.36177 9.07278C9.43726 9.04218 9.50414 8.99359 9.55657 8.93125C9.61593 8.86068 9.64887 8.76592 9.71475 8.57639L11.245 4.174Z" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <svg id="star2" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" style="filter: blur(0.5px);"/></svg>
             <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
             <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
             <svg id="neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
