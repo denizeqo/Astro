@@ -1,6 +1,7 @@
 from timezonefinder import TimezoneFinder
 from datetime import datetime
 import pytz
+import json
 
 
 tf = TimezoneFinder()
@@ -37,3 +38,11 @@ def getUTCDateTime(date, time, lat, lon):
     utcTime = utcDateTime.split(' ')[1]
 
     return utcDate, utcTime
+
+
+def getStarsData():
+
+    with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\stars.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    return data

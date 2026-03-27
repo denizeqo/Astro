@@ -1,0 +1,1718 @@
+{
+ "Deneb Kaitos": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 2.95,
+  "siderealHouse": "pisces",
+  "siderealDeg": 338.72
+ },
+ "Kerb": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 1.42,
+  "siderealHouse": "pisces",
+  "siderealDeg": 337.18
+ },
+ "Algenib": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 9.52,
+  "siderealHouse": "pisces",
+  "siderealDeg": 345.28
+ },
+ "Erakis": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 10.05,
+  "siderealHouse": "pisces",
+  "siderealDeg": 345.83
+ },
+ "Alderamin": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 13.13,
+  "siderealHouse": "pisces",
+  "siderealDeg": 348.9
+ },
+ "Alpheratz": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 14.67,
+  "siderealHouse": "pisces",
+  "siderealDeg": 350.45
+ },
+ "Nodus I": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 17.5,
+  "siderealHouse": "pisces",
+  "siderealDeg": 353.28
+ },
+ "Nodus II": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 17.5,
+  "siderealHouse": "pisces",
+  "siderealDeg": 353.28
+ },
+ "Baten Kaitos": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 22.32,
+  "siderealHouse": "pisces",
+  "siderealDeg": 358.08
+ },
+ "Acamar": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 23.63,
+  "siderealHouse": "pisces",
+  "siderealDeg": 359.42
+ },
+ "Kurdah": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 24.58,
+  "siderealHouse": "aries",
+  "siderealDeg": 0.35
+ },
+ "Al Pherg": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 27.17,
+  "siderealHouse": "aries",
+  "siderealDeg": 2.95
+ },
+ "Alrischa": {
+  "tropicalHouse": "aries",
+  "topicalDeg": 29.73,
+  "siderealHouse": "aries",
+  "siderealDeg": 5.52
+ },
+ "Mirach": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 30.77,
+  "siderealHouse": "aries",
+  "siderealDeg": 6.55
+ },
+ "Mira": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 31.88,
+  "siderealHouse": "aries",
+  "siderealDeg": 7.67
+ },
+ "Angetenar": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 33.0,
+  "siderealHouse": "aries",
+  "siderealDeg": 8.77
+ },
+ "Tyl": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 33.05,
+  "siderealHouse": "aries",
+  "siderealDeg": 8.83
+ },
+ "Mesarthim": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 33.55,
+  "siderealHouse": "aries",
+  "siderealDeg": 9.32
+ },
+ "Sheratan": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 34.33,
+  "siderealHouse": "aries",
+  "siderealDeg": 10.1
+ },
+ "Caph": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 35.48,
+  "siderealHouse": "aries",
+  "siderealDeg": 11.25
+ },
+ "Alphirk": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 35.9,
+  "siderealHouse": "aries",
+  "siderealDeg": 11.68
+ },
+ "Metallah": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 37.22,
+  "siderealHouse": "aries",
+  "siderealDeg": 13.0
+ },
+ "Hamal": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 38.02,
+  "siderealHouse": "aries",
+  "siderealDeg": 13.8
+ },
+ "Schedir": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 38.13,
+  "siderealHouse": "aries",
+  "siderealDeg": 13.92
+ },
+ "Adhil": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 38.22,
+  "siderealHouse": "aries",
+  "siderealDeg": 14.0
+ },
+ "Azha": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 39.12,
+  "siderealHouse": "aries",
+  "siderealDeg": 14.88
+ },
+ "Kaffaljidhma": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 39.78,
+  "siderealHouse": "aries",
+  "siderealDeg": 15.57
+ },
+ "Achird": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 40.62,
+  "siderealHouse": "aries",
+  "siderealDeg": 16.38
+ },
+ "Zibal": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 44.18,
+  "siderealHouse": "aries",
+  "siderealDeg": 19.97
+ },
+ "Cih": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 44.28,
+  "siderealHouse": "aries",
+  "siderealDeg": 20.07
+ },
+ "Almach": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 44.58,
+  "siderealHouse": "aries",
+  "siderealDeg": 20.37
+ },
+ "Menkar": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 44.68,
+  "siderealHouse": "aries",
+  "siderealDeg": 20.47
+ },
+ "Rucha": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 48.3,
+  "siderealHouse": "aries",
+  "siderealDeg": 24.07
+ },
+ "Botein": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 51.22,
+  "siderealHouse": "aries",
+  "siderealDeg": 27.0
+ },
+ "Rana": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 51.22,
+  "siderealHouse": "aries",
+  "siderealDeg": 27.0
+ },
+ "Zaurak": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 54.23,
+  "siderealHouse": "taurus",
+  "siderealDeg": 30.02
+ },
+ "Capulus": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 54.55,
+  "siderealHouse": "taurus",
+  "siderealDeg": 30.32
+ },
+ "Segin": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 55.12,
+  "siderealHouse": "taurus",
+  "siderealDeg": 30.9
+ },
+ "Algol": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 56.53,
+  "siderealHouse": "taurus",
+  "siderealDeg": 32.3
+ },
+ "Misam": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 58.05,
+  "siderealHouse": "taurus",
+  "siderealDeg": 33.83
+ },
+ "Miram": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 59.07,
+  "siderealHouse": "taurus",
+  "siderealDeg": 34.83
+ },
+ "Electra": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 59.77,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.55
+ },
+ "Beid": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 59.8,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.57
+ },
+ "Celaeno": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 59.8,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.57
+ },
+ "Taygeta": {
+  "tropicalHouse": "taurus",
+  "topicalDeg": 59.93,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.7
+ },
+ "Maia": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.03,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.82
+ },
+ "Merope": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.07,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.83
+ },
+ "Asterope": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.1,
+  "siderealHouse": "taurus",
+  "siderealDeg": 35.88
+ },
+ "Theemin": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.25,
+  "siderealHouse": "taurus",
+  "siderealDeg": 36.03
+ },
+ "Alcyone": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.35,
+  "siderealHouse": "taurus",
+  "siderealDeg": 36.13
+ },
+ "Alrai": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.45,
+  "siderealHouse": "taurus",
+  "siderealDeg": 36.23
+ },
+ "Keid": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.52,
+  "siderealHouse": "taurus",
+  "siderealDeg": 36.3
+ },
+ "Atlas": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.72,
+  "siderealHouse": "taurus",
+  "siderealDeg": 36.5
+ },
+ "Pleione": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 60.73,
+  "siderealHouse": "taurus",
+  "siderealDeg": 36.52
+ },
+ "Atiks": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 61.5,
+  "siderealHouse": "taurus",
+  "siderealDeg": 37.28
+ },
+ "Mirfak": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 62.45,
+  "siderealHouse": "taurus",
+  "siderealDeg": 38.22
+ },
+ "Menkib": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 65.33,
+  "siderealHouse": "taurus",
+  "siderealDeg": 41.12
+ },
+ "Sceptrum": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 65.62,
+  "siderealHouse": "taurus",
+  "siderealDeg": 41.4
+ },
+ "Prima Hyadum": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 66.17,
+  "siderealHouse": "taurus",
+  "siderealDeg": 41.95
+ },
+ "Hyadum II": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 67.23,
+  "siderealHouse": "taurus",
+  "siderealDeg": 43.02
+ },
+ "Ain": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 68.83,
+  "siderealHouse": "taurus",
+  "siderealDeg": 44.6
+ },
+ "Aldebaran": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 70.15,
+  "siderealHouse": "taurus",
+  "siderealDeg": 45.93
+ },
+ "Tabit": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 72.28,
+  "siderealHouse": "taurus",
+  "siderealDeg": 48.07
+ },
+ "Cursa": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 75.63,
+  "siderealHouse": "taurus",
+  "siderealDeg": 51.42
+ },
+ "Hasseleh": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 77.0,
+  "siderealHouse": "taurus",
+  "siderealDeg": 52.78
+ },
+ "Rigel": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 77.2,
+  "siderealHouse": "taurus",
+  "siderealDeg": 52.97
+ },
+ "Hoedus I": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 79.0,
+  "siderealHouse": "taurus",
+  "siderealDeg": 54.77
+ },
+ "Hoedus II": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 79.82,
+  "siderealHouse": "taurus",
+  "siderealDeg": 55.58
+ },
+ "Nihal": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 80.03,
+  "siderealHouse": "taurus",
+  "siderealDeg": 55.82
+ },
+ "Bellatrix": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 81.32,
+  "siderealHouse": "taurus",
+  "siderealDeg": 57.08
+ },
+ "Arneb": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 81.75,
+  "siderealHouse": "taurus",
+  "siderealDeg": 57.52
+ },
+ "Capella": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 82.22,
+  "siderealHouse": "taurus",
+  "siderealDeg": 58.0
+ },
+ "Phact": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 82.53,
+  "siderealHouse": "taurus",
+  "siderealDeg": 58.32
+ },
+ "Mintaka": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 82.72,
+  "siderealHouse": "taurus",
+  "siderealDeg": 58.5
+ },
+ "El Nath": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 82.93,
+  "siderealHouse": "taurus",
+  "siderealDeg": 58.72
+ },
+ "Hatsya": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 83.37,
+  "siderealHouse": "taurus",
+  "siderealDeg": 59.13
+ },
+ "Alnilam": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 83.83,
+  "siderealHouse": "taurus",
+  "siderealDeg": 59.6
+ },
+ "Meissa": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 84.07,
+  "siderealHouse": "taurus",
+  "siderealDeg": 59.85
+ },
+ "Alnitak": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 85.05,
+  "siderealHouse": "gemini",
+  "siderealDeg": 60.82
+ },
+ "Al Hecka": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 85.15,
+  "siderealHouse": "gemini",
+  "siderealDeg": 60.93
+ },
+ "Saiph": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 86.77,
+  "siderealHouse": "gemini",
+  "siderealDeg": 62.53
+ },
+ "Wazn": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 86.78,
+  "siderealHouse": "gemini",
+  "siderealDeg": 62.57
+ },
+ "Polaris": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 88.93,
+  "siderealHouse": "gemini",
+  "siderealDeg": 64.72
+ },
+ "Betelgeuse": {
+  "tropicalHouse": "gemini",
+  "topicalDeg": 89.12,
+  "siderealHouse": "gemini",
+  "siderealDeg": 64.9
+ },
+ "Menkalinan": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 90.27,
+  "siderealHouse": "gemini",
+  "siderealDeg": 66.05
+ },
+ "Yildun": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 91.58,
+  "siderealHouse": "gemini",
+  "siderealDeg": 67.35
+ },
+ "Propus": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 93.8,
+  "siderealHouse": "gemini",
+  "siderealDeg": 69.58
+ },
+ "Tejat": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 95.67,
+  "siderealHouse": "gemini",
+  "siderealDeg": 71.45
+ },
+ "Mirzam": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 97.55,
+  "siderealHouse": "gemini",
+  "siderealDeg": 73.33
+ },
+ "Furud": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 97.75,
+  "siderealHouse": "gemini",
+  "siderealDeg": 73.52
+ },
+ "Alhena": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 99.47,
+  "siderealHouse": "gemini",
+  "siderealDeg": 75.25
+ },
+ "Mebsuta": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 100.3,
+  "siderealHouse": "gemini",
+  "siderealDeg": 76.08
+ },
+ "Alzirr": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 101.57,
+  "siderealHouse": "gemini",
+  "siderealDeg": 77.35
+ },
+ "Dziban": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 104.23,
+  "siderealHouse": "gemini",
+  "siderealDeg": 80.0
+ },
+ "Sirius": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 104.43,
+  "siderealHouse": "gemini",
+  "siderealDeg": 80.22
+ },
+ "Canopus": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 105.33,
+  "siderealHouse": "gemini",
+  "siderealDeg": 81.12
+ },
+ "Mekbuda": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 105.35,
+  "siderealHouse": "gemini",
+  "siderealDeg": 81.13
+ },
+ "Wasat": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 108.88,
+  "siderealHouse": "gemini",
+  "siderealDeg": 84.67
+ },
+ "Muliphein": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 109.97,
+  "siderealHouse": "gemini",
+  "siderealDeg": 85.75
+ },
+ "Castor": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 110.6,
+  "siderealHouse": "gemini",
+  "siderealDeg": 86.38
+ },
+ "Adara": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 111.13,
+  "siderealHouse": "gemini",
+  "siderealDeg": 86.9
+ },
+ "Gomeisa": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 112.55,
+  "siderealHouse": "gemini",
+  "siderealDeg": 88.33
+ },
+ "Muscida": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 113.37,
+  "siderealHouse": "gemini",
+  "siderealDeg": 89.13
+ },
+ "Pollux": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 113.57,
+  "siderealHouse": "gemini",
+  "siderealDeg": 89.35
+ },
+ "Wezen": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 113.77,
+  "siderealHouse": "gemini",
+  "siderealDeg": 89.53
+ },
+ "Procyon": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 116.15,
+  "siderealHouse": "cancer",
+  "siderealDeg": 91.92
+ },
+ "Aludra": {
+  "tropicalHouse": "cancer",
+  "topicalDeg": 119.9,
+  "siderealHouse": "cancer",
+  "siderealDeg": 95.68
+ },
+ "Talitha": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 123.17,
+  "siderealHouse": "cancer",
+  "siderealDeg": 98.93
+ },
+ "Al Tarf": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 124.62,
+  "siderealHouse": "cancer",
+  "siderealDeg": 100.4
+ },
+ "Azmidiske": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 126.4,
+  "siderealHouse": "cancer",
+  "siderealDeg": 102.18
+ },
+ "Praesepe": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 127.57,
+  "siderealHouse": "cancer",
+  "siderealDeg": 103.35
+ },
+ "Asellus Boreali": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 127.9,
+  "siderealHouse": "cancer",
+  "siderealDeg": 103.68
+ },
+ "Asellus Australis": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 129.08,
+  "siderealHouse": "cancer",
+  "siderealDeg": 104.87
+ },
+ "Giansar": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 130.7,
+  "siderealHouse": "cancer",
+  "siderealDeg": 106.48
+ },
+ "Tureis": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 131.75,
+  "siderealHouse": "cancer",
+  "siderealDeg": 107.53
+ },
+ "Kochab": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 133.7,
+  "siderealHouse": "cancer",
+  "siderealDeg": 109.48
+ },
+ "Acubens": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 134.0,
+  "siderealHouse": "cancer",
+  "siderealDeg": 109.78
+ },
+ "Dubhe": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 135.57,
+  "siderealHouse": "cancer",
+  "siderealDeg": 111.35
+ },
+ "Alterf": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 138.23,
+  "siderealHouse": "cancer",
+  "siderealDeg": 114.02
+ },
+ "Naos": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 138.92,
+  "siderealHouse": "cancer",
+  "siderealDeg": 114.68
+ },
+ "Merak": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 139.8,
+  "siderealHouse": "cancer",
+  "siderealDeg": 115.58
+ },
+ "Tania Borealis": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 139.92,
+  "siderealHouse": "cancer",
+  "siderealDeg": 115.68
+ },
+ "Ras Elased Australis": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 141.07,
+  "siderealHouse": "cancer",
+  "siderealDeg": 116.85
+ },
+ "Tania Australis": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 141.6,
+  "siderealHouse": "cancer",
+  "siderealDeg": 117.38
+ },
+ "Ras Elased Borealis": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 141.78,
+  "siderealHouse": "cancer",
+  "siderealDeg": 117.57
+ },
+ "Pherkad": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 141.98,
+  "siderealHouse": "cancer",
+  "siderealDeg": 117.77
+ },
+ "Subra": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 144.6,
+  "siderealHouse": "leo",
+  "siderealDeg": 120.38
+ },
+ "Alphard": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 147.63,
+  "siderealHouse": "leo",
+  "siderealDeg": 123.42
+ },
+ "Adhafera": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 147.93,
+  "siderealHouse": "leo",
+  "siderealDeg": 123.7
+ },
+ "Al Jabhah": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 148.27,
+  "siderealHouse": "leo",
+  "siderealDeg": 124.05
+ },
+ "Algieba": {
+  "tropicalHouse": "leo",
+  "topicalDeg": 149.98,
+  "siderealHouse": "leo",
+  "siderealDeg": 125.75
+ },
+ "Regulus": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 150.18,
+  "siderealHouse": "leo",
+  "siderealDeg": 125.97
+ },
+ "Phecda": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 150.85,
+  "siderealHouse": "leo",
+  "siderealDeg": 126.62
+ },
+ "Praecipua": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 151.23,
+  "siderealHouse": "leo",
+  "siderealDeg": 127.02
+ },
+ "Megrez": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 151.43,
+  "siderealHouse": "leo",
+  "siderealDeg": 127.22
+ },
+ "El Kophrah": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 154.02,
+  "siderealHouse": "leo",
+  "siderealDeg": 129.8
+ },
+ "Alula Borealis": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 157.02,
+  "siderealHouse": "leo",
+  "siderealDeg": 132.8
+ },
+ "Alula Australis": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 157.7,
+  "siderealHouse": "leo",
+  "siderealDeg": 133.48
+ },
+ "Thuban": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 157.83,
+  "siderealHouse": "leo",
+  "siderealDeg": 133.6
+ },
+ "Alioth": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 159.3,
+  "siderealHouse": "leo",
+  "siderealDeg": 135.08
+ },
+ "Alsuhail": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 161.55,
+  "siderealHouse": "leo",
+  "siderealDeg": 137.32
+ },
+ "Zosma": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 161.68,
+  "siderealHouse": "leo",
+  "siderealDeg": 137.45
+ },
+ "Coxa": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 163.78,
+  "siderealHouse": "leo",
+  "siderealDeg": 139.57
+ },
+ "Mizar": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 166.07,
+  "siderealHouse": "leo",
+  "siderealDeg": 141.85
+ },
+ "Alcor": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 166.23,
+  "siderealHouse": "leo",
+  "siderealDeg": 142.02
+ },
+ "Asterion": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 168.07,
+  "siderealHouse": "leo",
+  "siderealDeg": 143.83
+ },
+ "Denebola": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 171.97,
+  "siderealHouse": "leo",
+  "siderealDeg": 147.75
+ },
+ "Avior": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 173.48,
+  "siderealHouse": "leo",
+  "siderealDeg": 149.27
+ },
+ "Alkes": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 174.05,
+  "siderealHouse": "leo",
+  "siderealDeg": 149.82
+ },
+ "Cor Caroli": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 174.93,
+  "siderealHouse": "virgo",
+  "siderealDeg": 150.7
+ },
+ "Labrum": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 177.05,
+  "siderealHouse": "virgo",
+  "siderealDeg": 152.82
+ },
+ "Alkaid": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 177.3,
+  "siderealHouse": "virgo",
+  "siderealDeg": 153.07
+ },
+ "Zavijava": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 177.53,
+  "siderealHouse": "virgo",
+  "siderealDeg": 153.3
+ },
+ "Markeb": {
+  "tropicalHouse": "virgo",
+  "topicalDeg": 179.25,
+  "siderealHouse": "virgo",
+  "siderealDeg": 155.02
+ },
+ "Zaniah": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 185.18,
+  "siderealHouse": "virgo",
+  "siderealDeg": 160.97
+ },
+ "Edasich": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 185.32,
+  "siderealHouse": "virgo",
+  "siderealDeg": 161.1
+ },
+ "Diadem": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 189.3,
+  "siderealHouse": "virgo",
+  "siderealDeg": 165.08
+ },
+ "Vindemiatrix": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 190.3,
+  "siderealHouse": "virgo",
+  "siderealDeg": 166.07
+ },
+ "Porrima": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 190.5,
+  "siderealHouse": "virgo",
+  "siderealDeg": 166.27
+ },
+ "Gienah Corvi": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 191.08,
+  "siderealHouse": "virgo",
+  "siderealDeg": 166.87
+ },
+ "Auva": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 191.82,
+  "siderealHouse": "virgo",
+  "siderealDeg": 167.6
+ },
+ "Minkar": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 192.02,
+  "siderealHouse": "virgo",
+  "siderealDeg": 167.8
+ },
+ "Alchita": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 192.6,
+  "siderealHouse": "virgo",
+  "siderealDeg": 168.38
+ },
+ "Algorab": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 193.8,
+  "siderealHouse": "virgo",
+  "siderealDeg": 169.58
+ },
+ "Merga": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 195.8,
+  "siderealHouse": "virgo",
+  "siderealDeg": 171.58
+ },
+ "Kraz": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 197.72,
+  "siderealHouse": "virgo",
+  "siderealDeg": 173.5
+ },
+ "Seginus": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 198.02,
+  "siderealHouse": "virgo",
+  "siderealDeg": 173.8
+ },
+ "Mufrid": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 199.7,
+  "siderealHouse": "virgo",
+  "siderealDeg": 175.47
+ },
+ "Heze": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 202.48,
+  "siderealHouse": "virgo",
+  "siderealDeg": 178.27
+ },
+ "Foramen": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 202.5,
+  "siderealHouse": "virgo",
+  "siderealDeg": 178.28
+ },
+ "Spica": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 204.2,
+  "siderealHouse": "virgo",
+  "siderealDeg": 179.97
+ },
+ "Arcturus": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 204.58,
+  "siderealHouse": "libra",
+  "siderealDeg": 180.37
+ },
+ "Nekkar": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 204.62,
+  "siderealHouse": "libra",
+  "siderealDeg": 180.38
+ },
+ "Izar": {
+  "tropicalHouse": "libra",
+  "topicalDeg": 208.47,
+  "siderealHouse": "libra",
+  "siderealDeg": 184.23
+ },
+ "Miaplacidus": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 212.3,
+  "siderealHouse": "libra",
+  "siderealDeg": 188.08
+ },
+ "Princeps": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 213.52,
+  "siderealHouse": "libra",
+  "siderealDeg": 189.3
+ },
+ "Alkalurops": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 213.53,
+  "siderealHouse": "libra",
+  "siderealDeg": 189.32
+ },
+ "Syrma": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 214.15,
+  "siderealHouse": "libra",
+  "siderealDeg": 189.93
+ },
+ "Ceginus": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 215.45,
+  "siderealHouse": "libra",
+  "siderealDeg": 191.23
+ },
+ "Gacrux": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 217.08,
+  "siderealHouse": "libra",
+  "siderealDeg": 192.87
+ },
+ "Khambalia": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 217.3,
+  "siderealHouse": "libra",
+  "siderealDeg": 193.08
+ },
+ "Nusakan": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 219.47,
+  "siderealHouse": "libra",
+  "siderealDeg": 195.25
+ },
+ "Mimosa": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 222.0,
+  "siderealHouse": "libra",
+  "siderealDeg": 197.77
+ },
+ "Acrux": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 222.22,
+  "siderealHouse": "libra",
+  "siderealDeg": 198.0
+ },
+ "Alphecca": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 222.65,
+  "siderealHouse": "libra",
+  "siderealDeg": 198.43
+ },
+ "Menkent": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 222.67,
+  "siderealHouse": "libra",
+  "siderealDeg": 198.43
+ },
+ "Zuben Elgenubi": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 225.43,
+  "siderealHouse": "libra",
+  "siderealDeg": 201.22
+ },
+ "Zuben Elakribi": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 225.63,
+  "siderealHouse": "libra",
+  "siderealDeg": 201.42
+ },
+ "Zuben Hakrabi": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 229.12,
+  "siderealHouse": "libra",
+  "siderealDeg": 204.9
+ },
+ "Zuben Eschamali": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 229.72,
+  "siderealHouse": "libra",
+  "siderealDeg": 205.5
+ },
+ "Unukalhai": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 232.43,
+  "siderealHouse": "libra",
+  "siderealDeg": 208.2
+ },
+ "Agena": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 234.13,
+  "siderealHouse": "libra",
+  "siderealDeg": 209.92
+ },
+ "Arrakis": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 235.1,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 210.88
+ },
+ "Zuben Elakrab": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 235.48,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 211.27
+ },
+ "Marsik": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 236.07,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 211.85
+ },
+ "Toliman": {
+  "tropicalHouse": "scorpio",
+  "topicalDeg": 239.8,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 215.57
+ },
+ "Kornephoros": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 241.45,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 217.22
+ },
+ "Grafias": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 241.65,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 217.43
+ },
+ "Yed Prior": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 242.65,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 218.43
+ },
+ "Dschubba": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 242.92,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 218.7
+ },
+ "Acrab": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 243.55,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 219.32
+ },
+ "Yed Posterior": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 243.87,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 219.63
+ },
+ "Jabbah": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 245.0,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 220.77
+ },
+ "Marfik": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 245.95,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 221.72
+ },
+ "Kajam": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 248.68,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 224.45
+ },
+ "Han": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 249.58,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 225.37
+ },
+ "Antares": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 250.12,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 225.9
+ },
+ "Kuma": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 250.67,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 226.45
+ },
+ "Alwaid": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 252.3,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 228.08
+ },
+ "Sarin": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 255.12,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 230.9
+ },
+ "Ras Algethi": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 256.5,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 232.28
+ },
+ "Sabik": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 258.32,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 234.1
+ },
+ "Maasym": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 260.25,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 236.03
+ },
+ "Atria": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 261.25,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 237.02
+ },
+ "Ras Alhague": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 262.8,
+  "siderealHouse": "scorpio",
+  "siderealDeg": 238.58
+ },
+ "Lesath": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 264.37,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 240.15
+ },
+ "Shaula": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 264.93,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 240.72
+ },
+ "Grumium": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 265.08,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 240.87
+ },
+ "Kelb Alrai": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 265.68,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 241.47
+ },
+ "Sargas": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 265.95,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 241.73
+ },
+ "Aculeus": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 266.15,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 241.92
+ },
+ "Etamin": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 268.3,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 244.08
+ },
+ "Acumen": {
+  "tropicalHouse": "sagittarius",
+  "topicalDeg": 269.07,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 244.85
+ },
+ "Sinistra": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 270.1,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 245.88
+ },
+ "Spiculum": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 271.38,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 247.17
+ },
+ "Alnasl": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 271.62,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 247.38
+ },
+ "Polis": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 273.57,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 249.35
+ },
+ "Kaus Media": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 274.93,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 250.72
+ },
+ "Kaus Australis": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 275.43,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 251.2
+ },
+ "Kaus Borealis": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 276.67,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 252.45
+ },
+ "Facies": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 278.67,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 254.45
+ },
+ "Nunki": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 282.73,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 258.52
+ },
+ "Ascella": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 283.98,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 259.77
+ },
+ "Manubrium": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 285.35,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 261.12
+ },
+ "Vega": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 285.67,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 261.43
+ },
+ "Alya": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 286.1,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 261.88
+ },
+ "Arkab Prior": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 286.13,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 261.9
+ },
+ "Arkab Posterior": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 286.18,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 261.97
+ },
+ "Albaldah": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 286.6,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 262.38
+ },
+ "Rukbat": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 286.98,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 262.77
+ },
+ "Sheliak": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 289.23,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 265.0
+ },
+ "Dheneb": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 290.15,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 265.92
+ },
+ "Sulaphat": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 292.27,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 268.05
+ },
+ "Peacock": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 294.17,
+  "siderealHouse": "sagittarius",
+  "siderealDeg": 269.95
+ },
+ "Terebellium": {
+  "tropicalHouse": "capricorn",
+  "topicalDeg": 296.2,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 271.98
+ },
+ "Tarazed": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 301.28,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 277.07
+ },
+ "Sham": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 301.42,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 277.2
+ },
+ "Albireo": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 301.6,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 277.38
+ },
+ "Altair": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 302.13,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 277.92
+ },
+ "Alshain": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 302.77,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 278.55
+ },
+ "Giedi Prima": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 304.12,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 279.9
+ },
+ "Giedi Secunda": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 304.22,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 279.98
+ },
+ "Dabih": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 304.4,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 280.18
+ },
+ "Alshat": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 304.78,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 280.57
+ },
+ "Oculus": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 305.07,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 280.85
+ },
+ "Bos": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 305.52,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 281.3
+ },
+ "Albali": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 312.07,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 287.85
+ },
+ "Armus": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 313.08,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 288.87
+ },
+ "Dorsum": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 314.2,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 289.97
+ },
+ "Alnair": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 316.27,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 292.03
+ },
+ "Rotanev": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 316.68,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 292.47
+ },
+ "Sualocin": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 317.73,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 293.52
+ },
+ "Castra": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 320.55,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 296.33
+ },
+ "Nashira": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 322.15,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 297.92
+ },
+ "Kitalpha": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 323.47,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 299.25
+ },
+ "Sadalsuud": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 323.75,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 299.53
+ },
+ "Deneb Algedi": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 323.9,
+  "siderealHouse": "capricorn",
+  "siderealDeg": 299.67
+ },
+ "Sador": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 325.18,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 300.97
+ },
+ "GienahCyg": {
+  "tropicalHouse": "aquarius",
+  "topicalDeg": 328.1,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 303.88
+ },
+ "Enif": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 332.23,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 308.02
+ },
+ "Ancha": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 333.62,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 309.4
+ },
+ "Sadalmelek": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 333.7,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 309.48
+ },
+ "Fomalhaut": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 334.22,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 310.0
+ },
+ "Deneb Adige": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 335.67,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 311.45
+ },
+ "Sadalachbia": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 337.07,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 312.85
+ },
+ "Biham": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 337.18,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 312.97
+ },
+ "Skat": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 339.23,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 315.0
+ },
+ "Situla": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 339.77,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 315.55
+ },
+ "Achernar": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 345.67,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 321.45
+ },
+ "Ankaa": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 345.85,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 321.63
+ },
+ "Homam": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 346.5,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 322.28
+ },
+ "Sadalbari": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 353.4,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 329.18
+ },
+ "Markab": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 353.83,
+  "siderealHouse": "aquarius",
+  "siderealDeg": 329.62
+ },
+ "Matar": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 356.07,
+  "siderealHouse": "pisces",
+  "siderealDeg": 331.85
+ },
+ "Azelfafage": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 358.62,
+  "siderealHouse": "pisces",
+  "siderealDeg": 334.4
+ },
+ "Scheat": {
+  "tropicalHouse": "pisces",
+  "topicalDeg": 359.73,
+  "siderealHouse": "pisces",
+  "siderealDeg": 335.5
+ }
+}

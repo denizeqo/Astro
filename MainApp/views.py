@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .chartUtility import *
+import json
 
 from flatlib.chart import Chart
 from flatlib.datetime import Datetime
@@ -90,6 +91,8 @@ def Home(request):
             'achernar': chart.getFixedStar(const.STAR_ACHERNAR).lon,
         }
 
+        stars = getStarsData()
+
         planets = {
             'sun': chart.get(const.SUN).lon,
             'moon': chart.get(const.MOON).lon,
@@ -112,10 +115,6 @@ def Home(request):
             'ic':ic.lon,
             'dsc':dsc.lon
         }
-
-        print(chart.get(const.NORTH_NODE).lon)
-        for i in chart.objects:
-            print(i)
 
         return JsonResponse({'asc':asc, 'planets':planets, 'stars':stars})
 
