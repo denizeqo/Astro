@@ -91,7 +91,7 @@ def Home(request):
             'achernar': chart.getFixedStar(const.STAR_ACHERNAR).lon,
         }
 
-        stars = getStarsData()
+        
 
         planets = {
             'sun': chart.get(const.SUN).lon,
@@ -115,6 +115,9 @@ def Home(request):
             'ic':ic.lon,
             'dsc':dsc.lon
         }
+        
+        stars = getStarsData(planets, asc)
+
 
         return JsonResponse({'asc':asc, 'planets':planets, 'stars':stars})
 
