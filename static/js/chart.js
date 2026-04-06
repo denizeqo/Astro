@@ -1,9 +1,24 @@
 // Chart
 const svg = document.getElementById('Chart');
 
+
+let viewBoxSize = 1015;
+let viewBoxX = 0;
+let viewBoxY = 0;
+
+
+function updateViewBox() {
+  svg.setAttribute(
+    'viewBox',
+    `${viewBoxX} ${viewBoxY} ${viewBoxSize} ${viewBoxSize}`
+  );
+}
+
+updateViewBox();
+
 // Circle center
-const cx = 450;
-const cy = 450;
+const cx = viewBoxSize/2;
+const cy = viewBoxSize/2;
 
 const rInsideCircle = 80;
 const rOutsideCircle = 380;
@@ -41,7 +56,9 @@ const rJupiter = rMars + 20;
 const rSaturn = rJupiter + 20;
 
 // Stars orbite
-const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 61, rStaticSymbolCircle + 38, rStaticSymbolCircle + 53];
+//const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 61, rStaticSymbolCircle + 38, rStaticSymbolCircle + 53];
+
+const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 62, rStaticSymbolCircle + 78, rStaticSymbolCircle + 94, rStaticSymbolCircle + 110, rStaticSymbolCircle + 126];
 
 // Signs list
 const signs = [
@@ -434,7 +451,7 @@ function addPlanetSymbols(planets){
 }
 
 
-function addStarsSymbol(stars){
+function addStarsSymbol2(stars){
 
   let num = 0;
 
@@ -443,7 +460,37 @@ function addStarsSymbol(stars){
     addSymbol('star', 12, position, rStarts[num], color='#ffffff', star=star);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
 
-    if (num >= 4){
+    if (num >= 6){
+      num = 0;
+    }else{
+      num++;
+    }
+
+  }
+
+}
+
+function addStarsSymbol(stars){
+
+  let num = 0;
+  console.log(stars.length)
+
+  for(let i = 0; i < stars.length; i++){
+    let position = 360 - stars[i]['topicalDeg']
+
+    if(i != 0){
+      console.log(i)
+      starDistance = stars[i]['topicalDeg'] - stars[i - 1]['topicalDeg'] 
+      console.log(starDistance)
+      if (starDistance >= 1.2){
+        num = 0
+      }
+    }
+
+    addSymbol('star', 12, position, rStarts[num], color='#ffffff', star=stars[i]['name']);
+    drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
+
+    if (num >= 6){
       num = 0;
     }else{
       num++;
@@ -741,24 +788,32 @@ function drawEmptyChart(svg){
             <svg id="pisces" viewBox="0 0 16 16" fill="#8968CD" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4.94517 8.99997H2V6.99997H4.94517C4.71828 4.94564 3.80038 3.10059 2.42738 1.70002L3.85558 0.299927C5.58105 2.06004 6.72069 4.40009 6.95516 6.99997H9.04493C9.2794 4.40009 10.419 2.06004 12.1445 0.299927L13.5727 1.70002C12.1997 3.10059 11.2818 4.94564 11.0549 6.99997H14V8.99997H11.0549C11.2818 11.0543 12.1997 12.8994 13.5727 14.2999L12.1445 15.7C10.419 13.9399 9.2794 11.5999 9.04493 8.99997H6.95516C6.72069 11.5999 5.58105 13.9399 3.85558 15.7L2.42738 14.2999C3.80038 12.8994 4.71828 11.0543 4.94517 8.99997Z" fill=""></path> </g></svg>
         </defs>
 
-        <circle cx="450" cy="450" r="380" fill="none" stroke="#fff" stroke-width="1" />
-        <circle cx="450" cy="450" r="400" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="380" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="400" fill="none" stroke="#fff" stroke-width="1" />
         
-        <circle cx="450" cy="450" r="300" fill="none" stroke="#fff" stroke-width="1" />
-        <circle cx="450" cy="450" r="320" fill="none" stroke="#fff" stroke-width="1" />
-        <circle cx="450" cy="450" r="340" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="300" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="320" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="340" fill="none" stroke="#fff" stroke-width="1" />
         
-        <circle cx="450" cy="450" r="120" fill="none" stroke="#fff" stroke-width="1" />
-        <circle cx="450" cy="450" r="100" fill="none" stroke="#fff" stroke-width="1" />
-        <circle cx="450" cy="450" r="80" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="120" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="100" fill="none" stroke="#fff" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="80" fill="none" stroke="#fff" stroke-width="1" />
 
-        <circle cx="450" cy="450" r="160" fill="none" stroke="#AAD5DB50" stroke-width="1" />
-        <circle cx="450" cy="450" r="180" fill="none" stroke="#cdb89150" stroke-width="1" />
-        <circle cx="450" cy="450" r="200" fill="none" stroke="#a8e4a050" stroke-width="1" />
-        <circle cx="450" cy="450" r="220" fill="none" stroke="#FFEA9950" stroke-width="1" />
-        <circle cx="450" cy="450" r="240" fill="none" stroke="#E3242B50" stroke-width="1" />
-        <circle cx="450" cy="450" r="260" fill="none" stroke="#FFAF3D50" stroke-width="1" />
-        <circle cx="450" cy="450" r="280" fill="none" stroke="#80808050" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="160" fill="none" stroke="#AAD5DB50" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="180" fill="none" stroke="#cdb89150" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="200" fill="none" stroke="#a8e4a050" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="220" fill="none" stroke="#FFEA9950" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="240" fill="none" stroke="#E3242B50" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="260" fill="none" stroke="#FFAF3D50" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="280" fill="none" stroke="#80808050" stroke-width="1" />
+
+        <circle cx="${cx}" cy="${cy}" r="410" fill="none" stroke="#808080" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="426" fill="none" stroke="#808080" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="442" fill="none" stroke="#808080" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="458" fill="none" stroke="#808080" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="474" fill="none" stroke="#808080" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="490" fill="none" stroke="#808080" stroke-width="1" />
+        <circle cx="${cx}" cy="${cy}" r="506" fill="none" stroke="#808080" stroke-width="1" />
         `
 
 
@@ -790,25 +845,11 @@ function drawEmptyChart(svg){
 const svg1 = document.getElementById('Chart');
 
 // graph size (SVG content size)
-const GRAPH_SIZE = 900;
-
-// viewBox state
-let viewBoxSize = 900;
-let viewBoxX = 0;
-let viewBoxY = 0;
+const GRAPH_SIZE = 1050;
 
 // zoom limits
 const MIN_ZOOM = 300;
-const MAX_ZOOM = 900;
-
-function updateViewBox() {
-  svg1.setAttribute(
-    'viewBox',
-    `${viewBoxX} ${viewBoxY} ${viewBoxSize} ${viewBoxSize}`
-  );
-}
-
-updateViewBox();
+const MAX_ZOOM = 1000;
 
 // keep viewBox inside graph bounds
 function clampViewBox() {
@@ -834,7 +875,7 @@ function getSVGPoint(evt) {
   };
 }
 
-svg1.addEventListener('wheel', (e) => {
+`svg1.addEventListener('wheel', (e) => {
   e.preventDefault();
 
   const zoomFactor = 1.05;
@@ -863,7 +904,7 @@ svg1.addEventListener('wheel', (e) => {
 
   clampViewBox();
   updateViewBox();
-});
+});`
 
 
 
