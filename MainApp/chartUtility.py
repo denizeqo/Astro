@@ -73,10 +73,10 @@ def getStarsData2(planets, asc):
     for star in data:
         starPosition = data[star]["topicalDeg"]
 
-        #if int(starPosition/2.5) in planetsIndex or int(starPosition/2.5) in ascIndex:
-        #     stars[star] = data[star]
+        if int(starPosition/2.5) in planetsIndex or int(starPosition/2.5) in ascIndex:
+            #stars[star] = data[star]
 
-        stars.append({'name': star, "topicalDeg": starPosition})
+            stars.append({'name': star, "topicalDeg": starPosition, 'starNum':int(starPosition/2.5)})
     
     #stars = dict(sorted(stars.items(), key=lambda item: item[1]["topicalDeg"]))
     #stars = dict(sorted(data.items(), key=lambda item: item[1]["topicalDeg"]))

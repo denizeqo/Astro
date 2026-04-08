@@ -58,7 +58,7 @@ const rSaturn = rJupiter + 20;
 // Stars orbite
 //const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 61, rStaticSymbolCircle + 38, rStaticSymbolCircle + 53];
 
-const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 62, rStaticSymbolCircle + 78, rStaticSymbolCircle + 94, rStaticSymbolCircle + 110, rStaticSymbolCircle + 126];
+const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 62, rStaticSymbolCircle + 78, rStaticSymbolCircle + 94, rStaticSymbolCircle + 110, rStaticSymbolCircle + 126, rStaticSymbolCircle + 142];
 
 // Signs list
 const signs = [
@@ -145,142 +145,9 @@ const planetsOrbite = {
   'chiron': rSaturn
 }
 
-starsData = {
-  // 1 House
-  'Deneb Kaitos': {'deg': 1.23, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Kereb': {'deg': 1.38, 'r': rStarts[1], 'color': '#880808'},
-  'Algenib': {'deg': 9.48, 'r': rStarts[0], 'color': '#4E9FE5'},
-  'Erakis': {'deg': 10.2, 'r': rStarts[1], 'color': '#880808'},
-  'Alderamina' : {'deg': 13, 'r': rStarts[0], 'color': '#ffffff'},
-  'Alpheratz' : {'deg': 14.63, 'r': rStarts[0], 'color': '#ffed29'},
-  'Nodus 1' : {'deg': 17.46, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Nodus 2' : {'deg': 17.46, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Baten Kaitos' : {'deg': 22.28, 'r': rStarts[0], 'color': '#FFAF3D'},
-  'Acamar' : {'deg': 23.36, 'r': rStarts[1], 'color': '#ffffff'},
-  'Curda' : {'deg': 24.53, 'r': rStarts[0], 'color': '#E3242B'},
-  'Al Pherg' : {'deg': 27, 'r': rStarts[0], 'color': '#ffed29'},
-  'Alrischa' : {'deg': 29.7, 'r': rStarts[0], 'color': '#4E9FE5'},
-
-  //2 House
-  'Mirach' : {'deg': 30.73, 'r': rStarts[1], 'color': '#E3242B'},
-  'Mira' : {'deg': 31.85, 'r': rStarts[0], 'color': '#E3242B'},
-  'Angetenar' : {'deg': 32.96, 'r': rStarts[2], 'color': '#ffed29'},
-  'Tyl' : {'deg': 33, 'r': rStarts[3], 'color': '#ffed29'},
-  'Mesarthim' : {'deg': 33.51, 'r': rStarts[1], 'color': '#4E9FE5'},
-  'Sheratan' : {'deg': 34.3, 'r': rStarts[0], 'color': '#ffffff'},
-  'Caph' : {'deg': 35.45, 'r': rStarts[1], 'color': '#ffed29'},
-  'Alfio' : {'deg': 35.86, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Metallah' : {'deg': 37.18, 'r': rStarts[3], 'color': '#ffffff'},
-  'Hamal' : {'deg': 37.98, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Schedir' : {'deg': 38.11, 'r': rStarts[2], 'color': '#FFEA99'},
-  'Adhil' : {'deg': 38.18, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Azha' : {'deg': 39.08, 'r': rStarts[3], 'color': '#8968CD'},
-  'Kaffaljidhma' : {'deg': 39.76, 'r': rStarts[1], 'color': '#FFAF3D'},
-  'Achirardo' : {'deg': 40.58, 'r': rStarts[0], 'color': '#E3242B'},
-  'Zibal' : {'deg': 44.15, 'r': rStarts[2], 'color': '#FFEA99'},
-  'Cih' : {'deg': 44.26, 'r': rStarts[0], 'color': '#4E9FE5'},
-  'Almach' : {'deg': 44.55, 'r': rStarts[1], 'color': '#ffed29'},
-  'Menkare' : {'deg': 44.65, 'r': rStarts[3], 'color': '#E3242B'},
-  'Rucha' : {'deg': 48.26, 'r': rStarts[0], 'color': '#ffffff'},
-  'Boteina' : {'deg': 51.18, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Rana' : {'deg': 51.2, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Zaurak' : {'deg': 54.2, 'r': rStarts[0], 'color': '#E3242B'},
-  'Capulo' : {'deg': 54.51, 'r': rStarts[1], 'color': '#5c5c5c'},
-  'Segnin' : {'deg': 55.1, 'r': rStarts[3], 'color': '#5c5c5c'},
-  'Algo' : {'deg': 56.50, 'r': rStarts[0], 'color': '#ffffff'},
-  'Misam' : {'deg': 58, 'r': rStarts[0], 'color': '#FFAF3D'},
-  'Miram' : {'deg': 59.1, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Elettra' : {'deg': 59.75, 'r': rStarts[2], 'color': '#5c5c5c'},
-  'Beida' : {'deg': 59.76, 'r': rStarts[0], 'color': '#ffffff'},
-  'Celeno' : {'deg': 59.76, 'r': rStarts[3], 'color': '#ffffff'},
-  'Taigeta' : {'deg': 59.9, 'r': rStarts[4], 'color': '#ffffff'},
-
-  //3 House
-  'Maia' : {'deg': 61.01, 'r': rStarts[0], 'color': '#ffffff'},
-  'Merope' : {'deg': 61.01, 'r': rStarts[1], 'color': '#ffffff'},
-  'Asterope' : {'deg': 61.04, 'r': rStarts[3], 'color': '#4E9FE5'},
-  'Teemin' : {'deg': 61.21, 'r': rStarts[2], 'color': '#5c5c5c'},
-  'Alcione' : {'deg': 61.31, 'r': rStarts[4], 'color': '#5c5c5c'},
-  'Alrai' : {'deg': 62.4, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Keid' : {'deg': 62.4, 'r': rStarts[1], 'color': '#5c5c5c'},
-  'Atlante' : {'deg': 62.4, 'r': rStarts[2], 'color': '#5c5c5c'},
-  'Pleione' : {'deg': 62.4, 'r': rStarts[3], 'color': '#ffffff'},
-  'Atichi' : {'deg': 62.4, 'r': rStarts[4], 'color': '#ffffff'},
-  'Mirfak' : {'deg': 64, 'r': rStarts[0], 'color': '#ffed29'},
-  'Menkib' : {'deg': 65.3, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Sceptrum' : {'deg': 65.58, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Prima Hyadum' : {'deg': 66.13, 'r': rStarts[3], 'color': '#FFEA99'},
-  'Secondo' : {'deg': 67.2, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Ain' : {'deg': 68.8, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Aldebaran' : {'deg': 70.11, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Tabit' : {'deg': 72.26, 'r': rStarts[0], 'color': '#FFffff'},
-  'Cursa' : {'deg': 75.6, 'r': rStarts[0], 'color': '#ffffff'},
-  'Hasseleh' : {'deg': 76.96, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Rigel' : {'deg': 77.16, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Hoedus 1' : {'deg': 78.93, 'r': rStarts[0], 'color': '#ffed29'},
-  'Hoedus 2' : {'deg': 79.78, 'r': rStarts[1], 'color': '#4E9FE5'},
-  'Nihal' : {'deg': 80, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Bellatrix' : {'deg': 81.28, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Arneb' : {'deg': 81.71, 'r': rStarts[1], 'color': '#ffed29'},
-  'Cappella' : {'deg': 82.18, 'r': rStarts[3], 'color': '#ffed29'},
-  'Phakt' : {'deg': 82.5, 'r': rStarts[2], 'color': '#5c5c5c'},
-  'Mintaka' : {'deg': 82.7, 'r': rStarts[4], 'color': '#ffffff'},
-  'El Nath' : {'deg': 82.9, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Hatsya' : {'deg': 83.33, 'r': rStarts[1], 'color': '#5c5c5c'},
-  'Alnilam' : {'deg': 83.8, 'r': rStarts[3], 'color': '#5c5c5c'},
-  'Messia' : {'deg': 84.03, 'r': rStarts[2], 'color': '#5c5c5c'},
-  'Alnitak' : {'deg': 85.03, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Al Hacka' : {'deg': 85.11, 'r': rStarts[1], 'color': '#5c5c5c'},
-  'Saiph' : {'deg': 86.73, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Wazen' : {'deg': 86.73, 'r': rStarts[1], 'color': '#5c5c5c'},
-  'Polare' : {'deg': 88.9, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Betelgeuse' : {'deg': 89.08, 'r': rStarts[1], 'color': '#E3242B'},
-
-  //4 House
-  'Menkalinan' : {'deg': 90.23, 'r': rStarts[0], 'color': '#ffffff'},
-  'Yildun' : {'deg': 91.55, 'r': rStarts[0], 'color': '#ffffff'},
-  'Propus' : {'deg': 93.76, 'r': rStarts[0], 'color': '#E3242B'},
-  'Tejat' : {'deg': 95.63, 'r': rStarts[0], 'color': '#E3242B'},
-  'Mirzam' : {'deg': 97.51, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Furud' : {'deg': 97.71, 'r': rStarts[1], 'color': '#ffffff'},
-  'Alhena' : {'deg': 97.51, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Mebsuta' : {'deg': 100.26, 'r': rStarts[0], 'color': '#ffed29'},
-  'Alzirr' : {'deg': 101.53, 'r': rStarts[0], 'color': '#ffed29'},
-  'Dziban' : {'deg': 104.2, 'r': rStarts[0], 'color': '#ffffff'},
-  'Sirio' : {'deg': 104.41, 'r': rStarts[1], 'color': '#ffffff'},
-  'Canopo' : {'deg': 105.3, 'r': rStarts[0], 'color': '#ffed29'},
-  'Meccanismo' : {'deg': 105.31, 'r': rStarts[1], 'color': '#ffed29'},
-  'Il Wasat' : {'deg': 108.85, 'r': rStarts[0], 'color': '#ffffff'},
-  'Mulifene' : {'deg': 109.93, 'r': rStarts[0], 'color': '#FFEA99'},
-  'Castore' : {'deg': 110.58, 'r': rStarts[1], 'color': '#FFffff'},
-  'Adara' : {'deg': 111.1, 'r': rStarts[0], 'color': '#5c5c5c'},
-  'Gomeisa' : {'deg': 112.51, 'r': rStarts[1], 'color': '#ffffff'},
-  'Muscida' : {'deg': 113.33, 'r': rStarts[0], 'color': '#ffed29'},
-  'Polluce' : {'deg': 113.55, 'r': rStarts[1], 'color': '#FFEA99'},
-  'Wezen' : {'deg': 113.73, 'r': rStarts[3], 'color': '#ffed29'},
-  'Procione' : {'deg': 116.11, 'r': rStarts[0], 'color': '#ffed29'},
-  'Aludra' : {'deg': 119.86, 'r': rStarts[0], 'color': '#5c5c5c'},
-
-  //5 House
-  'Talita' : {'deg': 123.13, 'r': rStarts[0], 'color': '#ffffff'},
-  'Al Tarf' : {'deg': 124.58, 'r': rStarts[0], 'color': '#ffed29'},
-  'Azmidischi' : {'deg': 126.36, 'r': rStarts[0], 'color': '#ffed29'},
-  'Praesepe' : {'deg': 127.53, 'r': rStarts[1], 'color': '#E3242B'},
-  'Asellus Boreali' : {'deg': 127.86, 'r': rStarts[0], 'color': '#ffffff'},
-
-
-
-
-
-  
-}
-
-
-
 var staticChartNum = []
 var staticChartSymbols = []
 var num = 1
-
 
 
 // Static Chart
@@ -473,23 +340,45 @@ function addStarsSymbol2(stars){
 function addStarsSymbol(stars){
 
   let num = 0;
-  console.log(stars.length)
+  let oldStarNum = 0;
+  let maxOrbit = 0;
 
   for(let i = 0; i < stars.length; i++){
     let position = 360 - stars[i]['topicalDeg']
+    let starNum = stars[i]['starNum']
+    console.log(starNum)
 
     if(i != 0){
-      console.log(i)
       starDistance = stars[i]['topicalDeg'] - stars[i - 1]['topicalDeg'] 
-      console.log(starDistance)
+
       if (starDistance >= 1.2){
         num = 0
       }
     }
+    else{
+      oldStarNum = starNum
+    }
+
+    if (num > maxOrbit){
+      maxOrbit = num;
+    }
+
+
+
+    if (oldStarNum != starNum){
+      addAngledText2(oldStarNum,360 - (oldStarNum * 2.5 + 1.25), rStarts[maxOrbit+1]);
+      maxOrbit = 0;
+      oldStarNum = starNum
+    }else if(i == stars.length -1){
+      addAngledText2(starNum, 360 - (starNum * 2.5 + 1.25), rStarts[maxOrbit+1]);
+    }
+
+
 
     addSymbol('star', 12, position, rStarts[num], color='#ffffff', star=stars[i]['name']);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
 
+    
     if (num >= 6){
       num = 0;
     }else{
@@ -806,14 +695,6 @@ function drawEmptyChart(svg){
         <circle cx="${cx}" cy="${cy}" r="240" fill="none" stroke="#E3242B50" stroke-width="1" />
         <circle cx="${cx}" cy="${cy}" r="260" fill="none" stroke="#FFAF3D50" stroke-width="1" />
         <circle cx="${cx}" cy="${cy}" r="280" fill="none" stroke="#80808050" stroke-width="1" />
-
-        <circle cx="${cx}" cy="${cy}" r="410" fill="none" stroke="#808080" stroke-width="1" />
-        <circle cx="${cx}" cy="${cy}" r="426" fill="none" stroke="#808080" stroke-width="1" />
-        <circle cx="${cx}" cy="${cy}" r="442" fill="none" stroke="#808080" stroke-width="1" />
-        <circle cx="${cx}" cy="${cy}" r="458" fill="none" stroke="#808080" stroke-width="1" />
-        <circle cx="${cx}" cy="${cy}" r="474" fill="none" stroke="#808080" stroke-width="1" />
-        <circle cx="${cx}" cy="${cy}" r="490" fill="none" stroke="#808080" stroke-width="1" />
-        <circle cx="${cx}" cy="${cy}" r="506" fill="none" stroke="#808080" stroke-width="1" />
         `
 
 
