@@ -289,122 +289,66 @@ function dynamicAscMcIcDsc(data){
 
 
 function addPlanetSymbols(planets){
-
-  colorMap = {
-    0 : '#ffffff',
-    1 : '#E3242B',
-    2 : '#4E9FE5'
-  }
-
   
   for (let planet in planets){
-
     planetPosition = 360 - planets[planet]
     addSymbol(planet, 20, planetPosition, planetsOrbite[planet]);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true);
-
-    let planetNum = 143 - parseInt(planets[planet]/ 2.5);
-    
-    let color = colorMap[staticChartNum[planetNum]%3]
-
-    if (planetNum <= 44){
-      let textSpace = 1300 / planetsOrbite[planet] ;
-      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, staticChartSymbols[planetNum], 11, color=color);
-    }else{
-      let textSpace = 1000 / planetsOrbite[planet] ; 
-      addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, '', 11, color=color);
-    }
-  }
-}
-
-
-function addStarsSymbol2(stars){
-
-  let num = 0;
-
-  for (let star in stars){
-    let position = 360 - stars[star]['topicalDeg']
-    addSymbol('star', 12, position, rStarts[num], color='#ffffff', star=star);
-    drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
-
-    if (num >= 6){
-      num = 0;
-    }else{
-      num++;
-    }
-
+    addPlanetChartNum(planets[planet], planet)
   }
 
 }
+
 
 function addStarsSymbol(stars){
 
-  let num = 0;
+  let orbite = 0;
   let oldStarNum = 0;
   let maxOrbit = 0;
 
   for(let i = 0; i < stars.length; i++){
     let position = 360 - stars[i]['topicalDeg']
     let starNum = stars[i]['starNum']
-    console.log(starNum)
 
     if(i != 0){
       starDistance = stars[i]['topicalDeg'] - stars[i - 1]['topicalDeg'] 
 
       if (starDistance >= 1.2){
-        num = 0
+        orbite = 0
       }
     }
     else{
       oldStarNum = starNum
     }
 
-    if (num > maxOrbit){
-      maxOrbit = num;
+    if (orbite > maxOrbit){
+      maxOrbit = orbite;
     }
-
-
 
     if (oldStarNum != starNum){
-      addAngledText2(oldStarNum,360 - (oldStarNum * 2.5 + 1.25), rStarts[maxOrbit+1]);
+      addStarChartNum(oldStarNum, maxOrbit+1)
       maxOrbit = 0;
       oldStarNum = starNum
-    }else if(i == stars.length -1){
-      addAngledText2(starNum, 360 - (starNum * 2.5 + 1.25), rStarts[maxOrbit+1]);
     }
 
+    if(i == stars.length -1){
+       addStarChartNum(starNum, maxOrbit+1)
+    }
 
-
-    addSymbol('star', 12, position, rStarts[num], color='#ffffff', star=stars[i]['name']);
+    addSymbol('star', 12, position, rStarts[orbite], color='#ffffff', star=stars[i]['name']);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
 
     
-    if (num >= 6){
-      num = 0;
+    if (orbite >= 6){
+      orbite = 0;
     }else{
-      num++;
+      orbite++;
     }
 
   }
-
 }
 
 
-function addStarsSymbol2(stars){
-
-  addSymbol('star', 12, 180, rStarts[0], color='#ffffff');
-  addSymbol('star', 12, 180, rStarts[1], color='#ffffff');
-  addSymbol('star', 12, 180, rStarts[2], color='#ffffff');
-  addSymbol('star', 12, 180, rStarts[3], color='#ffffff');
-  addSymbol('star', 12, 180, rStarts[4], color='#ffffff');
-
-  for (let star in stars){
-    let position = 360 - stars[star]['deg']
-    addSymbol('star', 12, position, stars[star]['r'], color=stars[star]['color'], star=star);
-    drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color=stars[star]['color']);
-  }
-
-}
 
 function tableData(planets, tbody, table){
 
@@ -443,6 +387,36 @@ function tableData(planets, tbody, table){
   }
 
   table.classList.remove('hiddenWidget');
+}
+
+function starTableData(stars, tbody, table){
+
+  for(let star in stars){
+
+    
+    let tr = document.createElement("tr");
+    let starName = stars[star]['name']
+    let starNum = staticChartNum[143 - stars[star]['starNum']]
+    let starDeg = degMin(stars[star]['topicalDeg'])
+    console.log(star)
+
+    let starNameCol = document.createElement("td");
+    starNameCol.textContent = starName;
+    tr.appendChild(starNameCol);
+
+    let starNumCol = document.createElement("td");
+    starNumCol.textContent = starNum;
+    tr.appendChild(starNumCol);
+
+    let starDegCol = document.createElement("td");
+    starDegCol.textContent = starDeg;
+    tr.appendChild(starDegCol);
+
+    tbody.appendChild(tr);
+  }
+
+  table.classList.remove('hiddenWidget');
+
 }
 
 
@@ -580,6 +554,46 @@ function addAngledText(text, deg, radius) {
     label.textContent = text;
     svg.appendChild(label);
 }
+
+
+function addPlanetChartNum(deg, planet){
+
+  colorMap = {
+    0 : '#ffffff',
+    1 : '#E3242B',
+    2 : '#4E9FE5'
+  }
+
+  let planetPosition = 360 - deg;
+  let planetNum = 143 - parseInt(deg/ 2.5);  
+  let color = colorMap[staticChartNum[planetNum]%3]
+
+  if (planetNum <= 44){
+    let textSpace = 1300 / planetsOrbite[planet] ;
+    addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, staticChartSymbols[planetNum], 11, color=color);
+  }else{
+    let textSpace = 1000 / planetsOrbite[planet] ; 
+    addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, '', 11, color=color);
+  }
+}
+
+function addStarChartNum(starNum, orbite){
+
+  colorMap = {
+    0 : '#ffffff',
+    1 : '#E3242B',
+    2 : '#4E9FE5'
+  }
+
+  let color = colorMap[staticChartNum[143 - starNum]%3]
+  supText = '';
+  if (143 - starNum <= 44){
+    supText = staticChartSymbols[143 - starNum];
+  }
+
+  addAngledText2(staticChartNum[143 - starNum],360 - (starNum * 2.5 + 1.25), rStarts[orbite],supText, 11, color=color);
+}
+
 
 function addAngledText2(text, deg, radius, supText='', fontSize=10, color='#ffffff') {
 

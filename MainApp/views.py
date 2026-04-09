@@ -116,7 +116,7 @@ def Home(request):
             'dsc':dsc.lon
         }
         
-        stars = getStarsData2(planets, asc)
+        stars = getStarsData(planets, asc)
 
         return JsonResponse({'asc':asc, 'planets':planets, 'stars':stars})
 

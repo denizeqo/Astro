@@ -45,40 +45,14 @@ def getStarsData(planets, asc):
     ascIndex = [int(i/2.5) for i in asc.values()]
     planetsIndex = [int(i/2.5) for i in planets.values()]
 
-    stars = {}
-    with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\stars.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    #for star in data:
-     #   starPosition = data[star]["topicalDeg"]
-
-      #  if int(starPosition/2.5) in planetsIndex or int(starPosition/2.5) in ascIndex:
-       #     stars[star] = data[star]
-    
-    #stars = dict(sorted(stars.items(), key=lambda item: item[1]["topicalDeg"]))
-    stars = dict(sorted(data.items(), key=lambda item: item[1]["topicalDeg"]))
-
-    return stars 
-
-
-def getStarsData2(planets, asc):
-
-    ascIndex = [int(i/2.5) for i in asc.values()]
-    planetsIndex = [int(i/2.5) for i in planets.values()]
-
     stars = []
-    with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\stars.json", "r", encoding="utf-8") as f:
+    with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\stars2.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     for star in data:
-        starPosition = data[star]["topicalDeg"]
+        starPosition = star["topicalDeg"]
 
         if int(starPosition/2.5) in planetsIndex or int(starPosition/2.5) in ascIndex:
-            #stars[star] = data[star]
-
-            stars.append({'name': star, "topicalDeg": starPosition, 'starNum':int(starPosition/2.5)})
+            stars.append({'name': star['name'], "topicalDeg": starPosition, 'starNum':int(starPosition/2.5)})
     
-    #stars = dict(sorted(stars.items(), key=lambda item: item[1]["topicalDeg"]))
-    #stars = dict(sorted(data.items(), key=lambda item: item[1]["topicalDeg"]))
-
     return stars 

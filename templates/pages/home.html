@@ -40,9 +40,10 @@
             dynamicChart(data['asc']['asc']);
             dynamicAscMcIcDsc(data['asc']);
             addPlanetSymbols(data['planets']);
-            tableData(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
+            //tableData(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
             tableData(data['planets'], document.getElementById('planetsTable'), document.getElementById('ChartTable'));
             addStarsSymbol(data['stars']);
+            starTableData(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
      
             })
         .catch(error => console.log("Error:", error));
