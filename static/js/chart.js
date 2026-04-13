@@ -56,8 +56,6 @@ const rJupiter = rMars + 20;
 const rSaturn = rJupiter + 20;
 
 // Stars orbite
-//const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 61, rStaticSymbolCircle + 38, rStaticSymbolCircle + 53];
-
 const rStarts = [rStaticSymbolCircle + 30, rStaticSymbolCircle + 46, rStaticSymbolCircle + 62, rStaticSymbolCircle + 78, rStaticSymbolCircle + 94, rStaticSymbolCircle + 110, rStaticSymbolCircle + 126, rStaticSymbolCircle + 142];
 
 // Signs list
@@ -114,35 +112,35 @@ const termsPlaceList = {
 }
 
 const termsSymbolsList = {
-    1:['jupiter', 'venus', 'mercury', 'mars', 'saturn'],
-    2:['venus', 'mercury', 'jupiter', 'saturn', 'mars'],
-    3:['mercury', 'jupiter', 'venus', 'mars', 'saturn'],
-    4:['mars', 'venus', 'mercury', 'jupiter', 'saturn'],
-    5:['jupiter', 'venus', 'saturn', 'mercury', 'mars'],
-    6:['mercury', 'venus', 'jupiter', 'mars', 'saturn'],
-    7:['saturn', 'mercury', 'jupiter', 'venus', 'mars'],
-    8:['mars', 'venus', 'mercury', 'jupiter', 'saturn'],
-    9:['jupiter', 'venus', 'mercury', 'saturn', 'mars'],
-    10:['mercury', 'jupiter', 'venus', 'saturn', 'mars'],
-    11:['mercury', 'venus', 'jupiter', 'mars', 'saturn'],
-    12:['venus', 'jupiter', 'mercury', 'mars', 'saturn']
+    1:['Jupiter', 'Venus', 'Mercury', 'Mars', 'Saturn'],
+    2:['Venus', 'Mercury', 'Jupiter', 'Saturn', 'Mars'],
+    3:['Mercury', 'Jupiter', 'Venus', 'Mars', 'Saturn'],
+    4:['Mars', 'Venus', 'Mercury', 'Jupiter', 'Saturn'],
+    5:['Jupiter', 'Venus', 'Saturn', 'Mercury', 'Mars'],
+    6:['Mercury', 'Venus', 'Jupiter', 'Mars', 'Saturn'],
+    7:['Saturn', 'Mercury', 'Jupiter', 'Venus', 'Mars'],
+    8:['Mars', 'Venus', 'Mercury', 'Jupiter', 'Saturn'],
+    9:['Jupiter', 'Venus', 'Mercury', 'Saturn', 'Mars'],
+    10:['Mercury', 'Jupiter', 'Venus', 'Saturn', 'Mars'],
+    11:['Mercury', 'Venus', 'Jupiter', 'Mars', 'Saturn'],
+    12:['Venus', 'Jupiter', 'Mercury', 'Mars', 'Saturn']
   };
 
 
 const planetsOrbite = {
-  'moon' : rMoon,
-  'northMoon' : rMoon,
-  'southMoon': rMoon,
-  'sun': rSun,
-  'mercury': rMercury,
-  'venus': rVenus,
-  'mars': rMars,
-  'jupiter': rJupiter,
-  'saturn': rSaturn,
-  'uranus': rSaturn,
-  'neptune': rSaturn,
-  'pluto': rSaturn,
-  'chiron': rSaturn
+  'Moon' : rMoon,
+  'North Moon' : rMoon,
+  'South Moon': rMoon,
+  'Sun': rSun,
+  'Mercury': rMercury,
+  'Venus': rVenus,
+  'Mars': rMars,
+  'Jupiter': rJupiter,
+  'Saturn': rSaturn,
+  'Uranus': rSaturn,
+  'Neptune': rSaturn,
+  'Pluto': rSaturn,
+  'Chiron': rSaturn
 }
 
 var staticChartNum = []
@@ -181,22 +179,6 @@ function staticChart(deg){
 
     // Add house symbol (symbols that are at degtext)
     addSymbol(signs[(houseNum - 1) % 12], 15, deg + 15, rStaticHouseSymbol);
-
-    // Seperat a house for each term based on termsLine and houseNum
-    //let termsLine = termsPlaceList[houseNum];
-    //drawLine(deg + 30 - termsLine[0], rOutsideCircle, rStaticTermsCircle, isMajor);
-    //drawLine(deg + 30 - termsLine[1], rOutsideCircle, rStaticTermsCircle, isMajor);
-    //drawLine(deg + 30 - termsLine[2], rOutsideCircle, rStaticTermsCircle, isMajor);
-    //drawLine(deg + 30 - termsLine[3], rOutsideCircle, rStaticTermsCircle, isMajor);
-
-    // Add terms Symbols based on 
-    //let termsSymbols = termsSymbolsList[houseNum];
-    //addSymbol(termsSymbols[0], 10, deg + 30 - termsLine[0] / 2, rStaticTermsSymbol);
-    //addSymbol(termsSymbols[1], 10, deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rStaticTermsSymbol);
-    //addSymbol(termsSymbols[2], 10, deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rStaticTermsSymbol);
-    //addSymbol(termsSymbols[3], 10, deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rStaticTermsSymbol);
-    //addSymbol(termsSymbols[4], 10, deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rStaticTermsSymbol);
-
     houseNum--;
   }
 
@@ -218,8 +200,6 @@ function staticChart(deg){
   drawLine(deg, rOutsideCircle + 20, rOutsideCircle, true);
 
 }
-
-
 
 
 // Dynamic Part
@@ -260,41 +240,41 @@ function dynamicChart(ascDeg){
 
 function dynamicAscMcIcDsc(data){
 
-  colorMap = {
-    0 : '#ffffff',
-    1 : '#E3242B',
-    2 : '#4E9FE5'
-  }
-
   for(let i in data) {
 
-    let position = 360 - data[i]
-    addAngledText2(i.toUpperCase(), position, rAscText);
-    drawLine(position, rAscText + 10, rDynamicTermsCircle, true);
+    let position = 360 - data[i]['position'];
+    let name = data[i]['name']
+    let color = data[i]['color']
+    let numValue = data[i]['num']['value'];
+    let numSup = data[i]['num']['sup'];
+    let numColor = data[i]['num']['color'];
+    let textSpace = (numSup == '') ? 1200 / rAscText : 1500 / rAscText
 
-    let staticSymbolIndex = 143 - parseInt(data[i]/ 2.5);
-
-    let color = colorMap[staticChartNum[staticSymbolIndex ]%3]
-
-    if (staticSymbolIndex <= 44){
-      let textSpace = 1500 / rAscText;
-      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, staticChartSymbols[staticSymbolIndex], 11, color=color);
-    }else{
-      let textSpace = 1200 / rAscText;
-      addAngledText2(staticChartNum[staticSymbolIndex], position + textSpace, rAscText, '', 11, color=color);
-    }
-
+    addAngledText2(name, position, rAscText);
+    drawLine(position, rAscText + 10, rDynamicTermsCircle, true, color=color);
+    drawLine(position, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=color);
+    drawLine(position, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=color);
+    //drawLine(position, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
+    addAngledText2(numValue, position + textSpace, rAscText, numSup, 11, color=numColor);
   }
 }
 
 
+
 function addPlanetSymbols(planets){
   
-  for (let planet in planets){
-    planetPosition = 360 - planets[planet]
-    addSymbol(planet, 20, planetPosition, planetsOrbite[planet]);
-    drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 24, true);
-    addPlanetChartNum(planets[planet], planet)
+  for (let index in planets){
+
+    planetDeg = planets[index]['position']
+    planetChartPosition = 360 - planetDeg
+    planetName = planets[index]['name']
+    planetColor = planets[index]['color']
+
+    addSymbol(planetName, 20, planetChartPosition, planetsOrbite[planetName]);
+    drawLine(planetChartPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 25, true, color=planetColor);
+    drawLine(planetChartPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
+    drawLine(planetChartPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
+    addPlanetChartNum(planetDeg, planetName)
   }
 
 }
@@ -302,77 +282,56 @@ function addPlanetSymbols(planets){
 
 function addStarsSymbol(stars){
 
-  let orbite = 0;
-  let oldStarNum = 0;
+  let oldStarNum = stars[0]['num']['value'];
   let maxOrbit = 0;
 
   for(let i = 0; i < stars.length; i++){
-    let position = 360 - stars[i]['topicalDeg']
-    let starNum = stars[i]['starNum']
 
-    if(i != 0){
-      starDistance = stars[i]['topicalDeg'] - stars[i - 1]['topicalDeg'] 
+    let position = 360 - stars[i]['position'];
+    let starNumValue = stars[i]['num']['value'];
+    let starOrbite = stars[i]['orbite'];
 
-      if (starDistance >= 1.2){
-        orbite = 0
-      }
-    }
-    else{
-      oldStarNum = starNum
-    }
-
-    if (orbite > maxOrbit){
-      maxOrbit = orbite;
-    }
-
-    if (oldStarNum != starNum){
-      addStarChartNum(oldStarNum, maxOrbit+1)
+    if (oldStarNum != starNumValue){
+      addAngledText2(stars[i - 1]['num']['value'],360 - (parseInt(stars[i - 1]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1],stars[i - 1]['num']['sup'], 9, color=stars[i - 1]['num']['color']);
       maxOrbit = 0;
-      oldStarNum = starNum
+      oldStarNum = starNumValue;
+    }
+
+    if (starOrbite > maxOrbit){
+      maxOrbit = starOrbite;
     }
 
     if(i == stars.length -1){
-       addStarChartNum(starNum, maxOrbit+1)
+      addAngledText2(stars[i]['num']['value'],360 - (parseInt(stars[i]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1], stars[i]['num']['sup'], 9, color=stars[i]['num']['color']);
     }
 
-    addSymbol('star', 12, position, rStarts[orbite], color='#ffffff', star=stars[i]['name']);
+    addSymbol('star', 12, position, rStarts[starOrbite], color='#ffffff', star=stars[i]['name']);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
-
-    
-    if (orbite >= 6){
-      orbite = 0;
-    }else{
-      orbite++;
-    }
-
   }
 }
 
 
+function planetTable(planets, tbody, table){
 
-function tableData(planets, tbody, table){
-
-  for (let planet in planets){
-
+  for (let i in planets){
     let tr = document.createElement("tr");
 
-    let planetName = planet;
-    let planetDeg = degMin(planets[planet])
-    let planetHouseNum = parseInt(planets[planet] / 30) + 1;
-    let planetSign = signs[parseInt(planets[planet] / 30)]
-    let planetNum1 =143 - parseInt(planets[planet] / 2.5)
-
+    let planetName = planets[i]['name'];
+    let planetDeg = degMin(planets[i]['position'])
+    let planetNum = planets[i]['num']['value']
+    let houseNum = planets[i]['house']['num']
+    let houseSymbol = planets[i]['house']['symbol']
 
     let planetNameCol = document.createElement("td");
     planetNameCol.textContent = planetName;
     tr.appendChild(planetNameCol);
 
     let planetSignCol = document.createElement("td");
-    planetSignCol.textContent = planetSign;
+    planetSignCol.textContent = houseSymbol;
     tr.appendChild(planetSignCol);
 
     let planetHouseNumCol = document.createElement("td");
-    planetHouseNumCol.textContent = planetHouseNum;
+    planetHouseNumCol.textContent = houseNum;
     tr.appendChild(planetHouseNumCol);
 
     let planetDegCol = document.createElement("td");
@@ -380,25 +339,23 @@ function tableData(planets, tbody, table){
     tr.appendChild(planetDegCol);
 
     let planetNumCol = document.createElement("td");
-    planetNumCol.textContent = staticChartNum[planetNum1];
+    planetNumCol.textContent = planetNum;
     tr.appendChild(planetNumCol);
 
     tbody.appendChild(tr);
   }
-
   table.classList.remove('hiddenWidget');
 }
 
-function starTableData(stars, tbody, table){
 
-  for(let star in stars){
+function starTable(stars, tbody, table){
 
-    
+  for (let i in stars){
+
     let tr = document.createElement("tr");
-    let starName = stars[star]['name']
-    let starNum = staticChartNum[143 - stars[star]['starNum']]
-    let starDeg = degMin(stars[star]['topicalDeg'])
-    console.log(star)
+    let starName = stars[i]['name']
+    let starNum = stars[i]['num']['value']
+    let starDeg = degMin(stars[i]['position'])
 
     let starNameCol = document.createElement("td");
     starNameCol.textContent = starName;
@@ -414,12 +371,8 @@ function starTableData(stars, tbody, table){
 
     tbody.appendChild(tr);
   }
-
   table.classList.remove('hiddenWidget');
-
 }
-
-
 
 
 // Chart Utility
@@ -558,15 +511,9 @@ function addAngledText(text, deg, radius) {
 
 function addPlanetChartNum(deg, planet){
 
-  colorMap = {
-    0 : '#ffffff',
-    1 : '#E3242B',
-    2 : '#4E9FE5'
-  }
-
   let planetPosition = 360 - deg;
   let planetNum = 143 - parseInt(deg/ 2.5);  
-  let color = colorMap[staticChartNum[planetNum]%3]
+  let color = getNumColor(staticChartNum[planetNum])
 
   if (planetNum <= 44){
     let textSpace = 1300 / planetsOrbite[planet] ;
@@ -579,19 +526,29 @@ function addPlanetChartNum(deg, planet){
 
 function addStarChartNum(starNum, orbite){
 
-  colorMap = {
-    0 : '#ffffff',
-    1 : '#E3242B',
-    2 : '#4E9FE5'
-  }
-
-  let color = colorMap[staticChartNum[143 - starNum]%3]
+  let color = getNumColor(staticChartNum[143 - starNum])
   supText = '';
   if (143 - starNum <= 44){
     supText = staticChartSymbols[143 - starNum];
   }
 
   addAngledText2(staticChartNum[143 - starNum],360 - (starNum * 2.5 + 1.25), rStarts[orbite],supText, 11, color=color);
+}
+
+function getNumColor(num){
+
+  colorMap = {
+    0 : '#ffffff',
+    1 : '#E3242B',
+    2 : '#4E9FE5'
+  }
+
+  yelloColorNums = [4, 13, 16, 22, 31, 40, 49, 58, 67, 76, 85, 94]
+  if (yelloColorNums.includes(num)){
+    return '#FFEA99'
+  }
+
+  return colorMap[num % 3]
 }
 
 
@@ -664,19 +621,19 @@ function drawEmptyChart(svg){
   svg.innerHTML= `<defs>
             <svg id="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.245 4.174C11.4765 3.50808 11.5922 3.17513 11.7634 3.08285C11.9115 3.00298 12.0898 3.00298 12.238 3.08285C12.4091 3.17513 12.5248 3.50808 12.7563 4.174L14.2866 8.57639C14.3525 8.76592 14.3854 8.86068 14.4448 8.93125C14.4972 8.99359 14.5641 9.04218 14.6396 9.07278C14.725 9.10743 14.8253 9.10947 15.0259 9.11356L19.6857 9.20852C20.3906 9.22288 20.743 9.23007 20.8837 9.36432C21.0054 9.48051 21.0605 9.65014 21.0303 9.81569C20.9955 10.007 20.7146 10.2199 20.1528 10.6459L16.4387 13.4616C16.2788 13.5829 16.1989 13.6435 16.1501 13.7217C16.107 13.7909 16.0815 13.8695 16.0757 13.9507C16.0692 14.0427 16.0982 14.1387 16.1563 14.3308L17.506 18.7919C17.7101 19.4667 17.8122 19.8041 17.728 19.9793C17.6551 20.131 17.5108 20.2358 17.344 20.2583C17.1513 20.2842 16.862 20.0829 16.2833 19.6802L12.4576 17.0181C12.2929 16.9035 12.2106 16.8462 12.1211 16.8239C12.042 16.8043 11.9593 16.8043 11.8803 16.8239C11.7908 16.8462 11.7084 16.9035 11.5437 17.0181L7.71805 19.6802C7.13937 20.0829 6.85003 20.2842 6.65733 20.2583C6.49056 20.2358 6.34626 20.131 6.27337 19.9793C6.18915 19.8041 6.29123 19.4667 6.49538 18.7919L7.84503 14.3308C7.90313 14.1387 7.93218 14.0427 7.92564 13.9507C7.91986 13.8695 7.89432 13.7909 7.85123 13.7217C7.80246 13.6435 7.72251 13.5829 7.56262 13.4616L3.84858 10.6459C3.28678 10.2199 3.00588 10.007 2.97101 9.81569C2.94082 9.65014 2.99594 9.48051 3.11767 9.36432C3.25831 9.23007 3.61074 9.22289 4.31559 9.20852L8.9754 9.11356C9.176 9.10947 9.27631 9.10743 9.36177 9.07278C9.43726 9.04218 9.50414 8.99359 9.55657 8.93125C9.61593 8.86068 9.64887 8.76592 9.71475 8.57639L11.245 4.174Z" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             <svg id="star2" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" style="filter: blur(0.5px);"/></svg>
-            <svg id="chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
-            <svg id="pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
-            <svg id="neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
-            <svg id="uranus" viewBox="0 0 32 32" fill="#4E9FE5"><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
-            <svg id="jupiter" viewBox="0 0 32 32" fill="#FFAF3D"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
-            <svg id="saturn" viewBox="0 0 32 32" fill="#808080"><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
-            <svg id="mars" viewBox="0 0 32 32" fill="none" stroke="#E3242B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
-            <svg id="venus" viewBox="0 0 32 32" fill="" stroke="#a8e4a0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="6"/><line x1="16" y1="17" x2="16" y2="26"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
-            <svg id="mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
-            <svg id="sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
-            <svg id="moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="northMoon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
-            <svg id="southMoon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
+            <svg id="Chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
+            <svg id="Pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
+            <svg id="Neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
+            <svg id="Uranus" viewBox="0 0 32 32" fill="#4E9FE5"><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
+            <svg id="Jupiter" viewBox="0 0 32 32" fill="#FFAF3D"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
+            <svg id="Saturn" viewBox="0 0 32 32" fill="#808080"><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
+            <svg id="Mars" viewBox="0 0 32 32" fill="none" stroke="#E3242B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
+            <svg id="Venus" viewBox="0 0 32 32" fill="" stroke="#a8e4a0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="6"/><line x1="16" y1="17" x2="16" y2="26"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
+            <svg id="Mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
+            <svg id="Sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
+            <svg id="Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="North Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
+            <svg id="South Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
             <svg id="gemini" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#EEDEC5" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> <g id="Horoscope"> <path d="M33,34.1V11.9A26.5,26.5,0,0,0,43.4,5.4a1.9,1.9,0,0,0,0-2.8,1.9,1.9,0,0,0-2.8,0,23.6,23.6,0,0,1-33.2,0,1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8A26.5,26.5,0,0,0,15,11.9V34.1A26.5,26.5,0,0,0,4.6,40.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,23.6,23.6,0,0,1,33.2,0,1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8A26.5,26.5,0,0,0,33,34.1ZM19,33V13a27.3,27.3,0,0,0,5,.5,27.3,27.3,0,0,0,5-.5V33a27.3,27.3,0,0,0-5-.5A27.3,27.3,0,0,0,19,33Z" fill=""></path> </g> </g> </g></svg>
             <svg id="aries" viewBox="0 0 16 16" fill="#E3242B" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 4.19056C0 2.42846 1.42846 1 3.19056 1C4.72033 1 6.03482 2.08579 6.32371 3.58803L8 12.3047L9.67629 3.58803C9.96518 2.08579 11.2797 1 12.8094 1C14.5715 1 16 2.42846 16 4.19056V6H14V4.19056C14 3.53303 13.467 3 12.8094 3C12.2386 3 11.7481 3.40516 11.6403 3.96573L9.32602 16H6.67398L4.3597 3.96573C4.2519 3.40516 3.7614 3 3.19056 3C2.53303 3 2 3.53303 2 4.19056V6H0V4.19056Z" fill=""></path> </g></svg>
             <svg id="taurus" viewBox="0 0 16 16" fill="#7BB369" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 2.20914 4 0H2C2 2.08697 3.06551 3.92508 4.68221 5C3.06551 6.07492 2 7.91303 2 10C2 13.3137 4.68629 16 8 16C11.3137 16 14 13.3137 14 10C14 7.91303 12.9345 6.07492 11.3178 5C12.9345 3.92508 14 2.08697 14 0H12C12 2.20914 10.2091 4 8 4ZM8 6C5.79086 6 4 7.79086 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 7.79086 10.2091 6 8 6Z" fill=""></path> </g></svg>
