@@ -129,8 +129,8 @@ const termsSymbolsList = {
 
 const planetsOrbite = {
   'Moon' : rMoon,
-  'North Moon' : rMoon,
-  'South Moon': rMoon,
+  'North Node' : rMoon,
+  'South Node': rMoon,
   'Sun': rSun,
   'Mercury': rMercury,
   'Venus': rVenus,
@@ -162,14 +162,14 @@ function staticChart(deg){
 
     if (isHouse){
       // If isHouse true draw a longer line
-      drawLine(deg, rOutsideCircle + 20, rOutsideCircle - 5, isMajor);
+      drawLine(deg, rOutsideCircle + 20, rOutsideCircle - 5, false);
       //  Seperate the dynamic
-      drawLine(deg, rDynamicSymbolCircle + 25, rDynamicTermsCircle, isMajor);
-      drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, isMajor);
+      drawLine(deg, rDynamicSymbolCircle + 25, rDynamicTermsCircle, false);
+      drawLine(deg, rStaticHouseCircle + 20, rDynamicHouseCircle, false);
     }else{
       // Draw deg tick
-      drawLine(deg, rOutsideCircle, rOutsideCircle - 3, isMajor);
-      drawLine(deg, rDynamicSymbolCircle + 23, rDynamicSymbolCircle, isMajor);
+      drawLine(deg, rOutsideCircle, rOutsideCircle - 3, false);
+      drawLine(deg, rDynamicSymbolCircle + 23, rDynamicSymbolCircle, false);
     } 
   }
 
@@ -197,7 +197,7 @@ function staticChart(deg){
   staticChartSymbols.push(signs[11 - signsIndex].slice(0, 2).toUpperCase())
   num ++;
   // draw a line every 2.5 deg
-  drawLine(deg, rOutsideCircle + 20, rOutsideCircle, true);
+  drawLine(deg, rOutsideCircle + 20, rOutsideCircle, false);
 
 }
 
@@ -216,10 +216,10 @@ function dynamicChart(ascDeg){
       addText(houseNum, startdeg + deg + 15, rDynamicHouseText);
 
       let termsLine = termsPlaceList[houseNum];
-      drawLine(startdeg + deg + 30 - termsLine[0], rDynamicTermsCircle, rDynamicSymbolCircle, true);
-      drawLine(startdeg + deg + 30 - termsLine[1], rDynamicTermsCircle, rDynamicSymbolCircle, true);
-      drawLine(startdeg + deg + 30 - termsLine[2], rDynamicTermsCircle, rDynamicSymbolCircle, true);
-      drawLine(startdeg + deg + 30 - termsLine[3], rDynamicTermsCircle, rDynamicSymbolCircle, true);
+      drawLine(startdeg + deg + 30 - termsLine[0], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsLine[1], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsLine[2], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsLine[3], rDynamicTermsCircle, rDynamicSymbolCircle, false);
 
       let termsSymbols1 = termsSymbolsList[houseNum];
       addSymbol(termsSymbols1[0], 10, startdeg + deg + 30 - termsLine[0] / 2, rDynamicTermsSymbol);
@@ -234,7 +234,7 @@ function dynamicChart(ascDeg){
     signsIndex = ((deg + 30 +  - (2.5 * houseNum))  / 2.5) % 12;
 
     addSymbol(signs[11 - signsIndex], 9, 1.3 + startdeg + deg, rDynamicSymbolSymbol);
-    drawLine(startdeg + deg, rDynamicSymbolCircle + 20, rDynamicSymbolCircle, true);
+    drawLine(startdeg + deg, rDynamicSymbolCircle + 20, rDynamicSymbolCircle, false);
   }
 }
 
@@ -250,11 +250,11 @@ function dynamicAscMcIcDsc(data){
     let numColor = data[i]['num']['color'];
     let textSpace = (numSup == '') ? 1200 / rAscText : 1500 / rAscText
 
-    addAngledText2(name, position, rAscText);
+    addAngledText2(name, position, rAscText, '', 10, color);
     drawLine(position, rAscText + 10, rDynamicTermsCircle, true, color=color);
-    drawLine(position, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=color);
-    drawLine(position, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=color);
-    //drawLine(position, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
+    //drawLine(position, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=color);
+    //drawLine(position, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=color);
+    drawLine(position, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
     addAngledText2(numValue, position + textSpace, rAscText, numSup, 11, color=numColor);
   }
 }
@@ -262,19 +262,34 @@ function dynamicAscMcIcDsc(data){
 
 
 function addPlanetSymbols(planets){
-  
+
+  let textSpace = 0
   for (let index in planets){
 
-    planetDeg = planets[index]['position']
-    planetChartPosition = 360 - planetDeg
-    planetName = planets[index]['name']
-    planetColor = planets[index]['color']
+    let planetPosition = 360 - planets[index]['position']
+    let planetSymbolPosition = 360 - planets[index]['symbolPosition']
+    let planetName = planets[index]['name']
+    let planetColor = planets[index]['color']
+    let planetNumValue = planets[index]['num']['value']
+    let planetNumColor = planets[index]['num']['color']
+    let planetNumSup = planets[index]['num']['sup']
 
-    addSymbol(planetName, 20, planetChartPosition, planetsOrbite[planetName]);
-    drawLine(planetChartPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 25, true, color=planetColor);
-    drawLine(planetChartPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
-    drawLine(planetChartPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
-    addPlanetChartNum(planetDeg, planetName)
+    console.log(planetName)
+    console.log(planetSymbolPosition)
+    addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName]);
+    drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
+    drawLine(planetPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
+    drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
+    //drawLine(planetChartPosition, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
+
+    if (planetNumSup == ''){
+       textSpace = 1000 / planetsOrbite[planetName]; 
+    }
+    else{
+       textSpace = 1300  / planetsOrbite[planetName]; 
+    }
+
+    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 11, color=planetNumColor);
   }
 
 }
@@ -318,9 +333,15 @@ function planetTable(planets, tbody, table){
 
     let planetName = planets[i]['name'];
     let planetDeg = degMin(planets[i]['position'])
+    let planetMovement = planets[i]['movement']
     let planetNum = planets[i]['num']['value']
+    let planetNumSup = planets[i]['num']['sup']
+    let planetNumColor = planets[i]['num']['color']
     let houseNum = planets[i]['house']['num']
     let houseSymbol = planets[i]['house']['symbol']
+    
+
+    const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
 
     let planetNameCol = document.createElement("td");
     planetNameCol.textContent = planetName;
@@ -339,8 +360,13 @@ function planetTable(planets, tbody, table){
     tr.appendChild(planetDegCol);
 
     let planetNumCol = document.createElement("td");
-    planetNumCol.textContent = planetNum;
+    planetNumCol.innerHTML = `${planetNum}<sup>${planetNumSup}</sup>`;
+    planetNumCol.style.color = planetNumColor
     tr.appendChild(planetNumCol);
+
+     let planetMovementCol = document.createElement("td");
+    planetMovementCol.textContent = planetMovement;
+    tr.appendChild(planetMovementCol);
 
     tbody.appendChild(tr);
   }
@@ -353,21 +379,36 @@ function starTable(stars, tbody, table){
   for (let i in stars){
 
     let tr = document.createElement("tr");
+
     let starName = stars[i]['name']
-    let starNum = stars[i]['num']['value']
     let starDeg = degMin(stars[i]['position'])
+    let starHouseSymbol = stars[i]['house']['symbol']
+    let starHouseNum = stars[i]['house']['num']
+    let starNum = stars[i]['num']['value']
+    let starNumSup = stars[i]['num']['sup']
+    let starNumColor = stars[i]['num']['color']
+    
 
     let starNameCol = document.createElement("td");
     starNameCol.textContent = starName;
     tr.appendChild(starNameCol);
 
-    let starNumCol = document.createElement("td");
-    starNumCol.textContent = starNum;
-    tr.appendChild(starNumCol);
+    let starHouseSymbolCol = document.createElement("td");
+    starHouseSymbolCol.textContent = starHouseSymbol;
+    tr.appendChild(starHouseSymbolCol);
+
+    let starHouseNumCol = document.createElement("td");
+    starHouseNumCol.textContent = starHouseNum;
+    tr.appendChild(starHouseNumCol);
 
     let starDegCol = document.createElement("td");
     starDegCol.textContent = starDeg;
     tr.appendChild(starDegCol);
+
+    let starNumCol = document.createElement("td");
+    starNumCol.innerHTML = `${starNum}<sup>${starNumSup}</sup>`;
+    starNumCol.style.color = starNumColor
+    tr.appendChild(starNumCol);
 
     tbody.appendChild(tr);
   }
@@ -391,6 +432,11 @@ function drawLine(deg, rOut, rIn, isMajor=false, color='#ffffff'){
     line.setAttribute('x2', x2);
     line.setAttribute('y2', y2);
     line.setAttribute('stroke', color);
+
+    if(isMajor){
+      line.setAttribute('stroke-width', 1.7);
+    }
+    
     svg.appendChild(line);
 }
 
@@ -405,6 +451,12 @@ function addText(text, deg, radius){
     label.setAttribute('x', tx);
     label.setAttribute('y', ty);
     label.setAttribute('class', 'degree');
+    label.setAttribute('fill', '#ffffff');
+    label.setAttribute('font-size', '13px');
+    label.setAttribute('text-anchor', 'middle');
+    label.setAttribute('dominant-baseline', 'middle');
+    label.setAttribute('font-family', '"Inter", sans-serif');
+
     label.textContent = text;
     svg.appendChild(label);
 }
@@ -586,14 +638,18 @@ function addAngledText2(text, deg, radius, supText='', fontSize=10, color='#ffff
     normal.textContent = text;
     normal.setAttribute('font-size', fontSize + 'px');
     normal.setAttribute('fill', color);
-    normal.setAttribute('class', 'chartText')
+    normal.setAttribute('class', 'chartText');
+    normal.setAttribute('font-weight', 400);
+    normal.setAttribute('font-family', '"Inter", sans-serif');
 
     const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     sup.textContent = supText;
     sup.setAttribute("baseline-shift", "super");
     sup.setAttribute("font-size", "50%");
     sup.setAttribute('fill', color);
-    sup.setAttribute('class', 'chartText')
+    sup.setAttribute('class', 'chartText');
+    sup.setAttribute('font-weight', 400);
+    sup.setAttribute('font-family', '"Inter", sans-serif');
 
     label.appendChild(normal);
     label.appendChild(sup);
@@ -632,8 +688,8 @@ function drawEmptyChart(svg){
             <svg id="Mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
             <svg id="Sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
             <svg id="Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="North Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
-            <svg id="South Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
+            <svg id="North Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
+            <svg id="South Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
             <svg id="gemini" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#EEDEC5" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> <g id="Horoscope"> <path d="M33,34.1V11.9A26.5,26.5,0,0,0,43.4,5.4a1.9,1.9,0,0,0,0-2.8,1.9,1.9,0,0,0-2.8,0,23.6,23.6,0,0,1-33.2,0,1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8A26.5,26.5,0,0,0,15,11.9V34.1A26.5,26.5,0,0,0,4.6,40.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,23.6,23.6,0,0,1,33.2,0,1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8A26.5,26.5,0,0,0,33,34.1ZM19,33V13a27.3,27.3,0,0,0,5,.5,27.3,27.3,0,0,0,5-.5V33a27.3,27.3,0,0,0-5-.5A27.3,27.3,0,0,0,19,33Z" fill=""></path> </g> </g> </g></svg>
             <svg id="aries" viewBox="0 0 16 16" fill="#E3242B" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 4.19056C0 2.42846 1.42846 1 3.19056 1C4.72033 1 6.03482 2.08579 6.32371 3.58803L8 12.3047L9.67629 3.58803C9.96518 2.08579 11.2797 1 12.8094 1C14.5715 1 16 2.42846 16 4.19056V6H14V4.19056C14 3.53303 13.467 3 12.8094 3C12.2386 3 11.7481 3.40516 11.6403 3.96573L9.32602 16H6.67398L4.3597 3.96573C4.2519 3.40516 3.7614 3 3.19056 3C2.53303 3 2 3.53303 2 4.19056V6H0V4.19056Z" fill=""></path> </g></svg>
             <svg id="taurus" viewBox="0 0 16 16" fill="#7BB369" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 2.20914 4 0H2C2 2.08697 3.06551 3.92508 4.68221 5C3.06551 6.07492 2 7.91303 2 10C2 13.3137 4.68629 16 8 16C11.3137 16 14 13.3137 14 10C14 7.91303 12.9345 6.07492 11.3178 5C12.9345 3.92508 14 2.08697 14 0H12C12 2.20914 10.2091 4 8 4ZM8 6C5.79086 6 4 7.79086 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 7.79086 10.2091 6 8 6Z" fill=""></path> </g></svg>
@@ -759,4 +815,42 @@ function getSVGPoint(evt) {
 });`
 
 
+function downloadPNG() {
+    const svg = document.getElementById("Chart");
+
+    const serializer = new XMLSerializer();
+    const svgString = serializer.serializeToString(svg);
+
+    const img = new Image();
+    const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(svgBlob);
+
+    img.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = svg.clientWidth;
+        canvas.height = svg.clientHeight;
+
+        const ctx = canvas.getContext("2d");
+
+        // Optional: white background (instead of transparent)
+        ctx.fillStyle = "#0d0820";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.drawImage(img, 0, 0);
+
+        URL.revokeObjectURL(url);
+
+        // Convert to PNG
+        const imgURI = canvas.toDataURL("image/png");
+
+        const a = document.createElement("a");
+        a.href = imgURI;
+        a.download = "chart.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
+    img.src = url;
+}
 

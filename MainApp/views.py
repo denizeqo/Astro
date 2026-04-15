@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from .chartUtility import *
 import json
 
-
 # Create your views here.
 def Home(request):
 
@@ -26,6 +25,8 @@ def Home(request):
 
         staticChartSybols = getChartSymbols(0)
         dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
+
+        aspects = get_all_aspects(chart)
 
         return JsonResponse({'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols})
 

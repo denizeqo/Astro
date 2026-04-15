@@ -7,6 +7,7 @@ from flatlib.chart import Chart
 from flatlib.datetime import Datetime
 from flatlib.geopos import GeoPos
 from flatlib import const
+from flatlib.aspects import getAspect
 import swisseph as swe
 
 
@@ -53,6 +54,7 @@ def getStars(planets, fourAngles):
 
     starOrbite = 0
     stars = []
+
     with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\stars2.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -119,23 +121,41 @@ def getFourAngles(chart):
 
 
 def getPlanets(chart):
-    
-    planets = [
-        {'name':'Sun', 'position':chart.get(const.SUN).lon, 'color':'#FFEA99', 'num':getChartNum(chart.get(const.SUN).lon), 'house':getHouse(chart.get(const.SUN).lon)},
-        {'name':'Moon', 'position':chart.get(const.MOON).lon, 'color':'#AAD5DB', 'num':getChartNum(chart.get(const.MOON).lon), 'house':getHouse(chart.get(const.MOON).lon)},
-        {'name':'North Moon', 'position':chart.get(const.NORTH_NODE).lon, 'color':'#AAD5DB', 'num':getChartNum(chart.get(const.NORTH_NODE).lon), 'house':getHouse(chart.get(const.NORTH_NODE).lon)},
-        {'name':'South Moon', 'position':chart.get(const.SOUTH_NODE).lon, 'color':'#AAD5DB', 'num':getChartNum(chart.get(const.SOUTH_NODE).lon), 'house':getHouse(chart.get(const.SOUTH_NODE).lon)},
-        {'name':'Mercury', 'position':chart.get(const.MERCURY).lon, 'color':'#cdb891', 'num':getChartNum(chart.get(const.MERCURY).lon), 'house':getHouse(chart.get(const.MERCURY).lon)},
-        {'name':'Venus', 'position':chart.get(const.VENUS).lon, 'color':'#a8e4a0', 'num':getChartNum(chart.get(const.VENUS).lon), 'house':getHouse(chart.get(const.VENUS).lon)},
-        {'name':'Mars', 'position':chart.get(const.MARS).lon, 'color':'#E3242B', 'num':getChartNum(chart.get(const.MARS).lon), 'house':getHouse(chart.get(const.MARS).lon)},
-        {'name':'Jupiter', 'position':chart.get(const.JUPITER).lon, 'color':'#FFAF3D', 'num':getChartNum(chart.get(const.JUPITER).lon), 'house':getHouse(chart.get(const.JUPITER).lon)},
-        {'name':'Saturn', 'position':chart.get(const.SATURN).lon, 'color':'#808080', 'num':getChartNum(chart.get(const.SATURN).lon), 'house':getHouse(chart.get(const.SATURN).lon)},
-        {'name':'Uranus', 'position':chart.get(const.URANUS).lon, 'color':'#4E9FE5', 'num':getChartNum(chart.get(const.URANUS).lon), 'house':getHouse(chart.get(const.URANUS).lon)},
-        {'name':'Neptune', 'position':chart.get(const.NEPTUNE).lon, 'color':'#8968CD', 'num':getChartNum(chart.get(const.NEPTUNE).lon), 'house':getHouse(chart.get(const.NEPTUNE).lon)},
-        {'name':'Pluto', 'position':chart.get(const.PLUTO).lon, 'color':'#ffffff', 'num':getChartNum(chart.get(const.PLUTO).lon), 'house':getHouse(chart.get(const.PLUTO).lon)},
-        {'name':'Chiron', 'position':chart.get(const.CHIRON).lon, 'color':'#ffffff', 'num':getChartNum(chart.get(const.CHIRON).lon), 'house':getHouse(chart.get(const.CHIRON).lon)},
-    ]
 
+    planetsColorMap = {
+        const.SUN: '#FFEA99',
+        const.MOON: '#AAD5DB',
+        const.MERCURY: '#cdb891',
+        const.VENUS: '#a8e4a0',
+        const.MARS: '#E3242B',
+        const.JUPITER: '#FFAF3D',
+        const.SATURN: '#808080',
+        const.URANUS: '#4E9FE5',
+        const.NEPTUNE: '#8968CD',
+        const.PLUTO: '#ffffff',
+        const.CHIRON: '#ffffff',
+        const.NORTH_NODE: '#AAD5DB',
+        const.SOUTH_NODE: '#AAD5DB'
+    }
+
+    lastOrbitePlanets = [const.SATURN, const.URANUS, const.NEPTUNE, const.PLUTO, const.CHIRON]
+    firstOrbitePlanets = [const.MOON, const.NORTH_NODE, const.SOUTH_NODE]
+
+    lastOrbitePlanetsPositions = _getPlanetSymbolPosition(chart, lastOrbitePlanets, False)
+    firstOrbitePlanetsPositions =  _getPlanetSymbolPosition(chart, firstOrbitePlanets, True)
+
+    planets = []
+    for planet in planetsColorMap:
+
+        if planet in lastOrbitePlanets:
+            symbolPosition = lastOrbitePlanetsPositions[planet]
+        elif planet in firstOrbitePlanets:
+            symbolPosition = firstOrbitePlanetsPositions[planet]
+        else:
+            symbolPosition = chart.get(planet).lon
+
+        planets.append({'name':planet, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
+        
     return planets
 
         
@@ -205,6 +225,32 @@ def _getChartNumColor(num):
     return colorMap[num % 3]
 
 
+def _getPlanetSymbolPosition(chart, planets, isFirstOrbite):
+
+    planets = dict(sorted([(i, chart.get(i).lon) for i in planets], key=lambda item: item[1]))
+
+    lastPosition = -1
+
+    if isFirstOrbite:
+        minDistance = 15
+    else:
+        minDistance = 6
+    
+    for i in planets:
+
+        if lastPosition == -1:
+            lastPosition = planets[i]
+            continue
+        
+        diffDistance = planets[i] - lastPosition
+        if diffDistance <= minDistance:
+            planets[i] += minDistance - diffDistance
+        
+        lastPosition = planets[i]
+    
+    return planets
+
+
 def getHouse(position):
 
     signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpion', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
@@ -212,6 +258,27 @@ def getHouse(position):
     houseSymbol = signs[int(position // 30)]
 
     return {'num': houseNum, 'symbol':houseSymbol}
+
+
+def get_all_aspects(chart):
+    objs = list(chart.objects)
+    result = []
+
+    major = [
+        const.CONJUNCTION,
+        const.SEXTILE,
+        const.SQUARE,
+        const.TRINE,
+        const.OPPOSITION
+    ]
+
+    for i in range(len(objs)):
+        for j in range(i + 1, len(objs)):
+            asp = getAspect(objs[i], objs[j], major)
+            if asp:
+                result.append(asp)
+
+    return result
     
 
 

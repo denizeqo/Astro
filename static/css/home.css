@@ -140,6 +140,13 @@
 
 /* Chart Section */
 
+.chartButton{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+}
+
 .degree {
     fill: #fff;
     font-size: 13px;
@@ -179,9 +186,14 @@
   background: transparent;
   text-align: center;
   font-family: 'Poppins', sans-serif;
+  font-size: 12px;
 }
 
 .transparent-table td span{
+    font-family: 'Poppins', sans-serif;
+}
+
+.transparent-table td sup{
     font-family: 'Poppins', sans-serif;
 }
 

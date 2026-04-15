@@ -25,8 +25,9 @@
         let formData = new FormData(this);
 
        drawEmptyChart(document.getElementById('Chart'))
-       emptyTable(document.getElementById('starsTable'))
-       emptyTable(document.getElementById('planetsTable'))
+       emptyTable(document.getElementById('StarTbody'))
+       emptyTable(document.getElementById('PlanetTbody'))
+       emptyTable(document.getElementById('AscTbody'))
 
         fetch("", {   // <-- your backend route
             method: "POST",
@@ -41,12 +42,13 @@
             dynamicAscMcIcDsc(data['fourAngles']);
             addPlanetSymbols(data['planets']);
             //tableData(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
-            planetTable(data['planets'], document.getElementById('planetsTable'), document.getElementById('ChartTable'));
+            planetTable(data['planets'], document.getElementById('PlanetTbody'), document.getElementById('PlanetTable'));
             addStarsSymbol(data['stars']);
-            starTable(data['stars'], document.getElementById('starsTable'), document.getElementById('ChartTable2'));
+            starTable(data['stars'], document.getElementById('StarTbody'), document.getElementById('StarTable'));
+            starTable(data['fourAngles'], document.getElementById('AscTbody'), document.getElementById('AscTable'));
 
             //console.log(data['test'])
-            console.log(data['planets'])
+            console.log(data['test'])
      
             })
         .catch(error => console.log("Error:", error));
