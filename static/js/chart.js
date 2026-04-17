@@ -289,7 +289,7 @@ function addPlanetSymbols(planets){
        textSpace = 1300  / planetsOrbite[planetName]; 
     }
 
-    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 11, color=planetNumColor);
+    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 13, color=planetNumColor);
   }
 
 }
@@ -307,7 +307,7 @@ function addStarsSymbol(stars){
     let starOrbite = stars[i]['orbite'];
 
     if (oldStarNum != starNumValue){
-      addAngledText2(stars[i - 1]['num']['value'],360 - (parseInt(stars[i - 1]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1],stars[i - 1]['num']['sup'], 9, color=stars[i - 1]['num']['color']);
+      addAngledText2(stars[i - 1]['num']['value'],360 - (parseInt(stars[i - 1]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1],stars[i - 1]['num']['sup'], 11, color=stars[i - 1]['num']['color']);
       maxOrbit = 0;
       oldStarNum = starNumValue;
     }
@@ -317,7 +317,7 @@ function addStarsSymbol(stars){
     }
 
     if(i == stars.length -1){
-      addAngledText2(stars[i]['num']['value'],360 - (parseInt(stars[i]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1], stars[i]['num']['sup'], 9, color=stars[i]['num']['color']);
+      addAngledText2(stars[i]['num']['value'],360 - (parseInt(stars[i]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1], stars[i]['num']['sup'], 11, color=stars[i]['num']['color']);
     }
 
     addSymbol('star', 12, position, rStarts[starOrbite], color='#ffffff', star=stars[i]['name']);
@@ -815,7 +815,83 @@ function getSVGPoint(evt) {
 });`
 
 
-function downloadPNG() {
+function downloadPDF1() {
+        const { jsPDF } = window.jspdf;
+
+        const svg = document.getElementById("Chart");
+
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svg);
+
+        const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+        const url = URL.createObjectURL(svgBlob);
+
+        const img = new Image();
+
+        img.onload = function () {
+            const scale = 3;
+
+            const width = svg.clientWidth;
+            const height = svg.clientHeight;
+
+            const canvas = document.createElement("canvas");
+            canvas.width = width * scale;
+            canvas.height = height * scale;
+
+            const ctx = canvas.getContext("2d");
+
+            // background
+            ctx.fillStyle = "#0d0820";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            const imgData = canvas.toDataURL("image/png");
+
+            // 📄 Create PDF
+            const pdf = new jsPDF({
+                orientation: "portrait",
+                unit: "px",
+                format: "a4"
+            });
+
+            // 📏 Positioning
+            const pageWidth = pdf.internal.pageSize.getWidth();
+
+            // Title
+            pdf.setFontSize(20);
+            pdf.text("Astrology Chart", 20, 30);
+
+            // Add image (centered)
+            const imgWidth = pageWidth - 40;
+            const imgHeight = (canvas.height / canvas.width) * imgWidth;
+
+            pdf.addImage(imgData, "PNG", 20, 50, imgWidth, imgHeight);
+
+            // Extra text below
+            pdf.setFontSize(12);
+            pdf.text("Name: John Doe", 20, 50 + imgHeight + 30);
+            pdf.text("Date: 17 April 2026", 20, 50 + imgHeight + 50);
+
+            // Download
+            pdf.save("chart.pdf");
+
+            URL.revokeObjectURL(url);
+        };
+
+        img.src = url;
+    }
+
+
+
+
+function downloadPDF() {
+    const pdf = new window.jspdf.jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: "a4"
+    });
+
     const svg = document.getElementById("Chart");
 
     const serializer = new XMLSerializer();
@@ -826,31 +902,95 @@ function downloadPNG() {
     const url = URL.createObjectURL(svgBlob);
 
     img.onload = function () {
+        const scale = 3;
+
+        const width = svg.clientWidth;
+        const height = svg.clientHeight;
+
         const canvas = document.createElement("canvas");
-        canvas.width = svg.clientWidth;
-        canvas.height = svg.clientHeight;
+        canvas.width = width * scale;
+        canvas.height = height * scale;
 
         const ctx = canvas.getContext("2d");
 
-        // Optional: white background (instead of transparent)
+        // background
         ctx.fillStyle = "#0d0820";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const imgData = canvas.toDataURL("image/png");
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+
+        // =====================
+        // 🧾 1. TITLE
+        // =====================
+        pdf.setFontSize(20);
+        pdf.text("Astrology Report", 20, 30);
+
+        // =====================
+        // 📊 2. CHART
+        // =====================
+        const imgWidth = pageWidth - 40;
+        const imgHeight = (canvas.height / canvas.width) * imgWidth;
+
+        pdf.addImage(imgData, "PNG", 20, 50, imgWidth, imgHeight);
+
+        let currentY = 50 + imgHeight + 20;
+
+        // =====================
+        // 👤 3. USER DATA TEXT
+        // =====================
+        pdf.setFontSize(12);
+
+        const userText = [
+            "Name: John Doe",
+            "Birth Date: 17 April 2026",
+            "Location: Tirana",
+            "Sun Sign: Aries",
+            "",
+            "",
+            ""
+        ];
+
+        userText.forEach(line => {
+            pdf.text(line, 20, currentY);
+            currentY += 15; // spacing between lines
+        });
+
+        currentY += 10; // extra space before table
+
+        // =====================
+        // 📋 4. TABLES
+        // =====================
+        pdf.autoTable({
+            html: "#test",
+            startY: currentY
+        });
+
+        currentY = pdf.lastAutoTable.finalY + 20;
+
+        pdf.autoTable({
+            html: "#test2",
+            startY: currentY
+        });
+
+
+        currentY = pdf.lastAutoTable.finalY + 20;
+
+        pdf.autoTable({
+            html: "#test3",
+            startY: currentY
+        });
+
+        // =====================
+        // 💾 SAVE
+        // =====================
+        pdf.save("chart.pdf");
 
         URL.revokeObjectURL(url);
-
-        // Convert to PNG
-        const imgURI = canvas.toDataURL("image/png");
-
-        const a = document.createElement("a");
-        a.href = imgURI;
-        a.download = "chart.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
     };
 
     img.src = url;
 }
-
