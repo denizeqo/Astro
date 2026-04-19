@@ -176,29 +176,63 @@ def getChartSymbols(asc):
     return results
 
 
+def getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country):
+
+    lat, lng = getLonLat(latitude, longitude)
+    utcDateOfBirth, utcTimeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
+    talismanNum = _getTalismanNum(chart)
+    userData = {'firstName':firstName, 'lastName':lastName, 'city':city, 'country':country, 'lat':lat, 'lng':lng, 'dateOfBirth':dateOfBirth, 'timeOfBirth':timeOfBirth, 'utcDateOfBirth':utcDateOfBirth.replace('/', '-'), 'utcTimeOfBirth':utcTimeOfBirth[:5], 'talisman':talismanNum}
+
+    return userData
+
+
 def getChartNum(position):
 
     num = _getChartNumValue(position)
-    sup = _getChartNumSymbol(position)
+    sup, supColor = _getChartNumSymbol(position)
     color = _getChartNumColor(num)
 
-    return {'value': num, 'sup': sup, 'color':color}
+    return {'value': num, 'sup': sup, 'color':color, 'supColor':supColor}
 
+def _getTalismanNum(chart):
 
+    objectList = [
+        const.ASC,
+        const.MC,
+        const.SUN,
+        const.MOON,
+        const.MERCURY,
+        const.VENUS,
+        const.MARS,
+        const.JUPITER,
+        const.SATURN,
+        const.URANUS,
+        const.NEPTUNE,
+        const.NORTH_NODE,
+        const.SOUTH_NODE
+    ]
+
+    results = []
+
+    for object in objectList:
+        results.append(getChartNum(chart.get(object).lon))
+
+    return results
 
 def _getChartNumSymbol(position):
 
-    signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpion', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
+    signs = ['D', 'T', 'B', 'G', 'L', 'V', 'P', 'A', 'H', 'K', 'U', 'P']
+    signsColor = ['#E3242B', '#7BB369', '#EEDEC5', '#0077BE', '#FFEA99', '#9F8C76', '#008000', '#880808', '#FFAF3D', '#808080', '#4E9FE5', '#8968CD']
 
     houseNum = int(position/30)
     symbolNum = int(position/2.5)
 
     if symbolNum + 1 <= 99:
-        return ''
+        return '', ''
     
     singsIndex = (houseNum + symbolNum) % 12
 
-    return signs[singsIndex][:2].upper()
+    return signs[singsIndex], signsColor[singsIndex]
 
 
 

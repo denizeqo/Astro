@@ -248,14 +248,14 @@ function dynamicAscMcIcDsc(data){
     let numValue = data[i]['num']['value'];
     let numSup = data[i]['num']['sup'];
     let numColor = data[i]['num']['color'];
+    let numSupColor = data[i]['num']['supColor']
+
     let textSpace = (numSup == '') ? 1200 / rAscText : 1500 / rAscText
 
     addAngledText2(name, position, rAscText, '', 10, color);
     drawLine(position, rAscText + 10, rDynamicTermsCircle, true, color=color);
-    //drawLine(position, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=color);
-    //drawLine(position, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=color);
     drawLine(position, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
-    addAngledText2(numValue, position + textSpace, rAscText, numSup, 11, color=numColor);
+    addAngledText2(numValue, position + textSpace, rAscText, numSup, 11, color=numColor, supColor=numSupColor);
   }
 }
 
@@ -273,14 +273,12 @@ function addPlanetSymbols(planets){
     let planetNumValue = planets[index]['num']['value']
     let planetNumColor = planets[index]['num']['color']
     let planetNumSup = planets[index]['num']['sup']
+    let planetNumSupColor = planets[index]['num']['supColor']
 
-    console.log(planetName)
-    console.log(planetSymbolPosition)
     addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName]);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
     drawLine(planetPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
     drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
-    //drawLine(planetChartPosition, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
 
     if (planetNumSup == ''){
        textSpace = 1000 / planetsOrbite[planetName]; 
@@ -289,9 +287,9 @@ function addPlanetSymbols(planets){
        textSpace = 1300  / planetsOrbite[planetName]; 
     }
 
-    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 13, color=planetNumColor);
-  }
+    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 13, color=planetNumColor, supColor=planetNumSupColor);
 
+  }
 }
 
 
@@ -307,7 +305,7 @@ function addStarsSymbol(stars){
     let starOrbite = stars[i]['orbite'];
 
     if (oldStarNum != starNumValue){
-      addAngledText2(stars[i - 1]['num']['value'],360 - (parseInt(stars[i - 1]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1],stars[i - 1]['num']['sup'], 11, color=stars[i - 1]['num']['color']);
+      addAngledText2(stars[i - 1]['num']['value'],360 - (parseInt(stars[i - 1]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1],stars[i - 1]['num']['sup'], 11, color=stars[i - 1]['num']['color'], supColor=stars[i - 1]['num']['supColor']);
       maxOrbit = 0;
       oldStarNum = starNumValue;
     }
@@ -317,7 +315,7 @@ function addStarsSymbol(stars){
     }
 
     if(i == stars.length -1){
-      addAngledText2(stars[i]['num']['value'],360 - (parseInt(stars[i]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1], stars[i]['num']['sup'], 11, color=stars[i]['num']['color']);
+      addAngledText2(stars[i]['num']['value'],360 - (parseInt(stars[i]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1], stars[i]['num']['sup'], 11, color=stars[i]['num']['color'], upColor=stars[i]['num']['supColor']);
     }
 
     addSymbol('star', 12, position, rStarts[starOrbite], color='#ffffff', star=stars[i]['name']);
@@ -339,9 +337,6 @@ function planetTable(planets, tbody, table){
     let planetNumColor = planets[i]['num']['color']
     let houseNum = planets[i]['house']['num']
     let houseSymbol = planets[i]['house']['symbol']
-    
-
-    const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
 
     let planetNameCol = document.createElement("td");
     planetNameCol.textContent = planetName;
@@ -413,6 +408,50 @@ function starTable(stars, tbody, table){
     tbody.appendChild(tr);
   }
   table.classList.remove('hiddenWidget');
+}
+
+function addUserData(userData, section, table){
+
+  let firstName = document.getElementById('firstName')
+  let lastName = document.getElementById('lastName')
+  let country =  document.getElementById('country1')
+  let city = document.getElementById('city1')
+  let lat = document.getElementById('lat')
+  let lng = document.getElementById('lng')
+  let utcBirthTime = document.getElementById('utcBirthTime')
+  let birthTime = document.getElementById('birthTime')
+
+  firstName.innerText = userData['firstName']
+  lastName.innerText = userData['lastName']
+  country.innerText = userData['country']
+  city.innerText = userData['city']
+  lat.innerText = userData['lat']
+  lng.innerText = userData['lng']
+  utcBirthTime.innerText = userData['utcDateOfBirth'] + ' ' + userData['utcTimeOfBirth']
+  birthTime.innerText = userData['dateOfBirth'] + ' ' + userData['timeOfBirth']
+
+  let talisman = userData['talisman']
+  let index = 0
+  for (let i = 0; i<4; i++){
+    let tr = document.createElement("tr")
+
+    for (let j = 0; j<3; j++){
+
+      let talsimanNumValue = talisman[index]['value']
+      let talismanNumColor = talisman[index]['color']
+      let talismanNumSup = talisman[index]['sup']
+
+      let td = document.createElement("td");
+      td.innerHTML = `${talsimanNumValue}<sup>${talismanNumSup}</sup>`;
+      td.style.color = talismanNumColor
+      tr.appendChild(td);
+
+      index ++;
+    }
+    table.appendChild(tr);
+  }
+
+  section.classList.remove('hiddenWidget')
 }
 
 
@@ -523,88 +562,7 @@ function showPlanetPopup(event, planet, planetDeg=''){
 }
 
 
-
-
-
-
-function addAngledText(text, deg, radius) {
-
-    const rad = (deg - 180) * Math.PI / 180;
-
-    const tx = cx + Math.cos(rad) * radius;
-    const ty = cy + Math.sin(rad) * radius;
-
-    // Flip text if upside down
-    if (deg > 90 && deg < 270) {
-        deg += 180;
-    }
-
-    const label = document.createElementNS(
-        'http://www.w3.org/2000/svg',
-        'text'
-    );
-
-    label.setAttribute('x', tx);
-    label.setAttribute('y', ty);
-    label.setAttribute(
-        'transform',
-        `rotate(${deg} ${tx} ${ty})`
-    );
-
-    label.setAttribute('text-anchor', 'middle');
-    label.setAttribute('dominant-baseline', 'middle');
-    label.setAttribute('class', 'chartText');
-    
-
-    label.textContent = text;
-    svg.appendChild(label);
-}
-
-
-function addPlanetChartNum(deg, planet){
-
-  let planetPosition = 360 - deg;
-  let planetNum = 143 - parseInt(deg/ 2.5);  
-  let color = getNumColor(staticChartNum[planetNum])
-
-  if (planetNum <= 44){
-    let textSpace = 1300 / planetsOrbite[planet] ;
-    addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, staticChartSymbols[planetNum], 11, color=color);
-  }else{
-    let textSpace = 1000 / planetsOrbite[planet] ; 
-    addAngledText2(staticChartNum[planetNum], planetPosition + textSpace, planetsOrbite[planet] + 7, '', 11, color=color);
-  }
-}
-
-function addStarChartNum(starNum, orbite){
-
-  let color = getNumColor(staticChartNum[143 - starNum])
-  supText = '';
-  if (143 - starNum <= 44){
-    supText = staticChartSymbols[143 - starNum];
-  }
-
-  addAngledText2(staticChartNum[143 - starNum],360 - (starNum * 2.5 + 1.25), rStarts[orbite],supText, 11, color=color);
-}
-
-function getNumColor(num){
-
-  colorMap = {
-    0 : '#ffffff',
-    1 : '#E3242B',
-    2 : '#4E9FE5'
-  }
-
-  yelloColorNums = [4, 13, 16, 22, 31, 40, 49, 58, 67, 76, 85, 94]
-  if (yelloColorNums.includes(num)){
-    return '#FFEA99'
-  }
-
-  return colorMap[num % 3]
-}
-
-
-function addAngledText2(text, deg, radius, supText='', fontSize=10, color='#ffffff') {
+function addAngledText2(text, deg, radius, supText='', fontSize=10, color='#ffffff', supColor='#ffffff') {
 
     const rad = (deg - 180) * Math.PI / 180;
 
@@ -645,8 +603,8 @@ function addAngledText2(text, deg, radius, supText='', fontSize=10, color='#ffff
     const sup = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     sup.textContent = supText;
     sup.setAttribute("baseline-shift", "super");
-    sup.setAttribute("font-size", "50%");
-    sup.setAttribute('fill', color);
+    sup.setAttribute("font-size", "65%");
+    sup.setAttribute('fill', supColor);
     sup.setAttribute('class', 'chartText');
     sup.setAttribute('font-weight', 400);
     sup.setAttribute('font-family', '"Inter", sans-serif');
@@ -732,13 +690,9 @@ function drawEmptyChart(svg){
   num = 1
 
   for (let deg = 0; deg < 360; deg += 2.5) {
-    //staticHouseCircle(deg);
-    //staticDegCircle(deg);
-    //staticSymbolCircle(deg); 
+
     staticChart(deg);
   }
-
-  //addStarsSymbol(starsData);
 
   let ChartWidget = document.getElementById('ChartWidget');
   ChartWidget.classList.remove('hiddenWidget')
@@ -885,7 +839,7 @@ function downloadPDF1() {
 
 
 
-function downloadPDF() {
+function downloadPDF2() {
     const pdf = new window.jspdf.jsPDF({
         orientation: "portrait",
         unit: "px",
@@ -993,4 +947,182 @@ function downloadPDF() {
     };
 
     img.src = url;
+}
+
+
+
+function downloadPDF(userData) {
+    const pdf = new window.jspdf.jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: "a4"
+    });
+
+    const svg = document.getElementById("Chart");
+
+    const serializer = new XMLSerializer();
+    const svgString = serializer.serializeToString(svg);
+
+    const img = new Image();
+    const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(svgBlob);
+
+    // =====================
+    // 🔧 helper: force exactly 4 lines
+    // =====================
+    function formatFourLines(lines) {
+        let result = [...lines];
+
+        if (result.length > 4) {
+            result = result.slice(0, 4);
+        }
+
+        while (result.length < 4) {
+            result.push(" ");
+        }
+
+        return result;
+    }
+
+    img.onload = function () {
+        const scale = 3;
+
+        const width = svg.clientWidth;
+        const height = svg.clientHeight;
+
+        const canvas = document.createElement("canvas");
+        canvas.width = width * scale;
+        canvas.height = height * scale;
+
+        const ctx = canvas.getContext("2d");
+
+        // background
+        ctx.fillStyle = "#0d0820";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const imgData = canvas.toDataURL("image/png");
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+
+        // =====================
+        // 🧾 1. TITLE
+        // =====================
+        pdf.setFontSize(20);
+        pdf.text("Astrology Report", 20, 30);
+
+        // =====================
+        // 📊 2. CHART
+        // =====================
+        const imgWidth = pageWidth - 40;
+        const imgHeight = (canvas.height / canvas.width) * imgWidth;
+
+        pdf.addImage(imgData, "PNG", 20, 50, imgWidth, imgHeight);
+
+        let currentY = 50 + imgHeight + 20;
+
+        // =====================
+        // 📊 3. THREE COLUMN SECTION
+        // =====================
+        const margin = 20;
+        const gap = 10;
+
+        const usableWidth = pageWidth - margin * 2 - gap * 2;
+        const colWidth = usableWidth / 3;
+
+        const col1X = margin;
+        const col2X = margin + colWidth + gap;
+        const col3X = margin + (colWidth + gap + 20) * 2;
+
+        let startY = currentY;
+
+        pdf.setFontSize(11);
+        const lineHeight = 20;
+
+        // ---------------------
+        // LEFT COLUMN (user-style text)
+        // ---------------------
+        const leftData = [
+            `Fisrt Name: ${userData['firstName']}`,
+            `Country: ${userData['country']}`,
+            `Latitude: ${userData['lat']}`,
+            `Birth Time: ${userData['dateOfBirth']} ${userData['timeOfBirth']}`
+        ];
+
+        const text1 = formatFourLines(leftData);
+        pdf.text(text1, col1X, startY, { lineHeightFactor: 2 });
+
+        // ---------------------
+        // MIDDLE COLUMN
+        // ---------------------
+        const rightData = [
+            `Last ${userData['lastName']}`,
+            `City: ${userData['city']}`,
+            `Longitude: ${userData['lng']}`,
+            `UTC Birth Time: ${userData['utcDateOfBirth']} ${userData['utcTimeOfBirth']}`
+        ];
+
+        const text2 = formatFourLines(rightData);
+        pdf.text(text2, col2X, startY, { lineHeightFactor: 2 });
+
+        // ---------------------
+        // RIGHT COLUMN (table)
+        // ---------------------
+        pdf.autoTable({
+            html: "#Talisman",
+            startY: startY - 10,
+            margin: { left: col3X },
+            tableWidth: 80,
+            theme: "grid",
+            styles: {
+                fontSize: 8,  
+                lineWidth: 0.5,
+                lineColor: [255, 255, 255],
+                halign: "center",
+                valign: "middle",
+                minCellHeight: 20,
+                fillColor: hexToRgb('#0d0820')
+            },
+            didParseCell: function (data){
+              if (data.section === "body"){
+                const value = data.cell.text[0];
+
+                for (let index in userData['talisman']){                  
+                  if (value == userData['talisman'][index]['value'] + userData['talisman'][index]['sup']){
+                    data.cell.styles.textColor = hexToRgb(userData['talisman'][index]['color'])
+                  }
+                }
+              }
+          }
+        });
+
+        // calculate height of section
+        const textHeight = 4 * lineHeight * 1.3;
+        const tableBottom = pdf.lastAutoTable.finalY;
+
+        currentY = Math.max(
+            startY + textHeight,
+            tableBottom
+        ) + 20;
+
+        // =====================
+        // 💾 SAVE
+        // =====================
+        pdf.save("chart.pdf");
+
+        URL.revokeObjectURL(url);
+    };
+
+    img.src = url;
+}
+
+
+function hexToRgb(hex) {
+    hex = hex.replace("#", "");
+    return [
+        parseInt(hex.substring(0, 2), 16),
+        parseInt(hex.substring(2, 4), 16),
+        parseInt(hex.substring(4, 6), 16)
+    ];
 }

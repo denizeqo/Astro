@@ -171,6 +171,71 @@
 
 
 /* Table Section */
+.userDataData{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    width: 75%;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.userDataRow{
+    display: flex;
+    width: 100%;
+    min-height: 20px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.userDataCol{
+    min-width: 150px;
+}
+
+.userDataContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.userDataData p,
+.userDataData span {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.transparent-table-userData{
+    width: 20%;
+    min-width: 200px;
+    border-collapse: collapse;
+    color: white;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+}
+
+.transparent-table-userData td{
+    border: 1px solid white;
+    padding: 10px 2px;
+    background: transparent;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    width: 33%;
+}
+
+.transparent-table-userData sup{
+    font-family: 'Poppins', sans-serif;
+}
+
 .transparent-table {
   width: 100%;
   border-collapse: collapse;
