@@ -318,7 +318,7 @@ function addStarsSymbol(stars){
       addAngledText2(stars[i]['num']['value'],360 - (parseInt(stars[i]['position']/2.5)*2.5 + 1.25), rStarts[maxOrbit + 1], stars[i]['num']['sup'], 11, color=stars[i]['num']['color'], upColor=stars[i]['num']['supColor']);
     }
 
-    addSymbol('star', 12, position, rStarts[starOrbite], color='#ffffff', star=stars[i]['name']);
+    addSymbol('star', 12, position, rStarts[starOrbite], color=stars[i]['color'], star=stars[i]['name']);
     drawLine(position, rStaticSymbolCircle + 20, rStaticSymbolCircle + 23, true, color='#ffffff');
   }
 }
@@ -332,6 +332,7 @@ function planetTable(planets, tbody, table){
     let planetName = planets[i]['name'];
     let planetDeg = degMin(planets[i]['position'])
     let planetMovement = planets[i]['movement']
+    let planetColor = planets[i]['color']
     let planetNum = planets[i]['num']['value']
     let planetNumSup = planets[i]['num']['sup']
     let planetNumColor = planets[i]['num']['color']
@@ -340,6 +341,8 @@ function planetTable(planets, tbody, table){
 
     let planetNameCol = document.createElement("td");
     planetNameCol.textContent = planetName;
+    planetNameCol.style.color = planetColor;
+    planetNameCol.style.fontWeight = 600;
     tr.appendChild(planetNameCol);
 
     let planetSignCol = document.createElement("td");
@@ -378,6 +381,7 @@ function starTable(stars, tbody, table){
     let starName = stars[i]['name']
     let starDeg = degMin(stars[i]['position'])
     let starHouseSymbol = stars[i]['house']['symbol']
+    let starColor = stars[i]['color']
     let starHouseNum = stars[i]['house']['num']
     let starNum = stars[i]['num']['value']
     let starNumSup = stars[i]['num']['sup']
@@ -386,6 +390,8 @@ function starTable(stars, tbody, table){
 
     let starNameCol = document.createElement("td");
     starNameCol.textContent = starName;
+    starNameCol.style.color = starColor;
+    starNameCol.style.fontWeight = 600;
     tr.appendChild(starNameCol);
 
     let starHouseSymbolCol = document.createElement("td");
@@ -421,14 +427,14 @@ function addUserData(userData, section, table){
   let utcBirthTime = document.getElementById('utcBirthTime')
   let birthTime = document.getElementById('birthTime')
 
-  firstName.innerText = userData['firstName']
-  lastName.innerText = userData['lastName']
-  country.innerText = userData['country']
-  city.innerText = userData['city']
-  lat.innerText = userData['lat']
-  lng.innerText = userData['lng']
-  utcBirthTime.innerText = userData['utcDateOfBirth'] + ' ' + userData['utcTimeOfBirth']
-  birthTime.innerText = userData['dateOfBirth'] + ' ' + userData['timeOfBirth']
+  firstName.innerText = userData['First Name']
+  lastName.innerText = userData['Last Name']
+  country.innerText = userData['Country']
+  city.innerText = userData['City']
+  lat.innerText = userData['Latitude']
+  lng.innerText = userData['Longitude']
+  utcBirthTime.innerText = userData['UTC Time']
+  birthTime.innerText = userData['Local Time']
 
   let talisman = userData['talisman']
   let index = 0
@@ -1125,4 +1131,56 @@ function hexToRgb(hex) {
         parseInt(hex.substring(2, 4), 16),
         parseInt(hex.substring(4, 6), 16)
     ];
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+function svgToPngBlob(svgElement) {
+    return new Promise((resolve) => {
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+
+        const img = new Image();
+        const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+        const url = URL.createObjectURL(svgBlob);
+
+        img.onload = function () {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            const scale = 5;
+
+            const width = svgElement.clientWidth;
+            const height = svgElement.clientHeight;
+
+            canvas.width = width * scale;
+            canvas.height = height * scale;
+            ctx.fillStyle = "#0d0820";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.drawImage(img, 0, 0);
+
+            canvas.toBlob((blob) => {
+                resolve(blob); // 👈 this is your PNG
+                URL.revokeObjectURL(url);
+            }, "image/png");
+        };
+
+        img.src = url;
+    });
 }

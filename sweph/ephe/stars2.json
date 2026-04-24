@@ -4,2001 +4,2287 @@
   "tropicalHouse": "aries",
   "topicalDeg": 1.42,
   "siderealHouse": "pisces",
-  "siderealDeg": 337.18
+  "siderealDeg": 337.18,
+  "color": "#880808"
  },
  {
   "name": "Deneb Kaitos",
   "tropicalHouse": "aries",
   "topicalDeg": 2.95,
   "siderealHouse": "pisces",
-  "siderealDeg": 338.72
+  "siderealDeg": 338.72,
+  "color": "#FFAF3D"
  },
  {
   "name": "Algenib",
   "tropicalHouse": "aries",
   "topicalDeg": 9.52,
   "siderealHouse": "pisces",
-  "siderealDeg": 345.28
+  "siderealDeg": 345.28,
+  "color": "#4E9FE5"
  },
  {
   "name": "Erakis",
   "tropicalHouse": "aries",
   "topicalDeg": 10.05,
   "siderealHouse": "pisces",
-  "siderealDeg": 345.83
+  "siderealDeg": 345.83,
+  "color": "#880808"
  },
  {
   "name": "Alderamin",
   "tropicalHouse": "aries",
   "topicalDeg": 13.13,
   "siderealHouse": "pisces",
-  "siderealDeg": 348.9
+  "siderealDeg": 348.9,
+  "color": "#ffffff"
  },
  {
   "name": "Alpheratz",
   "tropicalHouse": "aries",
   "topicalDeg": 14.67,
   "siderealHouse": "pisces",
-  "siderealDeg": 350.45
+  "siderealDeg": 350.45,
+  "color": "#FFEA99"
  },
  {
   "name": "Nodus I",
   "tropicalHouse": "aries",
   "topicalDeg": 17.5,
   "siderealHouse": "pisces",
-  "siderealDeg": 353.28
+  "siderealDeg": 353.28,
+  "color": "#000000"
  },
  {
   "name": "Nodus II",
   "tropicalHouse": "aries",
   "topicalDeg": 17.5,
   "siderealHouse": "pisces",
-  "siderealDeg": 353.28
+  "siderealDeg": 353.28,
+  "color": "#FFAF3D"
  },
  {
   "name": "Baten Kaitos",
   "tropicalHouse": "aries",
   "topicalDeg": 22.32,
   "siderealHouse": "pisces",
-  "siderealDeg": 358.08
+  "siderealDeg": 358.08,
+  "color": "#FFAF3D"
  },
  {
   "name": "Acamar",
   "tropicalHouse": "aries",
   "topicalDeg": 23.63,
   "siderealHouse": "pisces",
-  "siderealDeg": 359.42
+  "siderealDeg": 359.42,
+  "color": "#ffffff"
  },
  {
   "name": "Kurdah",
   "tropicalHouse": "aries",
   "topicalDeg": 24.58,
   "siderealHouse": "aries",
-  "siderealDeg": 0.35
+  "siderealDeg": 0.35,
+  "color": "#880808"
  },
  {
   "name": "Al Pherg",
   "tropicalHouse": "aries",
   "topicalDeg": 27.17,
   "siderealHouse": "aries",
-  "siderealDeg": 2.95
+  "siderealDeg": 2.95,
+  "color": "#EEDEC5"
  },
  {
   "name": "Alrischa",
   "tropicalHouse": "aries",
   "topicalDeg": 29.73,
   "siderealHouse": "aries",
-  "siderealDeg": 5.52
+  "siderealDeg": 5.52,
+  "color": "#4E9FE5"
  },
  {
   "name": "Mirach",
   "tropicalHouse": "taurus",
   "topicalDeg": 30.77,
   "siderealHouse": "aries",
-  "siderealDeg": 6.55
+  "siderealDeg": 6.55,
+  "color":"#880808"
  },
  {
   "name": "Mira",
   "tropicalHouse": "taurus",
   "topicalDeg": 31.88,
   "siderealHouse": "aries",
-  "siderealDeg": 7.67
+  "siderealDeg": 7.67,
+  "color": "#880808"
  },
  {
   "name": "Angetenar",
   "tropicalHouse": "taurus",
   "topicalDeg": 33.0,
   "siderealHouse": "aries",
-  "siderealDeg": 8.77
+  "siderealDeg": 8.77,
+  "color": "#EEDEC5"
  },
  {
   "name": "Tyl",
   "tropicalHouse": "taurus",
   "topicalDeg": 33.05,
   "siderealHouse": "aries",
-  "siderealDeg": 8.83
+  "siderealDeg": 8.83,
+  "color": "#EEDEC5"
  },
  {
   "name": "Mesarthim",
   "tropicalHouse": "taurus",
   "topicalDeg": 33.55,
   "siderealHouse": "aries",
-  "siderealDeg": 9.32
+  "siderealDeg": 9.32,
+  "color": "#4E9FE5"
  },
  {
   "name": "Sheratan",
   "tropicalHouse": "taurus",
   "topicalDeg": 34.33,
   "siderealHouse": "aries",
-  "siderealDeg": 10.1
+  "siderealDeg": 10.1,
+  "color": "#ffffff"
  },
  {
   "name": "Caph",
   "tropicalHouse": "taurus",
   "topicalDeg": 35.48,
   "siderealHouse": "aries",
-  "siderealDeg": 11.25
+  "siderealDeg": 11.25,
+  "color": "#FFEA99"
  },
  {
   "name": "Alphirk",
   "tropicalHouse": "taurus",
   "topicalDeg": 35.9,
   "siderealHouse": "aries",
-  "siderealDeg": 11.68
+  "siderealDeg": 11.68,
+  "color": "#0077BE"
  },
  {
   "name": "Metallah",
   "tropicalHouse": "taurus",
   "topicalDeg": 37.22,
   "siderealHouse": "aries",
-  "siderealDeg": 13.0
+  "siderealDeg": 13.0,
+  "color": "#ffffff"
  },
  {
   "name": "Hamal",
   "tropicalHouse": "taurus",
   "topicalDeg": 38.02,
   "siderealHouse": "aries",
-  "siderealDeg": 13.8
+  "siderealDeg": 13.8,
+  "color": "#FFAF3D"
  },
  {
   "name": "Schedir",
   "tropicalHouse": "taurus",
   "topicalDeg": 38.13,
   "siderealHouse": "aries",
-  "siderealDeg": 13.92
+  "siderealDeg": 13.92,
+  "color": "#FFAF3D"
  },
  {
   "name": "Adhil",
   "tropicalHouse": "taurus",
   "topicalDeg": 38.22,
   "siderealHouse": "aries",
-  "siderealDeg": 14.0
+  "siderealDeg": 14.0,
+  "color": "#FFAF3D"
  },
  {
   "name": "Azha",
   "tropicalHouse": "taurus",
   "topicalDeg": 39.12,
   "siderealHouse": "aries",
-  "siderealDeg": 14.88
+  "siderealDeg": 14.88,
+  "color": "#8968CD"
  },
  {
   "name": "Kaffaljidhma",
   "tropicalHouse": "taurus",
   "topicalDeg": 39.78,
   "siderealHouse": "aries",
-  "siderealDeg": 15.57
+  "siderealDeg": 15.57,
+  "color": "#FFAF3D"
  },
  {
   "name": "Achird",
   "tropicalHouse": "taurus",
   "topicalDeg": 40.62,
   "siderealHouse": "aries",
-  "siderealDeg": 16.38
+  "siderealDeg": 16.38,
+  "color": "#E3242B"
  },
  {
   "name": "Zibal",
   "tropicalHouse": "taurus",
   "topicalDeg": 44.18,
   "siderealHouse": "aries",
-  "siderealDeg": 19.97
+  "siderealDeg": 19.97,
+  "color": "#FFAF3D"
  },
  {
   "name": "Cih",
   "tropicalHouse": "taurus",
   "topicalDeg": 44.28,
   "siderealHouse": "aries",
-  "siderealDeg": 20.07
+  "siderealDeg": 20.07,
+  "color": "#4E9FE5"
  },
  {
   "name": "Almach",
   "tropicalHouse": "taurus",
   "topicalDeg": 44.58,
   "siderealHouse": "aries",
-  "siderealDeg": 20.37
+  "siderealDeg": 20.37,
+  "color": "#EEDEC5"
  },
  {
   "name": "Menkar",
   "tropicalHouse": "taurus",
   "topicalDeg": 44.68,
   "siderealHouse": "aries",
-  "siderealDeg": 20.47
+  "siderealDeg": 20.47,
+  "color":"#E3242B"
  },
  {
   "name": "Rucha",
   "tropicalHouse": "taurus",
   "topicalDeg": 48.3,
   "siderealHouse": "aries",
-  "siderealDeg": 24.07
+  "siderealDeg": 24.07,
+  "color": "#ffffff"
  },
  {
   "name": "Botein",
   "tropicalHouse": "taurus",
   "topicalDeg": 51.22,
   "siderealHouse": "aries",
-  "siderealDeg": 27.0
+  "siderealDeg": 27.0,
+  "color": "#FFAF3D"
  },
  {
   "name": "Rana",
   "tropicalHouse": "taurus",
   "topicalDeg": 51.22,
   "siderealHouse": "aries",
-  "siderealDeg": 27.0
+  "siderealDeg": 27.0,
+  "color": "#FFAF3D"
  },
  {
   "name": "Zaurak",
   "tropicalHouse": "taurus",
   "topicalDeg": 54.23,
   "siderealHouse": "taurus",
-  "siderealDeg": 30.02
+  "siderealDeg": 30.02,
+  "color": "#E3242B"
  },
  {
   "name": "Capulus",
   "tropicalHouse": "taurus",
   "topicalDeg": 54.55,
   "siderealHouse": "taurus",
-  "siderealDeg": 30.32
+  "siderealDeg": 30.32,
+  "color": "#0077BE"
  },
  {
   "name": "Segin",
   "tropicalHouse": "taurus",
   "topicalDeg": 55.12,
   "siderealHouse": "taurus",
-  "siderealDeg": 30.9
+  "siderealDeg": 30.9,
+  "color":"#0077BE"
  },
  {
   "name": "Algol",
   "tropicalHouse": "taurus",
   "topicalDeg": 56.53,
   "siderealHouse": "taurus",
-  "siderealDeg": 32.3
+  "siderealDeg": 32.3,
+  "color": "#ffffff"
  },
  {
   "name": "Misam",
   "tropicalHouse": "taurus",
   "topicalDeg": 58.05,
   "siderealHouse": "taurus",
-  "siderealDeg": 33.83
+  "siderealDeg": 33.83,
+  "color":"#FFAF3D"
  },
  {
   "name": "Miram",
   "tropicalHouse": "taurus",
   "topicalDeg": 59.07,
   "siderealHouse": "taurus",
-  "siderealDeg": 34.83
+  "siderealDeg": 34.83,
+  "color":"#FFAF3D"
  },
  {
   "name": "Electra",
   "tropicalHouse": "taurus",
   "topicalDeg": 59.77,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.55
+  "siderealDeg": 35.55,
+  "color": "#0077BE"
  },
  {
   "name": "Beid",
   "tropicalHouse": "taurus",
   "topicalDeg": 59.8,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.57
+  "siderealDeg": 35.57,
+  "color": "#ffffff"
  },
  {
   "name": "Celaeno",
   "tropicalHouse": "taurus",
   "topicalDeg": 59.8,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.57
+  "siderealDeg": 35.57,
+  "color": "#ffffff"
  },
  {
   "name": "Taygeta",
   "tropicalHouse": "taurus",
   "topicalDeg": 59.93,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.7
+  "siderealDeg": 35.7,
+  "color":"#8968CD"
  },
  {
   "name": "Maia",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.03,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.82
+  "siderealDeg": 35.82,
+  "color": "#ffffff"
  },
  {
   "name": "Merope",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.07,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.83
+  "siderealDeg": 35.83,
+  "color": "#ffffff"
  },
  {
   "name": "Asterope",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.1,
   "siderealHouse": "taurus",
-  "siderealDeg": 35.88
+  "siderealDeg": 35.88,
+  "color": "#4E9FE5"
  },
  {
   "name": "Theemin",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.25,
   "siderealHouse": "taurus",
-  "siderealDeg": 36.03
+  "siderealDeg": 36.03,
+  "color":"#0077BE"
  },
  {
   "name": "Alcyone",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.35,
   "siderealHouse": "taurus",
-  "siderealDeg": 36.13
+  "siderealDeg": 36.13,
+  "color":"#0077BE"
  },
  {
   "name": "Alrai",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.45,
   "siderealHouse": "taurus",
-  "siderealDeg": 36.23
+  "siderealDeg": 36.23,
+  "color":"#FFAF3D"
  },
  {
   "name": "Keid",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.52,
   "siderealHouse": "taurus",
-  "siderealDeg": 36.3
+  "siderealDeg": 36.3,
+  "color":"#0077BE"
  },
  {
   "name": "Atlas",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.72,
   "siderealHouse": "taurus",
-  "siderealDeg": 36.5
+  "siderealDeg": 36.5,
+  "color":"#0077BE"
  },
  {
   "name": "Pleione",
   "tropicalHouse": "gemini",
   "topicalDeg": 60.73,
   "siderealHouse": "taurus",
-  "siderealDeg": 36.52
+  "siderealDeg": 36.52,
+  "color":"#ffffff"
  },
  {
   "name": "Atiks",
   "tropicalHouse": "gemini",
   "topicalDeg": 61.5,
   "siderealHouse": "taurus",
-  "siderealDeg": 37.28
+  "siderealDeg": 37.28,
+  "color": "#4E9FE5"
  },
  {
   "name": "Mirfak",
   "tropicalHouse": "gemini",
   "topicalDeg": 62.45,
   "siderealHouse": "taurus",
-  "siderealDeg": 38.22
+  "siderealDeg": 38.22,
+  "color":"#FFEA99"
  },
  {
   "name": "Menkib",
   "tropicalHouse": "gemini",
   "topicalDeg": 65.33,
   "siderealHouse": "taurus",
-  "siderealDeg": 41.12
+  "siderealDeg": 41.12,
+  "color": "#0077BE"
  },
  {
   "name": "Sceptrum",
   "tropicalHouse": "gemini",
   "topicalDeg": 65.62,
   "siderealHouse": "taurus",
-  "siderealDeg": 41.4
+  "siderealDeg": 41.4,
+  "color":"#FFAF3D"
  },
  {
   "name": "Prima Hyadum",
   "tropicalHouse": "gemini",
   "topicalDeg": 66.17,
   "siderealHouse": "taurus",
-  "siderealDeg": 41.95
+  "siderealDeg": 41.95,
+  "color":"#FFAF3D"
  },
  {
   "name": "Hyadum II",
   "tropicalHouse": "gemini",
   "topicalDeg": 67.23,
   "siderealHouse": "taurus",
-  "siderealDeg": 43.02
+  "siderealDeg": 43.02,
+  "color":"#FFAF3D"
  },
  {
   "name": "Ain",
   "tropicalHouse": "gemini",
   "topicalDeg": 68.83,
   "siderealHouse": "taurus",
-  "siderealDeg": 44.6
+  "siderealDeg": 44.6,
+  "color":"#FFAF3D"
  },
  {
   "name": "Aldebaran",
   "tropicalHouse": "gemini",
   "topicalDeg": 70.15,
   "siderealHouse": "taurus",
-  "siderealDeg": 45.93
+  "siderealDeg": 45.93,
+  "color":"#FFAF3D"
  },
  {
   "name": "Tabit",
   "tropicalHouse": "gemini",
   "topicalDeg": 72.28,
   "siderealHouse": "taurus",
-  "siderealDeg": 48.07
+  "siderealDeg": 48.07,
+  "color":"#ffffff"
  },
  {
   "name": "Cursa",
   "tropicalHouse": "gemini",
   "topicalDeg": 75.63,
   "siderealHouse": "taurus",
-  "siderealDeg": 51.42
+  "siderealDeg": 51.42,
+  "color":"#ffffff"
  },
  {
   "name": "Hasseleh",
   "tropicalHouse": "gemini",
   "topicalDeg": 77.0,
   "siderealHouse": "taurus",
-  "siderealDeg": 52.78
+  "siderealDeg": 52.78,
+  "color":"#FFAF3D"
  },
  {
   "name": "Rigel",
   "tropicalHouse": "gemini",
   "topicalDeg": 77.2,
   "siderealHouse": "taurus",
-  "siderealDeg": 52.97
+  "siderealDeg": 52.97,
+  "color":"#0077BE"
  },
  {
   "name": "Hoedus I",
   "tropicalHouse": "gemini",
   "topicalDeg": 79.0,
   "siderealHouse": "taurus",
-  "siderealDeg": 54.77
+  "siderealDeg": 54.77,
+  "color":"#EEDEC5"
  },
  {
   "name": "Hoedus II",
   "tropicalHouse": "gemini",
   "topicalDeg": 79.82,
   "siderealHouse": "taurus",
-  "siderealDeg": 55.58
+  "siderealDeg": 55.58,
+  "color":"#4E9FE5"
  },
  {
   "name": "Nihal",
   "tropicalHouse": "gemini",
   "topicalDeg": 80.03,
   "siderealHouse": "taurus",
-  "siderealDeg": 55.82
+  "siderealDeg": 55.82,
+  "color":"#FFAF3D"
  },
  {
   "name": "Bellatrix",
   "tropicalHouse": "gemini",
   "topicalDeg": 81.32,
   "siderealHouse": "taurus",
-  "siderealDeg": 57.08
+  "siderealDeg": 57.08,
+  "color":"#0077BE"
  },
  {
   "name": "Arneb",
   "tropicalHouse": "gemini",
   "topicalDeg": 81.75,
   "siderealHouse": "taurus",
-  "siderealDeg": 57.52
+  "siderealDeg": 57.52,
+  "color":"#FFEA99"
  },
  {
   "name": "Capella",
   "tropicalHouse": "gemini",
   "topicalDeg": 82.22,
   "siderealHouse": "taurus",
-  "siderealDeg": 58.0
+  "siderealDeg": 58.0,
+  "color":"#E3242B"
  },
  {
   "name": "Phact",
   "tropicalHouse": "gemini",
   "topicalDeg": 82.53,
   "siderealHouse": "taurus",
-  "siderealDeg": 58.32
+  "siderealDeg": 58.32,
+  "color":"#0077BE"
  },
  {
   "name": "Mintaka",
   "tropicalHouse": "gemini",
   "topicalDeg": 82.72,
   "siderealHouse": "taurus",
-  "siderealDeg": 58.5
+  "siderealDeg": 58.5,
+  "color": "#ffffff"
  },
  {
   "name": "El Nath",
   "tropicalHouse": "gemini",
   "topicalDeg": 82.93,
   "siderealHouse": "taurus",
-  "siderealDeg": 58.72
+  "siderealDeg": 58.72,
+  "color":"#0077BE"
  },
  {
   "name": "Hatsya",
   "tropicalHouse": "gemini",
   "topicalDeg": 83.37,
   "siderealHouse": "taurus",
-  "siderealDeg": 59.13
+  "siderealDeg": 59.13,
+  "color":"#0077BE"
  },
  {
   "name": "Alnilam",
   "tropicalHouse": "gemini",
   "topicalDeg": 83.83,
   "siderealHouse": "taurus",
-  "siderealDeg": 59.6
+  "siderealDeg": 59.6,
+  "color":"#0077BE"
  },
  {
   "name": "Meissa",
   "tropicalHouse": "gemini",
   "topicalDeg": 84.07,
   "siderealHouse": "taurus",
-  "siderealDeg": 59.85
+  "siderealDeg": 59.85,
+  "color":"#0077BE"
  },
  {
   "name": "Alnitak",
   "tropicalHouse": "gemini",
   "topicalDeg": 85.05,
   "siderealHouse": "gemini",
-  "siderealDeg": 60.82
+  "siderealDeg": 60.82,
+  "color":"#000000"
  },
  {
   "name": "Al Hecka",
   "tropicalHouse": "gemini",
   "topicalDeg": 85.15,
   "siderealHouse": "gemini",
-  "siderealDeg": 60.93
+  "siderealDeg": 60.93,
+  "color":"#000000"
  },
  {
   "name": "Saiph",
   "tropicalHouse": "gemini",
   "topicalDeg": 86.77,
   "siderealHouse": "gemini",
-  "siderealDeg": 62.53
+  "siderealDeg": 62.53,
+  "color":"#000000"
  },
  {
   "name": "Wazn",
   "tropicalHouse": "gemini",
   "topicalDeg": 86.78,
   "siderealHouse": "gemini",
-  "siderealDeg": 62.57
+  "siderealDeg": 62.57,
+  "color":"#000000"
  },
  {
   "name": "Polaris",
   "tropicalHouse": "gemini",
   "topicalDeg": 88.93,
   "siderealHouse": "gemini",
-  "siderealDeg": 64.72
+  "siderealDeg": 64.72,
+  "color":"#000000"
  },
  {
   "name": "Betelgeuse",
   "tropicalHouse": "gemini",
   "topicalDeg": 89.12,
   "siderealHouse": "gemini",
-  "siderealDeg": 64.9
+  "siderealDeg": 64.9,
+  "color":"#E3242B"
  },
  {
   "name": "Menkalinan",
   "tropicalHouse": "cancer",
   "topicalDeg": 90.27,
   "siderealHouse": "gemini",
-  "siderealDeg": 66.05
+  "siderealDeg": 66.05,
+  "color":"#ffffff"
  },
  {
   "name": "Yildun",
   "tropicalHouse": "cancer",
   "topicalDeg": 91.58,
   "siderealHouse": "gemini",
-  "siderealDeg": 67.35
+  "siderealDeg": 67.35,
+  "color":"#ffffff"
  },
  {
   "name": "Propus",
   "tropicalHouse": "cancer",
   "topicalDeg": 93.8,
   "siderealHouse": "gemini",
-  "siderealDeg": 69.58
+  "siderealDeg": 69.58,
+  "color":"#E3242B"
  },
  {
   "name": "Tejat",
   "tropicalHouse": "cancer",
   "topicalDeg": 95.67,
   "siderealHouse": "gemini",
-  "siderealDeg": 71.45
+  "siderealDeg": 71.45,
+  "color":"#E3242B"
  },
  {
   "name": "Mirzam",
   "tropicalHouse": "cancer",
   "topicalDeg": 97.55,
   "siderealHouse": "gemini",
-  "siderealDeg": 73.33
+  "siderealDeg": 73.33,
+  "color":"#0077BE"
  },
  {
   "name": "Furud",
   "tropicalHouse": "cancer",
   "topicalDeg": 97.75,
   "siderealHouse": "gemini",
-  "siderealDeg": 73.52
+  "siderealDeg": 73.52,
+  "color":"#4E9FE5"
  },
  {
   "name": "Alhena",
   "tropicalHouse": "cancer",
   "topicalDeg": 99.47,
   "siderealHouse": "gemini",
-  "siderealDeg": 75.25
+  "siderealDeg": 75.25,
+  "color":"#ffffff"
  },
  {
   "name": "Mebsuta",
   "tropicalHouse": "cancer",
   "topicalDeg": 100.3,
   "siderealHouse": "gemini",
-  "siderealDeg": 76.08
+  "siderealDeg": 76.08,
+  "color":"#FFEA99"
  },
  {
   "name": "Alzirr",
   "tropicalHouse": "cancer",
   "topicalDeg": 101.57,
   "siderealHouse": "gemini",
-  "siderealDeg": 77.35
+  "siderealDeg": 77.35,
+  "color":"#ffffff"
  },
  {
   "name": "Dziban",
   "tropicalHouse": "cancer",
   "topicalDeg": 104.23,
   "siderealHouse": "gemini",
-  "siderealDeg": 80.0
+  "siderealDeg": 80.0,
+  "color":"#ffffff"
  },
  {
   "name": "Sirius",
   "tropicalHouse": "cancer",
   "topicalDeg": 104.43,
   "siderealHouse": "gemini",
-  "siderealDeg": 80.22
+  "siderealDeg": 80.22,
+  "color":"#4E9FE5"
  },
  {
   "name": "Canopus",
   "tropicalHouse": "cancer",
   "topicalDeg": 105.33,
   "siderealHouse": "gemini",
-  "siderealDeg": 81.12
+  "siderealDeg": 81.12,
+  "color":"#FFEA99"
  },
  {
   "name": "Mekbuda",
   "tropicalHouse": "cancer",
   "topicalDeg": 105.35,
   "siderealHouse": "gemini",
-  "siderealDeg": 81.13
+  "siderealDeg": 81.13,
+  "color":"#FFEA99"
  },
  {
   "name": "Wasat",
   "tropicalHouse": "cancer",
   "topicalDeg": 108.88,
   "siderealHouse": "gemini",
-  "siderealDeg": 84.67
+  "siderealDeg": 84.67,
+  "color":"#8968CD"
  },
  {
   "name": "Muliphein",
   "tropicalHouse": "cancer",
   "topicalDeg": 109.97,
   "siderealHouse": "gemini",
-  "siderealDeg": 85.75
+  "siderealDeg": 85.75,
+  "color":"#FFAF3D"
  },
  {
   "name": "Castor",
   "tropicalHouse": "cancer",
   "topicalDeg": 110.6,
   "siderealHouse": "gemini",
-  "siderealDeg": 86.38
+  "siderealDeg": 86.38,
+  "color":"#ffffff"
  },
  {
   "name": "Adara",
   "tropicalHouse": "cancer",
   "topicalDeg": 111.13,
   "siderealHouse": "gemini",
-  "siderealDeg": 86.9
+  "siderealDeg": 86.9,
+  "color":"#0077BE"
  },
  {
   "name": "Gomeisa",
   "tropicalHouse": "cancer",
   "topicalDeg": 112.55,
   "siderealHouse": "gemini",
-  "siderealDeg": 88.33
+  "siderealDeg": 88.33,
+  "color":"#4E9FE5"
  },
  {
   "name": "Muscida",
   "tropicalHouse": "cancer",
   "topicalDeg": 113.37,
   "siderealHouse": "gemini",
-  "siderealDeg": 89.13
+  "siderealDeg": 89.13,
+  "color":"#FFEA99"
  },
  {
   "name": "Pollux",
   "tropicalHouse": "cancer",
   "topicalDeg": 113.57,
   "siderealHouse": "gemini",
-  "siderealDeg": 89.35
+  "siderealDeg": 89.35,
+  "color":"#FFAF3D"
  },
  {
   "name": "Wezen",
   "tropicalHouse": "cancer",
   "topicalDeg": 113.77,
   "siderealHouse": "gemini",
-  "siderealDeg": 89.53
+  "siderealDeg": 89.53,
+  "color":"#FFEA99"
  },
  {
   "name": "Procyon",
   "tropicalHouse": "cancer",
   "topicalDeg": 116.15,
   "siderealHouse": "cancer",
-  "siderealDeg": 91.92
+  "siderealDeg": 91.92,
+  "color":"#ffffff"
  },
  {
   "name": "Aludra",
   "tropicalHouse": "cancer",
   "topicalDeg": 119.9,
   "siderealHouse": "cancer",
-  "siderealDeg": 95.68
+  "siderealDeg": 95.68,
+  "color":"#0077BE"
  },
  {
   "name": "Talitha",
   "tropicalHouse": "leo",
   "topicalDeg": 123.17,
   "siderealHouse": "cancer",
-  "siderealDeg": 98.93
+  "siderealDeg": 98.93,
+  "color":"#ffffff"
  },
  {
   "name": "Al Tarf",
   "tropicalHouse": "leo",
   "topicalDeg": 124.62,
   "siderealHouse": "cancer",
-  "siderealDeg": 100.4
+  "siderealDeg": 100.4,
+  "color":"#FFEA99"
  },
  {
   "name": "Azmidiske",
   "tropicalHouse": "leo",
   "topicalDeg": 126.4,
   "siderealHouse": "cancer",
-  "siderealDeg": 102.18
+  "siderealDeg": 102.18,
+  "color":"#FFEA99"
  },
  {
   "name": "Praesepe",
   "tropicalHouse": "leo",
   "topicalDeg": 127.57,
   "siderealHouse": "cancer",
-  "siderealDeg": 103.35
+  "siderealDeg": 103.35,
+  "color":"#E3242B"
  },
  {
   "name": "Asellus Boreali",
   "tropicalHouse": "leo",
   "topicalDeg": 127.9,
   "siderealHouse": "cancer",
-  "siderealDeg": 103.68
+  "siderealDeg": 103.68,
+  "color":"#ffffff"
  },
  {
   "name": "Asellus Australis",
   "tropicalHouse": "leo",
   "topicalDeg": 129.08,
   "siderealHouse": "cancer",
-  "siderealDeg": 104.87
+  "siderealDeg": 104.87,
+  "color":"#FFAF3D"
  },
  {
   "name": "Giansar",
   "tropicalHouse": "leo",
   "topicalDeg": 130.7,
   "siderealHouse": "cancer",
-  "siderealDeg": 106.48
+  "siderealDeg": 106.48,
+  "color":"#E3242B"
  },
  {
   "name": "Tureis",
   "tropicalHouse": "leo",
   "topicalDeg": 131.75,
   "siderealHouse": "cancer",
-  "siderealDeg": 107.53
+  "siderealDeg": 107.53,
+  "color":"#FFAF3D"
  },
  {
   "name": "Kochab",
   "tropicalHouse": "leo",
   "topicalDeg": 133.7,
   "siderealHouse": "cancer",
-  "siderealDeg": 109.48
+  "siderealDeg": 109.48,
+  "color":"#FFAF3D"
  },
  {
   "name": "Acubens",
   "tropicalHouse": "leo",
   "topicalDeg": 134.0,
   "siderealHouse": "cancer",
-  "siderealDeg": 109.78
+  "siderealDeg": 109.78,
+  "color":"#ffffff"
  },
  {
   "name": "Dubhe",
   "tropicalHouse": "leo",
   "topicalDeg": 135.57,
   "siderealHouse": "cancer",
-  "siderealDeg": 111.35
+  "siderealDeg": 111.35,
+  "color":"#ffffff"
  },
  {
   "name": "Alterf",
   "tropicalHouse": "leo",
   "topicalDeg": 138.23,
   "siderealHouse": "cancer",
-  "siderealDeg": 114.02
+  "siderealDeg": 114.02,
+  "color":"#FFAF3D"
  },
  {
   "name": "Naos",
   "tropicalHouse": "leo",
   "topicalDeg": 138.92,
   "siderealHouse": "cancer",
-  "siderealDeg": 114.68
+  "siderealDeg": 114.68,
+  "color":"#000000"
  },
  {
   "name": "Merak",
   "tropicalHouse": "leo",
   "topicalDeg": 139.8,
   "siderealHouse": "cancer",
-  "siderealDeg": 115.58
+  "siderealDeg": 115.58,
+  "color":"#000000"
  },
  {
   "name": "Tania Borealis",
   "tropicalHouse": "leo",
   "topicalDeg": 139.92,
   "siderealHouse": "cancer",
-  "siderealDeg": 115.68
+  "siderealDeg": 115.68,
+  "color":"#ffffff"
  },
  {
   "name": "Ras Elased Australis",
   "tropicalHouse": "leo",
   "topicalDeg": 141.07,
   "siderealHouse": "cancer",
-  "siderealDeg": 116.85
+  "siderealDeg": 116.85,
+  "color":"#000000"
  },
  {
   "name": "Tania Australis",
   "tropicalHouse": "leo",
   "topicalDeg": 141.6,
   "siderealHouse": "cancer",
-  "siderealDeg": 117.38
+  "siderealDeg": 117.38,
+  "color":"#000000"
  },
  {
   "name": "Ras Elased Borealis",
   "tropicalHouse": "leo",
   "topicalDeg": 141.78,
   "siderealHouse": "cancer",
-  "siderealDeg": 117.57
+  "siderealDeg": 117.57,
+  "color":"#ffffff"
  },
  {
   "name": "Pherkad",
   "tropicalHouse": "leo",
   "topicalDeg": 141.98,
   "siderealHouse": "cancer",
-  "siderealDeg": 117.77
+  "siderealDeg": 117.77,
+  "color":"#ffffff"
  },
  {
   "name": "Subra",
   "tropicalHouse": "leo",
   "topicalDeg": 144.6,
   "siderealHouse": "leo",
-  "siderealDeg": 120.38
+  "siderealDeg": 120.38,
+  "color":"#FFAF3D"
  },
  {
   "name": "Alphard",
   "tropicalHouse": "leo",
   "topicalDeg": 147.63,
   "siderealHouse": "leo",
-  "siderealDeg": 123.42
+  "siderealDeg": 123.42,
+  "color":"#FFAF3D"
  },
  {
   "name": "Adhafera",
   "tropicalHouse": "leo",
   "topicalDeg": 147.93,
   "siderealHouse": "leo",
-  "siderealDeg": 123.7
+  "siderealDeg": 123.7,
+  "color":"#ffffff"
  },
  {
   "name": "Al Jabhah",
   "tropicalHouse": "leo",
   "topicalDeg": 148.27,
   "siderealHouse": "leo",
-  "siderealDeg": 124.05
+  "siderealDeg": 124.05,
+  "color":"#ffffff"
  },
  {
   "name": "Algieba",
   "tropicalHouse": "leo",
   "topicalDeg": 149.98,
   "siderealHouse": "leo",
-  "siderealDeg": 125.75
+  "siderealDeg": 125.75,
+  "color":"#4E9FE5"
  },
  {
   "name": "Regulus",
   "tropicalHouse": "virgo",
   "topicalDeg": 150.18,
   "siderealHouse": "leo",
-  "siderealDeg": 125.97
+  "siderealDeg": 125.97,
+  "color":"#4E9FE5"
  },
  {
   "name": "Phecda",
   "tropicalHouse": "virgo",
   "topicalDeg": 150.85,
   "siderealHouse": "leo",
-  "siderealDeg": 126.62
+  "siderealDeg": 126.62,
+  "color":"#ffffff"
  },
  {
   "name": "Praecipua",
   "tropicalHouse": "virgo",
   "topicalDeg": 151.23,
   "siderealHouse": "leo",
-  "siderealDeg": 127.02
+  "siderealDeg": 127.02,
+  "color":"#FFAF3D"
  },
  {
   "name": "Megrez",
   "tropicalHouse": "virgo",
   "topicalDeg": 151.43,
   "siderealHouse": "leo",
-  "siderealDeg": 127.22
+  "siderealDeg": 127.22,
+  "color":"#ffffff"
  },
  {
   "name": "El Kophrah",
   "tropicalHouse": "virgo",
   "topicalDeg": 154.02,
   "siderealHouse": "leo",
-  "siderealDeg": 129.8
+  "siderealDeg": 129.8,
+  "color":"#FFAF3D"
  },
  {
   "name": "Alula Borealis",
   "tropicalHouse": "virgo",
   "topicalDeg": 157.02,
   "siderealHouse": "leo",
-  "siderealDeg": 132.8
+  "siderealDeg": 132.8,
+  "color":"#FFEA99"
  },
  {
   "name": "Alula Australis",
   "tropicalHouse": "virgo",
   "topicalDeg": 157.7,
   "siderealHouse": "leo",
-  "siderealDeg": 133.48
+  "siderealDeg": 133.48,
+  "color":"#FFEA99"
  },
  {
   "name": "Thuban",
   "tropicalHouse": "virgo",
   "topicalDeg": 157.83,
   "siderealHouse": "leo",
-  "siderealDeg": 133.6
+  "siderealDeg": 133.6,
+  "color":"#FFEA99"
  },
  {
   "name": "Alioth",
   "tropicalHouse": "virgo",
   "topicalDeg": 159.3,
   "siderealHouse": "leo",
-  "siderealDeg": 135.08
+  "siderealDeg": 135.08,
+  "color":"#ffffff"
  },
  {
   "name": "Alsuhail",
   "tropicalHouse": "virgo",
   "topicalDeg": 161.55,
   "siderealHouse": "leo",
-  "siderealDeg": 137.32
+  "siderealDeg": 137.32,
+  "color":"#FFAF3D"
  },
  {
   "name": "Zosma",
   "tropicalHouse": "virgo",
   "topicalDeg": 161.68,
   "siderealHouse": "leo",
-  "siderealDeg": 137.45
+  "siderealDeg": 137.45,
+  "color":"#ffffff"
  },
  {
   "name": "Coxa",
   "tropicalHouse": "virgo",
   "topicalDeg": 163.78,
   "siderealHouse": "leo",
-  "siderealDeg": 139.57
+  "siderealDeg": 139.57,
+  "color":"#ffffff"
  },
  {
   "name": "Mizar",
   "tropicalHouse": "virgo",
   "topicalDeg": 166.07,
   "siderealHouse": "leo",
-  "siderealDeg": 141.85
+  "siderealDeg": 141.85,
+  "color":"#ffffff"
  },
  {
   "name": "Alcor",
   "tropicalHouse": "virgo",
   "topicalDeg": 166.23,
   "siderealHouse": "leo",
-  "siderealDeg": 142.02
+  "siderealDeg": 142.02,
+  "color":"#ffffff"
  },
  {
   "name": "Asterion",
   "tropicalHouse": "virgo",
   "topicalDeg": 168.07,
   "siderealHouse": "leo",
-  "siderealDeg": 143.83
+  "siderealDeg": 143.83,
+  "color":"#FFEA99"
  },
  {
   "name": "Denebola",
   "tropicalHouse": "virgo",
   "topicalDeg": 171.97,
   "siderealHouse": "leo",
-  "siderealDeg": 147.75
+  "siderealDeg": 147.75,
+  "color":"#ffffff"
  },
  {
   "name": "Avior",
   "tropicalHouse": "virgo",
   "topicalDeg": 173.48,
   "siderealHouse": "leo",
-  "siderealDeg": 149.27
+  "siderealDeg": 149.27,
+  "color":"#FFAF3D"
  },
  {
   "name": "Alkes",
   "tropicalHouse": "virgo",
   "topicalDeg": 174.05,
   "siderealHouse": "leo",
-  "siderealDeg": 149.82
+  "siderealDeg": 149.82,
+  "color":"#FFAF3D"
  },
  {
   "name": "Cor Caroli",
   "tropicalHouse": "virgo",
   "topicalDeg": 174.93,
   "siderealHouse": "virgo",
-  "siderealDeg": 150.7
+  "siderealDeg": 150.7,
+  "color":"#ffffff"
  },
  {
   "name": "Labrum",
   "tropicalHouse": "virgo",
   "topicalDeg": 177.05,
   "siderealHouse": "virgo",
-  "siderealDeg": 152.82
+  "siderealDeg": 152.82,
+  "color":"#FFAF3D"
  },
  {
   "name": "Alkaid",
   "tropicalHouse": "virgo",
   "topicalDeg": 177.3,
   "siderealHouse": "virgo",
-  "siderealDeg": 153.07
+  "siderealDeg": 153.07,
+  "color":"#4E9FE5"
  },
  {
   "name": "Zavijava",
   "tropicalHouse": "virgo",
   "topicalDeg": 177.53,
   "siderealHouse": "virgo",
-  "siderealDeg": 153.3
+  "siderealDeg": 153.3,
+  "color":"#FFEA99"
  },
  {
   "name": "Markeb",
   "tropicalHouse": "virgo",
   "topicalDeg": 179.25,
   "siderealHouse": "virgo",
-  "siderealDeg": 155.02
+  "siderealDeg": 155.02,
+  "color":"#4E9FE5"
  },
  {
   "name": "Zaniah",
   "tropicalHouse": "libra",
   "topicalDeg": 185.18,
   "siderealHouse": "virgo",
-  "siderealDeg": 160.97
+  "siderealDeg": 160.97,
+  "color":"#ffffff"
  },
  {
   "name": "Edasich",
   "tropicalHouse": "libra",
   "topicalDeg": 185.32,
   "siderealHouse": "virgo",
-  "siderealDeg": 161.1
+  "siderealDeg": 161.1,
+  "color":"#FFAF3D"
  },
  {
   "name": "Diadem",
   "tropicalHouse": "libra",
   "topicalDeg": 189.3,
   "siderealHouse": "virgo",
-  "siderealDeg": 165.08
+  "siderealDeg": 165.08,
+  "color":"#FFAF3D"
  },
  {
   "name": "Vindemiatrix",
   "tropicalHouse": "libra",
   "topicalDeg": 190.3,
   "siderealHouse": "virgo",
-  "siderealDeg": 166.07
+  "siderealDeg": 166.07,
+  "color":"#FFEA99"
  },
  {
   "name": "Porrima",
   "tropicalHouse": "libra",
   "topicalDeg": 190.5,
   "siderealHouse": "virgo",
-  "siderealDeg": 166.27
+  "siderealDeg": 166.27,
+  "color":"#FFEA99"
  },
  {
   "name": "Gienah Corvi",
   "tropicalHouse": "libra",
   "topicalDeg": 191.08,
   "siderealHouse": "virgo",
-  "siderealDeg": 166.87
+  "siderealDeg": 166.87,
+  "color":"#4E9FE5"
  },
  {
   "name": "Auva",
   "tropicalHouse": "libra",
   "topicalDeg": 191.82,
   "siderealHouse": "virgo",
-  "siderealDeg": 167.6
+  "siderealDeg": 167.6,
+  "color":"#880808"
  },
  {
   "name": "Minkar",
   "tropicalHouse": "libra",
   "topicalDeg": 192.02,
   "siderealHouse": "virgo",
-  "siderealDeg": 167.8
+  "siderealDeg": 167.8,
+  "color":"#FFAF3D"
  },
  {
   "name": "Alchita",
   "tropicalHouse": "libra",
   "topicalDeg": 192.6,
   "siderealHouse": "virgo",
-  "siderealDeg": 168.38
+  "siderealDeg": 168.38,
+  "color":"#FFEA99"
  },
  {
   "name": "Algorab",
   "tropicalHouse": "libra",
   "topicalDeg": 193.8,
   "siderealHouse": "virgo",
-  "siderealDeg": 169.58
+  "siderealDeg": 169.58,
+  "color":"#FFAF3D"
  },
  {
   "name": "Merga",
   "tropicalHouse": "libra",
   "topicalDeg": 195.8,
   "siderealHouse": "virgo",
-  "siderealDeg": 171.58
+  "siderealDeg": 171.58,
+  "color":"#FFEA99"
  },
  {
   "name": "Kraz",
   "tropicalHouse": "libra",
   "topicalDeg": 197.72,
   "siderealHouse": "virgo",
-  "siderealDeg": 173.5
+  "siderealDeg": 173.5,
+  "color":"#FFEA99"
  },
  {
   "name": "Seginus",
   "tropicalHouse": "libra",
   "topicalDeg": 198.02,
   "siderealHouse": "virgo",
-  "siderealDeg": 173.8
+  "siderealDeg": 173.8,
+  "color":"#FFEA99"
  },
  {
   "name": "Mufrid",
   "tropicalHouse": "libra",
   "topicalDeg": 199.7,
   "siderealHouse": "virgo",
-  "siderealDeg": 175.47
+  "siderealDeg": 175.47,
+  "color":"#FFEA99"
  },
  {
   "name": "Heze",
   "tropicalHouse": "libra",
   "topicalDeg": 202.48,
   "siderealHouse": "virgo",
-  "siderealDeg": 178.27
+  "siderealDeg": 178.27,
+  "color":"#ffffff"
  },
  {
   "name": "Foramen",
   "tropicalHouse": "libra",
   "topicalDeg": 202.5,
   "siderealHouse": "virgo",
-  "siderealDeg": 178.28
+  "siderealDeg": 178.28,
+  "color":"#FFEA99"
  },
  {
   "name": "Spica",
   "tropicalHouse": "libra",
   "topicalDeg": 204.2,
   "siderealHouse": "virgo",
-  "siderealDeg": 179.97
+  "siderealDeg": 179.97,
+  "color":"#4E9FE5"
  },
  {
   "name": "Arcturus",
   "tropicalHouse": "libra",
   "topicalDeg": 204.58,
   "siderealHouse": "libra",
-  "siderealDeg": 180.37
+  "siderealDeg": 180.37,
+  "color":"#E3242B"
  },
  {
   "name": "Nekkar",
   "tropicalHouse": "libra",
   "topicalDeg": 204.62,
   "siderealHouse": "libra",
-  "siderealDeg": 180.38
+  "siderealDeg": 180.38,
+  "color":"#FFEA99"
  },
  {
   "name": "Izar",
   "tropicalHouse": "libra",
   "topicalDeg": 208.47,
   "siderealHouse": "libra",
-  "siderealDeg": 184.23
+  "siderealDeg": 184.23,
+  "color":"#FFAF3D"
  },
  {
   "name": "Miaplacidus",
   "tropicalHouse": "scorpio",
   "topicalDeg": 212.3,
   "siderealHouse": "libra",
-  "siderealDeg": 188.08
+  "siderealDeg": 188.08,
+  "color":"#ffffff"
  },
  {
   "name": "Princeps",
   "tropicalHouse": "scorpio",
   "topicalDeg": 213.52,
   "siderealHouse": "libra",
-  "siderealDeg": 189.3
+  "siderealDeg": 189.3,
+  "color":"#FFEA99"
  },
  {
   "name": "Alkalurops",
   "tropicalHouse": "scorpio",
   "topicalDeg": 213.53,
   "siderealHouse": "libra",
-  "siderealDeg": 189.32
+  "siderealDeg": 189.32,
+  "color":"#FFEA99"
  },
  {
   "name": "Syrma",
   "tropicalHouse": "scorpio",
   "topicalDeg": 214.15,
   "siderealHouse": "libra",
-  "siderealDeg": 189.93
+  "siderealDeg": 189.93,
+  "color":"#FFEA99"
  },
  {
   "name": "Ceginus",
   "tropicalHouse": "scorpio",
   "topicalDeg": 215.45,
   "siderealHouse": "libra",
-  "siderealDeg": 191.23
+  "siderealDeg": 191.23,
+  "color":"#FFEA99"
  },
  {
   "name": "Gacrux",
   "tropicalHouse": "scorpio",
   "topicalDeg": 217.08,
   "siderealHouse": "libra",
-  "siderealDeg": 192.87
+  "siderealDeg": 192.87,
+  "color":"#E3242B"
  },
  {
   "name": "Khambalia",
   "tropicalHouse": "scorpio",
   "topicalDeg": 217.3,
   "siderealHouse": "libra",
-  "siderealDeg": 193.08
+  "siderealDeg": 193.08,
+  "color":"#FFEA99"
  },
  {
   "name": "Nusakan",
   "tropicalHouse": "scorpio",
   "topicalDeg": 219.47,
   "siderealHouse": "libra",
-  "siderealDeg": 195.25
+  "siderealDeg": 195.25,
+  "color":"#FFEA99"
  },
  {
   "name": "Mimosa",
   "tropicalHouse": "scorpio",
   "topicalDeg": 222.0,
   "siderealHouse": "libra",
-  "siderealDeg": 197.77
+  "siderealDeg": 197.77,
+  "color":"#4E9FE5"
  },
  {
   "name": "Acrux",
   "tropicalHouse": "scorpio",
   "topicalDeg": 222.22,
   "siderealHouse": "libra",
-  "siderealDeg": 198.0
+  "siderealDeg": 198.0,
+  "color":"#4E9FE5"
  },
  {
   "name": "Alphecca",
   "tropicalHouse": "scorpio",
   "topicalDeg": 222.65,
   "siderealHouse": "libra",
-  "siderealDeg": 198.43
+  "siderealDeg": 198.43,
+  "color":"#ffffff"
  },
  {
   "name": "Menkent",
   "tropicalHouse": "scorpio",
   "topicalDeg": 222.67,
   "siderealHouse": "libra",
-  "siderealDeg": 198.43
+  "siderealDeg": 198.43,
+  "color":"#FFAF3D"
  },
  {
   "name": "Zuben Elgenubi",
   "tropicalHouse": "scorpio",
   "topicalDeg": 225.43,
   "siderealHouse": "libra",
-  "siderealDeg": 201.22
+  "siderealDeg": 201.22,
+  "color":"#FFEA99"
  },
  {
   "name": "Zuben Elakribi",
   "tropicalHouse": "scorpio",
   "topicalDeg": 225.63,
   "siderealHouse": "libra",
-  "siderealDeg": 201.42
+  "siderealDeg": 201.42,
+  "color":"#FFAF3D"
  },
  {
   "name": "Zuben Hakrabi",
   "tropicalHouse": "scorpio",
   "topicalDeg": 229.12,
   "siderealHouse": "libra",
-  "siderealDeg": 204.9
+  "siderealDeg": 204.9,
+  "color":"#FFEA99"
  },
  {
   "name": "Zuben Eschamali",
   "tropicalHouse": "scorpio",
   "topicalDeg": 229.72,
   "siderealHouse": "libra",
-  "siderealDeg": 205.5
+  "siderealDeg": 205.5,
+  "color":"#7BB369"
  },
  {
   "name": "Unukalhai",
   "tropicalHouse": "scorpio",
   "topicalDeg": 232.43,
   "siderealHouse": "libra",
-  "siderealDeg": 208.2
+  "siderealDeg": 208.2,
+  "color":"#FFAF3D"
  },
  {
   "name": "Agena",
   "tropicalHouse": "scorpio",
   "topicalDeg": 234.13,
   "siderealHouse": "libra",
-  "siderealDeg": 209.92
+  "siderealDeg": 209.92,
+  "color":"#4E9FE5"
  },
  {
   "name": "Arrakis",
   "tropicalHouse": "scorpio",
   "topicalDeg": 235.1,
   "siderealHouse": "scorpio",
-  "siderealDeg": 210.88
+  "siderealDeg": 210.88,
+  "color":"#ffffff"
  },
  {
   "name": "Zuben Elakrab",
   "tropicalHouse": "scorpio",
   "topicalDeg": 235.48,
   "siderealHouse": "scorpio",
-  "siderealDeg": 211.27
+  "siderealDeg": 211.27,
+  "color":"#FFAF3D"
  },
  {
   "name": "Marsik",
   "tropicalHouse": "scorpio",
   "topicalDeg": 236.07,
   "siderealHouse": "scorpio",
-  "siderealDeg": 211.85
+  "siderealDeg": 211.85,
+  "color":"#FFEA99"
  },
  {
   "name": "Toliman",
   "tropicalHouse": "scorpio",
   "topicalDeg": 239.8,
   "siderealHouse": "scorpio",
-  "siderealDeg": 215.57
+  "siderealDeg": 215.57,
+  "color":"#FFAF3D"
  },
  {
   "name": "Kornephoros",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 241.45,
   "siderealHouse": "scorpio",
-  "siderealDeg": 217.22
+  "siderealDeg": 217.22,
+  "color":"#FFEA99"
  },
  {
   "name": "Grafias",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 241.65,
   "siderealHouse": "scorpio",
-  "siderealDeg": 217.43
+  "siderealDeg": 217.43,
+  "color":"#E3242B"
  },
  {
   "name": "Yed Prior",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 242.65,
   "siderealHouse": "scorpio",
-  "siderealDeg": 218.43
+  "siderealDeg": 218.43,
+  "color":"#E3242B"
  },
  {
   "name": "Dschubba",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 242.92,
   "siderealHouse": "scorpio",
-  "siderealDeg": 218.7
+  "siderealDeg": 218.7,
+  "color":"#0077BE"
  },
  {
   "name": "Acrab",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 243.55,
   "siderealHouse": "scorpio",
-  "siderealDeg": 219.32
+  "siderealDeg": 219.32,
+  "color":"#0077BE"
  },
  {
   "name": "Yed Posterior",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 243.87,
   "siderealHouse": "scorpio",
-  "siderealDeg": 219.63
+  "siderealDeg": 219.63,
+  "color":"#FFEA99"
  },
  {
   "name": "Jabbah",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 245.0,
   "siderealHouse": "scorpio",
-  "siderealDeg": 220.77
+  "siderealDeg": 220.77,
+  "color":"#0077BE"
  },
  {
   "name": "Marfik",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 245.95,
   "siderealHouse": "scorpio",
-  "siderealDeg": 221.72
+  "siderealDeg": 221.72,
+  "color":"#ffffff"
  },
  {
   "name": "Kajam",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 248.68,
   "siderealHouse": "scorpio",
-  "siderealDeg": 224.45
+  "siderealDeg": 224.45,
+  "color":"#ffffff"
  },
  {
   "name": "Han",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 249.58,
   "siderealHouse": "scorpio",
-  "siderealDeg": 225.37
+  "siderealDeg": 225.37,
+  "color":"#0077BE"
  },
  {
   "name": "Antares",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 250.12,
   "siderealHouse": "scorpio",
-  "siderealDeg": 225.9
+  "siderealDeg": 225.9,
+  "color":"#E3242B"
  },
  {
   "name": "Kuma",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 250.67,
   "siderealHouse": "scorpio",
-  "siderealDeg": 226.45
+  "siderealDeg": 226.45,
+  "color":"#ffffff"
  },
  {
   "name": "Alwaid",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 252.3,
   "siderealHouse": "scorpio",
-  "siderealDeg": 228.08
+  "siderealDeg": 228.08,
+  "color":"#FFEA99"
  },
  {
   "name": "Sarin",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 255.12,
   "siderealHouse": "scorpio",
-  "siderealDeg": 230.9
+  "siderealDeg": 230.9,
+  "color":"#ffffff"
  },
  {
   "name": "Ras Algethi",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 256.5,
   "siderealHouse": "scorpio",
-  "siderealDeg": 232.28
+  "siderealDeg": 232.28,
+  "color":"#ffffff"
  },
  {
   "name": "Sabik",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 258.32,
   "siderealHouse": "scorpio",
-  "siderealDeg": 234.1
+  "siderealDeg": 234.1,
+  "color":"#E3242B"
  },
  {
   "name": "Maasym",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 260.25,
   "siderealHouse": "scorpio",
-  "siderealDeg": 236.03
+  "siderealDeg": 236.03,
+  "color":"#FFEA99"
  },
  {
   "name": "Atria",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 261.25,
   "siderealHouse": "scorpio",
-  "siderealDeg": 237.02
+  "siderealDeg": 237.02,
+  "color":"#FFAF3D"
  },
  {
   "name": "Ras Alhague",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 262.8,
   "siderealHouse": "scorpio",
-  "siderealDeg": 238.58
+  "siderealDeg": 238.58,
+  "color":"#ffffff"
  },
  {
   "name": "Lesath",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 264.37,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 240.15
+  "siderealDeg": 240.15,
+  "color":"#4E9FE5"
  },
  {
   "name": "Shaula",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 264.93,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 240.72
+  "siderealDeg": 240.72,
+  "color":"#4E9FE5"
  },
  {
   "name": "Grumium",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 265.08,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 240.87
+  "siderealDeg": 240.87,
+  "color":"#FFAF3D"
  },
  {
   "name": "Kelb Alrai",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 265.68,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 241.47
+  "siderealDeg": 241.47,
+  "color":"#FFAF3D"
  },
  {
   "name": "Sargas",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 265.95,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 241.73
+  "siderealDeg": 241.73,
+  "color":"#FFEA99"
  },
  {
   "name": "Aculeus",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 266.15,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 241.92
+  "siderealDeg": 241.92,
+  "color":"#FFAF3D"
  },
  {
   "name": "Etamin",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 268.3,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 244.08
+  "siderealDeg": 244.08,
+  "color":"#FFAF3D"
  },
  {
   "name": "Acumen",
   "tropicalHouse": "sagittarius",
   "topicalDeg": 269.07,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 244.85
+  "siderealDeg": 244.85,
+  "color":"#0077BE"
  },
  {
   "name": "Sinistra",
   "tropicalHouse": "capricorn",
   "topicalDeg": 270.1,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 245.88
+  "siderealDeg": 245.88,
+  "color":"#FFEA99"
  },
  {
   "name": "Spiculum",
   "tropicalHouse": "capricorn",
   "topicalDeg": 271.38,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 247.17
+  "siderealDeg": 247.17,
+  "color":"#FFAF3D"
  },
  {
   "name": "Alnasl",
   "tropicalHouse": "capricorn",
   "topicalDeg": 271.62,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 247.38
+  "siderealDeg": 247.38,
+  "color":"#FFAF3D"
  },
  {
   "name": "Polis",
   "tropicalHouse": "capricorn",
   "topicalDeg": 273.57,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 249.35
+  "siderealDeg": 249.35,
+  "color":"#0077BE"
  },
  {
   "name": "Kaus Media",
   "tropicalHouse": "capricorn",
   "topicalDeg": 274.93,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 250.72
+  "siderealDeg": 250.72,
+  "color":"#0077BE"
  },
  {
   "name": "Kaus Australis",
   "tropicalHouse": "capricorn",
   "topicalDeg": 275.43,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 251.2
+  "siderealDeg": 251.2,
+  "color":"#4E9FE5"
  },
  {
   "name": "Kaus Borealis",
   "tropicalHouse": "capricorn",
   "topicalDeg": 276.67,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 252.45
+  "siderealDeg": 252.45,
+  "color":"#FFAF3D"
  },
  {
   "name": "Facies",
   "tropicalHouse": "capricorn",
   "topicalDeg": 278.67,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 254.45
+  "siderealDeg": 254.45,
+  "color":"#0077BE"
  },
  {
   "name": "Nunki",
   "tropicalHouse": "capricorn",
   "topicalDeg": 282.73,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 258.52
+  "siderealDeg": 258.52,
+  "color":"#0077BE"
  },
  {
   "name": "Ascella",
   "tropicalHouse": "capricorn",
   "topicalDeg": 283.98,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 259.77
+  "siderealDeg": 259.77,
+  "color":"#4E9FE5"
  },
  {
   "name": "Manubrium",
   "tropicalHouse": "capricorn",
   "topicalDeg": 285.35,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 261.12
+  "siderealDeg": 261.12,
+  "color":"#ffffff"
  },
  {
   "name": "Vega",
   "tropicalHouse": "capricorn",
   "topicalDeg": 285.67,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 261.43
+  "siderealDeg": 261.43,
+  "color":"#ffffff"
  },
  {
   "name": "Alya",
   "tropicalHouse": "capricorn",
   "topicalDeg": 286.1,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 261.88
+  "siderealDeg": 261.88,
+  "color":"#0077BE"
  },
  {
   "name": "Arkab Prior",
   "tropicalHouse": "capricorn",
   "topicalDeg": 286.13,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 261.9
+  "siderealDeg": 261.9,
+  "color":"#ffffff"
  },
  {
   "name": "Arkab Posterior",
   "tropicalHouse": "capricorn",
   "topicalDeg": 286.18,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 261.97
+  "siderealDeg": 261.97,
+  "color":"#ffffff"
  },
  {
   "name": "Albaldah",
   "tropicalHouse": "capricorn",
   "topicalDeg": 286.6,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 262.38
+  "siderealDeg": 262.38,
+  "color":"#FFEA99"
  },
  {
   "name": "Rukbat",
   "tropicalHouse": "capricorn",
   "topicalDeg": 286.98,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 262.77
+  "siderealDeg": 262.77,
+  "color":"#4E9FE5"
  },
  {
   "name": "Sheliak",
   "tropicalHouse": "capricorn",
   "topicalDeg": 289.23,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 265.0
+  "siderealDeg": 265.0,
+  "color":"#4E9FE5"
  },
  {
   "name": "Dheneb",
   "tropicalHouse": "capricorn",
   "topicalDeg": 290.15,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 265.92
+  "siderealDeg": 265.92,
+  "color":"#ffffff"
  },
  {
   "name": "Sulaphat",
   "tropicalHouse": "capricorn",
   "topicalDeg": 292.27,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 268.05
+  "siderealDeg": 268.05,
+  "color":"#4E9FE5"
  },
  {
   "name": "Peacock",
   "tropicalHouse": "capricorn",
   "topicalDeg": 294.17,
   "siderealHouse": "sagittarius",
-  "siderealDeg": 269.95
+  "siderealDeg": 269.95,
+  "color":"#4E9FE5"
  },
  {
   "name": "Terebellium",
   "tropicalHouse": "capricorn",
   "topicalDeg": 296.2,
   "siderealHouse": "capricorn",
-  "siderealDeg": 271.98
+  "siderealDeg": 271.98,
+  "color":"#4E9FE5"
  },
  {
   "name": "Tarazed",
   "tropicalHouse": "aquarius",
   "topicalDeg": 301.28,
   "siderealHouse": "capricorn",
-  "siderealDeg": 277.07
+  "siderealDeg": 277.07,
+  "color":"#FFAF3D"
  },
  {
   "name": "Sham",
   "tropicalHouse": "aquarius",
   "topicalDeg": 301.42,
   "siderealHouse": "capricorn",
-  "siderealDeg": 277.2
+  "siderealDeg": 277.2,
+  "color":"#FFAF3D"
  },
  {
   "name": "Albireo",
   "tropicalHouse": "aquarius",
   "topicalDeg": 301.6,
   "siderealHouse": "capricorn",
-  "siderealDeg": 277.38
+  "siderealDeg": 277.38,
+  "color":"#FFEA99"
  },
  {
   "name": "Altair",
   "tropicalHouse": "aquarius",
   "topicalDeg": 302.13,
   "siderealHouse": "capricorn",
-  "siderealDeg": 277.92
+  "siderealDeg": 277.92,
+  "color":"#ffffff"
  },
  {
   "name": "Alshain",
   "tropicalHouse": "aquarius",
   "topicalDeg": 302.77,
   "siderealHouse": "capricorn",
-  "siderealDeg": 278.55
+  "siderealDeg": 278.55,
+  "color":"#FFEA99"
  },
  {
   "name": "Giedi Prima",
   "tropicalHouse": "aquarius",
   "topicalDeg": 304.12,
   "siderealHouse": "capricorn",
-  "siderealDeg": 279.9
+  "siderealDeg": 279.9,
+  "color":"#FFEA99"
  },
  {
   "name": "Giedi Secunda",
   "tropicalHouse": "aquarius",
   "topicalDeg": 304.22,
   "siderealHouse": "capricorn",
-  "siderealDeg": 279.98
+  "siderealDeg": 279.98,
+  "color":"#ffffff"
  },
  {
   "name": "Dabih",
   "tropicalHouse": "aquarius",
   "topicalDeg": 304.4,
   "siderealHouse": "capricorn",
-  "siderealDeg": 280.18
+  "siderealDeg": 280.18,
+  "color":"#ffffff"
  },
  {
   "name": "Alshat",
   "tropicalHouse": "aquarius",
   "topicalDeg": 304.78,
   "siderealHouse": "capricorn",
-  "siderealDeg": 280.57
+  "siderealDeg": 280.57,
+  "color":"#0077BE"
  },
  {
   "name": "Oculus",
   "tropicalHouse": "aquarius",
   "topicalDeg": 305.07,
   "siderealHouse": "capricorn",
-  "siderealDeg": 280.85
+  "siderealDeg": 280.85,
+  "color":"#FFEA99"
  },
  {
   "name": "Bos",
   "tropicalHouse": "aquarius",
   "topicalDeg": 305.52,
   "siderealHouse": "capricorn",
-  "siderealDeg": 281.3
+  "siderealDeg": 281.3,
+  "color":"#ffffff"
  },
  {
   "name": "Albali",
   "tropicalHouse": "aquarius",
   "topicalDeg": 312.07,
   "siderealHouse": "capricorn",
-  "siderealDeg": 287.85
+  "siderealDeg": 287.85,
+  "color":"#ffffff"
  },
  {
   "name": "Armus",
   "tropicalHouse": "aquarius",
   "topicalDeg": 313.08,
   "siderealHouse": "capricorn",
-  "siderealDeg": 288.87
+  "siderealDeg": 288.87,
+  "color":"#ffffff"
  },
  {
   "name": "Dorsum",
   "tropicalHouse": "aquarius",
   "topicalDeg": 314.2,
   "siderealHouse": "capricorn",
-  "siderealDeg": 289.97
+  "siderealDeg": 289.97,
+  "color":"#ffffff"
  },
  {
   "name": "Alnair",
   "tropicalHouse": "aquarius",
   "topicalDeg": 316.27,
   "siderealHouse": "capricorn",
-  "siderealDeg": 292.03
+  "siderealDeg": 292.03,
+  "color":"#ffffff"
  },
  {
   "name": "Rotanev",
   "tropicalHouse": "aquarius",
   "topicalDeg": 316.68,
   "siderealHouse": "capricorn",
-  "siderealDeg": 292.47
+  "siderealDeg": 292.47,
+  "color":"#FFEA99"
  },
  {
   "name": "Sualocin",
   "tropicalHouse": "aquarius",
   "topicalDeg": 317.73,
   "siderealHouse": "capricorn",
-  "siderealDeg": 293.52
+  "siderealDeg": 293.52,
+  "color":"#0077BE"
  },
  {
   "name": "Castra",
   "tropicalHouse": "aquarius",
   "topicalDeg": 320.55,
   "siderealHouse": "capricorn",
-  "siderealDeg": 296.33
+  "siderealDeg": 296.33,
+  "color":"#ffffff"
  },
  {
   "name": "Nashira",
   "tropicalHouse": "aquarius",
   "topicalDeg": 322.15,
   "siderealHouse": "capricorn",
-  "siderealDeg": 297.92
+  "siderealDeg": 297.92,
+  "color":"#ffffff"
  },
  {
   "name": "Kitalpha",
   "tropicalHouse": "aquarius",
   "topicalDeg": 323.47,
   "siderealHouse": "capricorn",
-  "siderealDeg": 299.25
+  "siderealDeg": 299.25,
+  "color":"#FFEA99"
  },
  {
   "name": "Sadalsuud",
   "tropicalHouse": "aquarius",
   "topicalDeg": 323.75,
   "siderealHouse": "capricorn",
-  "siderealDeg": 299.53
+  "siderealDeg": 299.53,
+  "color":"#ffffff"
  },
  {
   "name": "Deneb Algedi",
   "tropicalHouse": "aquarius",
   "topicalDeg": 323.9,
   "siderealHouse": "capricorn",
-  "siderealDeg": 299.67
+  "siderealDeg": 299.67,
+  "color":"#ffffff"
  },
  {
   "name": "Sador",
   "tropicalHouse": "aquarius",
   "topicalDeg": 325.18,
   "siderealHouse": "aquarius",
-  "siderealDeg": 300.97
+  "siderealDeg": 300.97,
+  "color":"#FFEA99"
  },
  {
   "name": "GienahCyg",
   "tropicalHouse": "aquarius",
   "topicalDeg": 328.1,
   "siderealHouse": "aquarius",
-  "siderealDeg": 303.88
+  "siderealDeg": 303.88,
+  "color":"#FFAF3D"
  },
  {
   "name": "Enif",
   "tropicalHouse": "pisces",
   "topicalDeg": 332.23,
   "siderealHouse": "aquarius",
-  "siderealDeg": 308.02
+  "siderealDeg": 308.02,
+  "color":"#FFAF3D"
  },
  {
   "name": "Ancha",
   "tropicalHouse": "pisces",
   "topicalDeg": 333.62,
   "siderealHouse": "aquarius",
-  "siderealDeg": 309.4
+  "siderealDeg": 309.4,
+  "color":"#FFEA99"
  },
  {
   "name": "Sadalmelek",
   "tropicalHouse": "pisces",
   "topicalDeg": 333.7,
   "siderealHouse": "aquarius",
-  "siderealDeg": 309.48
+  "siderealDeg": 309.48,
+  "color":"#FFEA99"
  },
  {
   "name": "Fomalhaut",
   "tropicalHouse": "pisces",
   "topicalDeg": 334.22,
   "siderealHouse": "aquarius",
-  "siderealDeg": 310.0
+  "siderealDeg": 310.0,
+  "color":"#ffffff"
  },
  {
   "name": "Deneb Adige",
   "tropicalHouse": "pisces",
   "topicalDeg": 335.67,
   "siderealHouse": "aquarius",
-  "siderealDeg": 311.45
+  "siderealDeg": 311.45,
+  "color":"#ffffff"
  },
  {
   "name": "Sadalachbia",
   "tropicalHouse": "pisces",
   "topicalDeg": 337.07,
   "siderealHouse": "aquarius",
-  "siderealDeg": 312.85
+  "siderealDeg": 312.85,
+  "color":"#ffffff"
  },
  {
   "name": "Biham",
   "tropicalHouse": "pisces",
   "topicalDeg": 337.18,
   "siderealHouse": "aquarius",
-  "siderealDeg": 312.97
+  "siderealDeg": 312.97,
+  "color":"#ffffff"
  },
  {
   "name": "Skat",
   "tropicalHouse": "pisces",
   "topicalDeg": 339.23,
   "siderealHouse": "aquarius",
-  "siderealDeg": 315.0
+  "siderealDeg": 315.0,
+  "color":"#ffffff"
  },
  {
   "name": "Situla",
   "tropicalHouse": "pisces",
   "topicalDeg": 339.77,
   "siderealHouse": "aquarius",
-  "siderealDeg": 315.55
+  "siderealDeg": 315.55,
+  "color":"#E3242B"
  },
  {
   "name": "Achernar",
   "tropicalHouse": "pisces",
   "topicalDeg": 345.67,
   "siderealHouse": "aquarius",
-  "siderealDeg": 321.45
+  "siderealDeg": 321.45,
+  "color":"#4E9FE5"
  },
  {
   "name": "Ankaa",
   "tropicalHouse": "pisces",
   "topicalDeg": 345.85,
   "siderealHouse": "aquarius",
-  "siderealDeg": 321.63
+  "siderealDeg": 321.63,
+  "color":"#FFAF3D"
  },
  {
   "name": "Homam",
   "tropicalHouse": "pisces",
   "topicalDeg": 346.5,
   "siderealHouse": "aquarius",
-  "siderealDeg": 322.28
+  "siderealDeg": 322.28,
+  "color":"#4E9FE5"
  },
  {
   "name": "Sadalbari",
   "tropicalHouse": "pisces",
   "topicalDeg": 353.4,
   "siderealHouse": "aquarius",
-  "siderealDeg": 329.18
+  "siderealDeg": 329.18,
+  "color":"#FFEA99"
  },
  {
   "name": "Markab",
   "tropicalHouse": "pisces",
   "topicalDeg": 353.83,
   "siderealHouse": "aquarius",
-  "siderealDeg": 329.62
+  "siderealDeg": 329.62,
+  "color":"#4E9FE5"
  },
  {
   "name": "Matar",
   "tropicalHouse": "pisces",
   "topicalDeg": 356.07,
   "siderealHouse": "pisces",
-  "siderealDeg": 331.85
+  "siderealDeg": 331.85,
+  "color":"#FFEA99"
  },
  {
   "name": "Azelfafage",
   "tropicalHouse": "pisces",
   "topicalDeg": 358.62,
   "siderealHouse": "pisces",
-  "siderealDeg": 334.4
+  "siderealDeg": 334.4,
+  "color":"#ffffff"
  },
  {
   "name": "Scheat",
   "tropicalHouse": "pisces",
   "topicalDeg": 359.73,
   "siderealHouse": "pisces",
-  "siderealDeg": 335.5
+  "siderealDeg": 335.5,
+  "color":"#ffffff"
  }
 ]

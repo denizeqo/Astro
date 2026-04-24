@@ -1,7 +1,12 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, FileResponse
 from .chartUtility import *
 import json
+
+from docx import Document
+from docx.shared import Cm
+from docx.shared import RGBColor
+from io import BytesIO
 
 # Create your views here.
 def Home(request):
@@ -34,3 +39,42 @@ def Home(request):
         return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols})
 
     return render(request, 'pages/home.html')
+
+
+def getReport(request):
+
+    image = request.FILES["image"]
+    userData = json.loads(request.POST['userData'])
+
+    document = Document()
+
+    section = document.sections[0]
+
+    style = document.styles['Normal']
+    font = style.font
+    font.name = 'Arial'
+
+    section.top_margin = Cm(1.27)
+    section.bottom_margin = Cm(1.27)
+    section.left_margin = Cm(1.27)
+    section.right_margin = Cm(1.27)
+
+    document.add_heading("Report", 0)
+    document.add_picture(image, width=Cm(19))
+
+    document.add_heading('User Data', level=2)
+
+    table = document.add_table(rows=0, cols=3)
+
+    addTableRows(table, userData)
+
+    buffer = BytesIO()
+    document.save(buffer)
+    buffer.seek(0)
+
+    return FileResponse(
+        buffer,
+        as_attachment=True,
+        filename="report.docx",
+        content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )

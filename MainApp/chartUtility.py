@@ -10,6 +10,8 @@ from flatlib import const
 from flatlib.aspects import getAspect
 import swisseph as swe
 
+from docx.shared import RGBColor
+
 
 tf = TimezoneFinder()
 
@@ -66,12 +68,12 @@ def getStars(planets, fourAngles):
             if len(stars) != 0:
                 lastStarPosition = stars[len(stars)-1]["position"]
 
-                if starPosition - lastStarPosition >= 1.2:
+                if starPosition - lastStarPosition >= 1:
                     starOrbite = 0
 
-            stars.append({'name': data[index]['name'], "position": starPosition, 'num':getChartNum(starPosition), 'orbite':starOrbite, 'house': getHouse(starPosition)})
+            stars.append({'name': data[index]['name'], "position": starPosition,'color':data[index]['color'], 'num':getChartNum(starPosition), 'orbite':starOrbite, 'house': getHouse(starPosition)})
 
-            if starOrbite >= 6:
+            if starOrbite >= 4:
                 starOrbite = 0
             else:
                 starOrbite += 1
@@ -181,7 +183,7 @@ def getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName,
     lat, lng = getLonLat(latitude, longitude)
     utcDateOfBirth, utcTimeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
     talismanNum = _getTalismanNum(chart)
-    userData = {'firstName':firstName, 'lastName':lastName, 'city':city, 'country':country, 'lat':lat, 'lng':lng, 'dateOfBirth':dateOfBirth, 'timeOfBirth':timeOfBirth, 'utcDateOfBirth':utcDateOfBirth.replace('/', '-'), 'utcTimeOfBirth':utcTimeOfBirth[:5], 'talisman':talismanNum}
+    userData = {'First Name':firstName, 'Last Name':lastName, 'City':city, 'Country':country, 'Latitude':lat, 'Longitude':lng, 'Local Time':dateOfBirth + ' ' + timeOfBirth, 'UTC Time':utcDateOfBirth.replace('/', '-') + ' ' + utcTimeOfBirth[:5], 'talisman':talismanNum}
 
     return userData
 
@@ -315,7 +317,49 @@ def get_all_aspects(chart):
     return result
     
 
+def addTableRows(table, userData):
 
+    def _getKeyValue():
+        for key, value in userData.items():
+            yield key, value
+
+    gen = _getKeyValue()
+    talismanIndex = 0
+
+    for i in range(4):
+        key1, value1 = next(gen)
+
+        if key1 == 'talisman':
+            break
+
+        key2, value2 = next(gen)
+
+        row = table.add_row()
+        cell = row.cells[0]
+        p = cell.paragraphs[0]
+        p.add_run(f'{key1}: {value1}').bold = True
+
+        cell = row.cells[1]
+        p = cell.paragraphs[0]
+        p.add_run(f'{key2}: {value2}').bold = True
+
+        cell = row.cells[2]
+        p = cell.paragraphs[0]
+        spaces = 15
+
+
+        for j in range(3):
+            p.add_run('    ')
+            pValue = str(userData['talisman'][talismanIndex + j]['value']) + userData['talisman'][talismanIndex + j]['sup']
+            color = userData['talisman'][talismanIndex + j]['color'][1:]
+
+            run = p.add_run(pValue)
+            run.font.color.rgb = RGBColor.from_string(color if color != 'ffffff' else '808080')
+            run.bold = True
+
+            p.add_run(' ' * (spaces - len(pValue) * 2))
+
+        talismanIndex += 3
 
 
 
