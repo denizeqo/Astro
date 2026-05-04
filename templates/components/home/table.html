@@ -1,5 +1,5 @@
 <section id="UserData" class="widget glassBg hiddenWidget">
-    <h2 class="tableTitle">User Data</h2>
+    <h2 class="tableTitle">The Chart Data of Your Birth</h2>
     <div class="userDataContainer">
         <div class="userDataData">
             <div class="userDataRow">
@@ -7,22 +7,26 @@
                 <p class="userDataCol">Last Name: <span id="lastName">Dei</span> </p>
             </div>
             <div class="userDataRow">
-                <p class="userDataCol">Country: <span id="country1">Dei</span></p>
-                <p class="userDataCol">City: <span id="city1">Dei</span></p>
+                <p class="userDataCol">Country: <span id="country1"></span></p>
+                <p class="userDataCol">City: <span id="city1"></span></p>
             </div>
             <div class="userDataRow">
-                <p class="userDataCol">Latitude: <span id="lat">Dei</span></p>
-                <p class="userDataCol">Longitude: <span id="lng">Dei</span></p>
+                <p class="userDataCol">Latitude: <span id="lat"></span></p>
+                <p class="userDataCol">Longitude: <span id="lng"></span></p>
             </div>
             <div class="userDataRow">
-                <p class="userDataCol">UTC Time: <span id="utcBirthTime">Dei</span></p>
-                <p class="userDataCol">Local Time: <span id="birthTime">Dei</span></p>
+                <p class="userDataCol">UTC Time: <span id="utcBirthTime"></span></p>
+                <p class="userDataCol">Local Time: <span id="birthTime"></span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">Chart System: Chart System: <span id="chartSystem">Astro-Numerology Egizio</span></p>
             </div>
         </div>
 
-        <table id="Talisman" class="transparent-table-userData">
-            
-        </table>
+        <div style="margin-bottom: 40px;">
+            <p class="tableTitle" style="margin-bottom: 10px;"> Your Lucky Numbers</p>
+            <table id="Talisman" class="transparent-table-userData"></table>
+        </div>
     </div>
 
 </section>
@@ -32,7 +36,7 @@
 
 
 <section id="AscTable" class="widget glassBg hiddenWidget">
-    <h2 class="tableTitle">Four Angles</h2>
+    <h2 class="tableTitle">The Four Angles of Your Birth</h2>
     <table id="test" class="transparent-table">
         <thead>
             <tr>
@@ -50,7 +54,7 @@
 </section>
 
 <section id="PlanetTable" class="widget glassBg hiddenWidget">
-    <h2 class="tableTitle">Planets</h2>
+    <h2 class="tableTitle">The Planet Positions of Your Birth</h2>
     <table id="test2" class="transparent-table">
         <thead>
             <tr>
@@ -70,7 +74,7 @@
 
 
 <section id="StarTable" class="widget glassBg hiddenWidget">
-    <h2 class="tableTitle">Stars</h2>
+    <h2 class="tableTitle">The Star Positions of Your Birth</h2>
     <table id="test3" class="transparent-table">
         <thead>
             <tr>
@@ -83,6 +87,25 @@
             </tr>
         </thead>
         <tbody id="StarTbody">
+            
+        </tbody>
+    </table>
+</section>
+
+
+<section id="AspectTable" class="widget glassBg hiddenWidget">
+    <h2 class="tableTitle">The Aspects of Your Birth</h2>
+    <table id="test4" class="transparent-table">
+        <thead>
+            <tr>
+            <th>Planet</th>
+            <th>Aspect</th>
+            <th>Planet</th>
+            <th>Orb</th>
+            <th>Move</th>         
+            </tr>
+        </thead>
+        <tbody id="AspectTbody">
             
         </tbody>
     </table>

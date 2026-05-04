@@ -416,6 +416,49 @@ function starTable(stars, tbody, table){
   table.classList.remove('hiddenWidget');
 }
 
+
+function aspectTable(aspects, tbody, table){
+
+  for(let i in aspects){
+
+    let tr = document.createElement("tr");
+
+    let active = aspects[i]['active'];
+    let activeColor = aspects[i]['activeColor'];
+    let passive = aspects[i]['passive'];
+    let passiveColor = aspects[i]['passiveColor'];
+    let orb = degMin(aspects[i]['orb']);
+    let type = aspects[i]['type'];
+    let movement = aspects[i]['movement']
+
+    let activeCol = document.createElement("td");
+    activeCol.textContent = active;
+    activeCol.style.color = activeColor;
+    tr.appendChild(activeCol);
+
+    let typeCol = document.createElement("td");
+    typeCol.textContent = type;
+    tr.appendChild(typeCol);
+
+    let passiveCol = document.createElement("td");
+    passiveCol.textContent = passive;
+    passiveCol.style.color = passiveColor;
+    tr.appendChild(passiveCol);
+
+    let orbCol = document.createElement("td");
+    orbCol.textContent = orb;
+    tr.appendChild(orbCol);
+
+    let movementCol = document.createElement("td");
+    movementCol.textContent = movement;
+    tr.appendChild(movementCol);
+
+    tbody.appendChild(tr);
+  }
+
+  table.classList.remove('hiddenWidget');
+}
+
 function addUserData(userData, section, table){
 
   let firstName = document.getElementById('firstName')
@@ -773,356 +816,6 @@ function getSVGPoint(evt) {
   clampViewBox();
   updateViewBox();
 });`
-
-
-function downloadPDF1() {
-        const { jsPDF } = window.jspdf;
-
-        const svg = document.getElementById("Chart");
-
-        const serializer = new XMLSerializer();
-        const svgString = serializer.serializeToString(svg);
-
-        const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
-        const url = URL.createObjectURL(svgBlob);
-
-        const img = new Image();
-
-        img.onload = function () {
-            const scale = 3;
-
-            const width = svg.clientWidth;
-            const height = svg.clientHeight;
-
-            const canvas = document.createElement("canvas");
-            canvas.width = width * scale;
-            canvas.height = height * scale;
-
-            const ctx = canvas.getContext("2d");
-
-            // background
-            ctx.fillStyle = "#0d0820";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-            const imgData = canvas.toDataURL("image/png");
-
-            // 📄 Create PDF
-            const pdf = new jsPDF({
-                orientation: "portrait",
-                unit: "px",
-                format: "a4"
-            });
-
-            // 📏 Positioning
-            const pageWidth = pdf.internal.pageSize.getWidth();
-
-            // Title
-            pdf.setFontSize(20);
-            pdf.text("Astrology Chart", 20, 30);
-
-            // Add image (centered)
-            const imgWidth = pageWidth - 40;
-            const imgHeight = (canvas.height / canvas.width) * imgWidth;
-
-            pdf.addImage(imgData, "PNG", 20, 50, imgWidth, imgHeight);
-
-            // Extra text below
-            pdf.setFontSize(12);
-            pdf.text("Name: John Doe", 20, 50 + imgHeight + 30);
-            pdf.text("Date: 17 April 2026", 20, 50 + imgHeight + 50);
-
-            // Download
-            pdf.save("chart.pdf");
-
-            URL.revokeObjectURL(url);
-        };
-
-        img.src = url;
-    }
-
-
-
-
-function downloadPDF2() {
-    const pdf = new window.jspdf.jsPDF({
-        orientation: "portrait",
-        unit: "px",
-        format: "a4"
-    });
-
-    const svg = document.getElementById("Chart");
-
-    const serializer = new XMLSerializer();
-    const svgString = serializer.serializeToString(svg);
-
-    const img = new Image();
-    const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
-    const url = URL.createObjectURL(svgBlob);
-
-    img.onload = function () {
-        const scale = 3;
-
-        const width = svg.clientWidth;
-        const height = svg.clientHeight;
-
-        const canvas = document.createElement("canvas");
-        canvas.width = width * scale;
-        canvas.height = height * scale;
-
-        const ctx = canvas.getContext("2d");
-
-        // background
-        ctx.fillStyle = "#0d0820";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-        const imgData = canvas.toDataURL("image/png");
-
-        const pageWidth = pdf.internal.pageSize.getWidth();
-
-        // =====================
-        // 🧾 1. TITLE
-        // =====================
-        pdf.setFontSize(20);
-        pdf.text("Astrology Report", 20, 30);
-
-        // =====================
-        // 📊 2. CHART
-        // =====================
-        const imgWidth = pageWidth - 40;
-        const imgHeight = (canvas.height / canvas.width) * imgWidth;
-
-        pdf.addImage(imgData, "PNG", 20, 50, imgWidth, imgHeight);
-
-        let currentY = 50 + imgHeight + 20;
-
-        // =====================
-        // 👤 3. USER DATA TEXT
-        // =====================
-        pdf.setFontSize(12);
-
-        const userText = [
-            "Name: John Doe",
-            "Birth Date: 17 April 2026",
-            "Location: Tirana",
-            "Sun Sign: Aries",
-            "",
-            "",
-            ""
-        ];
-
-        userText.forEach(line => {
-            pdf.text(line, 20, currentY);
-            currentY += 15; // spacing between lines
-        });
-
-        currentY += 10; // extra space before table
-
-        // =====================
-        // 📋 4. TABLES
-        // =====================
-        pdf.autoTable({
-            html: "#test",
-            startY: currentY
-        });
-
-        currentY = pdf.lastAutoTable.finalY + 20;
-
-        pdf.autoTable({
-            html: "#test2",
-            startY: currentY
-        });
-
-
-        currentY = pdf.lastAutoTable.finalY + 20;
-
-        pdf.autoTable({
-            html: "#test3",
-            startY: currentY
-        });
-
-        // =====================
-        // 💾 SAVE
-        // =====================
-        pdf.save("chart.pdf");
-
-        URL.revokeObjectURL(url);
-    };
-
-    img.src = url;
-}
-
-
-
-function downloadPDF(userData) {
-    const pdf = new window.jspdf.jsPDF({
-        orientation: "portrait",
-        unit: "px",
-        format: "a4"
-    });
-
-    const svg = document.getElementById("Chart");
-
-    const serializer = new XMLSerializer();
-    const svgString = serializer.serializeToString(svg);
-
-    const img = new Image();
-    const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
-    const url = URL.createObjectURL(svgBlob);
-
-    // =====================
-    // 🔧 helper: force exactly 4 lines
-    // =====================
-    function formatFourLines(lines) {
-        let result = [...lines];
-
-        if (result.length > 4) {
-            result = result.slice(0, 4);
-        }
-
-        while (result.length < 4) {
-            result.push(" ");
-        }
-
-        return result;
-    }
-
-    img.onload = function () {
-        const scale = 3;
-
-        const width = svg.clientWidth;
-        const height = svg.clientHeight;
-
-        const canvas = document.createElement("canvas");
-        canvas.width = width * scale;
-        canvas.height = height * scale;
-
-        const ctx = canvas.getContext("2d");
-
-        // background
-        ctx.fillStyle = "#0d0820";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-        const imgData = canvas.toDataURL("image/png");
-
-        const pageWidth = pdf.internal.pageSize.getWidth();
-
-        // =====================
-        // 🧾 1. TITLE
-        // =====================
-        pdf.setFontSize(20);
-        pdf.text("Astrology Report", 20, 30);
-
-        // =====================
-        // 📊 2. CHART
-        // =====================
-        const imgWidth = pageWidth - 40;
-        const imgHeight = (canvas.height / canvas.width) * imgWidth;
-
-        pdf.addImage(imgData, "PNG", 20, 50, imgWidth, imgHeight);
-
-        let currentY = 50 + imgHeight + 20;
-
-        // =====================
-        // 📊 3. THREE COLUMN SECTION
-        // =====================
-        const margin = 20;
-        const gap = 10;
-
-        const usableWidth = pageWidth - margin * 2 - gap * 2;
-        const colWidth = usableWidth / 3;
-
-        const col1X = margin;
-        const col2X = margin + colWidth + gap;
-        const col3X = margin + (colWidth + gap + 20) * 2;
-
-        let startY = currentY;
-
-        pdf.setFontSize(11);
-        const lineHeight = 20;
-
-        // ---------------------
-        // LEFT COLUMN (user-style text)
-        // ---------------------
-        const leftData = [
-            `Fisrt Name: ${userData['firstName']}`,
-            `Country: ${userData['country']}`,
-            `Latitude: ${userData['lat']}`,
-            `Birth Time: ${userData['dateOfBirth']} ${userData['timeOfBirth']}`
-        ];
-
-        const text1 = formatFourLines(leftData);
-        pdf.text(text1, col1X, startY, { lineHeightFactor: 2 });
-
-        // ---------------------
-        // MIDDLE COLUMN
-        // ---------------------
-        const rightData = [
-            `Last ${userData['lastName']}`,
-            `City: ${userData['city']}`,
-            `Longitude: ${userData['lng']}`,
-            `UTC Birth Time: ${userData['utcDateOfBirth']} ${userData['utcTimeOfBirth']}`
-        ];
-
-        const text2 = formatFourLines(rightData);
-        pdf.text(text2, col2X, startY, { lineHeightFactor: 2 });
-
-        // ---------------------
-        // RIGHT COLUMN (table)
-        // ---------------------
-        pdf.autoTable({
-            html: "#Talisman",
-            startY: startY - 10,
-            margin: { left: col3X },
-            tableWidth: 80,
-            theme: "grid",
-            styles: {
-                fontSize: 8,  
-                lineWidth: 0.5,
-                lineColor: [255, 255, 255],
-                halign: "center",
-                valign: "middle",
-                minCellHeight: 20,
-                fillColor: hexToRgb('#0d0820')
-            },
-            didParseCell: function (data){
-              if (data.section === "body"){
-                const value = data.cell.text[0];
-
-                for (let index in userData['talisman']){                  
-                  if (value == userData['talisman'][index]['value'] + userData['talisman'][index]['sup']){
-                    data.cell.styles.textColor = hexToRgb(userData['talisman'][index]['color'])
-                  }
-                }
-              }
-          }
-        });
-
-        // calculate height of section
-        const textHeight = 4 * lineHeight * 1.3;
-        const tableBottom = pdf.lastAutoTable.finalY;
-
-        currentY = Math.max(
-            startY + textHeight,
-            tableBottom
-        ) + 20;
-
-        // =====================
-        // 💾 SAVE
-        // =====================
-        pdf.save("chart.pdf");
-
-        URL.revokeObjectURL(url);
-    };
-
-    img.src = url;
-}
-
 
 function hexToRgb(hex) {
     hex = hex.replace("#", "");

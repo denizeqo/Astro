@@ -156,7 +156,11 @@ def getPlanets(chart):
         else:
             symbolPosition = chart.get(planet).lon
 
-        planets.append({'name':planet, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
+        planetName = planet 
+        #if planet == const.MOON:
+        #    planetName  = planet + "(" + chart.getMoonPhase() + ")"
+
+        planets.append({'name':planetName, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
         
     return planets
 
@@ -300,19 +304,36 @@ def get_all_aspects(chart):
     objs = list(chart.objects)
     result = []
 
-    major = [
-        const.CONJUNCTION,
-        const.SEXTILE,
-        const.SQUARE,
-        const.TRINE,
-        const.OPPOSITION
-    ]
+    planetsColorMap = {
+        const.SUN: '#FFEA99',
+        const.MOON: '#AAD5DB',
+        const.MERCURY: '#cdb891',
+        const.VENUS: '#a8e4a0',
+        const.MARS: '#E3242B',
+        const.JUPITER: '#FFAF3D',
+        const.SATURN: '#808080',
+        const.URANUS: '#4E9FE5',
+        const.NEPTUNE: '#8968CD',
+        const.PLUTO: '#ffffff',
+        const.CHIRON: '#ffffff',
+        const.NORTH_NODE: '#AAD5DB',
+        const.SOUTH_NODE: '#AAD5DB'
+    }
+
+    aspectType = {
+        0: 'Conjunction',
+        60: 'Sextile',
+        90: 'Square',
+        120: 'Trine',
+        180: 'Opposition',
+    }
 
     for i in range(len(objs)):
         for j in range(i + 1, len(objs)):
-            asp = getAspect(objs[i], objs[j], major)
-            if asp:
-                result.append(asp)
+            asp = getAspect(objs[i], objs[j], const.MAJOR_ASPECTS)
+            if asp and asp.type != -1 and asp.orb <= 2.5:
+                result.append({'active':asp.active.id, 'activeColor':planetsColorMap[asp.active.id], 'passive':asp.passive.id, 'passiveColor':planetsColorMap[asp.passive.id], 'orb':asp.orb, 'type':aspectType[asp.type], 'movement':asp.movement()[0]})
+
 
     return result
     

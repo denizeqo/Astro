@@ -32,11 +32,11 @@ def Home(request):
         dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
 
         aspects = get_all_aspects(chart)
-
+        print(len(aspects))
         userData = getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
         
-        return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols})
+        return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
 
     return render(request, 'pages/home.html')
 
@@ -59,14 +59,17 @@ def getReport(request):
     section.left_margin = Cm(1.27)
     section.right_margin = Cm(1.27)
 
-    document.add_heading("Report", 0)
+    document.add_heading("Report", level=1)
     document.add_picture(image, width=Cm(19))
 
-    document.add_heading('User Data', level=2)
+    #document.add_heading('User Data', level=2)
 
     table = document.add_table(rows=0, cols=3)
 
     addTableRows(table, userData)
+
+    p = document.add_paragraph('')
+    p.add_run('Chart System: Astro-Numerology Egizio').bold =True
 
     buffer = BytesIO()
     document.save(buffer)
