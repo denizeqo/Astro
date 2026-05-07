@@ -157,8 +157,17 @@ def getPlanets(chart):
             symbolPosition = chart.get(planet).lon
 
         planetName = planet 
-        #if planet == const.MOON:
-        #    planetName  = planet + "(" + chart.getMoonPhase() + ")"
+        if planet == const.MOON:
+            asp = getAspect(chart.get(const.MOON), chart.get(const.SUN), const.MAJOR_ASPECTS)
+
+            if asp and asp.type != -1 and asp.orb <= 2.5:
+                if asp.type == 0:
+                    planetName  = 'New Moon'
+                elif asp.type == 180:
+                    planetName = 'Full Moon'
+                else:
+                    planetName = 'Moon'
+                
 
         planets.append({'name':planetName, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
         
@@ -301,10 +310,14 @@ def getHouse(position):
 
 
 def get_all_aspects(chart):
-    objs = list(chart.objects)
+    
     result = []
 
     planetsColorMap = {
+        const.ASC: '#E3242B',
+        const.MC: '#808080',
+        const.IC: '#4E9FE5',
+        const.DESC: '#a8e4a0',
         const.SUN: '#FFEA99',
         const.MOON: '#AAD5DB',
         const.MERCURY: '#cdb891',
@@ -318,10 +331,12 @@ def get_all_aspects(chart):
         const.CHIRON: '#ffffff',
         const.NORTH_NODE: '#AAD5DB',
         const.SOUTH_NODE: '#AAD5DB'
-    }
+    }   
+
+    objs = [chart.get(i) for i in planetsColorMap.keys()]
 
     aspectType = {
-        0: 'Conjunction',
+        0: 'Alignment',
         60: 'Sextile',
         90: 'Square',
         120: 'Trine',

@@ -129,6 +129,8 @@ const termsSymbolsList = {
 
 const planetsOrbite = {
   'Moon' : rMoon,
+  'New Moon': rMoon,
+  'Full Moon': rMoon,
   'North Node' : rMoon,
   'South Node': rMoon,
   'Sun': rSun,
@@ -275,6 +277,7 @@ function addPlanetSymbols(planets){
     let planetNumSup = planets[index]['num']['sup']
     let planetNumSupColor = planets[index]['num']['supColor']
 
+    console.log(planetName)
     addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName]);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
     drawLine(planetPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
@@ -434,6 +437,7 @@ function aspectTable(aspects, tbody, table){
     let activeCol = document.createElement("td");
     activeCol.textContent = active;
     activeCol.style.color = activeColor;
+    activeCol.style.fontWeight = 600;
     tr.appendChild(activeCol);
 
     let typeCol = document.createElement("td");
@@ -443,6 +447,7 @@ function aspectTable(aspects, tbody, table){
     let passiveCol = document.createElement("td");
     passiveCol.textContent = passive;
     passiveCol.style.color = passiveColor;
+    passiveCol.style.fontWeight = 600;
     tr.appendChild(passiveCol);
 
     let orbCol = document.createElement("td");
@@ -695,6 +700,8 @@ function drawEmptyChart(svg){
             <svg id="Mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
             <svg id="Sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
             <svg id="Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="New Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="25">◯</text></svg>
+            <svg id="Full Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">◉</text></svg>
             <svg id="North Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
             <svg id="South Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
             <svg id="gemini" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#EEDEC5" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> <g id="Horoscope"> <path d="M33,34.1V11.9A26.5,26.5,0,0,0,43.4,5.4a1.9,1.9,0,0,0,0-2.8,1.9,1.9,0,0,0-2.8,0,23.6,23.6,0,0,1-33.2,0,1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8A26.5,26.5,0,0,0,15,11.9V34.1A26.5,26.5,0,0,0,4.6,40.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,23.6,23.6,0,0,1,33.2,0,1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8A26.5,26.5,0,0,0,33,34.1ZM19,33V13a27.3,27.3,0,0,0,5,.5,27.3,27.3,0,0,0,5-.5V33a27.3,27.3,0,0,0-5-.5A27.3,27.3,0,0,0,19,33Z" fill=""></path> </g> </g> </g></svg>
