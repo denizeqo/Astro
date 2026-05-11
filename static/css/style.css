@@ -91,6 +91,25 @@
     box-shadow: 0 0 8px #cfaaff;
 }
 
+.formInput select{
+    padding: 10px 16px;
+    color: rgba(240, 248, 255, 0.80);
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.formInput select option{
+    padding: 10px 16px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.formInput select:focus {
+    border-color: #cfaaff;
+    box-shadow: 0 0 8px #cfaaff;
+}
+
 .formInput h2{
     font-size: clamp(1rem, 3.5vw, 1.1rem);
     font-family: 'Poppins', sans-serif;

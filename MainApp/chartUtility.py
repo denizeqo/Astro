@@ -8,6 +8,7 @@ from flatlib.datetime import Datetime
 from flatlib.geopos import GeoPos
 from flatlib import const
 from flatlib.aspects import getAspect
+import flatlib.aspects as aspects
 import swisseph as swe
 
 from docx.shared import RGBColor
@@ -340,14 +341,14 @@ def get_all_aspects(chart):
         60: 'Sextile',
         90: 'Square',
         120: 'Trine',
-        180: 'Opposition',
+        180: 'Synchronization',
     }
 
     for i in range(len(objs)):
         for j in range(i + 1, len(objs)):
             asp = getAspect(objs[i], objs[j], const.MAJOR_ASPECTS)
             if asp and asp.type != -1 and asp.orb <= 2.5:
-                result.append({'active':asp.active.id, 'activeColor':planetsColorMap[asp.active.id], 'passive':asp.passive.id, 'passiveColor':planetsColorMap[asp.passive.id], 'orb':asp.orb, 'type':aspectType[asp.type], 'movement':asp.movement()[0]})
+                result.append({'active':asp.active.id, 'activeColor':planetsColorMap[asp.active.id], 'passive':asp.passive.id, 'passiveColor':planetsColorMap[asp.passive.id], 'orb':asp.orb, 'type':aspectType[asp.type] + ' ' + str(asp.type) + '°', 'movement':asp.active.movement})
 
 
     return result

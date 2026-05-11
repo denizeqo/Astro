@@ -8,6 +8,8 @@ from docx.shared import Cm
 from docx.shared import RGBColor
 from io import BytesIO
 
+from deep_translator import GoogleTranslator
+
 # Create your views here.
 def Home(request):
 
@@ -81,3 +83,44 @@ def getReport(request):
         filename="report.docx",
         content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
+
+
+
+def Translation(request):
+
+    if request.method == 'POST':
+        sourceLang = request.POST.get('sourceLang')
+        targetLang = request.POST.get('targetLang')
+        text = request.POST.get('text')
+
+        translated = GoogleTranslator(source=sourceLang,target=targetLang).translate(text)
+
+        document = Document()
+
+        section = document.sections[0]
+
+        style = document.styles['Normal']
+        font = style.font
+        font.name = 'Arial'
+
+        section.top_margin = Cm(1.27)
+        section.bottom_margin = Cm(1.27)
+        section.left_margin = Cm(1.27)
+        section.right_margin = Cm(1.27)
+
+        p = document.add_paragraph(translated)
+
+        buffer = BytesIO()
+        document.save(buffer)
+        buffer.seek(0)
+
+        
+        return FileResponse(
+            buffer,
+            as_attachment=True,
+            filename="report.docx",
+            content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        )
+
+
+    return render(request, 'pages/translation.html')
