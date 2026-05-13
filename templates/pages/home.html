@@ -23,8 +23,13 @@
 <script src="{% static 'js/chart.js' %}"></script>
 
 <script>
-    let userData
-    document.getElementById("chartForm").addEventListener("submit", function(e){
+    let userData;
+    let planetsData;
+    let starsData;
+    let fourAnglesData;
+    let aspectsData;
+
+    document.getElementById("chartForm").addEventListener("submit",function(e){
         e.preventDefault(); // Stop form from reloading page
         let formData = new FormData(this);
 
@@ -41,7 +46,7 @@
             body: formData
         })
         .then(response => response.json())  // or .json()
-        .then(data => {
+        .then(data =>  {
             //document.getElementById("result").innerText = data;
             //console.log(data['data'])
             //addPlanetSymbols(data['data'])
@@ -59,6 +64,11 @@
             aspectTable(data['aspects'], document.getElementById('AspectTbody'), document.getElementById('AspectTable'));
 
             userData = data['userData'];
+            planetsData = data['planets']
+            starsData = data['stars']
+            fourAnglesData = data['fourAngles']
+            aspectsData = data['aspects']
+
             console.log(data['aspects'])
      
         })
@@ -68,11 +78,16 @@
     document.getElementById("DownloadPDF").addEventListener("click", async () => {
         const svg = document.getElementById("Chart");
 
+        
         const pngBlob = await svgToPngBlob(svg);
-
         const formData = new FormData();
         formData.append("image", pngBlob, "chart.png");
         formData.append("userData", JSON.stringify(userData))
+        formData.append("planetsData", JSON.stringify(planetsData))
+        formData.append("starsData", JSON.stringify(starsData))
+        formData.append("fourAnglesData", JSON.stringify(fourAnglesData))
+        formData.append("aspectsData", JSON.stringify(aspectsData))
+    
 
         fetch("/getReport", {
             method: "POST",

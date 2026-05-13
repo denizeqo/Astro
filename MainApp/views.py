@@ -47,6 +47,10 @@ def getReport(request):
 
     image = request.FILES["image"]
     userData = json.loads(request.POST['userData'])
+    planetsData = json.loads(request.POST['planetsData'])
+    starsData = json.loads(request.POST['starsData'])
+    fourAnglesData = json.loads(request.POST['fourAnglesData'])
+    aspectsData = json.loads(request.POST['aspectsData'])
 
     document = Document()
 
@@ -72,6 +76,13 @@ def getReport(request):
 
     p = document.add_paragraph('')
     p.add_run('Chart System: Astro-Numerology Egizio').bold =True
+
+    create_planet_table(document, planetsData)
+    creat_stars_table(document, starsData)
+    creat_asc_table(document, fourAnglesData)
+    creat_aspects_table(document, aspectsData)
+
+    
 
     buffer = BytesIO()
     document.save(buffer)

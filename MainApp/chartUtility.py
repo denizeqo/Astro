@@ -12,6 +12,11 @@ import flatlib.aspects as aspects
 import swisseph as swe
 
 from docx.shared import RGBColor
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Pt
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
 
 
 tf = TimezoneFinder()
@@ -336,17 +341,23 @@ def get_all_aspects(chart):
 
     objs = [chart.get(i) for i in planetsColorMap.keys()]
 
+    aspList = [0, 60, 90, 120, 150, 180]
+
+
+    aspects.MAX_EXACT_ORB = 0
+
     aspectType = {
         0: 'Alignment',
         60: 'Sextile',
         90: 'Square',
         120: 'Trine',
+        150: 'Quincunx',
         180: 'Synchronization',
     }
 
     for i in range(len(objs)):
         for j in range(i + 1, len(objs)):
-            asp = getAspect(objs[i], objs[j], const.MAJOR_ASPECTS)
+            asp = getAspect(objs[i], objs[j], aspList)
             if asp and asp.type != -1 and asp.orb <= 2.5:
                 result.append({'active':asp.active.id, 'activeColor':planetsColorMap[asp.active.id], 'passive':asp.passive.id, 'passiveColor':planetsColorMap[asp.passive.id], 'orb':asp.orb, 'type':aspectType[asp.type] + ' ' + str(asp.type) + '°', 'movement':asp.active.movement})
 
@@ -399,4 +410,203 @@ def addTableRows(table, userData):
         talismanIndex += 3
 
 
+def set_cell_border(cell):
+    tc = cell._tc
+    tcPr = tc.get_or_add_tcPr()
 
+    tcBorders = OxmlElement('w:tcBorders')
+
+    for border_name in ['top', 'left', 'bottom', 'right']:
+        border = OxmlElement(f'w:{border_name}')
+        border.set(qn('w:val'), 'single')
+        border.set(qn('w:sz'), '8')       # border thickness
+        border.set(qn('w:space'), '0')
+        border.set(qn('w:color'), '000000')
+        tcBorders.append(border)
+
+    tcPr.append(tcBorders)
+
+
+def create_planet_table(doc, planet_list):    
+    # Force new page    
+    doc.add_page_break() 
+
+    # Optional title on second page    
+    title = doc.add_paragraph()    
+    run = title.add_run("Planet Table")    
+    run.bold = True    
+    run.font.size = Pt(16)   
+
+    # Define table headers    
+    headers = ["Name", "Movement", "Position", "Num", "Sign", "House" ]  
+
+    # Create table    
+    table = doc.add_table(rows=1, cols=len(headers))    
+    table.style = 'Table Grid'  # adds borders automatically  
+
+    # Fill header row    
+    header_cells = table.rows[0].cells    
+    for i, h in enumerate(headers):        
+        paragraph = header_cells[i].paragraphs[0]        
+        run = paragraph.add_run(h)        
+        run.bold = True        
+        run.font.size = Pt(11)
+
+        paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
+        set_cell_border(header_cells[i]) 
+
+    # Fill table rows    
+    for item in planet_list:        
+        row_cells = table.add_row().cells        
+        row_cells[0].text = str(item.get("name", ""))        
+        row_cells[1].text = str(item.get("movement", ""))        
+        row_cells[2].text = str(round(item.get("position", 0), 2))               
+        row_cells[3].text = str(            
+            str(item.get("num", {})['value']) +            
+            item.get("num", {})['sup']        )        
+        row_cells[4].text = str(item.get("house", {})['symbol'])
+        row_cells[5].text = str(item.get("house", {})['num'])
+
+        # Add borders to every cell        
+        for cell in row_cells:
+            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            set_cell_border(cell)
+
+def creat_stars_table(doc, stars_list):
+    # Force new page    
+    doc.add_page_break() 
+
+    # Optional title on second page    
+    title = doc.add_paragraph()    
+    run = title.add_run("Star Table")    
+    run.bold = True    
+    run.font.size = Pt(16)   
+
+    # Define table headers    
+    headers = ["Star", "Sign", "House", "Degree", "Num"]  
+
+    # Create table    
+    table = doc.add_table(rows=1, cols=len(headers))    
+    table.style = 'Table Grid'  # adds borders automatically  
+
+    # Fill header row    
+    header_cells = table.rows[0].cells    
+    for i, h in enumerate(headers):        
+        paragraph = header_cells[i].paragraphs[0]        
+        run = paragraph.add_run(h)        
+        run.bold = True        
+        run.font.size = Pt(11)
+
+        paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
+        set_cell_border(header_cells[i]) 
+
+    # Fill table rows    
+    for item in stars_list:        
+        row_cells = table.add_row().cells        
+        row_cells[0].text = str(item.get("name", ""))    
+        row_cells[1].text = str(item.get("house", {})['symbol'])   
+        row_cells[2].text = str(item.get("house", {})['num'])         
+        row_cells[3].text = str(round(item.get("position", 0), 2))               
+        row_cells[4].text = str(            
+            str(item.get("num", {})['value']) +            
+            item.get("num", {})['sup']        )        
+
+        # Add borders to every cell        
+        for cell in row_cells:
+            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            set_cell_border(cell)
+
+def creat_asc_table(doc, asc_list):
+    # Force new page    
+    doc.add_page_break() 
+
+    # Optional title on second page    
+    title = doc.add_paragraph()    
+    run = title.add_run("Four Angles Table")    
+    run.bold = True    
+    run.font.size = Pt(16)   
+
+    # Define table headers    
+    headers = ["Four Angles", "Sign", "House", "Degree", "Num"]  
+
+    # Create table    
+    table = doc.add_table(rows=1, cols=len(headers))    
+    table.style = 'Table Grid'  # adds borders automatically  
+
+    # Fill header row    
+    header_cells = table.rows[0].cells    
+    for i, h in enumerate(headers):        
+        paragraph = header_cells[i].paragraphs[0]        
+        run = paragraph.add_run(h)        
+        run.bold = True        
+        run.font.size = Pt(11)
+
+        paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
+        set_cell_border(header_cells[i]) 
+
+    # Fill table rows    
+    for item in asc_list:        
+        row_cells = table.add_row().cells        
+        row_cells[0].text = str(item.get("name", ""))    
+        row_cells[1].text = str(item.get("house", {})['symbol'])     
+        row_cells[2].text = str(item.get("house", {})['num'])       
+        row_cells[3].text = str(round(item.get("position", 0), 2))               
+        row_cells[4].text = str(            
+            str(item.get("num", {})['value']) +            
+            item.get("num", {})['sup']        )        
+
+        # Add borders to every cell        
+        for cell in row_cells:
+            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            set_cell_border(cell)
+
+
+def creat_aspects_table(doc, aspects_list):
+    # Force new page    
+    doc.add_page_break() 
+
+    # Optional title on second page    
+    title = doc.add_paragraph()    
+    run = title.add_run("Aspects Table")    
+    run.bold = True    
+    run.font.size = Pt(16)   
+
+    # Define table headers    
+    headers = ["Planet", "Aspect", "Planet", "Orb", "Move"]  
+
+    # Create table    
+    table = doc.add_table(rows=1, cols=len(headers))    
+    table.style = 'Table Grid'  # adds borders automatically  
+
+    # Fill header row    
+    header_cells = table.rows[0].cells    
+    for i, h in enumerate(headers):        
+        paragraph = header_cells[i].paragraphs[0]        
+        run = paragraph.add_run(h)        
+        run.bold = True        
+        run.font.size = Pt(11)
+
+        paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
+        set_cell_border(header_cells[i]) 
+
+    # Fill table rows    
+    for item in aspects_list:        
+        row_cells = table.add_row().cells        
+        row_cells[0].text = str(item.get("active", ""))                
+        row_cells[1].text = str(item.get("type", ""))                      
+        row_cells[2].text = str(item.get("passive", ""))
+        row_cells[3].text = str(round(item.get("orb", 0),2))
+        row_cells[4].text = str(item.get("movement", ""))
+
+        # Add borders to every cell        
+        for cell in row_cells:
+            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            set_cell_border(cell)
