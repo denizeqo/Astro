@@ -48,8 +48,26 @@
 .title{
     color:#ede1ff;
     text-align: center;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 6rem);
     margin: 40px 0 0 0;
+}
+
+.line{
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #BFAEDC;
+    height: 5px;
+    border-radius: 50px;
+    opacity: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.leftTitle{
+    color:#ede1ff;
+    font-size: clamp(2.5rem, 6vw, 3rem);
+    margin: 40px 0 0 0;
+    padding-left: 20px;
 }
 
 .subtitle{
@@ -58,6 +76,12 @@
     margin: 20px 0;
     font-size: clamp(1.1rem, 3.5vw, 1.5rem);
     padding: 0 20px;
+}
+
+.normalText{
+    color: white;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .tableTitle{

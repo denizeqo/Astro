@@ -166,6 +166,8 @@ def getPlanets(chart):
         if planet == const.MOON:
             asp = getAspect(chart.get(const.MOON), chart.get(const.SUN), const.MAJOR_ASPECTS)
 
+            phase_angle = (chart.get(const.MOON).lon - chart.get(const.SUN).lon) % 360
+
             if asp and asp.type != -1 and asp.orb <= 2.5:
                 if asp.type == 0:
                     planetName  = 'New Moon'
@@ -173,6 +175,23 @@ def getPlanets(chart):
                     planetName = 'Full Moon'
                 else:
                     planetName = 'Moon'
+
+            if phase_angle < 45:
+                planetName  = 'New Moon'
+            elif phase_angle < 90:
+                planetName  = "Waxing Crescent"
+            elif phase_angle < 135:
+                planetName  = "First Quarter"
+            elif phase_angle < 180:
+                planetName  = "Waxing Gibbous"
+            elif phase_angle < 225:
+                planetName  = "Full Moon"
+            elif phase_angle < 270:
+                planetName  = "Waning Gibbous"
+            elif phase_angle < 315:
+                planetName  = "Last Quarter"
+            else : 
+                planetName  = "Waning Crescent"
                 
 
         planets.append({'name':planetName, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
@@ -433,7 +452,7 @@ def create_planet_table(doc, planet_list):
 
     # Optional title on second page    
     title = doc.add_paragraph()    
-    run = title.add_run("Planet Table")    
+    run = title.add_run("The Planet Positions of Your Birth")    
     run.bold = True    
     run.font.size = Pt(16)   
 
@@ -480,7 +499,7 @@ def creat_stars_table(doc, stars_list):
 
     # Optional title on second page    
     title = doc.add_paragraph()    
-    run = title.add_run("Star Table")    
+    run = title.add_run("The Star Positions of Your Birth")    
     run.bold = True    
     run.font.size = Pt(16)   
 
@@ -526,7 +545,7 @@ def creat_asc_table(doc, asc_list):
 
     # Optional title on second page    
     title = doc.add_paragraph()    
-    run = title.add_run("Four Angles Table")    
+    run = title.add_run("The Four Angles of Your Birth")    
     run.bold = True    
     run.font.size = Pt(16)   
 
@@ -573,7 +592,7 @@ def creat_aspects_table(doc, aspects_list):
 
     # Optional title on second page    
     title = doc.add_paragraph()    
-    run = title.add_run("Aspects Table")    
+    run = title.add_run("The Aspects of Your Birth")    
     run.bold = True    
     run.font.size = Pt(16)   
 

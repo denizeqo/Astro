@@ -8,7 +8,6 @@ from docx.shared import Cm
 from docx.shared import RGBColor
 from io import BytesIO
 
-from deep_translator import GoogleTranslator
 
 # Create your views here.
 def Home(request):
@@ -97,41 +96,33 @@ def getReport(request):
 
 
 
-def Translation(request):
+def Weel(request):
 
     if request.method == 'POST':
-        sourceLang = request.POST.get('sourceLang')
-        targetLang = request.POST.get('targetLang')
-        text = request.POST.get('text')
 
-        translated = GoogleTranslator(source=sourceLang,target=targetLang).translate(text)
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        dateOfBirth = request.POST.get('dateOfBirth')
+        timeOfBirth = request.POST.get('timeOfBirth')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        latitude = float(request.POST.get('latitude'))
+        longitude = float(request.POST.get('longitude'))
 
-        document = Document()
+        chart = createChart(latitude, longitude, dateOfBirth, timeOfBirth)      
 
-        section = document.sections[0]
+        planets = getPlanets(chart)
+        fourAngles = getFourAngles(chart)
+        stars = getStars(planets, fourAngles)
 
-        style = document.styles['Normal']
-        font = style.font
-        font.name = 'Arial'
+        staticChartSybols = getChartSymbols(0)
+        dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
 
-        section.top_margin = Cm(1.27)
-        section.bottom_margin = Cm(1.27)
-        section.left_margin = Cm(1.27)
-        section.right_margin = Cm(1.27)
-
-        p = document.add_paragraph(translated)
-
-        buffer = BytesIO()
-        document.save(buffer)
-        buffer.seek(0)
+        aspects = get_all_aspects(chart)
+        print(len(aspects))
+        userData = getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
         
-        return FileResponse(
-            buffer,
-            as_attachment=True,
-            filename="report.docx",
-            content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        )
+        return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
 
-
-    return render(request, 'pages/translation.html')
+    return render(request, 'pages/wheelOfDestiny.html')
