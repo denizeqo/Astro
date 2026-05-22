@@ -6,7 +6,17 @@ import json
 from docx import Document
 from docx.shared import Cm
 from docx.shared import RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_ALIGN_VERTICAL
 from io import BytesIO
+
+
+from docxtpl import DocxTemplate
+from docxtpl import InlineImage
+from docx.shared import Cm
+
+from datetime import date
+
 
 
 # Create your views here.
@@ -51,40 +61,61 @@ def getReport(request):
     fourAnglesData = json.loads(request.POST['fourAnglesData'])
     aspectsData = json.loads(request.POST['aspectsData'])
 
-    document = Document()
+    doc = DocxTemplate("test.docx")
 
-    section = document.sections[0]
+    context = {
+        "date": date.today(),
+        "first_name": userData['First Name'],
+        "last_name": userData['Last Name'],
+        "country": userData['Country'],
+        "city": userData['City'],
+        "lat": userData['Latitude'],
+        "lng": userData['Longitude'],
+        "utc_time": userData['UTC Time'],
+        "local_time": userData['Local Time'],
+        "main_image": InlineImage(doc, image, width=Cm(17))
+    }
 
-    style = document.styles['Normal']
-    font = style.font
-    font.name = 'Arial'
-
-    section.top_margin = Cm(1.27)
-    section.bottom_margin = Cm(1.27)
-    section.left_margin = Cm(1.27)
-    section.right_margin = Cm(1.27)
-
-    document.add_heading("Report", level=1)
-    document.add_picture(image, width=Cm(19))
-
-    #document.add_heading('User Data', level=2)
-
-    table = document.add_table(rows=0, cols=3)
-
-    addTableRows(table, userData)
-
-    p = document.add_paragraph('')
-    p.add_run('Chart System: Astro-Numerology Egizio').bold =True
-
-    create_planet_table(document, planetsData)
-    creat_stars_table(document, starsData)
-    creat_asc_table(document, fourAnglesData)
-    creat_aspects_table(document, aspectsData)
-
-    
-
+    doc.render(context)
     buffer = BytesIO()
-    document.save(buffer)
+    doc.save(buffer)
+    buffer.seek(0)
+
+    doc = Document(buffer)
+
+    firstTable = doc.tables[0]
+
+    index = 0
+    for i in range(4):
+        for j in range(3):
+            
+            talismanNum = userData['talisman'][index]['value']
+            talismanNumColor = userData['talisman'][index]['color'][1:]
+
+            talismanSup = userData['talisman'][index]['sup']
+            talismanSupColor = userData['talisman'][index]['supColor'][1:]
+
+            cell = firstTable.cell(i, j + 3)
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+            p = cell.paragraphs[0]
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            run1 = p.add_run(str(talismanNum))
+            run1.font.color.rgb = RGBColor.from_string(talismanNumColor)
+            run1.font.name = 'Poppins'
+
+            if talismanSup != '':
+                run2 = p.add_run(str(talismanSup))
+                run2.font.color.rgb = RGBColor.from_string(talismanSupColor)
+                run2.font.name = 'Poppins'
+
+            index += 1
+    
+    creat_asc_table(doc, fourAnglesData)
+    creat_aspects_table(doc, aspectsData)
+    creat_stars_table(doc, starsData)
+    create_planet_table(doc, planetsData)
+            
+    doc.save(buffer)
     buffer.seek(0)
 
     return FileResponse(
@@ -93,6 +124,7 @@ def getReport(request):
         filename="report.docx",
         content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
+
 
 
 

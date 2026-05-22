@@ -129,12 +129,12 @@ const termsSymbolsList = {
 
 const planetsOrbite = {
   'Moon' : rMoon,
-  'Waxing Crescent': rMoon,
-  'First Quarter': rMoon,
-  'Waxing Gibbous': rMoon,
-  'Waning Gibbous': rMoon,
-  'Last Quarter': rMoon,
-  'Waning Crescent': rMoon,
+  'Waxing Crescent Moon': rMoon,
+  'First Quarter Moon': rMoon,
+  'Waxing Gibbous Moon': rMoon,
+  'Waning Gibbous Moon': rMoon,
+  'Last Quarter Moon': rMoon,
+  'Waning Crescent Moon': rMoon,
   'New Moon': rMoon,
   'Full Moon': rMoon,
   'North Node' : rMoon,

@@ -14,9 +14,9 @@ import swisseph as swe
 from docx.shared import RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Pt
-from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
+from docx.shared import Pt, Cm
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT, WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_ROW_HEIGHT_RULE, WD_ALIGN_VERTICAL
 
 
 tf = TimezoneFinder()
@@ -179,19 +179,19 @@ def getPlanets(chart):
             if phase_angle < 45:
                 planetName  = 'New Moon'
             elif phase_angle < 90:
-                planetName  = "Waxing Crescent"
+                planetName  = "Waxing Crescent Moon"
             elif phase_angle < 135:
-                planetName  = "First Quarter"
+                planetName  = "First Quarter Moon"
             elif phase_angle < 180:
-                planetName  = "Waxing Gibbous"
+                planetName  = "Waxing Gibbous Moon"
             elif phase_angle < 225:
                 planetName  = "Full Moon"
             elif phase_angle < 270:
-                planetName  = "Waning Gibbous"
+                planetName  = "Waning Gibbous Moon"
             elif phase_angle < 315:
-                planetName  = "Last Quarter"
+                planetName  = "Last Quarter Moon"
             else : 
-                planetName  = "Waning Crescent"
+                planetName  = "Waning Crescent Moon"
                 
 
         planets.append({'name':planetName, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
@@ -384,50 +384,6 @@ def get_all_aspects(chart):
     return result
     
 
-def addTableRows(table, userData):
-
-    def _getKeyValue():
-        for key, value in userData.items():
-            yield key, value
-
-    gen = _getKeyValue()
-    talismanIndex = 0
-
-    for i in range(4):
-        key1, value1 = next(gen)
-
-        if key1 == 'talisman':
-            break
-
-        key2, value2 = next(gen)
-
-        row = table.add_row()
-        cell = row.cells[0]
-        p = cell.paragraphs[0]
-        p.add_run(f'{key1}: {value1}').bold = True
-
-        cell = row.cells[1]
-        p = cell.paragraphs[0]
-        p.add_run(f'{key2}: {value2}').bold = True
-
-        cell = row.cells[2]
-        p = cell.paragraphs[0]
-        spaces = 15
-
-
-        for j in range(3):
-            p.add_run('    ')
-            pValue = str(userData['talisman'][talismanIndex + j]['value']) + userData['talisman'][talismanIndex + j]['sup']
-            color = userData['talisman'][talismanIndex + j]['color'][1:]
-
-            run = p.add_run(pValue)
-            run.font.color.rgb = RGBColor.from_string(color if color != 'ffffff' else '808080')
-            run.bold = True
-
-            p.add_run(' ' * (spaces - len(pValue) * 2))
-
-        talismanIndex += 3
-
 
 def set_cell_border(cell):
     tc = cell._tc
@@ -440,149 +396,323 @@ def set_cell_border(cell):
         border.set(qn('w:val'), 'single')
         border.set(qn('w:sz'), '8')       # border thickness
         border.set(qn('w:space'), '0')
-        border.set(qn('w:color'), '000000')
+        border.set(qn('w:color'), 'ffffff')
         tcBorders.append(border)
 
     tcPr.append(tcBorders)
 
-
-def create_planet_table(doc, planet_list):    
+def create_planet_table(doc, asc_list):
     # Force new page    
     doc.add_page_break() 
 
     # Optional title on second page    
-    title = doc.add_paragraph()    
-    run = title.add_run("The Planet Positions of Your Birth")    
-    run.bold = True    
-    run.font.size = Pt(16)   
+    title = doc.add_paragraph() 
+    title.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER   
+    run = title.add_run("The Planet Positions of Your Birth")
+    run.font.name =   'Bahnschrift Light Condensed'
+    run.font.color.rgb = RGBColor.from_string('EDE1FF')   
+    run.font.size = Pt(36)   
 
     # Define table headers    
-    headers = ["Name", "Movement", "Position", "Num", "Sign", "House" ]  
+    headers = ["Name", "Sign", "House", "Degree", "Num", "Move" ]  
 
     # Create table    
     table = doc.add_table(rows=1, cols=len(headers))    
-    table.style = 'Table Grid'  # adds borders automatically  
+
+    #table.style = 'Table Grid'  # adds borders automatically  
 
     # Fill header row    
-    header_cells = table.rows[0].cells    
+    header_cells = table.rows[0].cells 
+    table.rows.height = Cm(2)
+   # table.rows.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
     for i, h in enumerate(headers):        
         paragraph = header_cells[i].paragraphs[0]        
-        run = paragraph.add_run(h)        
+        run = paragraph.add_run(h) 
+        run.font.name = 'Poppins'       
         run.bold = True        
         run.font.size = Pt(11)
 
         paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
-        set_cell_border(header_cells[i]) 
+       # set_cell_border(header_cells[i]) 
 
     # Fill table rows    
-    for item in planet_list:        
-        row_cells = table.add_row().cells        
-        row_cells[0].text = str(item.get("name", ""))        
-        row_cells[1].text = str(item.get("movement", ""))        
-        row_cells[2].text = str(round(item.get("position", 0), 2))               
-        row_cells[3].text = str(            
-            str(item.get("num", {})['value']) +            
-            item.get("num", {})['sup']        )        
-        row_cells[4].text = str(item.get("house", {})['symbol'])
-        row_cells[5].text = str(item.get("house", {})['num'])
+    for i, item in enumerate(asc_list):        
+        row = table.add_row()
+
+        if i == 1:
+            row.height = Cm(2)
+        else:
+            row.height = Cm(1)
+
+        row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
+        row_cells = row.cells
+
+        row_cells[0].vertical_alignment = WD_ALIGN_VERTICAL.CENTER 
+        p1 = row_cells[0].paragraphs[0]
+        p1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p1.paragraph_format.space_before = 0
+        p1.paragraph_format.space_after = 0
+
+        run1 = p1.add_run(str(item.get("name", "")))
+        run1.font.name = 'Poppins'
+        run1.font.color.rgb = RGBColor.from_string(item.get('color')[1:])
+
+        row_cells[1].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p2 = row_cells[1].paragraphs[0]
+        p2.paragraph_format.space_before = 0
+        p2.paragraph_format.space_after = 0
+
+        run2 = p2.add_run(str(item.get("house", {})['symbol']))    
+        run2.font.name = 'Poppins'
+
+        row_cells[2].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p3 = row_cells[2].paragraphs[0]
+        p3.paragraph_format.space_before = 0
+        p3.paragraph_format.space_after = 0
+
+        run3 = p3.add_run(str(item.get("house", {})['num'])) 
+        run3.font.name = 'Poppins'
+
+        row_cells[3].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p4 = row_cells[3].paragraphs[0]
+        p4.paragraph_format.space_before = 0
+        p4.paragraph_format.space_after = 0
+
+        run4 = p4.add_run(str(round(item.get("position", 0), 2)) + '°') 
+        run4.font.name = 'Poppins'
+
+
+        row_cells[4].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p5 = row_cells[4].paragraphs[0]
+        p5.paragraph_format.space_before = 0
+        p5.paragraph_format.space_after = 0
+
+        run5 = p5.add_run(str(item.get("num", {})['value']))
+        run5.font.name = 'Poppins'
+        run5.font.color.rgb = RGBColor.from_string(item.get("num", {})['color'][1:])
+
+        if item.get("num", {})['sup'] != '':
+            run6 = p5.add_run(item.get("num", {})['sup'])
+            run6.font.name = 'Poppins'
+            run6.font.color.rgb = RGBColor.from_string(item.get("num", {})['supColor'][1:])
+
+        
+        row_cells[5].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p6 = row_cells[5].paragraphs[0]
+        p6.paragraph_format.space_before = 0
+        p6.paragraph_format.space_after = 0
+
+        run7 = p6.add_run(str(item.get("movement", ""))) 
+        run7.font.name = 'Poppins'
 
         # Add borders to every cell        
         for cell in row_cells:
-            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER        
             set_cell_border(cell)
 
-def creat_stars_table(doc, stars_list):
+
+
+def creat_stars_table(doc, star_list):
     # Force new page    
     doc.add_page_break() 
 
     # Optional title on second page    
-    title = doc.add_paragraph()    
-    run = title.add_run("The Star Positions of Your Birth")    
-    run.bold = True    
-    run.font.size = Pt(16)   
+    title = doc.add_paragraph() 
+    title.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER   
+    run = title.add_run("The Star Positions of Your Birth")
+    run.font.name =   'Bahnschrift Light Condensed'
+    run.font.color.rgb = RGBColor.from_string('EDE1FF')   
+    run.font.size = Pt(36)   
 
     # Define table headers    
     headers = ["Star", "Sign", "House", "Degree", "Num"]  
 
     # Create table    
     table = doc.add_table(rows=1, cols=len(headers))    
-    table.style = 'Table Grid'  # adds borders automatically  
+
+    #table.style = 'Table Grid'  # adds borders automatically  
 
     # Fill header row    
-    header_cells = table.rows[0].cells    
+    header_cells = table.rows[0].cells 
+    table.rows.height = Cm(2)
+   # table.rows.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
     for i, h in enumerate(headers):        
         paragraph = header_cells[i].paragraphs[0]        
-        run = paragraph.add_run(h)        
+        run = paragraph.add_run(h) 
+        run.font.name = 'Poppins'       
         run.bold = True        
         run.font.size = Pt(11)
 
         paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
-        set_cell_border(header_cells[i]) 
+       # set_cell_border(header_cells[i]) 
 
     # Fill table rows    
-    for item in stars_list:        
-        row_cells = table.add_row().cells        
-        row_cells[0].text = str(item.get("name", ""))    
-        row_cells[1].text = str(item.get("house", {})['symbol'])   
-        row_cells[2].text = str(item.get("house", {})['num'])         
-        row_cells[3].text = str(round(item.get("position", 0), 2))               
-        row_cells[4].text = str(            
-            str(item.get("num", {})['value']) +            
-            item.get("num", {})['sup']        )        
+    for item in star_list:        
+        row = table.add_row()
+        row.height = Cm(1)
+        row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
+        row_cells = row.cells
+
+        row_cells[0].vertical_alignment = WD_ALIGN_VERTICAL.CENTER 
+        p1 = row_cells[0].paragraphs[0]
+        p1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p1.paragraph_format.space_before = 0
+        p1.paragraph_format.space_after = 0
+
+        run1 = p1.add_run(str(item.get("name", "")))
+        run1.font.name = 'Poppins'
+        run1.font.color.rgb = RGBColor.from_string(item.get('color')[1:])
+
+        row_cells[1].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p2 = row_cells[1].paragraphs[0]
+        p2.paragraph_format.space_before = 0
+        p2.paragraph_format.space_after = 0
+
+        run2 = p2.add_run(str(item.get("house", {})['symbol']))    
+        run2.font.name = 'Poppins'
+
+        row_cells[2].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p3 = row_cells[2].paragraphs[0]
+        p3.paragraph_format.space_before = 0
+        p3.paragraph_format.space_after = 0
+
+        run3 = p3.add_run(str(item.get("house", {})['num'])) 
+        run3.font.name = 'Poppins'
+
+        row_cells[3].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p4 = row_cells[3].paragraphs[0]
+        p4.paragraph_format.space_before = 0
+        p4.paragraph_format.space_after = 0
+
+        run4 = p4.add_run(str(round(item.get("position", 0), 2)) + '°') 
+        run4.font.name = 'Poppins'
+
+
+        row_cells[4].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p5 = row_cells[4].paragraphs[0]
+        p5.paragraph_format.space_before = 0
+        p5.paragraph_format.space_after = 0
+
+        run5 = p5.add_run(str(item.get("num", {})['value']))
+        run5.font.name = 'Poppins'
+        run5.font.color.rgb = RGBColor.from_string(item.get("num", {})['color'][1:])
+
+        if item.get("num", {})['sup'] != '':
+            run6 = p5.add_run(item.get("num", {})['sup'])
+            run6.font.name = 'Poppins'
+            run6.font.color.rgb = RGBColor.from_string(item.get("num", {})['supColor'][1:])
 
         # Add borders to every cell        
         for cell in row_cells:
-            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER        
             set_cell_border(cell)
+
 
 def creat_asc_table(doc, asc_list):
     # Force new page    
     doc.add_page_break() 
 
     # Optional title on second page    
-    title = doc.add_paragraph()    
-    run = title.add_run("The Four Angles of Your Birth")    
-    run.bold = True    
-    run.font.size = Pt(16)   
+    title = doc.add_paragraph() 
+    title.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER   
+    run = title.add_run("The Four Angles of Your Birth")
+    run.font.name =   'Bahnschrift Light Condensed'
+    run.font.color.rgb = RGBColor.from_string('EDE1FF')   
+    run.font.size = Pt(36)   
 
     # Define table headers    
     headers = ["Four Angles", "Sign", "House", "Degree", "Num"]  
 
     # Create table    
     table = doc.add_table(rows=1, cols=len(headers))    
-    table.style = 'Table Grid'  # adds borders automatically  
+
+    #table.style = 'Table Grid'  # adds borders automatically  
 
     # Fill header row    
-    header_cells = table.rows[0].cells    
+    header_cells = table.rows[0].cells 
+    table.rows.height = Cm(2)
+   # table.rows.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
     for i, h in enumerate(headers):        
         paragraph = header_cells[i].paragraphs[0]        
-        run = paragraph.add_run(h)        
+        run = paragraph.add_run(h) 
+        run.font.name = 'Poppins'       
         run.bold = True        
         run.font.size = Pt(11)
 
         paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
-        set_cell_border(header_cells[i]) 
+       # set_cell_border(header_cells[i]) 
 
     # Fill table rows    
     for item in asc_list:        
-        row_cells = table.add_row().cells        
-        row_cells[0].text = str(item.get("name", ""))    
-        row_cells[1].text = str(item.get("house", {})['symbol'])     
-        row_cells[2].text = str(item.get("house", {})['num'])       
-        row_cells[3].text = str(round(item.get("position", 0), 2))               
-        row_cells[4].text = str(            
-            str(item.get("num", {})['value']) +            
-            item.get("num", {})['sup']        )        
+        row = table.add_row()
+        row.height = Cm(1)
+        row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
+        row_cells = row.cells
+
+        row_cells[0].vertical_alignment = WD_ALIGN_VERTICAL.CENTER 
+        p1 = row_cells[0].paragraphs[0]
+        p1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p1.paragraph_format.space_before = 0
+        p1.paragraph_format.space_after = 0
+
+        run1 = p1.add_run(str(item.get("name", "")))
+        run1.font.name = 'Poppins'
+        run1.font.color.rgb = RGBColor.from_string(item.get('color')[1:])
+
+        row_cells[1].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p2 = row_cells[1].paragraphs[0]
+        p2.paragraph_format.space_before = 0
+        p2.paragraph_format.space_after = 0
+
+        run2 = p2.add_run(str(item.get("house", {})['symbol']))    
+        run2.font.name = 'Poppins'
+
+        row_cells[2].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p3 = row_cells[2].paragraphs[0]
+        p3.paragraph_format.space_before = 0
+        p3.paragraph_format.space_after = 0
+
+        run3 = p3.add_run(str(item.get("house", {})['num'])) 
+        run3.font.name = 'Poppins'
+
+        row_cells[3].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p4 = row_cells[3].paragraphs[0]
+        p4.paragraph_format.space_before = 0
+        p4.paragraph_format.space_after = 0
+
+        run4 = p4.add_run(str(round(item.get("position", 0), 2)) + '°') 
+        run4.font.name = 'Poppins'
+
+
+        row_cells[4].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p5 = row_cells[4].paragraphs[0]
+        p5.paragraph_format.space_before = 0
+        p5.paragraph_format.space_after = 0
+
+        run5 = p5.add_run(str(item.get("num", {})['value']))
+        run5.font.name = 'Poppins'
+        run5.font.color.rgb = RGBColor.from_string(item.get("num", {})['color'][1:])
+
+        if item.get("num", {})['sup'] != '':
+            run6 = p5.add_run(item.get("num", {})['sup'])
+            run6.font.name = 'Poppins'
+            run6.font.color.rgb = RGBColor.from_string(item.get("num", {})['supColor'][1:])
 
         # Add borders to every cell        
         for cell in row_cells:
-            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER        
             set_cell_border(cell)
 
 
@@ -591,41 +721,89 @@ def creat_aspects_table(doc, aspects_list):
     doc.add_page_break() 
 
     # Optional title on second page    
-    title = doc.add_paragraph()    
-    run = title.add_run("The Aspects of Your Birth")    
-    run.bold = True    
-    run.font.size = Pt(16)   
+    title = doc.add_paragraph() 
+    title.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER   
+    run = title.add_run("The Aspects of Your Birth")
+    run.font.name =   'Bahnschrift Light Condensed'
+    run.font.color.rgb = RGBColor.from_string('EDE1FF')   
+    run.font.size = Pt(36)   
 
     # Define table headers    
     headers = ["Planet", "Aspect", "Planet", "Orb", "Move"]  
 
     # Create table    
     table = doc.add_table(rows=1, cols=len(headers))    
-    table.style = 'Table Grid'  # adds borders automatically  
+ 
 
     # Fill header row    
-    header_cells = table.rows[0].cells    
+    header_cells = table.rows[0].cells 
+    table.rows.height = Cm(2)
+
     for i, h in enumerate(headers):        
         paragraph = header_cells[i].paragraphs[0]        
-        run = paragraph.add_run(h)        
+        run = paragraph.add_run(h) 
+        run.font.name = 'Poppins'       
         run.bold = True        
         run.font.size = Pt(11)
 
         paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         header_cells[i].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER        
-        set_cell_border(header_cells[i]) 
+       # set_cell_border(header_cells[i]) 
 
     # Fill table rows    
     for item in aspects_list:        
-        row_cells = table.add_row().cells        
-        row_cells[0].text = str(item.get("active", ""))                
-        row_cells[1].text = str(item.get("type", ""))                      
-        row_cells[2].text = str(item.get("passive", ""))
-        row_cells[3].text = str(round(item.get("orb", 0),2))
-        row_cells[4].text = str(item.get("movement", ""))
+        row = table.add_row()
+        row.height = Cm(1)
+        row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
+
+        row_cells = row.cells
+
+        row_cells[0].vertical_alignment = WD_ALIGN_VERTICAL.CENTER 
+        p1 = row_cells[0].paragraphs[0]
+        p1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p1.paragraph_format.space_before = 0
+        p1.paragraph_format.space_after = 0
+
+        run1 = p1.add_run(str(item.get("active", "")))
+        run1.font.name = 'Poppins'
+        run1.font.color.rgb = RGBColor.from_string(item.get('activeColor')[1:])
+
+        row_cells[1].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p2 = row_cells[1].paragraphs[0]
+        p2.paragraph_format.space_before = 0
+        p2.paragraph_format.space_after = 0
+
+        run2 = p2.add_run(str(item.get("type", "")))    
+        run2.font.name = 'Poppins'
+
+        row_cells[2].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p3 = row_cells[2].paragraphs[0]
+        p3.paragraph_format.space_before = 0
+        p3.paragraph_format.space_after = 0
+
+        run3 = p3.add_run(str(item.get("passive", ""))) 
+        run3.font.name = 'Poppins'
+        run3.font.color.rgb = RGBColor.from_string(item.get('passiveColor')[1:])
+
+        row_cells[3].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p4 = row_cells[3].paragraphs[0]
+        p4.paragraph_format.space_before = 0
+        p4.paragraph_format.space_after = 0
+
+        run4 = p4.add_run(str(round(item.get("orb", 0),2)) + '°') 
+        run4.font.name = 'Poppins'
+
+
+        row_cells[4].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+        p5 = row_cells[4].paragraphs[0]
+        p5.paragraph_format.space_before = 0
+        p5.paragraph_format.space_after = 0
+
+        run5 = p5.add_run(item.get("movement", ""))
+        run5.font.name = 'Poppins'
 
         # Add borders to every cell        
         for cell in row_cells:
-            cell.paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER            
+            cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER        
             set_cell_border(cell)
