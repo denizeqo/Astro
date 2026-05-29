@@ -82,6 +82,8 @@
     color: white;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .tableTitle{
@@ -232,6 +234,8 @@
     display:none;
     z-index: 10;
 }
+
+
 
 
 

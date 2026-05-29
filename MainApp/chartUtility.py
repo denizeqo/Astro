@@ -164,35 +164,18 @@ def getPlanets(chart):
 
         planetName = planet 
         if planet == const.MOON:
-            asp = getAspect(chart.get(const.MOON), chart.get(const.SUN), const.MAJOR_ASPECTS)
 
             phase_angle = (chart.get(const.MOON).lon - chart.get(const.SUN).lon) % 360
 
-            if asp and asp.type != -1 and asp.orb <= 2.5:
-                if asp.type == 0:
-                    planetName  = 'New Moon'
-                elif asp.type == 180:
-                    planetName = 'Full Moon'
-                else:
-                    planetName = 'Moon'
-
-            if phase_angle < 45:
-                planetName  = 'New Moon'
-            elif phase_angle < 90:
-                planetName  = "Waxing Crescent Moon"
+            if phase_angle < 45 or phase_angle >= 315:
+                planetName = "New Moon"
             elif phase_angle < 135:
-                planetName  = "First Quarter Moon"
-            elif phase_angle < 180:
-                planetName  = "Waxing Gibbous Moon"
+                planetName = "First Quarter Moon"
             elif phase_angle < 225:
-                planetName  = "Full Moon"
-            elif phase_angle < 270:
-                planetName  = "Waning Gibbous Moon"
-            elif phase_angle < 315:
-                planetName  = "Last Quarter Moon"
-            else : 
-                planetName  = "Waning Crescent Moon"
-                
+                planetName = "Full Moon"
+            else:
+                planetName = "Last Quarter Moon"
+            
 
         planets.append({'name':planetName, 'movement':chart.get(planet).movement()[0], 'position':chart.get(planet).lon, 'symbolPosition':symbolPosition, 'color':planetsColorMap[planet], 'num':getChartNum(chart.get(planet).lon), 'house':getHouse(chart.get(planet).lon)})
         

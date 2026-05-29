@@ -128,13 +128,8 @@ const termsSymbolsList = {
 
 
 const planetsOrbite = {
-  'Moon' : rMoon,
-  'Waxing Crescent Moon': rMoon,
   'First Quarter Moon': rMoon,
-  'Waxing Gibbous Moon': rMoon,
-  'Waning Gibbous Moon': rMoon,
   'Last Quarter Moon': rMoon,
-  'Waning Crescent Moon': rMoon,
   'New Moon': rMoon,
   'Full Moon': rMoon,
   'North Node' : rMoon,
@@ -706,12 +701,8 @@ function drawEmptyChart(svg){
             <svg id="Mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
             <svg id="Sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
             <svg id="Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Waxing Crescent" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="First Quarter" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Waxing Gibbous" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Waning Gibbous" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Last Quarter" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Waning Crescent" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="First Quarter Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="Last Quarter Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
             <svg id="New Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="25">◯</text></svg>
             <svg id="Full Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">◉</text></svg>
             <svg id="North Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
@@ -750,8 +741,8 @@ function drawEmptyChart(svg){
         <circle cx="${cx}" cy="${cy}" r="280" fill="none" stroke="#80808050" stroke-width="1" />
 
 
-        <text x="180" y="40" fill="#ffffff" text-anchor="middle" font-size="20" font-family="Arial">
-          <tspan fill="#FFDF00">Astro </tspan>
+        <text x="180" y="40" text-anchor="middle" font-size="20" font-family="Arial">
+          <tspan fill="#FFEA99">Astro </tspan>
           <tspan fill="#87CEEB">Numerologia </tspan>
           <tspan fill="#2e8b57">Magentismo</tspan>
         </text>
