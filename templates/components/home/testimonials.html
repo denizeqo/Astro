@@ -1,0 +1,81 @@
+<section class="testimonials">
+    <h2 class="title">Testimonials</h2>
+
+    <div class="carousel glassBg">
+        <div class="testimonial glassBg active">
+            <p>
+                "Working with this team was amazing. They delivered our website
+                on time and helped us grow our online presence."
+            </p>
+            <h4>John Smith</h4>
+            <span>Entrepreneur</span>
+        </div>
+
+        <div class="testimonial glassBg">
+            <p>
+                "Professional, responsive, and highly skilled. Our sales
+                increased significantly after the website launch."
+            </p>
+            <h4>Sarah Johnson</h4>
+            <span>Entrepreneur</span>
+        </div>
+
+        <div class="testimonial glassBg">
+            <p>
+                "Excellent service from start to finish. I highly recommend
+                them to anyone looking for a modern website."
+            </p>
+            <h4>Michael Brown</h4>
+            <span>Entrepreneur</span>
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>
+
+<script>
+
+    const testimonials = document.querySelectorAll(".testimonial");
+    const dots = document.querySelectorAll(".dot");
+
+    let current = 0;
+
+    function showSlide(index) {
+        testimonials.forEach(item => item.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        testimonials[index].classList.add("active");
+        dots[index].classList.add("active");
+    }
+
+    document.querySelector(".next").addEventListener("click", () => {
+        current = (current + 1) % testimonials.length;
+        showSlide(current);
+    });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+        current = (current - 1 + testimonials.length) % testimonials.length;
+        showSlide(current);
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            current = index;
+            showSlide(current);
+        });
+    });
+
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+        current = (current + 1) % testimonials.length;
+        showSlide(current);
+    }, 5000);
+
+</script>

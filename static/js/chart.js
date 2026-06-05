@@ -278,7 +278,6 @@ function addPlanetSymbols(planets){
     let planetNumSup = planets[index]['num']['sup']
     let planetNumSupColor = planets[index]['num']['supColor']
 
-    console.log(planetName)
     addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName]);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
     drawLine(planetPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);

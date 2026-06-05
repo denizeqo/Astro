@@ -23,34 +23,32 @@ from datetime import date
 
 def Home(request):
 
-    if request.method == 'POST':
-        #testesttest
-        firstName = request.POST.get('firstName')
-        lastName = request.POST.get('lastName')
-        dateOfBirth = request.POST.get('dateOfBirth')
-        timeOfBirth = request.POST.get('timeOfBirth')
-        country = request.POST.get('country')
-        city = request.POST.get('city')
-        latitude = float(request.POST.get('latitude'))
-        longitude = float(request.POST.get('longitude'))
+    #testesttest
+    firstName = "Dei"
+    lastName = "Kapri"
+    dateOfBirth = "2005-06-20"
+    timeOfBirth = "12:10"
+    country = ""
+    city = ""
+    latitude = 41.1197
+    longitude = 20.8022
 
-        chart = createChart(latitude, longitude, dateOfBirth, timeOfBirth)      
+    chart = createChart(latitude, longitude, dateOfBirth, timeOfBirth)      
 
-        planets = getPlanets(chart)
-        fourAngles = getFourAngles(chart)
-        stars = getStars(planets, fourAngles)
+    planets = getPlanets(chart)
+    fourAngles = getFourAngles(chart)
+    stars = getStars(planets, fourAngles)
 
-        staticChartSybols = getChartSymbols(0)
-        dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
+    staticChartSybols = getChartSymbols(0)
+    dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
 
-        aspects = get_all_aspects(chart)
-        print(len(aspects))
-        userData = getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+    aspects = get_all_aspects(chart)
+    print(len(aspects))
+    userData = getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
-        
-        return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
+    
 
-    return render(request, 'pages/home.html')
+    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'], 'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
 
 
 def getReport(request):
@@ -159,3 +157,9 @@ def Weel(request):
         return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
 
     return render(request, 'pages/wheelOfDestiny.html')
+
+
+
+def AboutUs(request):
+
+    return render(request, 'pages/aboutUs.html')
