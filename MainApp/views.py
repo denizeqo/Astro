@@ -20,10 +20,11 @@ from datetime import date
 
 
 # Create your views here.
+
 def Home(request):
 
     if request.method == 'POST':
-
+        #testesttest
         firstName = request.POST.get('firstName')
         lastName = request.POST.get('lastName')
         dateOfBirth = request.POST.get('dateOfBirth')
