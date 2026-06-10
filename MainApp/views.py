@@ -110,9 +110,11 @@ def getReport(request):
             index += 1
     
     creat_asc_table(doc, fourAnglesData)
-    creat_aspects_table(doc, aspectsData)
-    creat_stars_table(doc, starsData)
     create_planet_table(doc, planetsData)
+    creat_stars_table(doc, starsData)
+    creat_aspects_table(doc, aspectsData)
+    
+    
             
     doc.save(buffer)
     buffer.seek(0)

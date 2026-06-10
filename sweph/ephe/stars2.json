@@ -53,7 +53,7 @@
   "topicalDeg": 17.5,
   "siderealHouse": "pisces",
   "siderealDeg": 353.28,
-  "color": "#000000"
+  "color": "#0077BE"
  },
  {
   "name": "Nodus II",
@@ -629,7 +629,7 @@
   "topicalDeg": 85.05,
   "siderealHouse": "gemini",
   "siderealDeg": 60.82,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Al Hecka",
@@ -637,7 +637,7 @@
   "topicalDeg": 85.15,
   "siderealHouse": "gemini",
   "siderealDeg": 60.93,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Saiph",
@@ -645,7 +645,7 @@
   "topicalDeg": 86.77,
   "siderealHouse": "gemini",
   "siderealDeg": 62.53,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Wazn",
@@ -653,7 +653,7 @@
   "topicalDeg": 86.78,
   "siderealHouse": "gemini",
   "siderealDeg": 62.57,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Polaris",
@@ -661,7 +661,7 @@
   "topicalDeg": 88.93,
   "siderealHouse": "gemini",
   "siderealDeg": 64.72,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Betelgeuse",
@@ -957,7 +957,7 @@
   "topicalDeg": 138.92,
   "siderealHouse": "cancer",
   "siderealDeg": 114.68,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Merak",
@@ -965,7 +965,7 @@
   "topicalDeg": 139.8,
   "siderealHouse": "cancer",
   "siderealDeg": 115.58,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Tania Borealis",
@@ -981,7 +981,7 @@
   "topicalDeg": 141.07,
   "siderealHouse": "cancer",
   "siderealDeg": 116.85,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Tania Australis",
@@ -989,7 +989,7 @@
   "topicalDeg": 141.6,
   "siderealHouse": "cancer",
   "siderealDeg": 117.38,
-  "color":"#000000"
+  "color":"#0077BE"
  },
  {
   "name": "Ras Elased Borealis",

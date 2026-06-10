@@ -365,8 +365,14 @@ def get_all_aspects(chart):
 
 
     return result
-    
 
+
+def degMin(deg):
+
+    intDeg = int(deg)
+    min = int((deg - intDeg) * 60)
+
+    return str(intDeg) + '° ' + str(min) + "'"
 
 def set_cell_border(cell):
     tc = cell._tc
@@ -464,7 +470,7 @@ def create_planet_table(doc, asc_list):
         p4.paragraph_format.space_before = 0
         p4.paragraph_format.space_after = 0
 
-        run4 = p4.add_run(str(round(item.get("position", 0), 2)) + '°') 
+        run4 = p4.add_run(degMin(round(item.get("position", 0), 2)))
         run4.font.name = 'Poppins'
 
 
@@ -574,7 +580,7 @@ def creat_stars_table(doc, star_list):
         p4.paragraph_format.space_before = 0
         p4.paragraph_format.space_after = 0
 
-        run4 = p4.add_run(str(round(item.get("position", 0), 2)) + '°') 
+        run4 = p4.add_run(degMin(round(item.get("position", 0), 2))) 
         run4.font.name = 'Poppins'
 
 
@@ -674,7 +680,7 @@ def creat_asc_table(doc, asc_list):
         p4.paragraph_format.space_before = 0
         p4.paragraph_format.space_after = 0
 
-        run4 = p4.add_run(str(round(item.get("position", 0), 2)) + '°') 
+        run4 = p4.add_run(degMin(round(item.get("position", 0), 2))) 
         run4.font.name = 'Poppins'
 
 
@@ -773,7 +779,7 @@ def creat_aspects_table(doc, aspects_list):
         p4.paragraph_format.space_before = 0
         p4.paragraph_format.space_after = 0
 
-        run4 = p4.add_run(str(round(item.get("orb", 0),2)) + '°') 
+        run4 = p4.add_run(degMin(round(item.get("orb", 0),2))) 
         run4.font.name = 'Poppins'
 
 
