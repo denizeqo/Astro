@@ -283,7 +283,11 @@ function addPlanetSymbols(planets){
     drawLine(planetPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
     drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
 
-    if (planetNumSup == ''){
+
+    if(String(planetNumValue).length >= 4){
+       textSpace = 1600  / planetsOrbite[planetName]
+
+    }else if (planetNumSup == ''){
        textSpace = 1000 / planetsOrbite[planetName]; 
     }
     else{
