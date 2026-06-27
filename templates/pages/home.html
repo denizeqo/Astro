@@ -12,6 +12,14 @@
 
     {% include 'components/home/chart.html' %}
 
+    {% for key, value in planetStars.items %}
+
+    <div class="glassBg widget" style="font-size: 1.1rem; line-height: 1.8; color: #ede1ff; ">
+        <p style="font-family: 'Poppins', sans-serif;">Today {{key}} is in alignment with {% for i in value %} {{i}},  {% endfor %} stars</p>
+    </div>
+        
+    {% endfor %}
+
     {% include 'components/home/table.html' %}
 
     {% include 'components/home/testimonials.html' %}
@@ -34,6 +42,8 @@
 {{ stars|json_script:"stars" }}
 
 {{ aspects|json_script:"aspects" }}
+
+{{ planetStars|json_script:"planetStars" }}
 
 
 <script>
@@ -59,15 +69,16 @@
         document.getElementById("aspects").textContent
     );
 
+     const PlanetStars = JSON.parse(
+        document.getElementById("planetStars").textContent
+    );
 
+    console.log(PlanetStars)
     drawEmptyChart(document.getElementById('Chart'))
     dynamicChart(FourAngles[0]['position']);
     dynamicAscMcIcDsc(FourAngles);
     addPlanetSymbols(Planets);
-    planetTable(Planets, document.getElementById('PlanetTbody'), document.getElementById('PlanetTable'));
     addStarsSymbol(Stars);
-    starTable(Stars, document.getElementById('StarTbody'), document.getElementById('StarTable'));
-    starTable(FourAngles, document.getElementById('AscTbody'), document.getElementById('AscTable'));
     aspectTable(Aspects, document.getElementById('AspectTbody'), document.getElementById('AspectTable'));
 
 </script>

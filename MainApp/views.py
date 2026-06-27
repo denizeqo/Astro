@@ -48,6 +48,25 @@ def Home(request):
     with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\planetNum.json", "r", encoding="utf-8") as f:
         data = json.load(f)
     
+
+
+    planetStars = {}
+    for i in planets:
+        planetNum = i['num']['value']
+        planetSup = i['num']['sup']
+        planetName = i['name']
+
+        for j in stars:
+
+            if j['num']['value'] == planetNum and j['num']['sup'] == planetSup:
+                
+                if planetStars.get(planetName, -1) == -1:
+                    planetStars[planetName] = [j['name']]
+                else:
+                    planetStars[planetName].append(j['name'])
+
+
+
     for i in planets:
 
         name = i['name']
@@ -80,7 +99,7 @@ def Home(request):
     fourAngles[3]['num'] = {'value':'', 'sup':'', 'color':'#ffffff', 'supColor':'#ffffff'}
     
 
-    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'], 'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
+    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'], 'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects, 'planetStars':planetStars})
 
 
 def getReport(request):
