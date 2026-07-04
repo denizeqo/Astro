@@ -12,19 +12,11 @@
 
     {% include 'components/home/chart.html' %}
 
-    {% for key, value in planetStars.items %}
+    {% include 'components/home/chartData.html' %}
 
-    <div class="glassBg widget" style="font-size: 1.1rem; line-height: 1.8; color: #ede1ff; ">
-        <p style="font-family: 'Poppins', sans-serif;">Today {{key}} is in alignment with {% for i in value %} {{i}},  {% endfor %} stars</p>
-    </div>
-        
-    {% endfor %}
+    {% include 'components/home/dailyChart.html' %}
 
     {% include 'components/home/table.html' %}
-
-    {% include 'components/home/testimonials.html' %}
-
-
 
 
 {% load static %}

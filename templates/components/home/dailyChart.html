@@ -1,0 +1,17 @@
+<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 50px;">Stars and planetary alignment for today</h1>
+<h3></h3>
+
+{% for planet in starsForPlanet %}
+
+    <div class="glassBg widget" style="font-size: 1.1rem; color: #ede1ff; padding-bottom: unset;">
+        <p style="font-family: 'Poppins', sans-serif;">
+            {% if planet.stars|length == 1 %}
+            Star {% for star in planet.stars %}  <span style="color: {{star.starColor}}; font-family: 'Poppins', sans-serif;">{{star.starName}} </span>{% endfor %} is in alignment with <span style="color: {{planet.planetColor}}; font-family: 'Poppins', sans-serif;">{{planet.planetName}}</span>
+            {% else %}
+            Stars {% for star in planet.stars %}  <span style="color: {{star.starColor}}; font-family: 'Poppins', sans-serif;">{{star.starName}}</span>, {% endfor %} are in alignment with <span style="color: {{planet.planetColor}}; font-family: 'Poppins', sans-serif;">{{planet.planetName}}</span>
+            {% endif %}
+        </p>
+
+    </div>
+        
+{% endfor %}

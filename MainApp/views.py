@@ -17,6 +17,8 @@ from docx.shared import Cm
 
 from datetime import date, datetime
 
+from .charts.motherChart import MotherChart
+from .charts.dailyChart import DailyChart
 
 
 # Create your views here.
@@ -24,82 +26,25 @@ from datetime import date, datetime
 def Home(request):
     firstName = ""
     lastName = ""
-    city = ""
-    country = ""
+    city = "Rome"
+    country = "Italy"
     currentDate = datetime.now()
     dateOfBirth = currentDate.strftime("%Y-%m-%d")
     timeOfBirth = currentDate.strftime("%H:%M")
-    latitude = 41.1197
-    longitude = 20.8022
+    latitude = 41.9028
+    longitude = 12.4964
 
-    chart = createChart(latitude, longitude, dateOfBirth, timeOfBirth)      
+    dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
-    planets = getPlanets(chart)
-    fourAngles = getFourAngles(chart)
-    stars = getStars(planets, fourAngles)
-
-    staticChartSybols = getChartSymbols(0)
-    dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
-
-    aspects = get_all_aspects(chart)
-    print(len(aspects))
-    userData = getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
-
-    with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\planetNum.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    
+    planets = dailyChart.planets
+    fourAngles = dailyChart.fourAngles
+    stars = dailyChart.stars
+    aspects = dailyChart.aspects
+    chartData = dailyChart.userData
+    starsForPlanet = dailyChart.getStarsForPlanet()
 
 
-    planetStars = {}
-    for i in planets:
-        planetNum = i['num']['value']
-        planetSup = i['num']['sup']
-        planetName = i['name']
-
-        for j in stars:
-
-            if j['num']['value'] == planetNum and j['num']['sup'] == planetSup:
-                
-                if planetStars.get(planetName, -1) == -1:
-                    planetStars[planetName] = [j['name']]
-                else:
-                    planetStars[planetName].append(j['name'])
-
-
-
-    for i in planets:
-
-        name = i['name']
-        planetNums = data.get(name, False)
-
-        if i['num']['value'] <= 10:
-            i['num']['value'] = ''
-            i['num']['sup'] = ''
-            i['num']['color'] = '#ffffff'
-        elif planetNums:
-            if i['num']['value'] in planetNums:
-                pass
-            else:
-                i['num']['value'] = ''
-                i['num']['sup'] = ''
-                i['num']['color'] = '#ffffff'
-        else:
-            i['num']['value'] = ''
-            i['num']['sup'] = ''
-            i['num']['color'] = '#ffffff'
-    
-
-    for i in stars:
-        i['num']['value'] = ''
-        i['num']['sup'] = ''
-        i['num']['color'] = '#ffffff'
-
-
-    fourAngles[2]['num'] = {'value':'', 'sup':'', 'color':'#ffffff', 'supColor':'#ffffff'}
-    fourAngles[3]['num'] = {'value':'', 'sup':'', 'color':'#ffffff', 'supColor':'#ffffff'}
-    
-
-    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'], 'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects, 'planetStars':planetStars})
+    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'], 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet})
 
 
 def getReport(request):
