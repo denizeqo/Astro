@@ -38,6 +38,10 @@ class DailyChart(MotherChart):
                     planet['num']['value'] = MotherChart.degMin(planet['position'])
                     planet['num']['sup'] = ''
                     planet['num']['color'] = '#ffffff'
+
+                else:    
+                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
+            
         
         return planets
     
@@ -63,6 +67,12 @@ class DailyChart(MotherChart):
             if angle['name'] == 'IC' or angle['name'] == 'Desc':
                 angle['num']['value'] = ''
                 angle['num']['sup'] = ''
+            
+            else:
+
+                if angle['num']['sup'] != '':
+                    angle['num']['value'] = DailyChart.numAbove(angle['num']['value'] )
+
 
         return fourAngles
 
@@ -97,4 +107,15 @@ class DailyChart(MotherChart):
                         starsForPlanetIndex += 1
         
         return starsForPlanet
+    
+    @staticmethod
+    def numAbove(num:int):
+
+        if num in [20, 30, 40, 50, 60, 70, 80, 90]:
+            return num
+        
+        num = int(str(num)[::-1])
+
+        return num
+
 

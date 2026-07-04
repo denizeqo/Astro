@@ -16,6 +16,7 @@ from docxtpl import InlineImage
 from docx.shared import Cm
 
 from datetime import date, datetime
+from zoneinfo import ZoneInfo
 
 from .charts.motherChart import MotherChart
 from .charts.dailyChart import DailyChart
@@ -28,7 +29,7 @@ def Home(request):
     lastName = ""
     city = "Rome"
     country = "Italy"
-    currentDate = datetime.now()
+    currentDate = datetime.now(ZoneInfo("Europe/Rome"))
     dateOfBirth = currentDate.strftime("%Y-%m-%d")
     timeOfBirth = currentDate.strftime("%H:%M")
     latitude = 41.9028
