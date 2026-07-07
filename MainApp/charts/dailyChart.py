@@ -12,7 +12,7 @@ class DailyChart(MotherChart):
     @property
     def planets(self):
 
-        super().setOrbiteMinDistance(25, 14)
+        super().setOrbiteMinDistance(25, 10)
         planets = super().planets
 
         with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
@@ -22,7 +22,7 @@ class DailyChart(MotherChart):
             planetName = planet['name']
 
             if planetsNum.get(planetName, -1) == -1:
-                planet['num']['value'] = MotherChart.degMin(planet['position'])
+                planet['num']['value'] = str(int(planet['position'])) + '° '
                 planet['num']['sup'] = ''
                 planet['num']['color'] = '#ffffff'
                 continue
@@ -30,12 +30,12 @@ class DailyChart(MotherChart):
             if planet['num']['sup'] == '':
 
                 if planet['num']['value'] not in planetsNum[planetName]["B"]:
-                    planet['num']['value'] = MotherChart.degMin(planet['position'])
+                    planet['num']['value'] = str(int(planet['position'])) + '° '
                     planet['num']['color'] = '#ffffff'
             
             else:
                 if planet['num']['value'] not in planetsNum[planetName]["A"]:
-                    planet['num']['value'] = MotherChart.degMin(planet['position'])
+                    planet['num']['value'] = str(int(planet['position'])) + '° '
                     planet['num']['sup'] = ''
                     planet['num']['color'] = '#ffffff'
 
@@ -90,6 +90,9 @@ class DailyChart(MotherChart):
             planetIndex = int(planet.get('position') // 2.5)
             planetName = planet.get('name')
             planetColor = planet.get('color')
+            planetHouseNum = int(planet.get('house').get('num'))
+            planetHouseSymbol = planet.get('house').get('symbol')
+            planetPosition = MotherChart.degMin(planet.get('position'))
 
             for star in stars:
                 starIndex = int(star.get('position') // 2.5)
@@ -102,7 +105,7 @@ class DailyChart(MotherChart):
                         starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})
                         
                     else:
-                        starsForPlanet.append({'planetName':planetName, 'planetColor':planetColor, 'stars':[{'starName':starName, 'starColor':starColor}]})
+                        starsForPlanet.append({'planetName':planetName, 'planetColor':planetColor, 'planetPosition':planetPosition, 'planetHouseNum':planetHouseNum, 'planetHouseSymbol':planetHouseSymbol, 'stars':[{'starName':starName, 'starColor':starColor}]})
                         addedPlanets.add(planetName)
                         starsForPlanetIndex += 1
         

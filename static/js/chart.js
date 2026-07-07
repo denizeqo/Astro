@@ -279,13 +279,15 @@ function addPlanetSymbols(planets){
     let planetNumSupColor = planets[index]['num']['supColor']
 
     addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName]);
-    drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
-    drawLine(planetPosition, rDynamicSymbolCircle + 20, rDynamicSymbolCircle + 27, true, color=planetColor);
-    drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
+    //drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
+    //drawLine(planetPosition, , rDynamicSymbolCircle + 27, true, color=planetColor);
+    //drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
+    drawLine(planetPosition, rDynamicSymbolCircle - 20, planetsOrbite[planetName] + 10, false, color=planetColor, isplanet=true);
+    drawLine(planetPosition, rDynamicSymbolCircle + 20, rStaticSymbolCircle + 10, false, color=planetColor, isplanet=true);
 
 
     if(String(planetNumValue).length >= 4){
-       textSpace = 1600  / planetsOrbite[planetName]
+       textSpace = 1300  / planetsOrbite[planetName]
 
     }else if (planetNumSup == ''){
        textSpace = 1000 / planetsOrbite[planetName]; 
@@ -294,7 +296,7 @@ function addPlanetSymbols(planets){
        textSpace = 1300  / planetsOrbite[planetName]; 
     }
 
-    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 13, color=planetNumColor, supColor=planetNumSupColor);
+    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 10, planetNumSup, 12, color=planetNumColor, supColor=planetNumSupColor);
 
   }
 }
@@ -514,7 +516,7 @@ function addUserData(userData, section, table){
 
 
 // Chart Utility
-function drawLine(deg, rOut, rIn, isMajor=false, color='#ffffff'){
+function drawLine(deg, rOut, rIn, isMajor=false, color='#ffffff', isplanet=false){
 
     var rad = (deg - 180) * Math.PI / 180;
     
@@ -532,6 +534,10 @@ function drawLine(deg, rOut, rIn, isMajor=false, color='#ffffff'){
 
     if(isMajor){
       line.setAttribute('stroke-width', 1.7);
+    }
+
+    if(isplanet){
+      line.setAttribute('stroke-width', 0.5);
     }
     
     svg.appendChild(line);
