@@ -1,0 +1,59 @@
+<h1 class="title">Advanced Astrological Chart System</h1>
+<div id="dailydescription" style="overflow: hidden;">
+    <p class="description__con" style="font-family: 'Poppins', sans-serif;">The only site in the world. An advanced astro-numerology system.
+    Your destiny is written in the stars! The planets act as consecrators through numbers that pulse like living spirits, manifesting as entities within the realm of "force-ideas." "Fortune," "wealth," "protection," and "providence": these possess the strength to break down even the most stubborn doors and hold unprecedented power in the universe. In an instant, they can lift you from your lowest depths to the highest pedestal, making you the true architect of your own fate.
+    Identify your lucky birth numbers-for the day, the month, and the year-to gain the ability to do the right thing at the right time.
+    Smile upon the Gods and prepare to unleash your limitless potential with your personal numbers and talismans!
+
+    Through the Calendar and the Celestial Observation Guide, you will monitor all the major astro-numerological events and phenomena of the day, month, and year. The system includes celestial maps, the Sun, the Moon, and all the planets, zodiac positions, a monthly lunar phase calendar, solstices and equinoxes, the movement of the Sun and all planets through the monthly constellations, planetary configurations, retrograde planets and stations, as well as groupings (multiple and triple alignments) between planets and fixed stars, along with their respective aspects and meanings; additionally, it covers lunar phases, lunar nodal crossings, and solar and lunar eclipses.</p>
+</div>
+
+<div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; margin-top: 30px;">
+    <button id="moreBtn" class="primarButton" onclick="hiddenShowText()">Read More</button>
+</div>
+
+<script>
+    p = document.getElementById("dailydescription")
+
+    if (window.innerWidth < 1160) {
+        p.style.height = '22vh'
+    }
+
+    function hiddenShowText(){
+
+        btn = document.getElementById("moreBtn")
+        p = document.getElementById("dailydescription")
+
+        if(btn.innerText == 'Read More'){
+            p.style.height = null
+            btn.innerText = 'Read Less'
+        }else{
+            p.style.height = '22vh'
+            btn.innerText = 'Read More'
+        }
+    }
+
+</script>
+
+
+<style>
+
+    .description__con{
+        color: #BFAEDC;
+        text-align: center;
+        font-size: clamp(1rem, 3.5vw, 1.3rem);
+        margin: 20px 30px;
+    }
+
+    #moreBtn{
+            display: none;
+        }
+
+    @media (max-width: 1160px){
+        #moreBtn{
+            display: unset;
+        }
+
+    }
+
+</style>

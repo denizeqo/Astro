@@ -27,13 +27,13 @@ from .charts.dailyChart import DailyChart
 def Home(request):
     firstName = ""
     lastName = ""
-    city = "Rome"
+    city = "Milan"
     country = "Italy"
     currentDate = datetime.now(ZoneInfo("Europe/Rome"))
     dateOfBirth = currentDate.strftime("%Y-%m-%d")
     timeOfBirth = currentDate.strftime("%H:%M")
-    latitude = 41.9028
-    longitude = 12.4964
+    latitude = 45.4643
+    longitude = 9.1895
 
     dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
@@ -44,8 +44,7 @@ def Home(request):
     chartData = dailyChart.userData
     starsForPlanet = dailyChart.getStarsForPlanet()
 
-
-    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'], 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet})
+    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet})
 
 
 def getReport(request):

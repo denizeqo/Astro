@@ -1,12 +1,13 @@
-<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 50px;">Stars and planetary alignment for today</h1>
+<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 50px;">Zodiaco stars and planets in real time</h1>
 <h3></h3>
 
 {% for planet in starsForPlanet %}
 
-    <div class="glassBg widget" style="font-size: 1.1rem; color: #ede1ff; padding-bottom: unset; padding-left: 30px; padding-right: 30px;">
+    <div class="glassBg widget" style="font-size: 1.1rem; color: #ede1ff; padding-bottom: unset; padding-left: 30px; padding-right: 30px; position: relative; padding-top: 30px;">
+        <p style="font-family: 'Poppins', sans-serif; position: absolute; top: 10px; left: 10px; font-size: small;">{{currentDate}}</p>
         <p style="font-family: 'Poppins', sans-serif; text-align: center;">
-            <span style="color: {{planet.planetColor}}; font-family: 'Poppins', sans-serif;">{{planet.planetName}}</span> is at house number {{planet.planetHouseNum}} ({{planet.planetHouseSymbol}}). <br> It is at {{planet.planetPosition}} aligned with
-            {% for star in planet.stars %}  <span style="color: {{star.starColor}}; font-family: 'Poppins', sans-serif;">{{star.starName}}</span>{% if not forloop.last %}, {% endif %}{% endfor %} {% if planet.stars|length == 1 %} star  {% else %} stars {% endif %}.
+            <span style="color: {{planet.planetColor}}; font-family: 'Poppins', sans-serif;">{{planet.planetName}}</span> is at house {{planet.planetHouseNum}} ({{planet.planetHouseSymbol}}). <br> It is at {{planet.planetPosition}} 
+            {% if planet.stars|length != 0 %} aligned with {% for star in planet.stars %}  <span style="color: {{star.starColor}}; font-family: 'Poppins', sans-serif;">{{star.starName}}</span>{% if not forloop.last %}, {% endif %}{% endfor %} {% if planet.stars|length == 1 %} star  {% else %} stars {% endif %}{% endif %}.
         </p>
 
     </div>

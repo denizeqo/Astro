@@ -255,6 +255,17 @@ function dynamicAscMcIcDsc(data){
 
     let textSpace = (numSup == '') ? 1200 / rAscText : 1500 / rAscText
 
+    if(String(numValue).length >= 4){
+      textSpace = 1500  / rAscText 
+    }
+    
+    if (numValue == ''){
+       textSpace = 1200 / rAscText ; 
+    }
+    else{
+       textSpace = 1500  / rAscText ; 
+    }
+
     addAngledText2(name, position, rAscText, '', 10, color);
     drawLine(position, rAscText + 10, rDynamicTermsCircle, true, color=color);
     drawLine(position, rDynamicSymbolCircle + 20, rStaticSymbolCircle, true, color=color);
@@ -283,7 +294,7 @@ function addPlanetSymbols(planets){
     //drawLine(planetPosition, , rDynamicSymbolCircle + 27, true, color=planetColor);
     //drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
     drawLine(planetPosition, rDynamicSymbolCircle - 20, planetsOrbite[planetName] + 10, false, color=planetColor, isplanet=true);
-    drawLine(planetPosition, rDynamicSymbolCircle + 20, rStaticSymbolCircle + 10, false, color=planetColor, isplanet=true);
+    drawLine(planetPosition, rDynamicSymbolCircle + 20, rStaticSymbolCircle, false, color=planetColor, isplanet=true);
 
 
     if(String(planetNumValue).length >= 4){
@@ -296,7 +307,7 @@ function addPlanetSymbols(planets){
        textSpace = 1300  / planetsOrbite[planetName]; 
     }
 
-    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 10, planetNumSup, 12, color=planetNumColor, supColor=planetNumSupColor);
+    addAngledText2(planetNumValue, planetSymbolPosition + textSpace, planetsOrbite[planetName] + 7, planetNumSup, 12, color=planetNumColor, supColor=planetNumSupColor);
 
   }
 }

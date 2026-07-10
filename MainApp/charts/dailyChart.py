@@ -63,17 +63,40 @@ class DailyChart(MotherChart):
 
         fourAngles = super().fourAngles
 
+        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
+            planetsNum = json.load(file)
+            
+
         for angle in fourAngles:
-            if angle['name'] == 'IC' or angle['name'] == 'Desc':
+
+            angleName = angle['name']
+
+            if angleName== 'IC' or angleName == 'Desc':
                 angle['num']['value'] = ''
                 angle['num']['sup'] = ''
+                continue
+
+            if planetsNum.get(angleName, -1) == -1:
+                angle['num']['value'] = str(int(angle['position'])) + '° '
+                angle['num']['sup'] = ''
+                angle['num']['color'] = '#ffffff'
+                continue
+            
+            if angle['num']['sup'] == '':
+
+                if angle['num']['value'] not in planetsNum[angleName]["B"]:
+                    angle['num']['value'] = str(int(angle['position'])) + '° '
+                    angle['num']['color'] = '#ffffff'
             
             else:
+                if angle['num']['value'] not in planetsNum[angleName]["A"]:
+                    angle['num']['value'] = str(int(angle['position'])) + '° '
+                    angle['num']['sup'] = ''
+                    angle['num']['color'] = '#ffffff'
 
-                if angle['num']['sup'] != '':
-                    angle['num']['value'] = DailyChart.numAbove(angle['num']['value'] )
-
-
+                else:    
+                    angle['num']['value'] = DailyChart.numAbove(angle['num']['value'])
+            
         return fourAngles
 
 
@@ -94,20 +117,17 @@ class DailyChart(MotherChart):
             planetHouseSymbol = planet.get('house').get('symbol')
             planetPosition = MotherChart.degMin(planet.get('position'))
 
+            planetData = {'planetName':planetName, 'planetColor':planetColor, 'planetPosition':planetPosition, 'planetHouseNum':planetHouseNum, 'planetHouseSymbol':planetHouseSymbol, 'stars':[]}
+            starsForPlanet.append(planetData)
+            starsForPlanetIndex += 1
+
             for star in stars:
                 starIndex = int(star.get('position') // 2.5)
                 starName = star.get('name')
                 starColor = star.get('color')
 
                 if planetIndex == starIndex:
-
-                    if planetName in addedPlanets:
-                        starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})
-                        
-                    else:
-                        starsForPlanet.append({'planetName':planetName, 'planetColor':planetColor, 'planetPosition':planetPosition, 'planetHouseNum':planetHouseNum, 'planetHouseSymbol':planetHouseSymbol, 'stars':[{'starName':starName, 'starColor':starColor}]})
-                        addedPlanets.add(planetName)
-                        starsForPlanetIndex += 1
+                    starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})    
         
         return starsForPlanet
     
