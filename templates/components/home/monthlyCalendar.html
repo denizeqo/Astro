@@ -1,0 +1,16 @@
+<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 50px;">Monthly Planetary Calendar</h1>
+<h3></h3>
+
+{% for i in monthlyCalendar %}
+
+    <div class="glassBg widget" style="font-size: 1.1rem; color: #ede1ff; padding-bottom: unset; padding-left: 30px; padding-right: 30px; position: relative; padding-top: 30px;">
+        <p style="font-family: 'Poppins', sans-serif; position: absolute; top: 10px; left: 10px; font-size: small;">{{i.date}} {{i.time}}</p>
+        <p style="font-family: 'Poppins', sans-serif; text-align: center;">
+            <span style="color: {{i.color}}; font-family: 'Poppins', sans-serif;">{{i.name}}</span> enters House {{i.house}} ({{i.houseSymbol}}) at {{i.position}}.
+        </p>
+      
+
+    </div>
+        
+{% endfor %}
+

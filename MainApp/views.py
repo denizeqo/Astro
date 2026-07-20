@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse, FileResponse
 from .chartUtility import *
+from django.views.decorators.http import require_POST
+from django.contrib.admin.views.decorators import staff_member_required
+
 import json
 
 from docx import Document
@@ -20,11 +23,13 @@ from zoneinfo import ZoneInfo
 
 from .charts.motherChart import MotherChart
 from .charts.dailyChart import DailyChart
+from .models import DailyCalendar
 
 
 # Create your views here.
 
 def Home(request):
+
     firstName = ""
     lastName = ""
     city = "Milan"
@@ -44,7 +49,26 @@ def Home(request):
     chartData = dailyChart.userData
     starsForPlanet = dailyChart.getStarsForPlanet()
 
-    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet})
+    monthlyCalendar = dailyChart.getMonthlyCalendar()
+
+    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
+
+@staff_member_required
+@require_POST
+def DailyCalendarDescription(request):
+    
+    planetName = request.POST.get('planetName')
+    description = request.POST.get('description')
+
+    if 'Moon' in planetName:
+        planet = DailyCalendar.objects.get(name='Moon')
+    else:
+        planet = DailyCalendar.objects.get(name=planetName)
+
+    planet.description = description
+    planet.save()
+
+    return redirect('/')
 
 
 def getReport(request):
@@ -121,6 +145,9 @@ def getReport(request):
         filename="report.docx",
         content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
+
+
+
 
 
 

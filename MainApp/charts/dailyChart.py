@@ -1,4 +1,5 @@
 from .motherChart import MotherChart
+from ..models import DailyCalendar
 import json
 
 
@@ -117,7 +118,22 @@ class DailyChart(MotherChart):
             planetHouseSymbol = planet.get('house').get('symbol')
             planetPosition = MotherChart.degMin(planet.get('position'))
 
-            planetData = {'planetName':planetName, 'planetColor':planetColor, 'planetPosition':planetPosition, 'planetHouseNum':planetHouseNum, 'planetHouseSymbol':planetHouseSymbol, 'stars':[]}
+            if 'Moon' in planetName:
+                planetDailyCalendar = DailyCalendar.objects.get(name='Moon')
+            else:
+                planetDailyCalendar = DailyCalendar.objects.get(name=planetName)
+
+            
+            if planetDailyCalendar.numIndex == planetIndex:
+                planetDailyDescription = planetDailyCalendar.description
+            else:
+                planetDailyDescription = ''
+                planetDailyCalendar.description = ''
+                planetDailyCalendar.numIndex = planetIndex
+                planetDailyCalendar.save()
+    
+    
+            planetData = {'planetName':planetName, 'planetColor':planetColor, 'planetPosition':planetPosition, 'planetHouseNum':planetHouseNum, 'planetHouseSymbol':planetHouseSymbol, 'planetDailyDescription':planetDailyDescription, 'stars':[]}
             starsForPlanet.append(planetData)
             starsForPlanetIndex += 1
 
@@ -130,6 +146,18 @@ class DailyChart(MotherChart):
                     starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})    
         
         return starsForPlanet
+    
+    def getMonthlyCalendar(self):
+
+        with open(MotherChart.ephePath + "\\monthlyCalendar.json","r") as file:
+            monthlyCalendar = json.load(file)
+
+        for i in monthlyCalendar:
+            i['position'] = MotherChart.degMin(i.get('position'))
+
+        return monthlyCalendar
+
+
     
     @staticmethod
     def numAbove(num:int):

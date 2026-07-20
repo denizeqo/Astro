@@ -6,4 +6,5 @@ urlpatterns = [
     path('getReport', views.getReport, name='getReport'),
     path('weel', views.Weel, name='weel'),
     path('aboutUs', views.AboutUs, name='aboutUs'),
+    path('registerDescription', views.DailyCalendarDescription, name='registerDescription')
 ]
