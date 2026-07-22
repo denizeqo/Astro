@@ -156,23 +156,25 @@ class MotherChart:
     def setOrbiteMinDistance(self, firstOrbite, lastOrbite):
         self.lastOrbiteMinDistance = lastOrbite
         self.firstOrbiteMinDistance = firstOrbite
-
-
+    
     @property
-    def moonPhase(self):
+    def moonPhase(self, tolerance=10):
+        phase_angle = (self.chart.get(const.MOON).lon -
+                    self.chart.get(const.SUN).lon) % 360
 
-        phase_angle = (self.chart.get(const.MOON).lon - self.chart.get(const.SUN).lon) % 360
+        if phase_angle <= tolerance or phase_angle >= 360 - tolerance:
+            return "New Moon"
 
-        if phase_angle < 45 or phase_angle >= 315:
-            phase = "New Moon"
-        elif phase_angle < 135:
-            phase = "First Quarter Moon"
-        elif phase_angle < 225:
-            phase = "Full Moon"
-        else:
-            phase = "Last Quarter Moon"
+        if abs(phase_angle - 90) <= tolerance:
+            return "First Quarter"
 
-        return phase
+        if abs(phase_angle - 180) <= tolerance:
+            return "Full Moon"
+
+        if abs(phase_angle - 270) <= tolerance:
+            return "Last Quarter"
+
+        return const.MOON
 
 
     @property

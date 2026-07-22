@@ -128,6 +128,7 @@ const termsSymbolsList = {
 
 
 const planetsOrbite = {
+  'Moon':rMoon,
   'First Quarter Moon': rMoon,
   'Last Quarter Moon': rMoon,
   'New Moon': rMoon,
