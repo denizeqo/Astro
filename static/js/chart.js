@@ -129,6 +129,8 @@ const termsSymbolsList = {
 
 const planetsOrbite = {
   'Moon':rMoon,
+  'Rising Moon': rMoon,
+  'Falling Moon': rMoon,
   'First Quarter Moon': rMoon,
   'Last Quarter Moon': rMoon,
   'New Moon': rMoon,
@@ -722,8 +724,8 @@ function drawEmptyChart(svg){
             <svg id="Mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
             <svg id="Sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
             <svg id="Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="First Quarter Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Last Quarter Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="Rising Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="Falling Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
             <svg id="New Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="25">◯</text></svg>
             <svg id="Full Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">◉</text></svg>
             <svg id="North Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>

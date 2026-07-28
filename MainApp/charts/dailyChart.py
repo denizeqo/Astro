@@ -1,14 +1,16 @@
 from .motherChart import MotherChart
-from ..models import DailyCalendar
+from ..models import DailyCalendar, MonthlyCalendar
 import json
 
-
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 
 
 
 class DailyChart(MotherChart):
 
-    
+    def __init__(self, lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country):
+        super().__init__(lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
     @property
     def planets(self):
@@ -21,6 +23,13 @@ class DailyChart(MotherChart):
 
         for planet in planets:
             planetName = planet['name']
+
+            if planetName == "New Moon" or planetName == "Full Moon":
+                if planet['num']['sup'] != '':
+                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
+
+                continue
+
 
             if planetsNum.get(planetName, -1) == -1:
                 planet['num']['value'] = str(int(planet['position'])) + '° '
@@ -117,6 +126,7 @@ class DailyChart(MotherChart):
             planetHouseNum = int(planet.get('house').get('num'))
             planetHouseSymbol = planet.get('house').get('symbol')
             planetPosition = MotherChart.degMin(planet.get('position'))
+            planetMovement = planet.get('movement')
 
             if 'Moon' in planetName:
                 planetDailyCalendar = DailyCalendar.objects.get(name='Moon')
@@ -133,7 +143,15 @@ class DailyChart(MotherChart):
                 planetDailyCalendar.save()
     
     
-            planetData = {'planetName':planetName, 'planetColor':planetColor, 'planetPosition':planetPosition, 'planetHouseNum':planetHouseNum, 'planetHouseSymbol':planetHouseSymbol, 'planetDailyDescription':planetDailyDescription, 'stars':[]}
+            planetData = {'planetName':planetName, 
+                          'planetColor':planetColor, 
+                          'planetPosition':planetPosition, 
+                          'planetHouseNum':planetHouseNum, 
+                          'planetHouseSymbol':planetHouseSymbol, 
+                          'planetDailyDescription':planetDailyDescription,
+                          'planetMovement' : planetMovement,
+                          'stars':[]}
+            
             starsForPlanet.append(planetData)
             starsForPlanetIndex += 1
 
@@ -149,13 +167,28 @@ class DailyChart(MotherChart):
     
     def getMonthlyCalendar(self):
 
-        with open(MotherChart.ephePath + "\\monthlyCalendar.json","r") as file:
-            monthlyCalendar = json.load(file)
+        startDate = datetime.now(ZoneInfo("Europe/Rome"))
+        endDate = startDate + timedelta(hours=700)
 
-        for i in monthlyCalendar:
-            i['position'] = MotherChart.degMin(i.get('position'))
+        objects = MonthlyCalendar.objects.filter(timestamp__range=(startDate, endDate))
+        colorMap = self.objectsColorMap
 
-        return monthlyCalendar
+        results = []
+
+        for object in objects:
+            results.append({
+                'id':object.id,
+                'date': object.timestamp.strftime("%Y-%m-%d"),
+                'time': object.timestamp.strftime("%H:%M"),
+                'name': object.name,
+                'house': object.houseNum,
+                'houseSymbol': object.houseSymbol,
+                'position': object.position,
+                'description': object.description,
+                'color': colorMap[object.name]
+            })
+
+        return results
 
 
     

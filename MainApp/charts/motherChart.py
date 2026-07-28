@@ -123,7 +123,10 @@ class MotherChart:
             "New Moon": '#AAD5DB',
             "First Quarter Moon": '#AAD5DB',
             "Full Moon": '#AAD5DB',
-            "Last Quarter Moon":'#AAD5DB'
+            "Last Quarter Moon":'#AAD5DB',
+            "Falling Moon": '#AAD5DB',
+            "Rising Moon": '#AAD5DB'
+
         } 
 
         self.talismanObjects = [
@@ -158,24 +161,18 @@ class MotherChart:
         self.firstOrbiteMinDistance = firstOrbite
     
     @property
-    def moonPhase(self, tolerance=10):
-        phase_angle = (self.chart.get(const.MOON).lon -
-                    self.chart.get(const.SUN).lon) % 360
+    def moonPhase(self, tolerance=5):
+        phase_angle = (self.chart.get(const.MOON).lon - self.chart.get(const.SUN).lon) % 360
 
-        if phase_angle <= tolerance or phase_angle >= 360 - tolerance:
+        if phase_angle < 15 or phase_angle >= 345:
             return "New Moon"
-
-        if abs(phase_angle - 90) <= tolerance:
-            return "First Quarter"
-
-        if abs(phase_angle - 180) <= tolerance:
+        elif phase_angle < 165:
+            return "Rising Moon"
+        elif phase_angle < 195:
             return "Full Moon"
-
-        if abs(phase_angle - 270) <= tolerance:
-            return "Last Quarter"
-
-        return const.MOON
-
+        else:
+            return "Falling Moon"
+        
 
     @property
     def planets(self):
@@ -202,7 +199,7 @@ class MotherChart:
             
             planets.append({
                 'name':planetName,
-                'movement':self.chart.get(planet).movement()[0],
+                'movement':self.chart.get(planet).movement(),
                 'position':self.chart.get(planet).lon,
                 'symbolPosition': symbolPosition,
                 'color': self.objectsColorMap[planetName],

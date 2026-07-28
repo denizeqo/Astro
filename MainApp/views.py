@@ -18,12 +18,12 @@ from docxtpl import DocxTemplate
 from docxtpl import InlineImage
 from docx.shared import Cm
 
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from .charts.motherChart import MotherChart
 from .charts.dailyChart import DailyChart
-from .models import DailyCalendar
+from .models import DailyCalendar, MonthlyCalendar
 
 
 # Create your views here.
@@ -48,8 +48,8 @@ def Home(request):
     aspects = dailyChart.aspects
     chartData = dailyChart.userData
     starsForPlanet = dailyChart.getStarsForPlanet()
-
     monthlyCalendar = dailyChart.getMonthlyCalendar()
+
 
     return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
 
@@ -69,6 +69,109 @@ def DailyCalendarDescription(request):
     planet.save()
 
     return redirect('/')
+
+
+@staff_member_required
+@require_POST
+def MonthlyCalendarDescription(request):
+
+    id = request.POST.get('id')
+    description = request.POST.get('description')
+
+    planet = MonthlyCalendar.objects.get(id=id)
+
+    planet.description = description
+    planet.save()
+
+    return redirect('/')
+    
+
+
+@staff_member_required
+@require_POST
+def MonthlyCalendarCreated(request):
+
+    latesDate = MonthlyCalendar.objects.order_by('-timestamp')
+
+    if len(latesDate) == 0:
+        currentDate = datetime.now(ZoneInfo("Europe/Rome"))
+    else:
+        currentDate = latesDate[0].timestamp
+
+
+    firstName = ""
+    lastName = ""
+    city = "Milan"
+    country = "Italy"
+    dateOfBirth = currentDate.strftime("%Y-%m-%d")
+    timeOfBirth = currentDate.strftime("%H:%M")
+    latitude = 45.4643
+    longitude = 9.1895
+
+
+    currenChart = MotherChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+    planets = currenChart.planets
+
+    currentHouses = {}
+
+    for planet in planets:
+
+        if 'Moon' in planet['name']:
+            currentHouses['Moon'] = planet['house']['num']
+        else:
+             currentHouses[planet['name']] = planet['house']['num']
+
+
+    for i in range(800):
+        newDate =  currentDate + timedelta(hours=i)
+        dateOfBirth = newDate.strftime("%Y-%m-%d")
+        timeOfBirth = newDate.strftime("%H:%M")
+
+        newChart = MotherChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+        newPlanets = newChart.planets
+
+        for planet in newPlanets:
+            newHouse = planet['house']['num']
+
+            if 'Moon' in planet['name']:
+                if currentHouses['Moon'] != newHouse:
+                    MonthlyCalendar.objects.create(name=planet['name'], 
+                                                   houseNum=planet['house']['num'], 
+                                                   houseSymbol=planet['house']['symbol'], 
+                                                   position=newChart.degMin(planet['position']),
+                                                   timestamp=newDate,
+                                                   description='')
+                    
+                    currentHouses['Moon'] = planet['house']['num']
+
+            else:
+                if currentHouses[planet['name']] != newHouse:
+                    MonthlyCalendar.objects.create(name=planet['name'], 
+                                                   houseNum=planet['house']['num'], 
+                                                   houseSymbol=planet['house']['symbol'], 
+                                                   position=newChart.degMin(planet['position']),
+                                                   timestamp=newDate,
+                                                   description='')
+                    
+                    currentHouses[planet['name']] = planet['house']['num']
+
+
+    #pList = ['Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto', 'Chiron']
+
+    #for planet in newPlanets:
+
+    #   if planet['name'] in pList:
+    #        MonthlyCalendar.objects.create(name=planet['name'], 
+     #                                           houseNum=planet['house']['num'], 
+      #                                          houseSymbol=planet['house']['symbol'], 
+       #                                         position=-1,
+        #                                        timestamp=newDate + timedelta(hours=-100),
+         #                                       description='')
+
+    return redirect('/')
+
+    
+
 
 
 def getReport(request):
