@@ -28,7 +28,11 @@ from .models import DailyCalendar, MonthlyCalendar
 
 # Create your views here.
 
+
 def Home(request):
+    return render(request, 'pages/home.html')
+
+def DailyChartPage(request):
 
     firstName = ""
     lastName = ""
@@ -51,7 +55,7 @@ def Home(request):
     monthlyCalendar = dailyChart.getMonthlyCalendar()
 
 
-    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
+    return render(request, 'pages/dailyChart.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
 
 @staff_member_required
 @require_POST
@@ -68,7 +72,7 @@ def DailyCalendarDescription(request):
     planet.description = description
     planet.save()
 
-    return redirect('/')
+    return redirect('/dailyChart')
 
 
 @staff_member_required
@@ -83,7 +87,7 @@ def MonthlyCalendarDescription(request):
     planet.description = description
     planet.save()
 
-    return redirect('/')
+    return redirect('/dailyChart')
     
 
 
@@ -168,7 +172,7 @@ def MonthlyCalendarCreated(request):
         #                                        timestamp=newDate + timedelta(hours=-100),
          #                                       description='')
 
-    return redirect('/')
+    return redirect('/dailyChart')
 
     
 

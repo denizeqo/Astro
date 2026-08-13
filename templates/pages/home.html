@@ -5,75 +5,85 @@
 {% block main %}
 
     {% include 'components/home/landingPage.html' %}
-
-    {% include 'components/home/dailyChartDescription.html' %}
-
-    {% include 'components/home/chart.html' %}
-
-    {% include 'components/home/chartData.html' %}
-
-    {% include 'components/home/dailyChart.html' %}
-
-    {% include 'components/home/table.html' %}
-
-    {% include 'components/home/monthlyCalendar.html' %}
-
-
-{% load static %}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-<script src="{% static 'js/chart.js' %}"></script>
+    {% include 'components/home/item.html' %}
 
 
 
-{{ fourAngles|json_script:"fourAngles" }}
-
-{{ planets|json_script:"planets" }}
-
-{{ stars|json_script:"stars" }}
-
-{{ aspects|json_script:"aspects" }}
-
-{{ planetStars|json_script:"planetStars" }}
 
 
-<script>
-    // Close popup when scrolling
-    document.addEventListener("scroll", function() {
-        const popup = document.getElementById("planetPopup");
-        popup.style.display = "none";
-    });
 
-    const FourAngles = JSON.parse(
-        document.getElementById("fourAngles").textContent
-    );
+<style>
+.info-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
 
-    const Planets = JSON.parse(
-        document.getElementById("planets").textContent
-    );
+.info-image,
+.info-content {
+    flex: 1;
+    color: white;
+}
 
-    const Stars = JSON.parse(
-        document.getElementById("stars").textContent
-    );
+.info-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: fill;
+    border-radius: 12px;
+    display: block;
+}
 
-    const Aspects = JSON.parse(
-        document.getElementById("aspects").textContent
-    );
+.info-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 
-     const PlanetStars = JSON.parse(
-        document.getElementById("planetStars").textContent
-    );
+.info-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+}
 
-    console.log(PlanetStars)
-    drawEmptyChart(document.getElementById('Chart'))
-    dynamicChart(FourAngles[0]['position']);
-    dynamicAscMcIcDsc(FourAngles);
-    addPlanetSymbols(Planets);
-    addStarsSymbol(Stars);
-    aspectTable(Aspects, document.getElementById('AspectTbody'), document.getElementById('AspectTable'));
+.info-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s;
+}
 
-</script>
+.info-button:hover {
+    opacity: 0.85;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .info-image,
+    .info-content {
+        width: 100%;
+    }
+
+    .info-image img {
+        height: 250px;
+    }
+
+    .info-content h2 {
+        font-size: 26px;
+    }
+}
+</style>
 
 {% endblock %}
 

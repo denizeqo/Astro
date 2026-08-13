@@ -15,7 +15,7 @@ class DailyChart(MotherChart):
     @property
     def planets(self):
 
-        super().setOrbiteMinDistance(25, 10)
+        super().setOrbiteMinDistance(15, 10)
         planets = super().planets
 
         with open(MotherChart.ephePath + "\\planetNum.json","r") as file:

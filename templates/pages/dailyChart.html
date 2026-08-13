@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+
+    {% include 'components/dailyChart/landingPage.html' %}
+
+    {% include 'components/dailyChart/dailyChartDescription.html' %}
+
+    {% include 'components/dailyChart/chart.html' %}
+
+    {% include 'components/dailyChart/chartData.html' %}
+
+    {% include 'components/dailyChart/dailyChart.html' %}
+
+    {% include 'components/dailyChart/table.html' %}
+
+    {% include 'components/dailyChart/monthlyCalendar.html' %}
+
+
+{% load static %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+<script src="{% static 'js/chart.js' %}"></script>
+
+
+
+{{ fourAngles|json_script:"fourAngles" }}
+
+{{ planets|json_script:"planets" }}
+
+{{ stars|json_script:"stars" }}
+
+{{ aspects|json_script:"aspects" }}
+
+{{ planetStars|json_script:"planetStars" }}
+
+
+<script>
+    // Close popup when scrolling
+    document.addEventListener("scroll", function() {
+        const popup = document.getElementById("planetPopup");
+        popup.style.display = "none";
+    });
+
+    const FourAngles = JSON.parse(
+        document.getElementById("fourAngles").textContent
+    );
+
+    const Planets = JSON.parse(
+        document.getElementById("planets").textContent
+    );
+
+    const Stars = JSON.parse(
+        document.getElementById("stars").textContent
+    );
+
+    const Aspects = JSON.parse(
+        document.getElementById("aspects").textContent
+    );
+
+     const PlanetStars = JSON.parse(
+        document.getElementById("planetStars").textContent
+    );
+
+    console.log(PlanetStars)
+    drawEmptyChart(document.getElementById('Chart'))
+    dynamicChart(FourAngles[0]['position']);
+    dynamicAscMcIcDsc(FourAngles);
+    addPlanetSymbols(Planets);
+    addStarsSymbol(Stars);
+    aspectTable(Aspects, document.getElementById('AspectTbody'), document.getElementById('AspectTable'));
+
+</script>
+
+{% endblock %}
+
+
