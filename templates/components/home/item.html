@@ -1,54 +1,333 @@
-<section class="info-section">
-    <div class="info-image">
-        <img src="static\image\image.png" alt="Description of the image">
+<div class="carousel">
+
+    <div class="carousel-track">
+
+        <!-- Slide 1 -->
+        <section class="info-section">
+            <div class="info-image">
+                <img src="static/image/image.png" alt="Astro Numerology">
+            </div>
+
+            <div class="info-content">
+                <h2>ASTRO NUMEROLOGY – PERSONALIZED HOROSCOPE</h2>
+                <p>
+                    Discover the energies that drive your life every day and every month.
+                    Get guidance on love, work, emotions, and lucky numbers, with practical
+                    tips to help you act at the right time.
+                </p>
+
+                <a href="/another-page/" class="primarButton">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Slide 2 -->
+        <section class="info-section">
+            <div class="info-image">
+                <img src="static/image/image3.png" alt="Astro Numerological Calendar">
+            </div>
+
+            <div class="info-content">
+                <h2>Astro Numerological Calendar of the Moon Phases</h2>
+                <p>
+                    Learn about the cycles of the Moon (27/28 days), daily transits and
+                    the active zodiac sign. Receive clear guidance to understand the
+                    energies of the moment and act with awareness.
+                    "Follow the rhythm of the Moon, and you will regain your balance."
+                </p>
+
+                <a href="/another-page/" class="primarButton">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Slide 3 -->
+        <section class="info-section">
+            <div class="info-image">
+                <img src="static/image/image2.png" alt="Fixed Stars Birth Chart">
+            </div>
+
+            <div class="info-content">
+                <h2>ASTRO-NUMEROLOGICAL BIRTH CHART OF THE FIXED STARS</h2>
+                <p>
+                    The Destiny Written among the Stars. Fixed Stars Astro-Numerology
+                    Birth Chart. Discover your destiny map through the fixed stars and
+                    your birth numbers. A profound guide to understanding yourself,
+                    recognizing the right moment and transforming your life.
+                </p>
+
+                <a href="/another-page/" class="primarButton">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
     </div>
 
-    <div class="info-content">
-        <h2>ASTRO NUMEROLOGY – PERSONALIZED HOROSCOPE</h2>
-        <p>
-            Discover the energies that drive your life every day and every month. Get guidance on love, work, emotions, and lucky numbers, with practical tips to help you act at the right time.
-        </p>
 
-        <a href="/another-page/" class="primarButton">
-            Learn More
-        </a>
-    </div>
-</section>
+    <!-- Navigation buttons -->
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
 
 
-<section class="info-section">
-    <div class="info-image">
-        <img src="static\image\image3.png" alt="Description of the image">
+    <!-- Dots -->
+    <div class="carousel-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
     </div>
 
-    <div class="info-content">
-        <h2>Astro Numerological Calendar of the Moon Phases</h2>
-        <p>
-            Learn about the cycles of the Moon (27/28 days), daily transits and the active zodiac sign.
-            Receive clear guidance to understand the energies of the moment and act with awareness.
-            "Follow the rhythm of the Moon, and you will regain your balance
+</div>
 
-        </p>
 
-        <a href="/another-page/" class="primarButton">
-            Learn More
-        </a>
-    </div>
-</section>
+<style>
 
-<section class="info-section">
-    <div class="info-image">
-        <img src="static\image\image2.png" alt="Description of the image">
-    </div>
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
 
-    <div class="info-content">
-        <h2>ASTRO-NUMEROLOGICAL BIRTH CHART OF THE FIXED STARS</h2>
-        <p>
-            The Destiny Written among the Stars ; Fixed Stars Astro-Numerology Birth Chart Discover your destiny map through the fixed stars and your birth numbers. A profound guide to understanding yourself, recognizing the right moment and transforming your life.
-        </p>
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
 
-        <a href="/another-page/" class="primarButton">
-            Learn More
-        </a>
-    </div>
-</section>
+.info-section {
+    min-width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    padding: 60px 50px;
+}
+
+.info-image,
+.info-content {
+    flex: 1;
+    color: white;
+}
+
+.info-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+.info-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.info-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Buttons */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: 0.2s;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* Dots */
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .info-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 55px; /* leave space for buttons */
+    }
+
+    .info-image,
+    .info-content {
+        width: 100%;
+    }
+
+    .info-image img {
+        height: 250px;
+    }
+
+    .info-content h2 {
+        font-size: 26px;
+    }
+
+    .info-content p {
+        font-size: 16px;
+    }
+
+    /* Mobile carousel buttons */
+    .carousel-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 40px;
+        height: 40px;
+
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+
+        font-size: 18px;
+        line-height: 1;
+
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .carousel-btn.prev {
+        left: 8px;
+    }
+
+    .carousel-btn.next {
+        right: 8px;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+let currentSlide = 0;
+
+const track = document.querySelector(".carousel-track");
+const slides = document.querySelectorAll(".info-section");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+
+    // Loop back to the beginning/end
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    // Update dots
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentSlide].classList.add("active");
+}
+
+
+function moveSlide(direction) {
+    showSlide(currentSlide + direction);
+
+    // Restart automatic timer
+    restartTimer();
+}
+
+
+function goToSlide(index) {
+    showSlide(index);
+
+    // Restart automatic timer
+    restartTimer();
+}
+
+
+// Automatically change slide every 3 seconds
+let autoSlide = setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 3000);
+
+
+// Restart timer when user clicks a button
+function restartTimer() {
+    clearInterval(autoSlide);
+
+    autoSlide = setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 3000);
+}
+
+</script>

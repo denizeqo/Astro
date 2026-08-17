@@ -1,0 +1,57 @@
+<h1 class="title">Advanced Astro-Numerology System</h1>
+<h1 class="subtitle">Zodiac in the Zodiac</h1>
+<div id="dailydescription" style="overflow: hidden;">
+    <p class="description__con" style="font-family: 'Poppins', sans-serif;">
+        A code resides inside you. The reflection of it exists in the sky. Astro Magnetism represents the method that integrates Astrology, Numerology and Magnetism into a single system. A unique graph that connects: stars, planets, numbers and real life. It doesn't just describe who you are. It shows you how your energy operates. Through the 12 birth codes, you discover: your potential, your directions, and your cycles. Read the sky to understand yourself. Turn knowledge into evolution. The chart is not intended for you... is power." "What if I told you... that your destiny is already written... but has no one ever taught you how to read it?"
+    </p>
+</div>
+
+<div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; margin-top: 30px;">
+    <button id="moreBtn" class="primarButton" onclick="hiddenShowText()">Read More</button>
+</div>
+
+<script>
+    p = document.getElementById("dailydescription")
+
+    if (window.innerWidth < 1160) {
+        p.style.height = '22vh'
+    }
+
+    function hiddenShowText(){
+
+        btn = document.getElementById("moreBtn")
+        p = document.getElementById("dailydescription")
+
+        if(btn.innerText == 'Read More'){
+            p.style.height = null
+            btn.innerText = 'Read Less'
+        }else{
+            p.style.height = '22vh'
+            btn.innerText = 'Read More'
+        }
+    }
+
+</script>
+
+
+<style>
+
+    .description__con{
+        color: #BFAEDC;
+        text-align: center;
+        font-size: clamp(1rem, 3.5vw, 1.3rem);
+        margin: 20px 30px;
+    }
+
+    #moreBtn{
+            display: none;
+        }
+
+    @media (max-width: 1160px){
+        #moreBtn{
+            display: unset;
+        }
+
+    }
+
+</style>
