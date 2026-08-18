@@ -1,0 +1,46 @@
+<section class="widget">
+    <div class="userDataContainer">
+        <div class="userDataData">
+            <div class="userDataRow">
+                <p class="userDataCol">Country: <span>{{chartData.Country}}</span></p>
+                <p class="userDataCol">City: <span>{{chartData.City}}</span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">Latitude: <span>{{chartData.Latitude}}</span></p>
+                <p class="userDataCol">Longitude: <span>{{chartData.Longitude}}</span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">UTC Time: <span>{{chartData.UTCTime}}</span></p>
+                <p class="userDataCol">Local Time: <span>{{chartData.LocalTime}}</span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">Chart System: <span>Astro-Numerology Egizio</span></p>
+            </div>
+        </div>
+        <div style="margin-bottom: 40px;">
+            <p class="tableTitle" style="margin-bottom: 10px;"> Magic Square</p>
+            <table id="Talisman" class="transparent-table-userData">
+                <tr>
+                    <td style="color: {{chartData.Talisman.0.color}};">{{chartData.Talisman.0.value}} <sup style="color: {{chartData.Talisman.0.supColor}};">{{chartData.Talisman.0.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.1.color}};">{{chartData.Talisman.1.value}} <sup style="color: {{chartData.Talisman.1.supColor}};">{{chartData.Talisman.1.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.2.color}};">{{chartData.Talisman.2.value}} <sup style="color: {{chartData.Talisman.2.supColor}};">{{chartData.Talisman.2.sup}}</sup></td>
+                </tr>
+                <tr>
+                    <td style="color: {{chartData.Talisman.3.color}};">{{chartData.Talisman.3.value}} <sup style="color: {{chartData.Talisman.3.supColor}};">{{chartData.Talisman.3.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.4.color}};">{{chartData.Talisman.4.value}} <sup style="color: {{chartData.Talisman.4.supColor}};">{{chartData.Talisman.4.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.5.color}};">{{chartData.Talisman.5.value}} <sup style="color: {{chartData.Talisman.5.supColor}};">{{chartData.Talisman.5.sup}}</sup></td>
+                </tr>
+                <tr>
+                    <td style="color: {{chartData.Talisman.6.color}};">{{chartData.Talisman.6.value}} <sup style="color: {{chartData.Talisman.6.supColor}};">{{chartData.Talisman.6.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.7.color}};">{{chartData.Talisman.7.value}} <sup style="color: {{chartData.Talisman.7.supColor}};">{{chartData.Talisman.7.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.8.color}};">{{chartData.Talisman.8.value}} <sup style="color: {{chartData.Talisman.8.supColor}};">{{chartData.Talisman.8.sup}}</sup></td>
+                </tr>
+                <tr>
+                    <td style="color: {{chartData.Talisman.9.color}};">{{chartData.Talisman.9.value}} <sup style="color: {{chartData.Talisman.9.supColor}};">{{chartData.Talisman.9.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.10.color}};">{{chartData.Talisman.10.value}} <sup style="color: {{chartData.Talisman.10.supColor}};">{{chartData.Talisman.10.sup}}</sup></td>
+                    <td style="color: {{chartData.Talisman.11.color}};">{{chartData.Talisman.11.value}} <sup style="color: {{chartData.Talisman.11.supColor}};">{{chartData.Talisman.11.sup}}</sup></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>

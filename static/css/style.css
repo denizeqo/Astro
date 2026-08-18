@@ -35,8 +35,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 1070px;
-    max-width: 95%;
+    max-width: 1070px;
+    width: 55%;
     padding: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -189,6 +189,11 @@
 }
 
 @media (max-width: 950px) {
+
+    .widget{
+        width: 95%;
+    }
+
     .nav-links {
         position: absolute;
         top: 70px;

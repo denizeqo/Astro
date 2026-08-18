@@ -2,7 +2,7 @@
 const svg = document.getElementById('Chart');
 
 
-let viewBoxSize = 1015;
+let viewBoxSize = 960;
 let viewBoxX = 0;
 let viewBoxY = 0;
 
@@ -763,12 +763,7 @@ function drawEmptyChart(svg){
         <circle cx="${cx}" cy="${cy}" r="260" fill="none" stroke="#FFAF3D50" stroke-width="1" />
         <circle cx="${cx}" cy="${cy}" r="280" fill="none" stroke="#80808050" stroke-width="1" />
 
-
-        <text x="180" y="40" text-anchor="middle" font-size="20" font-family="Arial">
-          <tspan fill="#FFEA99">Astro </tspan>
-          <tspan fill="#87CEEB">Numerologia </tspan>
-          <tspan fill="#2e8b57">Magentismo</tspan>
-        </text>
+        <image href="static/image/astorlogo2.png" x="${(viewBoxSize - 120)/2}" y="${(viewBoxSize - 120)/2}" width="120" height="120" preserveAspectRatio="xMidYMid slice"/>
 
 
         `
