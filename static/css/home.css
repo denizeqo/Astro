@@ -230,13 +230,13 @@
 
 .userDataData p,
 .userDataData span {
-    color: #BFAEDC;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 
 .userDataData p{
-    color:white;
+    color:#b38ef8;
 }
 
 .transparent-table-userData{
