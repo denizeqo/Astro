@@ -318,3 +318,8 @@ def Weel(request):
 def AboutUs(request):
 
     return render(request, 'pages/aboutUs.html')
+
+
+def AstroShop(request):
+
+    return render(request, 'pages/astroShop.html')

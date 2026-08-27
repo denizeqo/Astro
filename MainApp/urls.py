@@ -9,5 +9,7 @@ urlpatterns = [
     path('aboutUs', views.AboutUs, name='aboutUs'),
     path('registerDescription', views.DailyCalendarDescription, name='registerDescription'),
     path('monthlyCalendarCreated', views.MonthlyCalendarCreated),
-    path('registerMonthlyCalendarDescription', views.MonthlyCalendarDescription)
+    path('registerMonthlyCalendarDescription', views.MonthlyCalendarDescription),
+    path('astroShop', views.AstroShop, name='astroShop'),
+
 ]

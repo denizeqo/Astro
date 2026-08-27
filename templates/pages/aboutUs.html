@@ -3,43 +3,1086 @@
 
 {% block main %}
 
-<section style=" padding-top: 40px; overflow: hidden; margin-top: 50px;">
-    <h1 class="leftTitle">About Us</h1>
-    <hr class="line">
-    <p id="wheelDescription" class="normalText">I proudly present this unique study, born from a deep passion and vocation, embodying research capable of reflecting the experience of an entire lifetime. This work establishes an unprecedented approach, integrating astrology and numerology with absolute originality. We are speaking of an ancient discipline, rooted in tradition, yet distinguished by being simultaneously innovative and scientific; it was also defined as “the meaning of life.” <br> <br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Astro-numerology is not merely a curiosity, but a discipline with extremely ancient origins, whose validity is confirmed by a millennial tradition. This practice, while preserving its mysterious and transcendental character, has crossed and influenced various civilizations, including the Chaldean, Egyptian, Latin, and Greek cultures. Among the Egyptians, it was officially recognized as the “Wheel of Destiny” and the healing through sleep. In esotericism, this knowledge was reserved exclusively for disciples or initiates, while in magnetism it found space especially within the French tradition, where it became known as mesmerism. Mozart, by portraying in the opera Così fan tutte a parody of magnetic therapy (with reference to the so-called septenary), clearly demonstrates how all these ancient traditions and disciplines were founded upon the influence of the stars. It becomes evident that their energy or fluid upon the functions of the human body (or any living being) possesses its own “magnetic” nature in correspondence with the celestial bodies; consider, for example, how the Moon causes the tides, implying that blood itself is attributed divine roles and immense powers. <br><br>
+    <title>About Us - Astro Magnetismo</title>
 
-The people of Ancient Egypt built their entire philosophy upon two parallel and inseparable lives: <br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;The eternal and immortal life belonging to the spirit.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The earthly life connected to the soul (understood as the earthly spirit), which is bound to follow the spirit. <br><br>
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-Through matter, namely our physical body, the soul must necessarily undertake a path of progress toward wisdom and enlightenment already written within your destiny. <br><br>
+html {
+    scroll-behavior: smooth;
+}
 
-<b style="color: #BFAEDC; font-family: 'Poppins', sans-serif;">How is this chart interpreted?</b> <br><br>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0d0820;
+    color: #dfcff8;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
 
-This approach defines what should be called a Zodiac within the Zodiac. If astrology illustrates your external dimension (similar to the way you dress), this study investigates the anatomy of your inner psycho-energetic being. Its true strength lies in its ability to guide you toward inner balance, based on your date of birth, your stars, and your numbers.
+/* ---------- Background Stars ---------- */
 
-In addition to classical astrological calculations referring to the 12 houses and 12 signs of 30°, this study provides, for the first time, a deeper vision and system based on the 12 numbers and on a space-time calculation of 60 square degrees.
+.stars,
+.stars::before,
+.stars::after {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
 
-To understand the validity of this concept, let me offer an example: if you were born with Virgo rising at 23°, astrology would indicate birth in Virgo, house 6, referring to the degree and citing the total area of Virgo of 1294 celestial square degrees. In such a context, formulating a truly accurate judgment becomes extremely complex. Astro-numerology, instead, indicates that you were born with Virgo rising, house 6, at the 23rd degree, based on a 60 space-time calculation within 21/22 celestial square degrees. In this way, the analysis of your ascendant becomes significantly more truthful and profound. This principle guarantees the precision of the entire interpretation of your natal chart.
+.stars {
+    z-index: 0;
 
-After entering your birth details, you will visualize your chart composed of two circles and numerous orbits. This system is founded upon original Egyptian astro-numerology: your celestial bodies are projected exactly in their current position through an extremely precise calculation. Every element, from the ascendant to every planet and star, is connected to a specific number, producing a total of 12 numbers. <br><br>
+    background-image:
+        radial-gradient(
+            1px 1px at 10% 20%,
+            rgba(255,255,255,.8),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 30% 70%,
+            rgba(255,255,255,.6),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 50% 30%,
+            rgba(255,255,255,.7),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 70% 80%,
+            rgba(255,255,255,.6),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 90% 40%,
+            rgba(255,255,255,.8),
+            transparent
+        ),
+        radial-gradient(
+            2px 2px at 20% 90%,
+            rgba(255,255,255,.5),
+            transparent
+        ),
+        radial-gradient(
+            2px 2px at 80% 15%,
+            rgba(255,255,255,.5),
+            transparent
+        );
 
-The first study consists of the analysis of the 12 numbers, the so-called Magic Square. These are your personalized and lucky numbers, constituting your tailor-made talisman according to your date of birth and your essence; everything is explained in approximately one page. <br><br>
+    opacity: .7;
+}
 
-The second study is based on the principle that each number must be analyzed individually. First of all, it is essential not to confuse the houses with the signs. The first phase consists in studying the meaning of the house associated with your number and the meanings of your celestial spirit. Subsequently, the number linked to your planet, signs, and stars is analyzed — namely, everything arising from your soul. <br><br>
+.stars::before {
+    content: "";
 
-The third study addresses the most relevant aspects connected to your birth date. Here, we clearly identify where energy flows correctly and where it is blocked, establishing where intervention is necessary. <br> <br>
+    background-image:
+        radial-gradient(
+            1px 1px at 15% 45%,
+            rgba(255,255,255,.6),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 45% 10%,
+            rgba(255,255,255,.7),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 65% 55%,
+            rgba(255,255,255,.6),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 85% 75%,
+            rgba(255,255,255,.7),
+            transparent
+        );
 
-The entire chart is explained in an average of approximately 25–30 pages. Every chart is personalized and handmade, protected under copyright. We are also ready to assist you through a personalized path concerning your development and personal growth through astromagnetism. We accept requests via email with a response time of 48 hours and a completion time for your chart ranging from 2 weeks to 4 months.
+    animation: starsMove 15s linear infinite;
+}
 
-The profound essence of this astro-numerology program lies in an extraordinary gift: from your date of birth emerge 12 numbers (the Magic Square). These numbers are not simple digits, but represent your lucky numbers connected to your life and form your personal talisman. Furthermore, each of them illuminates your inner being, your ancestral heritage, your willpower, your vocations, and your most authentic desires. These 12 numbers clearly describe your destiny, your roots, and your inner self. You will also have the wonderful opportunity to embark on a path toward inner balance through personal magnetism, personalized and described within your destiny.
+@keyframes starsMove {
 
-Moreover, thanks to your numbers — correlated with your stars, planets, houses, signs, and their celestial movement — you will gain the ability to “do the right thing at the right moment,” fully living in the present while predicting the future, opening the way toward health, prosperity, well-being, and lasting inner balance. <br><br>
-</p>
-</section>
+    from {
+        transform: translateY(0);
+    }
 
+    to {
+        transform: translateY(-30px);
+    }
+}
+
+
+/* ---------- Main Container ---------- */
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+.container p{
+    color: #dfcff8;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px 80px;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 13px;
+
+    color: #c7b5e8;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 78px);
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #d5c4ff;
+}
+
+.hero-intro {
+    max-width: 750px;
+
+    margin: auto;
+
+    font-size: clamp(17px, 2vw, 21px);
+
+    color: #e1dced;
+}
+
+.hero-line {
+    width: 80px;
+
+    height: 1px;
+
+    background: #a98be2;
+
+    margin: 35px auto 0;
+}
+
+
+/* ---------- Sections ---------- */
+
+section {
+    padding: 90px 0;
+}
+
+section p {
+    color: #dfcff8;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: clamp(30px, 5vw, 48px);
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+
+    color: #faf8ff;
+}
+
+.section-title p {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #dfcff8;
+
+    font-size: 17px;
+}
+
+.content {
+    max-width: 850px;
+
+    margin: 0 auto;
+}
+
+.content p {
+    color: #dfcff8;
+
+    font-size: 17px;
+
+    margin-bottom: 24px;
+}
+
+
+/* ---------- Highlight ---------- */
+
+.highlight {
+    border-left: 2px solid #a98be2;
+
+    padding: 25px 30px;
+
+    margin: 45px 0;
+
+    background: rgba(156, 123, 221, 0.07);
+
+    border-radius: 0 12px 12px 0;
+}
+
+.highlight p {
+    font-size: 20px;
+
+    font-style: italic;
+
+    color: #eee9f7;
+
+    margin: 0;
+}
+
+
+/* ---------- Vision ---------- */
+
+.vision {
+    background: rgba(255, 255, 255, 0.018);
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+
+/* ---------- Cards ---------- */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.card {
+    padding: 35px 28px;
+
+    border: 1px solid rgba(190, 166, 239, 0.18);
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.03);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(190, 166, 239, 0.45);
+
+    background: rgba(255,255,255,0.05);
+}
+
+.card-number {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    color: #b79be5;
+
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    font-size: 23px;
+
+    font-weight: 400;
+
+    color: #faf8ff;
+
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #dfcff8;
+
+    font-size: 15px;
+}
+
+
+/* ---------- Method ---------- */
+
+.method-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 45px;
+}
+
+.method-item {
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+.method-symbol {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    border: 1px solid rgba(200,180,240,.35);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    color: #d0baf3;
+}
+
+.method-item h3 {
+    font-size: 21px;
+
+    font-weight: 400;
+
+    color: #faf8ff;
+
+    margin-bottom: 10px;
+}
+
+.method-item p {
+    color: #dfcff8;
+
+    font-size: 15px;
+}
+
+
+/* ---------- Mission ---------- */
+
+.mission {
+    text-align: center;
+}
+
+.mission-content {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.mission-content p {
+    color: #ded7e9;
+
+    font-size: 18px;
+}
+
+
+/* ---------- Offer ---------- */
+
+.offer-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 40px;
+}
+
+.offer-item {
+    padding: 22px 25px;
+
+    border: 1px solid rgba(190, 166, 239, 0.18);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.025);
+
+    color: #e1dbea;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.offer-item:hover {
+    background: rgba(255,255,255,.045);
+
+    border-color: rgba(190, 166, 239, 0.35);
+
+    transform: translateY(-3px);
+}
+
+.offer-item::before {
+    content: "✦";
+
+    color: #b79be5;
+
+    margin-right: 12px;
+}
+
+
+/* ---------- Final Quote ---------- */
+
+.final {
+    padding: 130px 20px;
+
+    text-align: center;
+}
+
+.final-content {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.final p {
+    font-size: clamp(24px, 4vw, 38px);
+
+    line-height: 1.45;
+
+    font-weight: 300;
+
+    color: #f1ecf8;
+
+    font-style: italic;
+}
+
+.final-small {
+    margin-top: 25px;
+
+    font-size: 14px !important;
+
+    color: #aaa1b8 !important;
+
+    font-style: normal !important;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+
+    section {
+        padding: 65px 0;
+    }
+
+    .hero {
+        min-height: 65vh;
+
+        padding: 80px 20px 60px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .method-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .offer-list {
+        grid-template-columns: 1fr;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .highlight {
+        padding: 22px;
+    }
+
+    .highlight p {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 88%;
+    }
+
+    .hero {
+        padding-top: 70px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-intro {
+        font-size: 16px;
+    }
+
+    .section-title {
+        margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 28px 22px;
+    }
+
+    .final {
+        padding: 90px 20px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <main class="page">
+
+        <!-- HERO -->
+        <header class="hero">
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    About Us
+                </div>
+
+                <h1>
+                    Astro <span>Magnetismo</span>
+                </h1>
+
+                <p class="hero-intro">
+                    A vision born from a lifetime of research, experience,
+                    observation and a deep exploration of the laws that connect
+                    the human being with the universe.
+                </p>
+
+                <div class="hero-line"></div>
+
+            </div>
+        </header>
+
+
+        <!-- A VISION BORN FROM A LIFE -->
+        <section>
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>A Vision Born from a Lifetime</h2>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        Astro Magnetismo was born from a lifetime of research.
+                    </p>
+
+                    <p>
+                        It is a journey built on study, experience and deep
+                        observation of the laws that govern the human being
+                        and the universe.
+                    </p>
+
+                    <p>
+                        It is not an improvised system. It is the result of
+                        years of study in the disciplines of astro-numerology
+                        and magnetism — a unique synthesis developed with
+                        passion and rigor.
+                    </p>
+
+                    <div class="highlight">
+                        <p>
+                            "A deep knowledge transformed into a clear,
+                            modern and accessible method."
+                        </p>
+                    </div>
+
+                    <p>
+                        This project was born from the desire to make ancient
+                        knowledge accessible — knowledge that for too long has
+                        remained complex or reserved for only a few.
+                    </p>
+
+                    <p>
+                        The goal is clear: to transform profound knowledge into
+                        a simple, understandable and useful tool for everyone.
+                    </p>
+
+                    <p>
+                        After a lifetime of research, this method is now being
+                        shared in a new form: clearer, more modern and more
+                        concrete.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- OUR VISION -->
+        <section class="vision">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Our Vision</h2>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        We believe that the human being is not separate from
+                        the cosmos. We are part of the same universal order.
+                    </p>
+
+                    <p>
+                        The matter that makes us is born from the stars.
+                        Our inner cycles reflect the cycles of the heavens.
+                    </p>
+
+                    <div class="highlight">
+                        <p>
+                            "As above, so below."
+                        </p>
+                    </div>
+
+                    <p>
+                        Astro Magnetismo is founded upon this principle:
+                        the belief that the human experience is deeply
+                        connected with the greater rhythms of the universe.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- THE METHOD -->
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>The Astro Magnetismo Method</h2>
+
+                    <p>
+                        An integrated system bringing together three
+                        complementary dimensions of knowledge.
+                    </p>
+
+                </div>
+
+                <div class="method-grid">
+
+                    <div class="method-item">
+
+                        <div class="method-symbol">
+                            ✧
+                        </div>
+
+                        <h3>Astrology</h3>
+
+                        <p>
+                            The stars and planets and their symbolic
+                            relationship with our lives and cycles.
+                        </p>
+
+                    </div>
+
+
+                    <div class="method-item">
+
+                        <div class="method-symbol">
+                            ∞
+                        </div>
+
+                        <h3>Numerology</h3>
+
+                        <p>
+                            The numerical codes contained within
+                            the date of birth.
+                        </p>
+
+                    </div>
+
+
+                    <div class="method-item">
+
+                        <div class="method-symbol">
+                            ◉
+                        </div>
+
+                        <h3>Magnetism</h3>
+
+                        <p>
+                            The dimension of energy, attraction and
+                            personal magnetism.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="content" style="margin-top: 50px;">
+
+                    <p>
+                        This method introduces an innovative key:
+                        the <strong>"Zodiac within the Zodiac."</strong>
+                    </p>
+
+                    <p>
+                        A reading that does not stop at appearances,
+                        but moves deeper into the inner structure of
+                        the individual.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BIRTH CODE -->
+        <section class="vision">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>The Birth Code</h2>
+
+                    <p>
+                        At the heart of the system lies a fundamental discovery.
+                    </p>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        From the date of birth, 12 key numbers emerge.
+                    </p>
+
+                    <div class="cards">
+
+                        <div class="card">
+
+                            <div class="card-number">
+                                01
+                            </div>
+
+                            <h3>Your Essence</h3>
+
+                            <p>
+                                The fundamental qualities and inner nature
+                                that define your personal structure.
+                            </p>
+
+                        </div>
+
+
+                        <div class="card">
+
+                            <div class="card-number">
+                                02
+                            </div>
+
+                            <h3>Your Abilities</h3>
+
+                            <p>
+                                The talents, capacities and potential
+                                that you can develop throughout life.
+                            </p>
+
+                        </div>
+
+
+                        <div class="card">
+
+                            <div class="card-number">
+                                03
+                            </div>
+
+                            <h3>Your Challenges</h3>
+
+                            <p>
+                                The experiences and lessons that can
+                                contribute to your evolutionary path.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="highlight">
+
+                        <p>
+                            In ancient traditions, these codes were regarded
+                            as a personal talisman. Today, they become a tool
+                            for self-awareness and orientation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRINCIPLE -->
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>The Principle of the Method</h2>
+                </div>
+
+                <div class="content">
+
+                    <p>
+                        Astro Magnetismo is based on a clear vision:
+                        no energy is ever simply positive or negative.
+                    </p>
+
+                    <p>
+                        Every energy always contains three dimensions:
+                    </p>
+
+                    <div class="cards">
+
+                        <div class="card">
+                            <div class="card-number">01</div>
+                            <h3>A Gift</h3>
+                            <p>
+                                A quality or potential that can be expressed
+                                and developed.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">02</div>
+                            <h3>A Challenge</h3>
+                            <p>
+                                An experience that invites awareness,
+                                transformation and growth.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">03</div>
+                            <h3>A Lesson</h3>
+                            <p>
+                                A deeper understanding that can emerge
+                                through experience.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="highlight">
+
+                        <p>
+                            Understanding this means transforming the way
+                            we experience our lives.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MISSION -->
+        <section class="vision">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Our Mission</h2>
+                </div>
+
+                <div class="mission-content">
+
+                    <p>
+                        The mission of Astro Magnetismo is to make profound
+                        knowledge accessible, helping people understand
+                        themselves and providing concrete tools for personal
+                        growth.
+                    </p>
+
+                    <div class="highlight">
+
+                        <p>
+                            "We do not impose a destiny.
+                            We offer a key to read it."
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT WE OFFER -->
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>What We Offer</h2>
+
+                    <p>
+                        Through our method, you can explore and develop
+                        different dimensions of your personal journey.
+                    </p>
+
+                </div>
+
+                <div class="offer-list">
+
+                    <div class="offer-item">
+                        Discover your energetic structure
+                    </div>
+
+                    <div class="offer-item">
+                        Develop your personal magnetism
+                    </div>
+
+                    <div class="offer-item">
+                        Recognize your talents
+                    </div>
+
+                    <div class="offer-item">
+                        Gain orientation for your choices
+                    </div>
+
+                    <div class="offer-item">
+                        Live with greater balance
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+        <section class="final vision">
+
+            <div class="final-content">
+
+                <p>
+                    This project is born from a conviction:
+                    every person carries within themselves a direction.
+                    Sometimes, all we need is a key to recognize it.
+                </p>
+
+                <p class="final-small">
+                    Astro Magnetismo
+                </p>
+
+                <div class="hero-line"></div>
+
+                <p style="margin-top: 35px;">
+                    "When the sky reveals its language,
+                    the soul recognizes its own destiny."
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
 
 
 
