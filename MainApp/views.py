@@ -323,3 +323,7 @@ def AboutUs(request):
 def AstroShop(request):
 
     return render(request, 'pages/astroShop.html')
+
+def EverythingAbout(request):
+
+    return render(request, 'pages/everythingAboutAstro.html')

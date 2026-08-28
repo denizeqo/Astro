@@ -11,5 +11,6 @@ urlpatterns = [
     path('monthlyCalendarCreated', views.MonthlyCalendarCreated),
     path('registerMonthlyCalendarDescription', views.MonthlyCalendarDescription),
     path('astroShop', views.AstroShop, name='astroShop'),
+    path('everythingAbout', views.EverythingAbout, name='everythingAbout'),
 
 ]

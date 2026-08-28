@@ -1,0 +1,894 @@
+{% extends 'index.html' %}
+
+
+{% block main %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astro Magnetismo — The Language of the Stars, Numbers & Energy</title>
+<meta name="description" content="Discover Astro Magnetismo: astrology, numerology, fixed stars, the four elements, the twelve houses, planetary forces and personal magnetism.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    font-family:Poppins,Arial,Helvetica,sans-serif;
+    background:#0d0820;color:#faf8ff;line-height:1.75;overflow-x:hidden
+}
+.stars,.stars:before,.stars:after{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.stars{
+    z-index:0;opacity:.55;
+    background-image:
+    radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.8),transparent),
+    radial-gradient(1px 1px at 30% 70%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 50% 30%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,.8),transparent),
+    radial-gradient(2px 2px at 20% 90%,rgba(255,255,255,.5),transparent),
+    radial-gradient(2px 2px at 80% 15%,rgba(255,255,255,.5),transparent)
+}
+.stars:before{
+    content:"";
+    background-image:
+    radial-gradient(1px 1px at 15% 45%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 45% 10%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 65% 55%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 85% 75%,rgba(255,255,255,.7),transparent);
+    animation:starsMove 15s linear infinite
+}
+@keyframes starsMove{from{transform:translateY(0)}to{transform:translateY(-30px)}}
+
+.page{position:relative;z-index:1}
+.container{width:min(1180px,90%);margin:auto}
+.hero{text-align:center;padding:115px 20px 80px}
+.eyebrow{
+    text-transform:uppercase;letter-spacing:5px;font-size:12px;color:#c7b5e8;margin-bottom:18px
+}
+h1{font-size:clamp(44px,7vw,78px);line-height:1.05;font-weight:400;margin-bottom:25px}
+h1 span,.accent{color:#d6c3fa}
+.hero p{max-width:820px;margin:auto;color:#ded7e9;font-size:18px}
+.line{width:80px;height:1px;background:#a98be2;margin:32px auto 0}
+.nav2{
+    position:sticky;top:0;z-index:20;
+    background:rgba(13,8,32,.86);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.07)
+}
+.nav-inner{width:min(1180px,94%);margin:auto;display:flex;gap:10px;overflow-x:auto;padding:12px 0}
+.nav2 a{
+    flex:0 0 auto;color:#c9c0d8;text-decoration:none;font-size:12px;
+    padding:8px 13px;border:1px solid rgba(190,166,239,.14);border-radius:20px
+}
+.nav2 a:hover{color:#fff;border-color:rgba(190,166,239,.45)}
+section{padding:82px 0}
+.section-head{text-align:center;max-width:850px;margin:0 auto 45px}
+.section-head h2{font-size:clamp(31px,5vw,48px);font-weight:400;line-height:1.2;margin-bottom:14px}
+.section-head p{color:#c9c1d4;font-size:16px}
+.prose{max-width:900px;margin:auto}
+.prose p{color:#ded7e9;margin-bottom:20px}
+.quote{
+    margin:35px 0;padding:25px 28px;border-left:2px solid #a98be2;
+    background:rgba(156,123,221,.07);border-radius:0 14px 14px 0;color:#eee9f7;font-style:italic
+}
+.feature{
+    display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;margin-bottom:45px
+}
+.feature.reverse .feature-img{order:2}
+.feature-img img{width:100%;height:360px;object-fit:cover;border-radius:18px;border:1px solid rgba(190,166,239,.18)}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+    padding:28px 24px;background:rgba(255,255,255,.03);
+    border:1px solid rgba(190,166,239,.17);border-radius:16px;
+    transition:.3s
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(190,166,239,.42);background:rgba(255,255,255,.045)}
+.card .symbol{font-size:28px;color:#d0baf3;margin-bottom:12px}
+.card h3{font-size:21px;font-weight:400;color:#faf8ff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:14px;color:#bfb7ca}
+.card strong{color:#e9e1f5;font-weight:500}
+.dark-band{background:rgba(255,255,255,.018);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.image-wide{margin:35px auto;max-width:1000px}
+.image-wide img{width:100%;border-radius:18px;border:1px solid rgba(190,166,239,.18)}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:25px 0 40px}
+.tag{padding:9px 15px;border:1px solid rgba(190,166,239,.18);border-radius:22px;color:#d4cbe0;background:rgba(255,255,255,.025);font-size:13px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.color-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.color-item{padding:15px 17px;border:1px solid rgba(190,166,239,.14);border-radius:12px;background:rgba(255,255,255,.025)}
+.color-item b{display:block;color:#f0eafa;margin-bottom:3px}
+.color-item span{color:#bdb4c8;font-size:14px}
+.footer{text-align:center;padding:90px 20px 110px}
+.footer .big-quote{font-size:clamp(25px,4vw,40px);font-style:italic;color:#f1ecf8;line-height:1.45}
+.small{font-size:13px;color:#aaa1b8;margin-top:22px}
+@media(max-width:900px){
+    .card-grid{grid-template-columns:repeat(2,1fr)}
+    .feature{grid-template-columns:1fr}
+    .feature.reverse .feature-img{order:0}
+    .two-col{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+    .container{width:90%}.hero{padding:85px 18px 60px}
+    .hero p{font-size:16px}.eyebrow{letter-spacing:3px}
+    section{padding:62px 0}.card-grid,.color-grid{grid-template-columns:1fr}
+    .card{padding:24px 20px}.feature-img img{height:250px}
+    .prose p{font-size:15px}.quote{padding:20px}
+    nav a{font-size:11px}
+}
+</style>
+</head>
+
+<body>
+<div class="stars"></div>
+<div class="page">
+
+<header class="hero">
+    <div class="eyebrow">The Astro Magnetismo Method</div>
+    <h1>Everything About <span>Astro Magnetismo</span></h1>
+    <p>
+        Know the Sky. Understand the Number. Recognize the Energy.
+        Know Yourself.
+    </p>
+    <div class="line"></div>
+</header>
+
+<nav class="nav2">
+<div class="nav-inner">
+    <a href="#essence">Essence</a>
+    <a href="#stars">Fixed Stars</a>
+    <a href="#astrology">Astrology</a>
+    <a href="#houses">12 Houses</a>
+    <a href="#elements">Elements</a>
+    <a href="#planets">Planets</a>
+    <a href="#aspects">Aspects</a>
+    <a href="#moon">Lunar Mansions</a>
+    <a href="#numbers">Numerology</a>
+    <a href="#magnetism">Magnetism</a>
+    <a href="#colors">Aura Colors</a>
+</div>
+</nav>
+
+<main>
+
+<section id="essence">
+<div class="container">
+<div class="section-head">
+    <h2>What Is Astro Magnetismo?</h2>
+    <p>A personal path connecting Heaven, Number, Body and Energy.</p>
+</div>
+<div class="prose">
+    <p>
+        Astro Magnetismo is a platform born from a long experience of study, research,
+        knowledge, vocation and innovation around the ancient laws of the Universe and
+        their correspondences between Macrocosm and Microcosm.
+    </p>
+    <p>
+        It does not simply describe an astrological chart, nor only explain how we are
+        or how we present ourselves to others. Astro Magnetismo looks deeper: it connects
+        Sky, Number, Body and Energy through the date of birth, in order to understand
+        our inner structure and develop greater awareness of our potential.
+    </p>
+    <div class="quote">
+        The Sky offers the map. The Number reveals its structure.
+        Magnetism interprets the energy. The Human Being becomes the protagonist
+        of their own path.
+    </div>
+    <p>
+        Everything is connected: Macrocosm and Microcosm, Sky and Earth, energy and person.
+        Astro Magnetismo is a personal journey of knowledge, awareness and balance,
+        built upon one's date of birth.
+    </p>
+</div>
+
+<div class="tag-row">
+    <div class="tag">Life</div><div class="tag">Love</div><div class="tag">Family</div>
+    <div class="tag">Work</div><div class="tag">Children</div><div class="tag">Relationships</div>
+    <div class="tag">Health</div><div class="tag">Well-Being</div><div class="tag">Studies</div>
+    <div class="tag">Travel</div><div class="tag">Friendship</div><div class="tag">Spiritual Knowledge</div>
+</div>
+
+<div class="prose">
+    <h3 class="accent" style="margin-bottom:12px">Our Essence</h3>
+    <p>
+        Know yourself. Understand your energy. Develop your potential.
+        Live with greater awareness. Astro Magnetismo is a conscious way of life,
+        founded on self-knowledge and the understanding of one's energies.
+    </p>
+</div>
+</div>
+</section>
+
+<section id="stars" class="dark-band">
+<div class="container">
+<div class="section-head">
+    <h2>⭐ The Fixed Stars</h2>
+    <p>The star is a source of light and has always guided humanity.</p>
+</div>
+
+<div class="feature">
+    <div class="feature-img"><img src="static/image/image21.png" alt="The 12 zodiac constellations"></div>
+    <div class="prose">
+        <p>
+            In the sky, stars form 88 ancient and modern constellations, creating a great
+            symbolic map of the cosmos. Astrology observes Stars, Planets and Houses.
+            Stars represent the fixed and ancestral dimension of the sky, while Planets
+            express the movement of energies.
+        </p>
+        <p>
+            Ancient traditions interpreted the sky through three great worlds:
+            Paradise — constellations associated with air and winged beings;
+            Earth — constellations connected to the terrestrial and human world;
+            and Water — constellations associated with the lower world and waters.
+        </p>
+    </div>
+</div>
+
+<div class="card-grid">
+    <article class="card">
+        <div class="symbol">🔑</div><h3>The Code of the Star</h3>
+        <p><strong>Position → Element → Symbol → Number.</strong>
+        Position indicates where it acts; element indicates how it acts; symbol expresses
+        its nature; number represents its code.</p>
+    </article>
+    <article class="card">
+        <div class="symbol">⭐</div><h3>Star and Soul</h3>
+        <p>Being born under a particular constellation creates a symbolic correspondence
+        between soul and sky. Constellations become archetypes through which qualities
+        and paths of existence can be read.</p>
+    </article>
+    <article class="card">
+        <div class="symbol">🪐</div><h3>Star and Planet</h3>
+        <p>The Star preserves ancestral energy. The Planet activates it.
+        Their meeting makes the energy manifest. In Astro Magnetismo this meeting is
+        called <strong>Consecration</strong>.</p>
+    </article>
+</div>
+
+<div class="image-wide"><img src="static/image/image22.png" alt="Pisces and Alrisha"></div>
+<div class="prose">
+    <h3 class="accent" style="margin-bottom:12px">Alrisha — The Cord That Unites Pisces</h3>
+    <p>
+        The constellation of Pisces has two fish joined by a cord. At their point of
+        connection is Alrisha, a star traditionally representing the link between the
+        two fish. The two fish symbolically move in different directions: one upward,
+        the other toward the horizon.
+    </p>
+    <p>
+        This image represents a duality: spirit and matter, heaven and earth,
+        inner evolution and concrete life. The cord becomes a powerful symbol of
+        what unites two apparently opposite forces.
+    </p>
+</div>
+
+<div class="section-head" style="margin-top:65px">
+    <h2>The Fixed Stars in Your Chart</h2>
+    <p>Energy, location and timing come together.</p>
+</div>
+<div class="prose">
+    <p>
+        In the Astro Magnetismo chart, one of the first pieces of information we observe
+        is the Fixed Stars connected to your birth. Your date and time of birth allow
+        the stars that form the energetic foundation of the chart, according to the method,
+        to be identified.
+    </p>
+    <p>
+        These energies are then studied through:
+        <strong>Stars → Planets → Houses → Cardinal Points → Transits → Progressions.</strong>
+        We therefore do not observe only which Star is present, but also how and when
+        its energy is activated.
+    </p>
+    <div class="quote">
+        The Star represents the basic energy. The Chart shows where it is.
+        The Planet activates it. Time indicates when it can manifest.
+    </div>
+</div>
+</div>
+</section>
+
+<section id="astrology">
+<div class="container">
+<div class="section-head">
+    <h2>What Is Astrology?</h2>
+    <p>An ancient symbolic tradition based on observing the sky and celestial bodies.</p>
+</div>
+<div class="prose">
+    <p>
+        Astrology is an ancient tradition based on observing the sky and celestial bodies.
+        Over the centuries, humanity observed the movement of Stars, Planets and
+        Constellations, seeking to understand their relationship with life on Earth.
+    </p>
+    <p>
+        Astrology is not considered an official science by today's scientific community.
+        It is a traditional and symbolic discipline developed through centuries of
+        observation and experience. Its language uses many elements also found in astronomy:
+        Stars, Planets, Constellations, Houses, coordinates and celestial cycles.
+    </p>
+    <p>
+        In the astrological tradition, these elements are used to interpret personality,
+        characteristics, potential and cycles of life, beginning with the date and time
+        of birth and subsequently observing Transits and Progressions.
+    </p>
+    <p>
+        Throughout history Astrology has also encountered other traditional forms of
+        knowledge, including Numerology, Geometry and Alchemy, creating an increasingly
+        rich symbolic language. In short: Astrology observes the sky in search of meaning
+        in life on Earth.
+    </p>
+</div>
+
+<div class="image-wide"><img src="static/image/image28.jpeg" alt="Astro Magnetismo zodiac wheel"></div>
+
+<div class="section-head" style="margin-top:55px">
+    <h2>The Zodiac and Precession</h2>
+</div>
+<div class="prose">
+    <p>
+        To understand Astrology, it is important to know a fundamental astronomical phenomenon:
+        the Precession of the Equinoxes. Earth's axis slowly performs a circular movement
+        through space. This produces a very slow displacement of the equinoctial point along
+        the Zodiac. A complete precession cycle lasts about 26,000 years.
+    </p>
+    <p>
+        The point we call 0° Aries therefore does not remain fixed relative to the stars.
+        Over millennia it slowly moves through the constellations. The discovery of
+        precession is traditionally attributed to Hipparchus, around the 2nd century BCE.
+    </p>
+    <p>
+        This creates an important distinction between zodiac signs and constellations.
+        The sign of Aries, for example, no longer exactly coincides with the constellation
+        Aries. Today the equinoctial point associated with the beginning of Aries lies
+        in the region of Pisces.
+    </p>
+    <p>
+        From this comes the concept of Astrological Ages, determined by the slow movement
+        of the equinoctial point through the constellations. According to one of the most
+        widespread traditional divisions, we are in the concluding phase of the Age of Pisces
+        and approaching the Age of Aquarius. The exact date is not universal because it
+        depends on how constellation boundaries are defined.
+    </p>
+</div>
+
+<div class="card-grid" style="margin-top:35px">
+    <article class="card"><div class="symbol">♉</div><h3>Taurus</h3><p>Symbolically associated with ancient cultures of fertility and the worship of the bull.</p></article>
+    <article class="card"><div class="symbol">♈</div><h3>Aries</h3><p>Symbolically recalls a phase connected with strength, action and the physical dimension.</p></article>
+    <article class="card"><div class="symbol">♒</div><h3>Aquarius</h3><p>Represents a possible new phase of human evolution: knowledge, freedom, innovation, intelligence, technology and collective consciousness.</p></article>
+</div>
+
+<div class="quote">
+    For Astro Magnetismo, Precession is not only an astronomical phenomenon.
+    It demonstrates that the sky is continuously moving and that humanity passes
+    through great cycles in time.
+</div>
+</div>
+</section>
+
+<section id="houses" class="dark-band">
+<div class="container">
+<div class="section-head">
+    <h2>🏠 The 12 Houses</h2>
+    <p>The twelve great areas through which the energy of the chart manifests in life.</p>
+</div>
+
+<div class="prose" style="margin-bottom:40px">
+    <p>
+        Each House has its own function, but is never interpreted alone. Its true expression
+        comes from the meeting of House, Star, Planet and the correspondences of the birth chart.
+        In Astro Magnetismo, each House can also be considered the Ascendant of a secondary cycle,
+        allowing deeper levels of the chart to be read.
+    </p>
+</div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">I</div><h3>House I — Identity & Beginning</h3><p><strong>Essence:</strong> identity, body, vitality and the beginning of the personal path.<br><strong>Principle:</strong> Action — “Seize the moment.”</p></article>
+<article class="card"><div class="symbol">II</div><h3>House II — Resources & Value</h3><p><strong>Essence:</strong> money, resources, security, values and the ability to build.<br><strong>Principle:</strong> Presence — “Be here, now, with a purpose.”</p></article>
+<article class="card"><div class="symbol">III</div><h3>House III — Communication & Knowledge</h3><p><strong>Essence:</strong> communication, learning, exchanges, siblings, nearby environment and short journeys.<br><strong>Principle:</strong> Communication — “Express who you are.”</p></article>
+<article class="card"><div class="symbol">IV</div><h3>House IV — Roots & Origins</h3><p><strong>Essence:</strong> family, roots, home, origin and inner world.<br><strong>Principle:</strong> Love — “What nourishes the roots supports the journey.”</p></article>
+<article class="card"><div class="symbol">V</div><h3>House V — Creativity & Expression</h3><p><strong>Essence:</strong> love, children, creativity, joy, talent and personal expression.<br><strong>Principle:</strong> Creativity — “Create your vision.”</p></article>
+<article class="card"><div class="symbol">VI</div><h3>House VI — Service & Transformation</h3><p><strong>Essence:</strong> daily work, service, discipline, order and self-care.<br><strong>Principle:</strong> Devotion — “The journey is the destination.”</p></article>
+<article class="card"><div class="symbol">VII</div><h3>House VII — Relationship & Balance</h3><p><strong>Essence:</strong> marriage, partnership, collaborations, alliances and encounter with the other.<br><strong>Principle:</strong> Balance — “To meet the other is to meet a part of yourself.”</p></article>
+<article class="card"><div class="symbol">VIII</div><h3>House VIII — Transformation & Power</h3><p><strong>Essence:</strong> transformation, inheritance, shared resources, mystery and rebirth.<br><strong>Principle:</strong> Transformation — “Let go in order to be reborn.”</p></article>
+<article class="card"><div class="symbol">IX</div><h3>House IX — Higher Knowledge</h3><p><strong>Essence:</strong> great journeys, philosophy, religion, higher studies, justice and the search for truth.<br><strong>Principle:</strong> Knowledge — “Go beyond what you already know.”</p></article>
+<article class="card"><div class="symbol">X</div><h3>House X — Fulfillment & Destiny</h3><p><strong>Essence:</strong> career, authority, responsibility, recognition and social fulfillment.<br><strong>Principle:</strong> Integrity — “Build what you are called to realize.”</p></article>
+<article class="card"><div class="symbol">XI</div><h3>House XI — Future & Evolution</h3><p><strong>Essence:</strong> friendships, groups, community, ideals, innovation and vision of the future.<br><strong>Principle:</strong> Freedom — “Express your originality.”</p></article>
+<article class="card"><div class="symbol">XII</div><h3>House XII — Spirit & Consciousness</h3><p><strong>Essence:</strong> unconscious, interiority, sacrifice, retreat, spirituality and deep connection.<br><strong>Principle:</strong> Universal Love — “The eternal is reflected through the many.”</p></article>
+</div>
+
+<div class="quote">
+    The Houses indicate where. The Planets indicate how. The Stars indicate which
+    ancestral energy acts. The Numbers indicate frequency and correspondence.
+    Their integration creates the Astro Magnetismo reading of the personal chart.
+</div>
+</div>
+</section>
+
+<section id="elements">
+<div class="container">
+<div class="section-head">
+    <h2>The Power of the 4 Elements & 12 Zodiac Archetypes</h2>
+    <p>The correspondence between Signs, Planets and the Human Body.</p>
+</div>
+
+<div class="feature">
+    <div class="feature-img"><img src="static/image/image25.png" alt="Four elements and twelve zodiac signs"></div>
+    <div class="prose">
+        <h3 class="accent" style="margin-bottom:12px">Macrocosm and Microcosm</h3>
+        <p>
+            Ancient wisdom contains a fundamental principle: “As above, so below.”
+            The Macrocosm, the Universe, finds its reflection in the Microcosm, the human being.
+        </p>
+        <p>
+            The four elements — Fire, Air, Earth and Water — represent the great forces of nature
+            and, symbolically, correspond to our body, sensitivity and way of living.
+        </p>
+        <p>
+            Ancient astrologers connected Elements, Signs, Planets, Houses and parts of the body,
+            creating a network of correspondences between heaven and the human being.
+        </p>
+    </div>
+</div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">🌍</div><h3>Earth — Melancholic</h3><p>Cold and dry; associated with black bile. Represents concreteness, stability, prudence, practicality and relationship with matter.</p></article>
+<article class="card"><div class="symbol">🌬️</div><h3>Air — Sanguine</h3><p>Warm and moist; associated with blood. Represents vitality, movement, sociability, joy, communication and openness to life.</p></article>
+<article class="card"><div class="symbol">🔥</div><h3>Fire — Choleric</h3><p>Warm and dry; associated with yellow bile. Represents energy, initiative, determination, courage, ambition and ability to act.</p></article>
+<article class="card"><div class="symbol">💧</div><h3>Water — Phlegmatic</h3><p>Cold and moist; associated with phlegm. Represents sensitivity, receptivity, calm, depth, adaptation and the inner world.</p></article>
+</div>
+
+<div class="prose" style="margin-top:45px">
+    <p>
+        In Astro Magnetismo, the four elements are not simply characteristics of personality.
+        They are four great archetypal forces through which we can read the relationship between
+        Sky, Earth and person.
+    </p>
+    <p>
+        The 12 Zodiac Archetypes arise from combinations of these energies and allow us to
+        understand how they express themselves differently in each individual. Our aim is not
+        to classify a person as “good” or “bad”, nor as belonging to a single temperament.
+    </p>
+    <div class="quote">
+        Every element contains a talent, a challenge and a teaching.
+        Knowing the element means knowing part of your energy; understanding its balance
+        means learning to transform it into strength.
+    </div>
+</div>
+
+<div class="image-wide"><img src="static/image/image23.png" alt="Correspondence between planets, zodiac signs and body"></div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">🔥</div><h3>Fire — Intuition</h3><p><strong>Aries:</strong> Initiator / Pioneer / Warrior — opens the way and faces the challenge.<br><strong>Leo:</strong> Leader / King / Nobility — expresses identity and leads with generosity and creativity.<br><strong>Sagittarius:</strong> Philosopher / High Priest / Explorer — seeks truth and expands knowledge.</p></article>
+<article class="card"><div class="symbol">🌍</div><h3>Earth — Sensation</h3><p><strong>Taurus:</strong> Producer / Security — cultivates, builds and gives value to matter.<br><strong>Virgo:</strong> Refiner / Analyst — separates, orders and perfects.<br><strong>Capricorn:</strong> Discipline / Concreteness — organizes resources and builds over time.</p></article>
+<article class="card"><div class="symbol">🌬️</div><h3>Air — Thought</h3><p><strong>Gemini:</strong> Ideas / Communication — gathers information and creates connections.<br><strong>Libra:</strong> Synthesis / Harmony — compares, mediates and seeks balance.<br><strong>Aquarius:</strong> Synergy / Evolution — unites knowledge and people into new visions.</p></article>
+<article class="card"><div class="symbol">💧</div><h3>Water — Emotion</h3><p><strong>Cancer:</strong> Purity / Emotion — memory, protection and primordial emotion.<br><strong>Scorpio:</strong> Depth / Intensity — enters emotional depths and transforms what is hidden.<br><strong>Pisces:</strong> Empathy / Compassion — opens emotion toward a universal level.</p></article>
+</div>
+
+<div class="quote">
+    The four Elements are four levels of energetic experience:
+    🔥 Intuit → 🌍 Perceive → 🌬️ Understand → 💧 Feel.
+</div>
+</div>
+</section>
+
+<section id="planets" class="dark-band">
+<div class="container">
+<div class="section-head">
+    <h2>🪐 The Planets — Forces That Move Energy</h2>
+    <p>Each planetary force has an essential meaning and an Astro Magnetismo interpretation.</p>
+</div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">☉</div><h3>Sun — “I Am”</h3><p>The center of identity, consciousness and vitality: the force that allows us to recognize who we are and bring our light into the world.</p></article>
+<article class="card"><div class="symbol">☽</div><h3>Moon — “I Feel”</h3><p>Emotional memory and the sensitive soul: what we receive, preserve and nurture within ourselves.</p></article>
+<article class="card"><div class="symbol">☿</div><h3>Mercury — “I Understand & Communicate”</h3><p>The bridge between thought and reality, connecting people, ideas and information into knowledge and communication.</p></article>
+<article class="card"><div class="symbol">♀</div><h3>Venus — “I Love & Attract”</h3><p>The force of magnetism: uniting, harmonizing and creating attraction through love, beauty, pleasure and values.</p></article>
+<article class="card"><div class="symbol">♂</div><h3>Mars — “I Act”</h3><p>The force that transforms will into movement: energy, courage, desire and the ability to conquer one's space.</p></article>
+<article class="card"><div class="symbol">♃</div><h3>Jupiter — “I Expand”</h3><p>The force of expanding consciousness: opening to knowledge, wisdom, confidence and greater possibilities.</p></article>
+<article class="card"><div class="symbol">♄</div><h3>Saturn — “I Build”</h3><p>The force that gives energy form through time, discipline, responsibility and concreteness.</p></article>
+<article class="card"><div class="symbol">♅</div><h3>Uranus — “I Free”</h3><p>Intelligence that breaks old patterns and opens new possibilities: innovation, freedom, intuition and evolution.</p></article>
+<article class="card"><div class="symbol">♆</div><h3>Neptune — “I Feel the Universe”</h3><p>The dimension of empathy and deep consciousness: sensitivity, spiritual love and connection with something greater than ourselves.</p></article>
+<article class="card"><div class="symbol">☊</div><h3>North Node — “I Evolve”</h3><p>The direction toward which the soul is called to grow through new experiences and more evolved awareness.</p></article>
+<article class="card"><div class="symbol">☋</div><h3>South Node — “I Remember”</h3><p>What the soul carries from the past: memories, habits and familiar patterns to understand and transform.</p></article>
+</div>
+
+<div class="quote">
+    The Planet represents the force. The Sign shows how this force expresses itself.
+    The House indicates where it manifests. The Star reveals the ancestral quality of the energy.
+</div>
+
+<div class="feature" style="margin-top:55px">
+    <div class="feature-img"><img src="static/image/image27.jpeg" alt="Planetary spheres"></div>
+    <div class="prose">
+        <h3 class="accent" style="margin-bottom:12px">The Planetary Orbits and the Seven Spheres</h3>
+        <p>
+            In the ancient astrological vision, celestial bodies were ordered according to
+            a precise sequence of spheres, each associated with a particular meaning and energy.
+            The Eighth Sphere included the twelve Zodiac constellations, Fixed Stars and their
+            relationship with the Houses.
+        </p>
+        <p>
+            The seven planetary spheres were: 7th Saturn — discipline, limit, time and structure;
+            6th Jupiter — expansion, wisdom, growth and knowledge; 5th Mars — action, strength,
+            courage and will; 4th Sun — center, light, identity and vitality; 3rd Venus — love,
+            harmony, beauty and relationship; 2nd Mercury — thought, communication and knowledge;
+            1st Moon — emotions, memory, sensitivity and inner life.
+        </p>
+        <p>
+            For Astro Magnetismo this sequence becomes a symbolic map of energy:
+            from the spheres closest to Earth to the stars and constellations, each level
+            represents a different force participating in the reading of the chart.
+        </p>
+    </div>
+</div>
+</div>
+</section>
+
+<section id="aspects">
+<div class="container">
+<div class="section-head">
+    <h2>✦ Geometric Forms — The Aspects</h2>
+    <p>The geometry of the sky becomes a key to understanding the movement of energy in life.</p>
+</div>
+
+<div class="prose">
+    <p>
+        Aspects are geometric forms created by relationships between celestial bodies.
+        As planets move, they create angles and energetic relationships that modify how
+        their energy manifests. Ancient observers studied these relationships not only
+        between planets, but also between planets and Fixed Stars.
+    </p>
+</div>
+
+<div class="card-grid" style="margin-top:35px">
+<article class="card"><div class="symbol">⭕</div><h3>Circle — 360°</h3><p>The symbol of Sky, Time and Evolution: everything is born, moves, transforms and returns.</p></article>
+<article class="card"><div class="symbol">☌</div><h3>Conjunction — 0°–2°5″</h3><p>Union. Energies merge and become one force. It can be harmonious or intense depending on the elements involved.</p></article>
+<article class="card"><div class="symbol">✧</div><h3>30° — Agreement</h3><p>A subtle connection between two energies capable of creating cooperation and fluidity.</p></article>
+<article class="card"><div class="symbol">⚹</div><h3>Sextile — 60°</h3><p>Opportunity and harmony. Favors exchange, collaboration and fluid energetic movement.</p></article>
+<article class="card"><div class="symbol">□</div><h3>Square — 90°</h3><p>Movement, reason and evolution. Tension pushes us to reflect, change, mature and find stability. The four 90° points form Life, Love, Family and Career.</p></article>
+<article class="card"><div class="symbol">△</div><h3>Trine — 120°</h3><p>Union and harmony. Energies cooperate naturally, creating favorable flow and easier expression.</p></article>
+<article class="card"><div class="symbol">⚻</div><h3>Quincunx — 150°</h3><p>The mystery and what we do not yet see. It requires adaptation and understanding because it connects energies that are difficult to perceive directly.</p></article>
+<article class="card"><div class="symbol">☍</div><h3>Opposition — 180°</h3><p>“I and You” — balance and integration. Two energies face each other, showing what must be integrated, rebalanced and synchronized.</p></article>
+</div>
+
+<div class="quote">
+    Aspects are not simply positive or negative. They are geometric forms through which
+    energy meets, confronts itself and transforms.
+</div>
+</div>
+</section>
+
+<section id="moon" class="dark-band">
+<div class="container">
+<div class="section-head">
+    <h2>🌙 The 28 Lunar Mansions</h2>
+    <p>An ancient system for observing the Moon's rhythm through the sky.</p>
+</div>
+<div class="prose">
+    <p>
+        The 28 Lunar Mansions, also called lunar stations, represent an ancient division
+        of the Moon's path through the sky. Each mansion is symbolically connected to a star
+        or constellation and represents a particular energy or celestial spirit.
+    </p>
+    <p>
+        In ancient Arabic, Indian and Chinese astrological traditions, the lunar cycle played
+        a fundamental role in observing and understanding the rhythms of life. The lunar
+        Zodiac was therefore considered a more intimate and profound dimension than the
+        solar Zodiac.
+    </p>
+    <p>
+        The 28 mansions are distributed along the zodiacal path, symbolically beginning at
+        0° Aries and overlapping the twelve zodiac signs. They are also divided into masculine
+        and feminine mansions. This distinction depends on the relationship between opposite
+        mansions and their rising and setting in relation to the horizon.
+    </p>
+    <div class="quote">
+        For Astro Magnetismo, the 28 Lunar Mansions provide another level of reading the sky:
+        the Stars indicate ancestral energy, the Moon marks its rhythm, and the Mansions show
+        where this energy manifests within the cycle of life.
+    </div>
+</div>
+</div>
+</section>
+
+<section id="numbers">
+<div class="container">
+<div class="section-head">
+    <h2>🔢 Astro-Numerology — The Universal Order</h2>
+    <p>The meeting of Astrology and Numerology: Sky and Earth, Macrocosm and Microcosm.</p>
+</div>
+
+<div class="prose">
+    <p>
+        Astro-Numerology arises from the meeting of Astrology and Numerology. Ancient traditions
+        recognized a universal order based on number, form, symbol, geometry, elements and movement.
+        Number became a key for understanding correspondences between the Sky and the human being.
+    </p>
+    <h3 class="accent" style="margin:25px 0 10px">The 12 Gates of Life</h3>
+    <p>
+        Astrology shows us 12 Houses and 12 Signs, each with its own energy. Astro-Numerology
+        adds the language of numbers, creating further levels of correspondence. This is one
+        of the foundations of the Astro Magnetismo method.
+    </p>
+    <p>
+        <strong>As above, so below:</strong> the Fixed Stars and Houses represent the deeper,
+        inner level — archetypes, intuition, will and potential. Planets, Signs and their
+        movements represent concrete life — experience, action and manifestation through time.
+        The Sky is the map; life is where the map manifests.
+    </p>
+</div>
+
+<div class="card-grid" style="margin-top:35px">
+<article class="card"><div class="symbol">4</div><h3>The Four</h3><p>Fire — Earth — Air — Water. Four represents the foundation of order.</p></article>
+<article class="card"><div class="symbol">12</div><h3>The Twelve</h3><p>12 Signs — 12 Houses — 12 principles of life. Number, form, symbol and geometry form one system of universal correspondences.</p></article>
+<article class="card"><div class="symbol">☉</div><h3>The Seven Sacred Planets</h3><p>Sun — Moon — Mercury — Venus — Mars — Jupiter — Saturn, associated with Life, Peace, Science, Wealth, Grace, Seed and Dominion.</p></article>
+</div>
+
+<div class="prose" style="margin-top:45px">
+    <p>
+        Every principle also has an opposite: life/death, peace/war, science/ignorance,
+        wealth/poverty, grace/condemnation, seed/sterility, dominion/slavery.
+        For Astro Magnetismo this expresses a fundamental principle: every energy contains
+        a light and a challenge; awareness can transform the challenge into strength.
+    </p>
+    <div class="quote">
+        We all know our date of birth, but rarely consider it as a true personal calendar of life.
+        Astro-Numerology transforms the birth date into a personal map of numbers, cycles and
+        correspondences, connecting it with Stars, Planets, Signs and Houses.
+    </div>
+</div>
+
+<div class="section-head" style="margin-top:60px">
+    <h2>Astro-Numerology — The Science of Numbers</h2>
+</div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">1</div><h3>Unity & Progression</h3><p>All numbers symbolically derive from Unity. Numbers 1–10 represent fundamental principles of the spiritual plane and the progression through which energy manifests.</p></article>
+<article class="card"><div class="symbol">⚖</div><h3>Male & Female Polarity</h3><p><strong>Odd:</strong> masculine and active — 1, 3, 5, 7, 9.<br><strong>Even:</strong> feminine and receptive — 2, 4, 6, 8, 10. These are complementary polarities, not good and evil.</p></article>
+<article class="card"><div class="symbol">3</div><h3>Three Planes of Existence</h3><p>1 — Spiritual: inner and divine. 2 — Astral: vital and energetic. 3 — Material: bodily and concrete.</p></article>
+<article class="card"><div class="symbol">²</div><h3>The Life of Numbers</h3><p>Simple number → spiritual plane. Number squared → astral plane. Number cubed → material plane.</p></article>
+<article class="card"><div class="symbol">∑</div><h3>The Essential Root</h3><p>The essential root is obtained by progressively adding all numbers up to the number considered. Example: 1 + 2 + 3 + 4 = 10, so 4 has essential root 10.</p></article>
+<article class="card"><div class="symbol">427</div><h3>Composite Numbers</h3><p>427 → 4 + 2 + 7 = 13 → 1 + 3 = 4. In symbolic reading, 427 therefore carries the essence of 4.</p></article>
+<article class="card"><div class="symbol">◀</div><h3>The Head of the Number</h3><p>In a composite number, the first digit on the left represents the head or dominant principle, indicating its family and main direction.</p></article>
+<article class="card"><div class="symbol">🪞</div><h3>Symmetrical Numbers</h3><p>Composite numbers can have a symmetrical number by reversing their digits: 13 ↔ 31, 24 ↔ 42. These are considered numbers in relationship. Identical digits such as 11, 22, 33, 44 and 55 are called “egoistic” numbers.</p></article>
+<article class="card"><div class="symbol">↗</div><h3>Ascending & Descending</h3><p>Numbers can be observed through ascending and descending progressions, showing how digits aggregate and transform according to their order.</p></article>
+<article class="card"><div class="symbol">0</div><h3>The Meaning of Zero</h3><p>Zero has a particular function. In the numerological tradition described, adding zero to an odd number can modify its polarity: 3 → 30, while an even number retains its nature: 4 → 40.</p></article>
+</div>
+
+<div class="section-head" style="margin-top:65px">
+    <h2>Constitution & Power of Numbers</h2>
+</div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">1 · 4 · 7</div><h3>Spirit, Will, Action</h3><p>These represent the strength of spirit, will and the capacity to act.</p></article>
+<article class="card"><div class="symbol">2 · 5 · 8</div><h3>Astral / Psyche</h3><p>These represent the astral plane and the psychic, receptive and intellectual dimension.</p></article>
+<article class="card"><div class="symbol">3 · 6 · 9</div><h3>Matter</h3><p>These represent operational intelligence, execution and the ability to give concrete form to energy.</p></article>
+</div>
+
+<div class="prose" style="margin-top:40px">
+    <h3 class="accent" style="margin-bottom:10px">The First Ten Numbers — Essential Meanings</h3>
+    <p>
+        <strong>1 — Supreme Power:</strong> Unity and the creative principle.
+        <strong>2 — Wisdom:</strong> knowledge and the psychic dimension.
+        <strong>3 — Infinite Intelligence:</strong> capacity to understand, create and operate.
+        <strong>4 — Kindness:</strong> root of order and the Universe.
+        <strong>5 — Justice:</strong> law, rigor, freedom and consciousness.
+    </p>
+    <p>
+        <strong>6 — Beauty:</strong> harmony, virtue and splendor of form.
+        <strong>7 — Victory:</strong> overcoming challenges through courage and awareness.
+        <strong>8 — Eternity:</strong> balance, law, order and continuity.
+        <strong>9 — Fertility:</strong> providence, generation and creative power.
+        <strong>10 — Reality:</strong> manifestation, intelligence and knowledge.
+    </p>
+
+    <h3 class="accent" style="margin:25px 0 10px">The Powers of Numbers</h3>
+    <p>
+        <strong>1 — Primary Power:</strong> Unity, the supreme creative principle.
+        <strong>4, 7, 8, 10 — Secondary Powers:</strong> administrative and organizing forces.
+        <strong>3, 6, 9 — Executive Powers:</strong> carrying energy toward production,
+        form and manifestation.
+    </p>
+
+    <h3 class="accent" style="margin:25px 0 10px">The Anatomy of the Number</h3>
+    <p>
+        Every number has its own structure, like an organism. Its anatomy allows us to understand
+        how it is composed, which elements form it, which family it belongs to and which position
+        it occupies in the series.
+    </p>
+    <p>
+        <strong>Spirit</strong> → the sum of the digits.
+        <strong>Body</strong> → what remains after extracting the spirit.
+        <strong>Astral</strong> → the level emerging from the relationship between mind and body.
+    </p>
+    <div class="quote">
+        Example: 823. 8 + 2 + 3 = 13 → Spirit.
+        823 − 13 = 810. 8 + 1 + 0 = 9. 810 − 9 = 801.
+        In the model presented: 13 = Spirit, 801 = Astral, 9 = Body.
+    </div>
+
+    <h3 class="accent" style="margin:25px 0 10px">The Law of the Ternary</h3>
+    <p>
+        The constitution of number includes three principles:
+        1 — Active, 2 — Passive, 3 — Neutral, the result of interaction between the first two.
+        The fundamental formula is 1 + 2 = 3.
+        A simple family example is: Father = 1 → Active, Mother = 2 → Passive,
+        Child = 3 → Neutral. Father + Mother = Child → Family.
+        The family becomes a higher-order Unity represented by 4: 1 + 2 + 3 = 4.
+    </p>
+
+    <h3 class="accent" style="margin:25px 0 10px">Number, Letter & Archetype</h3>
+    <p>
+        In the tradition presented in the text, each letter of the ancient Egyptian and Hebrew
+        alphabets is connected to a number and symbolic meaning:
+        A = 1 → Being / Unity; B = 2 → Wisdom; C = 3 → Intelligence;
+        D = 4 → Root of the Universe; E = 5 → Law / Justice;
+        V = 6 → Beauty; Z = 7 → Victory; H = 8 → Eternity;
+        I = 9 → Fertility; 10 → Reality.
+    </p>
+    <p>
+        The number is not only a quantity: it is an energetic structure. Astro Magnetismo observes
+        every number through its form, polarity, position, symmetry, progression, root and plane
+        of manifestation — Spirit · Astral · Matter.
+    </p>
+</div>
+</div>
+</section>
+
+<section id="magnetism" class="dark-band">
+<div class="container">
+<div class="section-head">
+    <h2>🧲 Astro-Magnetism — Colors, Energy & Aura</h2>
+    <p>From Sky to Human Being: Astrology → Astro-Numerology → Energy.</p>
+</div>
+
+<div class="feature">
+    <div class="feature-img"><img src="static/image/image29.jpeg" alt="Astro Magnetismo energy field"></div>
+    <div class="prose">
+        <h3 class="accent" style="margin-bottom:12px">What Is Magnetism?</h3>
+        <p>
+            In the Astro Magnetismo vision, Magnetism describes the movement, circulation
+            and harmonization of energy. Every living being possesses its own energetic dynamic.
+        </p>
+        <p>
+            Magnetism therefore represents a state of balance and vitality, observed through
+            correspondences between form, proportion, energy and universal laws.
+        </p>
+        <p>
+            Astro-Magnetism develops Astrology and Astro-Numerology further:
+            Astrology reads the Sky; Astro-Numerology reads the Number;
+            Astro-Magnetism interprets Energy.
+        </p>
+        <p>
+            The fundamental connection is:
+            <strong>Stars → Planets → Signs → Houses → Numbers → Energy.</strong>
+            Sky, Number and Energy become one personal map.
+        </p>
+    </div>
+</div>
+
+<div class="prose">
+    <h3 class="accent" style="margin:30px 0 10px">The Energetic Field</h3>
+    <p>
+        In the Astro Magnetismo vision, the human being also lives through an energetic field
+        in which they continuously relate to what surrounds them. It is a space of perception,
+        relationship and exchange involving thoughts, emotions, impressions and behaviors.
+        The fundamental principle is: “Like attracts like.”
+    </p>
+
+    <h3 class="accent" style="margin:30px 0 10px">The Inner Wall</h3>
+    <p>
+        Throughout life we build protections, fears and limits that help us defend ourselves
+        from what we do not understand. These protections can become an inner wall:
+        they protect us, but can also limit us. Astrology, Astro-Numerology and Astro-Magnetism
+        become tools of awareness through which we recognize our limits and develop our potential.
+    </p>
+
+    <h3 class="accent" style="margin:30px 0 10px">🖐️ Personal Magnetism</h3>
+    <p>
+        Ancient traditions knew practices connected with sleep, the hands and energy.
+        Astro Magnetismo develops this idea personally: the energetic system is studied
+        in relation to the date of birth, the astrological chart and the individual
+        numerological structure.
+    </p>
+</div>
+
+<div class="section-head" style="margin-top:60px">
+    <h2>The Three Levels of Magnetism</h2>
+</div>
+
+<div class="card-grid">
+<article class="card"><div class="symbol">01</div><h3>Inner Energetic Body</h3><p>The movement of energy within the body through meridians. The first phase is recognizing possible blocks and supporting proper movement of energy.</p></article>
+<article class="card"><div class="symbol">02</div><h3>Outer Energetic Body</h3><p>The external energetic field represented by the Aura, the 7 principal Chakras and 14 secondary centers mainly connected to joints. Hands and feet have a particular role as points of energetic exchange.</p></article>
+<article class="card"><div class="symbol">03</div><h3>Magnetism of the Psyche</h3><p>The neuro-psycho-emotional dimension. Fears, blocks, dependencies, irritability, withdrawal and relationship difficulties can become automatic patterns. The work aims to recognize and transform what limits the person.</p></article>
+</div>
+
+<div class="prose" style="margin-top:45px">
+    <h3 class="accent" style="margin-bottom:10px">Hypnotic Magnetism</h3>
+    <p>
+        Ancient traditions knew practices connected with sleep and healing. Within the
+        Astro Magnetismo path, this tradition is connected with the concept of Hypnotic
+        Magnetism, directed toward the deepest dimension of the psyche.
+    </p>
+    <div class="quote">
+        Astrology → identifies the energies.<br>
+        Astro-Numerology → reads their personal structure.<br>
+        Astro-Magnetism → interprets the personal energetic system.<br><br>
+        Knowing your energy is the first step toward learning to transform it.
+    </div>
+    <p style="text-align:center;font-size:18px">
+        <strong>STARS → ASTROLOGY → NUMBERS → MAGNETISM → PERSON</strong>
+    </p>
+</div>
+</div>
+</section>
+
+<section id="colors">
+<div class="container">
+<div class="section-head">
+    <h2>🎨 The Colors of the Soul</h2>
+    <p>The energetic language of the Aura.</p>
+</div>
+<div class="prose">
+    <p>
+        In the Astro Magnetismo vision, Aura colors represent a symbolic language through
+        which we observe emotions, inner qualities and dimensions of personal energy.
+        Through the date of birth, the method connects colors to the personal chart and
+        observes their transformations over time through transits and progressions.
+    </p>
+    <p>
+        Every color possesses its own symbolic frequency and a complementary color.
+        The relationship between colors represents a search for balance between different energies.
+    </p>
+</div>
+
+<div class="color-grid" style="margin-top:35px">
+<div class="color-item"><b>🔴 Red</b><span>Passion, intense feelings, love.</span></div>
+<div class="color-item"><b>🌸 Pink</b><span>Kindness, affection, sweetness and harmony in relationships.</span></div>
+<div class="color-item"><b>🔴 Light Red</b><span>Expressed anger.</span></div>
+<div class="color-item"><b>🔴 Deep Red</b><span>Repressed anger, personal power, psychic intensity.</span></div>
+<div class="color-item"><b>🟠 Red-Orange</b><span>Authentic emotions, passion, pleasure and freedom of feelings.</span></div>
+<div class="color-item"><b>🟥 Scarlet</b><span>Warmth, vitality, passion and intensity.</span></div>
+<div class="color-item"><b>🟠 Orange</b><span>Ambition, wealth and inspiration.</span></div>
+<div class="color-item"><b>🟡 Yellow</b><span>Intellect, spiritual light and knowledge.</span></div>
+<div class="color-item"><b>💛 Light Yellow</b><span>Sweetness, hope and spiritual light.</span></div>
+<div class="color-item"><b>🟨 Dirty Yellow</b><span>Deception and betrayal.</span></div>
+<div class="color-item"><b>✨ Gold</b><span>Connection with God and divine love in service to humanity.</span></div>
+<div class="color-item"><b>🔵 Blue</b><span>Authority, wisdom, compassion and unconditional love.</span></div>
+<div class="color-item"><b>🩵 Light Blue</b><span>Teaching, sensitivity, intelligence and wisdom.</span></div>
+<div class="color-item"><b>🪻 Lavender Blue</b><span>Spirit.</span></div>
+<div class="color-item"><b>⚪ White / Silver</b><span>Truth, communication, light, purity and innocence.</span></div>
+<div class="color-item"><b>🟢 Green</b><span>Healing, nourishment and restoration.</span></div>
+<div class="color-item"><b>💚 Light Green</b><span>Hope, naturalness and tranquility.</span></div>
+<div class="color-item"><b>🟢 Dark Green</b><span>Money, ambition; in its shadow polarity, greed and jealousy.</span></div>
+<div class="color-item"><b>🟤 Brown</b><span>Rationality, analysis, precision and concreteness.</span></div>
+<div class="color-item"><b>🟣 Purple</b><span>Pure consciousness and deep connection with spirit.</span></div>
+<div class="color-item"><b>🔵 Indigo</b><span>Deep connection with spirit.</span></div>
+<div class="color-item"><b>⚙️ Gray</b><span>Practicality, determination, discipline and material dimension.</span></div>
+<div class="color-item"><b>🌑 Dark Gray</b><span>Uncertainty, emptiness and denial.</span></div>
+<div class="color-item"><b>⚫ Black</b><span>Absence of light, oblivion and frustrated ambition.</span></div>
+<div class="color-item"><b>🖤 Velvet Black</b><span>Openings toward other realities, symbolically associated with black holes.</span></div>
+</div>
+
+<div class="quote">
+    Color is not only color: it is a symbol of energy.<br><br>
+    <strong>Color → Energy → Emotion → Awareness</strong><br><br>
+    Knowing your language of colors means learning to listen to your inner dimension.
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="big-quote">
+        “The Sky is the map. Energy is the language.
+        Awareness is the path.”
+    </div>
+    <div class="small">ASTRO MAGNETISMO — KNOW THE SKY · UNDERSTAND THE NUMBER · RECOGNIZE THE ENERGY</div>
+</footer>
+
+</div>
+</body>
+</html>
+
+{% endblock %}
