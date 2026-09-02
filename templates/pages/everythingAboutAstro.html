@@ -237,6 +237,8 @@ section{padding:82px 0}
     <p>The Astro Magnetism Chart represents the meeting between the Macrocosm and the Microcosm. It is an integrated system that brings together stars, planets, and numbers to reveal the inner structure and evolutionary path of the individual.</p>
 </div>
 
+{% include 'components/home/chart.html' %}
+
 <div class="prose">
     <p>Astro Magnetism represents a method that integrates Astrology, Numerology, and Magnetism into a unique system of its kind. A chart that connects stars, planets, numbers, and real life. It does not simply describe who you are. It shows you how your energy operates. Through the 12 numbers of your birth, you discover your essence. <span style="color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;">The chart is not destiny... it is power.</span></p>
 
@@ -845,6 +847,8 @@ As the planets move, they create angles and energetic relationships between one 
     <h2>🔢 Astro-Numerology — The Universal Order</h2>
 </div>
 
+<div class="image-wide"><img src="static/image/1.png" alt="The 12 zodiac constellations"></div>
+
 <div class="prose">
     <p>
         Astro-Numerology arises from the meeting of <span style="color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;">Astrology and Numerology: Sky and Earth,</span> Macrocosm and Microcosm. The ancients recognized in the Universe an order based on number, form, symbol, geometry, elements, and movement. Number thus became a key to understanding the correspondences between the <span style="color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;">Sky and the human being.</span>
@@ -1129,6 +1133,57 @@ Astro-Numerology → reveals their personal structure Astro-Magnetism → interp
 </footer>
 
 </div>
+
+
+
+{{ fourAngles|json_script:"fourAngles2" }}
+
+{{ planets|json_script:"planets2" }}
+
+{{ stars|json_script:"stars2" }}
+
+{{ aspects|json_script:"aspects2" }}
+
+{{ planetStars|json_script:"planetStars2" }}
+
+
+{% load static %}
+
+<script src="{% static 'js/chart.js' %}"></script>
+
+<script>
+
+const FourAngles = JSON.parse(
+        document.getElementById("fourAngles2").textContent
+);
+
+const Planets = JSON.parse(
+    document.getElementById("planets2").textContent
+);
+
+const Stars = JSON.parse(
+    document.getElementById("stars2").textContent
+);
+
+const Aspects = JSON.parse(
+    document.getElementById("aspects2").textContent
+);
+
+    const PlanetStars = JSON.parse(
+    document.getElementById("planetStars2").textContent
+);
+
+drawEmptyChart(document.getElementById('Chart'))
+dynamicChart(FourAngles[0]['position']);
+dynamicAscMcIcDsc(FourAngles);
+addPlanetSymbols(Planets);
+addStarsSymbol(Stars);
+aspectTable(Aspects, document.getElementById('AspectTbody'), document.getElementById('AspectTable'));
+
+</script>
+
+
+
 </body>
 </html>
 

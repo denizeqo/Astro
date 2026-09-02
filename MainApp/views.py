@@ -326,4 +326,26 @@ def AstroShop(request):
 
 def EverythingAbout(request):
 
-    return render(request, 'pages/everythingAboutAstro.html')
+
+    firstName = ""
+    lastName = ""
+    city = "Milan"
+    country = "Italy"
+    currentDate = datetime.now(ZoneInfo("Europe/Rome"))
+    dateOfBirth = currentDate.strftime("%Y-%m-%d")
+    timeOfBirth = currentDate.strftime("%H:%M")
+    latitude = 45.4643
+    longitude = 9.1895
+
+    dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+
+    planets = dailyChart.planets
+    fourAngles = dailyChart.fourAngles
+    stars = dailyChart.stars
+    aspects = dailyChart.aspects
+    chartData = dailyChart.userData
+    starsForPlanet = dailyChart.getStarsForPlanet()
+    monthlyCalendar = dailyChart.getMonthlyCalendar()
+
+
+    return render(request, 'pages/everythingAboutAstro.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
