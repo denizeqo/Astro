@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Ancient Wisdom" %}
+        </span>
+
+        <img
+            src="static/image/image8.jpeg"
+            alt="Ancient Egyptian Medical Astro Numerology"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Ancient Egyptian Medical Astro-Numerology" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Explore an ancient system connecting stars,
+            numbers and vital energy to help restore balance
+            and reconnect with your deeper essence.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/ancientwisdom"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

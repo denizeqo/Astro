@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Moon" %}
+        </span>
+
+        <img
+            src="static/image/image2.jpeg"
+            alt="Astro Numerological Calendar"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro Numerological Calendar of the Moon Phases" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Follow the cycles of the Moon, daily transits and
+            the active zodiac sign. Understand the energies of
+            the moment and act with greater awareness.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/another-page/"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

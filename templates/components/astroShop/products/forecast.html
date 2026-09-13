@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Forecast" %}
+        </span>
+
+        <img
+            src="static/image/image6.jpeg"
+            alt="Custom 12 Month Forecast"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro Numerology – Custom 12 Month Forecast" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Anticipate your future through an astro-numerological
+            analysis of your birth and receive guidance for the
+            next 12 months.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/forecast"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

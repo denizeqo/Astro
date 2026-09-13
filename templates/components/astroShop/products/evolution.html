@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Evolution" %}
+        </span>
+
+        <img
+            src="static/image/image7.jpeg"
+            alt="Long-Term Progressive Astronumerology"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Long-Term Progressive Astronumerology" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Understand your Karma, activate your Dharma and
+            explore your path over time through transits
+            and progressions.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/evolution"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Destiny" %}
+        </span>
+
+        <img
+            src="static/image/image4.jpeg"
+            alt="Wheel of Destiny"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro-Numerology – The Wheel of Destiny" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Activate your destiny and explore the areas of
+            personality, health, relationships, career,
+            vocation, prosperity and money.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/weel"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

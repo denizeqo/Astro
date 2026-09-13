@@ -1,0 +1,428 @@
+{% load i18n %}
+
+<style>
+    .product-page {
+        background: #0d0820;
+        color: #ffffff;
+        min-height: 100vh;
+        padding: 70px 20px;
+    }
+
+    .product-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .product-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    /* PRODUCT IMAGE */
+
+    .product-image {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #19122f;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* PLACEHOLDER IMAGE */
+
+    .image-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #c9a96e;
+        font-size: 18px;
+    }
+
+    /* PRODUCT INFO */
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-category {
+        color: #c9a96e;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .product-title {
+        font-size: clamp(40px, 5vw, 62px);
+        line-height: 1.05;
+        font-weight: 500;
+        margin: 0 0 20px;
+    }
+
+    .product-quote {
+        font-family: Georgia, serif;
+        font-size: 22px;
+        font-style: italic;
+        color: #d8d0e5;
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
+
+    .product-intro {
+        color: #bcb6c9;
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    .product-button {
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 30px;
+        background: #c9a96e;
+        color: #0d0820;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .product-button:hover {
+        background: #e0c58d;
+        transform: translateY(-2px);
+    }
+
+    /* DESCRIPTION */
+
+    .product-description {
+        max-width: 900px;
+        margin: 100px auto 0;
+    }
+
+    .product-description h2 {
+        color: #ffffff;
+        font-size: 34px;
+        font-weight: 500;
+        margin: 0 0 20px;
+    }
+
+    .product-description h3 {
+        color: #c9a96e;
+        font-size: 22px;
+        font-weight: 500;
+        margin: 45px 0 15px;
+    }
+
+    .product-description p {
+        color: #bcb6c9;
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 18px;
+    }
+
+    .product-description ul {
+        color: #bcb6c9;
+        line-height: 2;
+        padding-left: 20px;
+    }
+
+    .product-description li::marker {
+        color: #c9a96e;
+    }
+
+    .highlight {
+        color: #c9a96e;
+    }
+
+    .final-quote {
+        text-align: center;
+        margin-top: 60px;
+        padding: 40px 20px;
+        border-top: 1px solid rgba(201, 169, 110, 0.2);
+        border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    .final-quote p {
+        font-family: Georgia, serif;
+        font-size: 25px;
+        font-style: italic;
+        color: #e0d6ef;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+        .product-page {
+            padding: 40px 16px;
+        }
+
+        .product-hero {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        .product-image {
+            border-radius: 15px;
+        }
+
+        .product-title {
+            font-size: 44px;
+        }
+
+        .product-quote {
+            font-size: 20px;
+        }
+
+        .product-button {
+            width: 100%;
+            text-align: center;
+        }
+
+        .product-description {
+            margin-top: 65px;
+        }
+
+        .product-description h2 {
+            font-size: 30px;
+        }
+
+        .product-description h3 {
+            font-size: 21px;
+        }
+
+        .final-quote p {
+            font-size: 21px;
+        }
+    }
+</style>
+
+
+<main class="product-page">
+
+    <div class="product-container">
+
+        <!-- HERO -->
+
+        <section class="product-hero">
+
+            <!-- IMAGE -->
+
+            <div class="product-image">
+
+                <!-- Replace this with your real image -->
+                <div class="image-placeholder">
+                    <span>Product Image</span>
+                </div>
+
+                <!--
+                When you have the image, use:
+
+                <img
+                    src="{% static 'images/wheel-of-destiny.jpg' %}"
+                    alt="The Wheel of Destiny"
+                >
+                -->
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Astro-Numerology
+                </div>
+
+                <h1 class="product-title">
+                    The Wheel of Destiny
+                </h1>
+
+                <p class="product-quote">
+                    “Knowing your destiny is not enough.
+                    You must know how to live it.”
+                </p>
+
+                <p class="product-intro">
+                    Discover yourself. Activate your destiny.
+                    Explore your life path through an advanced
+                    system of Astro-Numerology.
+                </p>
+
+                <a href="#" class="product-button">
+                    Discover Your Destiny
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- DESCRIPTION -->
+
+        <section class="product-description">
+
+            <h2>
+                The Wheel of Destiny
+            </h2>
+
+            <p>
+                <strong class="highlight">
+                    The Wheel of Destiny
+                </strong>
+                is an advanced Astro-Numerology system that reveals
+                your life path by transforming your birth date into
+                a precise map of your personal evolution.
+            </p>
+
+            <p>
+                It is not simply about knowing what will happen...
+                it is about knowing <strong>when to act.</strong>
+            </p>
+
+
+            <!-- APPLICATIONS -->
+
+            <h3>
+                Areas of Application
+            </h3>
+
+            <p>
+                Explore the different areas of your life through
+                the unique perspective of Astro-Numerology.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Personality</strong> —
+                    Discover your character, innate tendencies,
+                    and true potential.
+                </li>
+
+                <li>
+                    <strong>Health & Well-Being</strong> —
+                    Rediscover balance, vitality, and harmony
+                    between body, mind, and spirit.
+                </li>
+
+                <li>
+                    <strong>Relationships & Love</strong> —
+                    Understand emotional dynamics and improve
+                    your relationships.
+                </li>
+
+                <li>
+                    <strong>Career & Vocation</strong> —
+                    Identify your talents and opportunities
+                    for growth.
+                </li>
+
+                <li>
+                    <strong>Prosperity & Money</strong> —
+                    Recognize favorable cycles and ideal
+                    windows for action.
+                </li>
+            </ul>
+
+
+            <!-- SACRED NUMBERS -->
+
+            <h3>
+                The Heart of the Method
+            </h3>
+
+            <p>
+                Your birth date reveals
+                <strong class="highlight">12 Sacred Numbers</strong>,
+                forming your personal Magic Square.
+            </p>
+
+            <p>
+                These numbers represent your deepest essence,
+                describe your destiny, and form your personal talisman.
+            </p>
+
+            <p>
+                A practical guide to:
+            </p>
+
+            <ul>
+                <li>Make the right decisions</li>
+                <li>Attract opportunities</li>
+                <li>Protect your path</li>
+            </ul>
+
+
+            <!-- SYSTEM -->
+
+            <h3>
+                The Key to the System
+            </h3>
+
+            <p>
+                This method combines:
+            </p>
+
+            <p class="highlight">
+                Fixed Stars · Planets · Zodiac Signs ·
+                Astrological Houses · Birth Numbers
+            </p>
+
+            <p>
+                Together they create a
+                <strong>“Zodiac within the Zodiac.”</strong>
+            </p>
+
+            <p>
+                A unique system that doesn't simply describe
+                <strong>who you are</strong> —
+                but reveals <strong>who you can become.</strong>
+            </p>
+
+
+            <!-- FINAL -->
+
+            <div class="final-quote">
+
+                <p>
+                    The direction already exists within you.
+                </p>
+
+                <p>
+                    The Wheel teaches you when to move.
+                </p>
+
+                <p>
+                    Don't fight destiny.
+                    <strong>Learn to synchronize with it.</strong>
+                </p>
+
+                <p>
+                    “Knowing your destiny is not enough.
+                    You must know how to live it.”
+                </p>
+
+                <small>— AM</small>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+

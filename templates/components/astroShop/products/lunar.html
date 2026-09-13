@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Lunar" %}
+        </span>
+
+        <img
+            src="static/image/image5.jpeg"
+            alt="Astro Numerology Lunar Horoscope"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro-Numerology – Lunar Horoscope" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Follow the rhythm of the Moon and live at the
+            right moment. Understand when to act, when to
+            wait and when to transform.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/lunar"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

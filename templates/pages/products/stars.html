@@ -1,0 +1,654 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sidereal Astro-Numerology</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0820;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .page {
+            padding: 70px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 520px;
+        }
+
+        .image-placeholder {
+            height: 430px;
+            background: #18112e;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8e82a8;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #cdb5ff;
+        }
+
+        .hero p {
+            color: #ffffff;
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 12px;
+            background: #ffffff;
+            color: #0d0820;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.25s ease;
+        }
+
+        .button:hover {
+            background: #cdb5ff;
+            transform: translateY(-2px);
+        }
+
+        /* GENERAL */
+
+        section {
+            margin-top: 100px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .section-title span {
+            color: #cdb5ff;
+        }
+
+        .section-text {
+            max-width: 780px;
+            color: #ffffff;
+            font-size: 17px;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            margin: 80px auto;
+            max-width: 850px;
+            text-align: center;
+            font-size: 27px;
+            font-style: italic;
+            color: #ffffff;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .card h3 {
+            color: #cdb5ff;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #ffffff;
+        }
+
+        /* LIST */
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .list-item {
+            padding: 18px 20px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.07);
+            color: #ffffff;
+        }
+
+        .list-item::before {
+            content: "✦";
+            color: #cdb5ff;
+            margin-right: 12px;
+        }
+
+        /* METHOD */
+
+        .method {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .method-card {
+            padding: 30px;
+            text-align: center;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 18px;
+        }
+
+        .method-card .number {
+            font-size: 30px;
+            color: #cdb5ff;
+            margin-bottom: 10px;
+        }
+
+        .method-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .method-card p {
+            color: #ffffff;
+        }
+
+        /* FINAL CTA */
+
+        .final {
+            text-align: center;
+            padding: 90px 20px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .final h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 720px;
+            margin: 0 auto 30px;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 40px 18px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                min-height: auto;
+            }
+
+            .image-placeholder {
+                height: 300px;
+                order: 2;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                margin-top: 70px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .quote {
+                font-size: 22px;
+                margin: 60px auto;
+            }
+
+            .cards,
+            .list,
+            .method {
+                grid-template-columns: 1fr;
+            }
+
+            .final {
+                margin-top: 70px;
+                padding: 70px 10px;
+            }
+
+            .final h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .image-placeholder {
+                height: 240px;
+            }
+
+            .card,
+            .method-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <img src="static/image/image17.jpg" alt="">
+
+            <div class="hero-content">
+
+                <h1>
+                    Sidereal <span>Astro-Numerology</span>
+                </h1>
+
+                <p>
+                    The language of the stars that reveals the deeper
+                    dimensions of your personal journey.
+                </p>
+
+                <p>
+                    Reconstruct your birth chart through a sidereal
+                    approach to explore your roots, your present,
+                    and the possible directions of your path.
+                </p>
+
+                <a href="#" class="button">
+                    Discover Your Birth Chart
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUOTE -->
+
+        <div class="quote">
+            “The stars do not determine who you are.
+            They illuminate the path toward who you can become.”
+        </div>
+
+
+        <!-- INTRODUCTION -->
+
+        <section>
+
+            <h2 class="section-title">
+                A <span>Sidereal Perspective</span>
+            </h2>
+
+            <p class="section-text">
+                Sidereal Astro-Numerology is rooted in a tradition that
+                looks to the stars and their symbolic meaning as part of
+                a deeper interpretation of the individual birth chart.
+            </p>
+
+            <p class="section-text" style="margin-top:20px;">
+                By combining celestial symbols with numbers and energetic
+                correspondences, the method creates a symbolic framework
+                for exploring your personal identity, potential and
+                evolutionary direction.
+            </p>
+
+        </section>
+
+
+        <!-- AREAS OF LIFE -->
+
+        <section>
+
+            <h2 class="section-title">
+                A Guide Through the <span>Major Areas of Life</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Health & Well-Being</h3>
+                    <p>
+                        Explore symbolic connections between your chart,
+                        personal balance and the relationship between
+                        body and mind.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Career & Fulfillment</h3>
+                    <p>
+                        Discover potential vocations, personal strengths
+                        and directions for developing your abilities.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Prosperity & Opportunities</h3>
+                    <p>
+                        Explore your relationship with opportunities,
+                        abundance and the possibilities available along
+                        your path.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Relationships & Emotional Life</h3>
+                    <p>
+                        Gain insight into deeper connections, emotional
+                        patterns and meaningful relationships.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRADITION -->
+
+        <section>
+
+            <h2 class="section-title">
+                The <span>Sidereal Tradition</span>
+            </h2>
+
+            <p class="section-text">
+                Unlike approaches that primarily focus on conventional
+                zodiac positions, the sidereal tradition places particular
+                emphasis on the relationship between the zodiac and the
+                actual stellar background.
+            </p>
+
+            <div class="list">
+
+                <div class="list-item">
+                    The actual position of the sky
+                </div>
+
+                <div class="list-item">
+                    Celestial cycles
+                </div>
+
+                <div class="list-item">
+                    The symbolic influence of fixed stars
+                </div>
+
+                <div class="list-item">
+                    The relationship between stars, planets and numbers
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPLETE VISION -->
+
+        <section>
+
+            <h2 class="section-title">
+                One <span>Unified Vision</span>
+            </h2>
+
+            <p class="section-text">
+                The method brings several symbolic languages together
+                to create a broader picture of the individual.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Stars</h3>
+                    <p>
+                        Fixed stars and celestial symbolism provide
+                        another layer of interpretation.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Planets</h3>
+                    <p>
+                        Planetary symbolism helps explore different
+                        aspects of personality and experience.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Numbers</h3>
+                    <p>
+                        Birth numbers and numerical patterns add another
+                        symbolic dimension to the reading.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Energy</h3>
+                    <p>
+                        Energetic correspondences connect the different
+                        elements into one personal framework.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- METHOD -->
+
+        <section>
+
+            <h2 class="section-title">
+                The <span>Method</span>
+            </h2>
+
+            <p class="section-text">
+                Your date of birth becomes the starting point for
+                constructing a symbolic map of your individual path.
+            </p>
+
+            <div class="method">
+
+                <div class="method-card">
+
+                    <div class="number">01</div>
+
+                    <h3>Birth Data</h3>
+
+                    <p>
+                        Your date of birth provides the foundation
+                        for the reading.
+                    </p>
+
+                </div>
+
+                <div class="method-card">
+
+                    <div class="number">02</div>
+
+                    <h3>Celestial Symbols</h3>
+
+                    <p>
+                        Planets, stars, signs and houses are brought
+                        together in the interpretation.
+                    </p>
+
+                </div>
+
+                <div class="method-card">
+
+                    <div class="number">03</div>
+
+                    <h3>Numerical Codes</h3>
+
+                    <p>
+                        Natal numbers and energetic codes add another
+                        layer to the personal reading.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="quote" style="margin-bottom:0;">
+                Your essence. Your potential. Your evolutionary path.
+            </div>
+
+        </section>
+
+
+        <!-- ENERGY TEACHING -->
+
+        <section>
+
+            <h2 class="section-title">
+                The <span>Teaching of Energy</span>
+            </h2>
+
+            <p class="section-text">
+                This is not simply a form of knowledge.
+                It is presented as a process of transformation —
+                a journey toward greater awareness of yourself and
+                your inner direction.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Understand Yourself</h3>
+                    <p>
+                        Explore the symbolic patterns that make up
+                        your personal story.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Harmonize Your Energy</h3>
+                    <p>
+                        Become more aware of your inner balance,
+                        strengths and areas for growth.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Realize Your Path</h3>
+                    <p>
+                        Use greater awareness to make more conscious
+                        choices along your personal journey.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <div class="final">
+
+            <h2>
+                Discover Your <span style="color:#cdb5ff;">
+                    Stellar Path
+                </span>
+            </h2>
+
+            <p>
+                Explore the symbolic language of stars, planets and
+                numbers and discover a deeper perspective on your
+                origins, your potential and the direction of your journey.
+            </p>
+
+            <a href="#" class="button">
+                Explore Your Chart
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock %}

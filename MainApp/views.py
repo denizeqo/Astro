@@ -349,3 +349,74 @@ def EverythingAbout(request):
 
 
     return render(request, 'pages/everythingAboutAstro.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
+
+
+def prBirthChart(request):
+
+    return render(request, 'pages/products/birthChart.html')
+
+
+def prLunar(request):
+
+    return render(request, 'pages/products/lunar.html')
+
+
+def prForecast(request):
+
+    return render(request, 'pages/products/forecast.html')
+
+
+
+def prEvolution(request):
+
+    return render(request, 'pages/products/evolution.html')
+
+
+
+def prAncientWisdom(request):
+
+    return render(request, 'pages/products/ancientWisdom.html')
+
+
+
+
+def prRelationships(request):
+
+    return render(request, 'pages/products/relationships.html')
+
+
+
+def prAstrography(request):
+
+    return render(request, 'pages/products/astrography.html')
+
+
+
+def prSoul(request):
+
+    return render(request, 'pages/products/soul.html')
+
+
+
+def prMagnetism(request):
+
+    return render(request, 'pages/products/magnetism.html')
+
+
+
+def prInnerWorld(request):
+
+    return render(request, 'pages/products/innerWorld.html')
+
+
+
+def prEssentialOils(request):
+
+    return render(request, 'pages/products/essentialOils.html')
+
+
+
+
+def prStars(request):
+
+    return render(request, 'pages/products/stars.html')

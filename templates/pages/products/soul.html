@@ -1,0 +1,782 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Soul Astro-Numerology</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0d0820;
+        color: #ffffff;
+        line-height: 1.7;
+    }
+
+    .page {
+        padding: 70px 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .image-placeholder {
+        height: 500px;
+        background: #18112e;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9f91bd;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 5vw, 62px);
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span,
+    .section-title span,
+    .final-cta span {
+        color: #cdb5ff;
+    }
+
+    .subtitle {
+        font-size: 21px;
+        color: #ffffff;
+        margin-bottom: 30px;
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 15px 32px;
+        border-radius: 50px;
+        background: #ffffff;
+        color: #0d0820;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.25s ease;
+    }
+
+    .cta:hover {
+        background: #cdb5ff;
+        transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+        margin-bottom: 75px;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+    }
+
+    .section-text {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 880px;
+    }
+
+    .quote {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 80px;
+        font-size: 26px;
+        font-style: italic;
+        color: #ffffff;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        padding: 28px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+    }
+
+    .card h3 {
+        color: #cdb5ff;
+        font-size: 21px;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #ffffff;
+    }
+
+    /* Lists */
+    .list {
+        display: grid;
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .list-item {
+        padding: 18px 22px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #ffffff;
+    }
+
+    .list-item::before {
+        content: "✓";
+        color: #cdb5ff;
+        font-weight: bold;
+        margin-right: 12px;
+    }
+
+    /* Number Code */
+    .number-code {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 35px;
+    }
+
+    .number-box {
+        padding: 35px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+    }
+
+    .number-box .big {
+        font-size: 42px;
+        font-weight: bold;
+        color: #cdb5ff;
+        margin-bottom: 10px;
+    }
+
+    .number-box h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .number-box p {
+        color: #ffffff;
+    }
+
+    /* Questions */
+    .questions {
+        margin-top: 30px;
+        display: grid;
+        gap: 15px;
+    }
+
+    .question {
+        padding: 22px 25px;
+        border-left: 3px solid #cdb5ff;
+        background: rgba(255,255,255,0.05);
+        border-radius: 0 14px 14px 0;
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    /* Doors */
+    .doors {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 30px;
+    }
+
+    .door {
+        text-align: center;
+        padding: 28px 20px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+    }
+
+    .door-number {
+        font-size: 32px;
+        color: #cdb5ff;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .door p {
+        color: #ffffff;
+    }
+
+    /* Final CTA */
+    .final-cta {
+        text-align: center;
+        padding: 70px 30px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 28px;
+    }
+
+    .final-cta h2 {
+        font-size: 40px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .final-cta p {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 720px;
+        margin: 0 auto 30px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+
+        .page {
+            padding: 45px 18px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .image-placeholder {
+            height: 330px;
+            order: -1;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+        }
+
+        .cards,
+        .number-code {
+            grid-template-columns: 1fr;
+        }
+
+        .doors {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 29px;
+        }
+
+        .quote {
+            font-size: 21px;
+            margin-bottom: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .final-cta {
+            padding: 50px 22px;
+        }
+
+        .final-cta h2 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .image-placeholder {
+            height: 280px;
+        }
+
+        .card,
+        .number-box {
+            padding: 23px;
+        }
+
+        .list-item {
+            padding: 15px 17px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+```
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <img src="static/image/image11.jpeg" alt="">
+
+        <div>
+
+            <h1>
+                <span>Soul</span>
+                Astro-Numerology
+            </h1>
+
+            <p class="subtitle">
+                The sacred code of your inner essence.
+            </p>
+
+            <a href="#" class="cta">
+                Discover Your Soul Code
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- INTRO -->
+    <div class="quote">
+        “The Soul Talisman and the 12 Gates of Life.”
+    </div>
+
+
+    <!-- AREAS -->
+    <section>
+
+        <h2 class="section-title">
+            The <span>12 Gates of Life</span>
+        </h2>
+
+        <p class="section-text">
+            The Soul Talisman explores twelve symbolic dimensions of
+            your life and the energies that shape your journey.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Health &amp; Energetic Harmony</h3>
+                <p>
+                    Explore the symbolic energies connected with
+                    balance and inner harmony.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Wealth &amp; Prosperity</h3>
+                <p>
+                    Discover the numerical patterns associated with
+                    material potential and abundance.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Career &amp; Personal Fulfillment</h3>
+                <p>
+                    Explore your potential, direction, and personal
+                    path toward fulfillment.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Relationships &amp; Soul Connections</h3>
+                <p>
+                    Gain a deeper perspective on relationships and
+                    meaningful connections.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Business &amp; Material Opportunities</h3>
+                <p>
+                    Explore symbolic patterns connected with
+                    opportunities and practical ambitions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Inner Balance &amp; Spiritual Growth</h3>
+                <p>
+                    Reflect on your inner development, awareness,
+                    and personal growth.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TALISMAN -->
+    <section>
+
+        <h2 class="section-title">
+            The <span>12-Number Talisman</span>
+        </h2>
+
+        <p class="section-text">
+            The twelve numbers are symbolic keys used to interpret
+            your earthly experience. They represent the memory of
+            the soul and the journey of destiny.
+        </p>
+
+        <div class="number-code">
+
+            <div class="number-box">
+
+                <div class="big">01</div>
+
+                <h3>The Number</h3>
+
+                <p>
+                    The number is the code — a symbolic language
+                    through which different aspects of your journey
+                    can be explored.
+                </p>
+
+            </div>
+
+            <div class="number-box">
+
+                <div class="big">∞</div>
+
+                <h3>The Soul</h3>
+
+                <p>
+                    The soul is the key, while your destiny is the
+                    journey that reveals itself step by step.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PERSONAL STRUCTURE -->
+    <section>
+
+        <h2 class="section-title">
+            Your Personal <span>Energy Talisman</span>
+        </h2>
+
+        <p class="section-text">
+            Through your date of birth, a structure composed of
+            twelve sacred numbers is revealed — a personal energetic
+            talisman represented by a magic square containing the
+            fundamental vibrations of your existence.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            Within you exists an invisible guide: a deep memory that
+            holds talents, experiences, potential, and directions
+            for your journey.
+        </p>
+
+    </section>
+
+
+    <!-- MEANING -->
+    <section>
+
+        <h2 class="section-title">
+            The Language of <span>Numbers &amp; Archetypes</span>
+        </h2>
+
+        <p class="section-text">
+            Soul Astro-Numerology is a study of your inner code,
+            creating a symbolic bridge between your past, present,
+            and future through the language of numbers and celestial
+            archetypes.
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Every number carries a meaning
+            </div>
+
+            <div class="list-item">
+                Every number represents a frequency
+            </div>
+
+            <div class="list-item">
+                Every number offers a lesson
+            </div>
+
+        </div>
+
+        <br>
+
+        <p class="section-text">
+            Each becomes a doorway through which you can explore
+            your deeper roots, innate abilities, and the energies
+            you may develop throughout your life.
+        </p>
+
+    </section>
+
+
+    <!-- MAP -->
+    <section>
+
+        <h2 class="section-title">
+            A Symbolic <span>Map of Your Journey</span>
+        </h2>
+
+        <p class="section-text">
+            The magic square becomes a symbolic map of your journey —
+            a bridge between who you were, who you are, and who you
+            can become.
+        </p>
+
+        <div class="questions">
+
+            <div class="question">
+                What is the meaning of my life?
+            </div>
+
+            <div class="question">
+                What talents do I carry within me?
+            </div>
+
+            <div class="question">
+                Which energies do I need to bring into harmony?
+            </div>
+
+            <div class="question">
+                Which direction can lead me toward fulfillment?
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- READING -->
+    <section>
+
+        <h2 class="section-title">
+            Discover Your <span>Deeper Direction</span>
+        </h2>
+
+        <p class="section-text">
+            Through your birth chart, numbers, and stars, this reading
+            invites you to connect with your most authentic essence
+            and recognize the invisible thread linking every phase
+            of your life.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            Discover your path and explore the deeper purpose revealed
+            through your personal symbolic map.
+        </p>
+
+    </section>
+
+
+    <!-- 12 DOORS -->
+    <section>
+
+        <h2 class="section-title">
+            Open the <span>12 Gates of Life</span>
+        </h2>
+
+        <p class="section-text">
+            Through your date of birth, your numbers, and your stars,
+            twelve symbolic Gates of Life open before you.
+        </p>
+
+        <div class="doors">
+
+            <div class="door">
+                <div class="door-number">12</div>
+                <p>
+                    Gates of your evolutionary journey
+                </p>
+            </div>
+
+            <div class="door">
+                <div class="door-number">∞</div>
+                <p>
+                    Each gate contains further doors
+                </p>
+            </div>
+
+            <div class="door">
+                <div class="door-number">∞</div>
+                <p>
+                    An ongoing path of growth and awareness
+                </p>
+            </div>
+
+        </div>
+
+        <br>
+
+        <p class="section-text">
+            Each gate represents a stage of your evolution and
+            contains further symbolic doors, creating an infinite
+            journey of growth and awareness.
+        </p>
+
+    </section>
+
+
+    <!-- TRANSFORMATION -->
+    <section>
+
+        <h2 class="section-title">
+            What It Means to <span>Walk Through Them</span>
+        </h2>
+
+        <div class="list">
+
+            <div class="list-item">
+                Live fully in the present
+            </div>
+
+            <div class="list-item">
+                Align yourself with your path
+            </div>
+
+            <div class="list-item">
+                Activate your potential
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KNOW YOURSELF -->
+    <section>
+
+        <h2 class="section-title">
+            <span>Know Yourself.</span>
+            Transform Your Life.
+        </h2>
+
+        <p class="section-text">
+            Understanding who you truly are can help you give meaning
+            to your experiences, recognize inner blocks, and approach
+            important decisions with greater awareness.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            When you explore your inner essence, your perspective
+            can begin to change.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Love</h3>
+            </div>
+
+            <div class="card">
+                <h3>Balance</h3>
+            </div>
+
+            <div class="card">
+                <h3>Intuition</h3>
+            </div>
+
+            <div class="card">
+                <h3>Guidance</h3>
+            </div>
+
+            <div class="card">
+                <h3>Growth</h3>
+            </div>
+
+            <div class="card">
+                <h3>Fulfillment</h3>
+            </div>
+
+            <div class="card">
+                <h3>Freedom</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+
+        <h2>
+            Your Soul <span>Knows the Way.</span>
+        </h2>
+
+        <p>
+            Explore your personal numbers, your symbolic soul code,
+            and the deeper path revealed through your birth date.
+        </p>
+
+        <p>
+            You only need to remember.
+        </p>
+
+        <a href="#" class="cta">
+            Discover Your Soul Code
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}

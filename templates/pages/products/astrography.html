@@ -1,0 +1,599 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Astrographic Astro-Numerology</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0d0820;
+        color: #ffffff;
+        line-height: 1.7;
+    }
+
+    .page {
+        padding: 70px 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .image-placeholder {
+        height: 500px;
+        background: #18112e;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 5vw, 62px);
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span,
+    .section-title span {
+        color: #cdb5ff;
+    }
+
+    .subtitle {
+        font-size: 21px;
+        color: #ffffff;
+        margin-bottom: 30px;
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 15px 32px;
+        border-radius: 50px;
+        background: #ffffff;
+        color: #0d0820;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.25s ease;
+    }
+
+    .cta:hover {
+        background: #cdb5ff;
+        transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+        margin-bottom: 75px;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+    }
+
+    .section-text {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 850px;
+    }
+
+    .quote {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 80px;
+        font-size: 26px;
+        font-style: italic;
+        color: #e5daf8;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        padding: 28px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+    }
+
+    .card h3 {
+        color: #cdb5ff;
+        font-size: 21px;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #ffffff;
+    }
+
+    /* Lists */
+    .list {
+        display: grid;
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .list-item {
+        padding: 18px 22px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+    }
+
+    .list-item::before {
+        content: "✓";
+        color: #cdb5ff;
+        font-weight: bold;
+        margin-right: 12px;
+    }
+
+    /* Compass */
+    .compass {
+        margin-top: 35px;
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 22px;
+    }
+
+    .compass-title {
+        font-size: 28px;
+        color: #cdb5ff;
+        margin-bottom: 15px;
+    }
+
+    .compass p {
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+        text-align: center;
+        padding: 70px 30px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+    }
+
+    .final-cta h2 {
+        font-size: 40px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .final-cta h2 span {
+        color: #cdb5ff;
+    }
+
+    .final-cta p {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 720px;
+        margin: 0 auto 30px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+
+        .page {
+            padding: 45px 18px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .image-placeholder {
+            height: 330px;
+            order: -1;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 29px;
+        }
+
+        .quote {
+            font-size: 21px;
+            margin-bottom: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .compass {
+            padding: 30px 22px;
+        }
+
+        .final-cta {
+            padding: 50px 22px;
+        }
+
+        .final-cta h2 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .image-placeholder {
+            height: 280px;
+        }
+
+        .card {
+            padding: 23px;
+        }
+
+        .list-item {
+            padding: 15px 17px;
+        }
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<div class="page">
+
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <img src="static/image/image12.jpeg" alt="">
+        <div>
+
+            <h1>
+                <span>Astrographic</span>
+                Astro-Numerology
+            </h1>
+
+            <p class="subtitle">
+                Discover the places where your personal energy
+                can align with the world around you.
+            </p>
+
+            <a href="#" class="cta">
+                Discover Your Map
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- INTRO -->
+    <div class="quote">
+        “Every place has a vibration. Every place responds
+        differently to your energy.”
+    </div>
+
+
+    <!-- HOW IT WORKS -->
+    <section>
+
+        <h2 class="section-title">
+            Your Personal <span>Map</span>
+        </h2>
+
+        <p class="section-text">
+            Through your date of birth, the planets, numbers, and
+            their movements, a personal map is created that connects
+            the energies of the sky with places on Earth.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            This symbolic map explores how different locations may
+            resonate with your personal energy and your goals.
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Places that may support personal fulfillment
+            </div>
+
+            <div class="list-item">
+                Spaces aligned with your goals
+            </div>
+
+            <div class="list-item">
+                Environments that may amplify opportunities
+            </div>
+
+            <div class="list-item">
+                Areas that may present challenges or energetic blocks
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AREAS OF LIFE -->
+    <section>
+
+        <h2 class="section-title">
+            <span>Areas of Life</span>
+            Explored
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Health &amp; Well-Being</h3>
+                <p>
+                    Explore locations in relation to your personal
+                    sense of balance and well-being.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Finances &amp; Prosperity</h3>
+                <p>
+                    Identify places symbolically associated with
+                    growth and opportunities.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Career &amp; Fulfillment</h3>
+                <p>
+                    Explore environments that may support your
+                    professional goals and ambitions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Relationships &amp; Love</h3>
+                <p>
+                    Discover how different places may influence
+                    your relationship experiences.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Family &amp; Fertility</h3>
+                <p>
+                    Explore the symbolic relationship between
+                    locations and family-related themes.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Business &amp; Collaborations</h3>
+                <p>
+                    Consider locations in relation to partnerships,
+                    business, and professional connections.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Travel &amp; New Beginnings</h3>
+                <p>
+                    Explore places connected with change, travel,
+                    fresh starts, and new experiences.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- METHOD -->
+    <section>
+
+        <h2 class="section-title">
+            How It <span>Works</span>
+        </h2>
+
+        <p class="section-text">
+            Your personal energetic compass is created through
+            a combination of astrological and numerological elements:
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Your date of birth
+            </div>
+
+            <div class="list-item">
+                Your Ascendant and planets
+            </div>
+
+            <div class="list-item">
+                Astrological houses
+            </div>
+
+            <div class="list-item">
+                Zodiac signs
+            </div>
+
+            <div class="list-item">
+                Personal numbers
+            </div>
+
+            <div class="list-item">
+                Transits and progressions
+            </div>
+
+        </div>
+
+        <div class="compass">
+
+            <div class="compass-title">
+                Your Energetic Compass
+            </div>
+
+            <p>
+                A symbolic connection between the sky above you
+                and the places you encounter on Earth.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ENERGY TEACHING -->
+    <section>
+
+        <h2 class="section-title">
+            The <span>Teaching of Energy</span>
+        </h2>
+
+        <p class="section-text">
+            Not every place is right for you.
+            Some places help you grow.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            Others may challenge you.
+            Awareness can guide you in making conscious choices
+            about where you live, work, travel, and begin again.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            It is not simply chance that guides you.
+            It is the symbolic resonance between you and a place.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            When you find a place that resonates with you,
+            your energy can feel more expansive and aligned.
+        </p>
+
+    </section>
+
+
+    <!-- REALIZATION -->
+    <section>
+
+        <h2 class="section-title">
+            Find the Place Where You Can <span>Thrive</span>
+        </h2>
+
+        <p class="section-text">
+            Discover where you may choose to:
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Build your home
+            </div>
+
+            <div class="list-item">
+                Develop your projects
+            </div>
+
+            <div class="list-item">
+                Encounter new opportunities
+            </div>
+
+            <div class="list-item">
+                Create a greater sense of harmony
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+
+        <h2>
+            Find Your Place.
+            <span>Align Your Energy.</span>
+            Fulfill Your Path.
+        </h2>
+
+        <p>
+            Explore the connection between your personal birth map,
+            the energies of different places, and the journey you
+            are creating for yourself.
+        </p>
+
+        <a href="#" class="cta">
+            Discover Your Astrographic Map
+        </a>
+
+    </div>
+
+</div>
+
+<br>
+
+</body>
+</html>
+{% endblock %}

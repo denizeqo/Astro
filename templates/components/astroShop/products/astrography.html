@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Astrography" %}
+        </span>
+
+        <img
+            src="static/image/image12.jpeg"
+            alt="Relationships and Compatibility"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans " Astro-Numerology Astrography" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Discover how the energies of the sky connect
+            with places on Earth and explore environments
+            that may resonate with your goals and path.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/astrography"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

@@ -12,5 +12,16 @@ urlpatterns = [
     path('registerMonthlyCalendarDescription', views.MonthlyCalendarDescription),
     path('astroShop', views.AstroShop, name='astroShop'),
     path('everythingAbout', views.EverythingAbout, name='everythingAbout'),
+    path('birthChart', views.prBirthChart, name='birthChart'),
+    path('lunar', views.prLunar, name='lunar'),
+    path('evolution', views.prEvolution, name='evolution'),
+    path('ancientwisdom', views.prAncientWisdom, name='ancientwisdom'),
+    path('relationships', views.prRelationships, name='relationships'),
+    path('astrography', views.prAstrography, name='astrography'),
+    path('soul', views.prSoul, name='soul'),
+    path('magnetism', views.prMagnetism, name='magnetism'),
+    path('innerWorld', views.prInnerWorld, name='innerWorld'),
+    path('essentialOils', views.prEssentialOils, name='essentialOils'),
+    path('stars', views.prStars, name='stars'),
 
 ]

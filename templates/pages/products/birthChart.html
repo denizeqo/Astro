@@ -1,0 +1,505 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Astro-Numerological Birth Chart of the Fixed Stars</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0820;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 90px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            background: #18112e;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(36px, 5vw, 62px);
+            line-height: 1.1;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: #cdb5ff;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #cdb5ff;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.925);
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+
+            background: #ffffff;
+            color: #0d0820;
+
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: #cdb5ff;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 100px;
+        }
+
+        .quote p {
+            font-size: clamp(24px, 4vw, 38px);
+            line-height: 1.4;
+            font-style: italic;
+            color: #ffffff;
+        }
+
+        .quote span {
+            display: block;
+            margin-top: 20px;
+            color: rgb(255, 255, 255);
+            font-size: 15px;
+            font-style: normal;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #cdb5ff;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card h3 {
+            color: #cdb5ff;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+        }
+
+        .card ul {
+            list-style: none;
+            color: rgb(255, 255, 255);
+        }
+
+        .card li {
+            margin-bottom: 9px;
+        }
+
+        .card li::before {
+            content: "✦";
+            color: #cdb5ff;
+            margin-right: 10px;
+        }
+
+        /* FINAL CTA */
+
+        .final-section {
+            text-align: center;
+            padding: 70px 30px;
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .final-section h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .final-section p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+
+            color: rgb(255, 255, 255);
+            font-size: 17px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 35px 18px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                margin-bottom: 70px;
+            }
+
+            .image-placeholder {
+                order: -1;
+                aspect-ratio: 4 / 3;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .quote {
+                margin-bottom: 70px;
+            }
+
+            .quote p {
+                font-size: 25px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin-bottom: 65px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .final-section {
+                padding: 50px 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .page {
+                padding: 25px 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 34px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="container">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <!-- IMAGE PLACEHOLDER -->
+
+                <img src="static/image/image3.jpeg" alt="">
+        
+
+            <div class="hero-content">
+
+                <p class="subtitle">
+                    The Destiny Written Among the Stars
+                </p>
+
+                <h1>
+                    Astro-Numerological
+                    <span>Birth Chart</span>
+                    of the Fixed Stars
+                </h1>
+
+                <p class="hero-description">
+                    Discover your personal map of destiny through the fixed stars
+                    and your birth numbers. A profound guide to understanding
+                    yourself, recognizing the right moment to act, and transforming
+                    the direction of your life.
+                </p>
+
+                <a href="#" class="button">
+                    Discover Your Destiny
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUOTE -->
+        <section class="quote">
+
+            <p>
+                “We are children of the stars.
+                It is not poetry… it is reality.”
+            </p>
+
+            <span>
+                The matter within us was born from the stars.
+                The sky is not far away — it lives within us.
+            </span>
+
+        </section>
+
+
+        <!-- INTRODUCTION -->
+        <section class="section">
+
+            <div class="card">
+
+                <h3>The Map of Destiny</h3>
+
+                <p>
+                    The stars do not determine your destiny — they reveal
+                    possibilities and point toward your direction.
+                    It is up to you to recognize the path and choose how
+                    you wish to walk it.
+                </p>
+
+                <br>
+
+                <p>
+                    When we learn to read the language of the sky,
+                    uncertainty can become direction and awareness.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT YOU RECEIVE -->
+        <section class="section">
+
+            <h2 class="section-title">
+                What You <span>Receive</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Reading of the Fixed Stars</h3>
+
+                    <ul>
+                        <li>Analysis of the stars present at your birth</li>
+                        <li>The constant energy accompanying you throughout life</li>
+                        <li>Connections with planets, houses and numbers</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>The 12 Destiny Numbers</h3>
+
+                    <ul>
+                        <li>Your personal birth numbers</li>
+                        <li>Your personal talisman</li>
+                        <li>Energetic keys for luck and fulfillment</li>
+                        <li>Guidance for personal growth</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Practical Guide to Life</h3>
+
+                    <ul>
+                        <li>Career and personal fulfillment</li>
+                        <li>Relationships and love</li>
+                        <li>Important choices and decisive moments</li>
+                        <li>Energy flow and prosperity</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>The Right Moment</h3>
+
+                    <p>
+                        Knowing what may happen is not enough.
+                        You also need to understand when it is the right
+                        time to act.
+                    </p>
+
+                    <br>
+
+                    <ul>
+                        <li>Stellar cycles</li>
+                        <li>Transits and progressions</li>
+                        <li>Activation of the stars</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENERGY -->
+        <section class="section">
+
+            <h2 class="section-title">
+                The <span>Energy</span> of the Stars
+            </h2>
+
+            <div class="card">
+
+                <p>
+                    Fixed stars are believed to radiate a constant and timeless
+                    energy. They are present from the moment of your birth and
+                    accompany you throughout your journey.
+                </p>
+
+                <br>
+
+                <p>
+                    When you learn to interpret them, uncertainty can become
+                    direction, awareness and a deeper understanding of your path.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL CTA -->
+        <section class="final-section">
+
+            <h2>
+                Your Map Is Written in the Stars
+            </h2>
+
+            <p>
+                Explore your birth chart, discover the influence of the fixed
+                stars and uncover the energetic patterns connected to your
+                personal numbers.
+            </p>
+
+            <a href="#" class="button">
+                Begin Your Reading
+            </a>
+
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+{% endblock %}

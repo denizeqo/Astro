@@ -1,0 +1,54 @@
+<script>
+
+    const searchInput =
+        document.getElementById("productSearch");
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    const noResults =
+        document.getElementById("noResults");
+
+
+    searchInput.addEventListener("input", function () {
+
+        const searchValue =
+            this.value.toLowerCase().trim();
+
+        let visibleProducts = 0;
+
+
+        products.forEach(function (product) {
+
+            const text =
+                product.innerText.toLowerCase();
+
+
+            if (text.includes(searchValue)) {
+
+                product.style.display = "flex";
+
+                visibleProducts++;
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+
+        if (visibleProducts === 0) {
+
+            noResults.style.display = "block";
+
+        } else {
+
+            noResults.style.display = "none";
+
+        }
+
+    });
+
+</script>

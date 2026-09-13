@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Essential Oils" %}
+        </span>
+
+        <img
+            src="static/image/image16.jpg"
+            alt="Relationships and Compatibility"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Personalized Essential Oil Elixirs" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            A unique blend created specifically for you,
+            designed to support balance of body, mind and
+            energy through the natural vibration of essential oils.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/essentialOils"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

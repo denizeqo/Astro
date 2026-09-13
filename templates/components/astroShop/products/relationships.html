@@ -1,0 +1,40 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Relationships" %}
+        </span>
+
+        <img
+            src="static/image/image9.jpeg"
+            alt="Relationships and Compatibility"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro-Numerology of Relationships & Compatibility" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Explore the energetic codes behind love, family,
+            friendships, work and deeper soul connections.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/relationships"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

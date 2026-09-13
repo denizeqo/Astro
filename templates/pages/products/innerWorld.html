@@ -1,0 +1,610 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Psyche Magnetism | Astro-Numerology</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0820;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .page {
+            padding: 70px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 520px;
+        }
+
+        .image-placeholder {
+            height: 430px;
+            background: #18112e;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8e82a8;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #cdb5ff;
+        }
+
+        .hero p {
+            color: #ffffff;
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ffffff;
+            color: #0d0820;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.25s ease;
+        }
+
+        .button:hover {
+            background: #cdb5ff;
+            transform: translateY(-2px);
+        }
+
+        /* GENERAL */
+
+        section {
+            margin-top: 100px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .section-title span {
+            color: #cdb5ff;
+        }
+
+        .section-text {
+            max-width: 750px;
+            color: #ffffff;
+            font-size: 17px;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            margin: 80px auto;
+            max-width: 850px;
+            text-align: center;
+            font-size: 27px;
+            font-style: italic;
+            color: #ffffff;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .card h3 {
+            color: #cdb5ff;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #ffffff;
+        }
+
+        /* LIST */
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .list-item {
+            padding: 18px 20px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.07);
+            color: #ffffff;
+        }
+
+        .list-item::before {
+            content: "✦";
+            color: #cdb5ff;
+            margin-right: 12px;
+        }
+
+        /* FINAL CTA */
+
+        .final {
+            text-align: center;
+            padding: 90px 20px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .final h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 40px 18px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                min-height: auto;
+            }
+
+            .image-placeholder {
+                height: 300px;
+                order: 2;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                margin-top: 70px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .quote {
+                font-size: 22px;
+                margin: 60px auto;
+            }
+
+            .cards,
+            .list {
+                grid-template-columns: 1fr;
+            }
+
+            .final {
+                margin-top: 70px;
+                padding: 70px 10px;
+            }
+
+            .final h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .image-placeholder {
+                height: 240px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <img src="static/image/image14.jpeg" alt="">
+            <div class="hero-content">
+
+                <h1>
+                    Psyche <span>Magnetism</span>
+                </h1>
+
+                <p>
+                    Within you exists an invisible universe.
+                    Awareness transforms it into power.
+                </p>
+
+                <p>
+                    Explore your inner world through a symbolic journey
+                    integrating astrology, numerology and subtle energies.
+                </p>
+
+                <a href="#" class="button">
+                    Discover Your Inner World
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- INTRODUCTION -->
+
+        <div class="quote">
+            “The most important journey is not outside you.
+            It is within you.”
+        </div>
+
+
+        <section>
+
+            <h2 class="section-title">
+                The <span>Teaching of Energy</span>
+            </h2>
+
+            <p class="section-text">
+                Every individual lives between the visible and the invisible.
+                Difficulties do not have to be seen only as obstacles —
+                they can also become doors to deeper awareness and
+                personal transformation.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Recognize Your Desires</h3>
+                    <p>
+                        Learn to listen more deeply to what genuinely
+                        motivates and inspires you.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Transform Your Limits</h3>
+                    <p>
+                        Explore limitations as opportunities to discover
+                        new resources within yourself.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Develop Inner Presence</h3>
+                    <p>
+                        Cultivate greater awareness of your thoughts,
+                        emotions and inner experience.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PSYCHIC FIELD -->
+
+        <section>
+
+            <h2 class="section-title">
+                The <span>Psychic Field</span>
+            </h2>
+
+            <p class="section-text">
+                Each person possesses a unique inner and energetic field —
+                a subtle dimension shaped by thoughts, emotions, memories
+                and potential.
+            </p>
+
+            <div class="list">
+
+                <div class="list-item">
+                    Thoughts
+                </div>
+
+                <div class="list-item">
+                    Emotions
+                </div>
+
+                <div class="list-item">
+                    Memories
+                </div>
+
+                <div class="list-item">
+                    Potential
+                </div>
+
+            </div>
+
+            <p class="section-text" style="margin-top:30px;">
+                This inner space is where your perception of yourself
+                and your experience of life begin to take shape.
+            </p>
+
+        </section>
+
+
+        <!-- INNER JOURNEY -->
+
+        <section>
+
+            <h2 class="section-title">
+                The <span>Inner Journey</span>
+            </h2>
+
+            <p class="section-text">
+                Through reflective practices, you can create space for
+                deeper self-awareness and a stronger connection with
+                your inner world.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Deep Relaxation</h3>
+                    <p>
+                        Create moments of stillness and release from
+                        everyday tension.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Guided Meditation</h3>
+                    <p>
+                        Turn your attention inward and explore your
+                        thoughts and emotions.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Visualization</h3>
+                    <p>
+                        Use imagination as a tool for reflection,
+                        intention and personal exploration.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Inner Listening</h3>
+                    <p>
+                        Develop the ability to recognize your authentic
+                        needs, feelings and aspirations.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT EMERGES -->
+
+        <section>
+
+            <h2 class="section-title">
+                What <span>Emerges</span>
+            </h2>
+
+            <p class="section-text">
+                As you create a deeper connection with your inner world,
+                new aspects of yourself may become clearer.
+            </p>
+
+            <div class="list">
+
+                <div class="list-item">
+                    Hidden talents
+                </div>
+
+                <div class="list-item">
+                    Deeper vocations
+                </div>
+
+                <div class="list-item">
+                    Authentic desires
+                </div>
+
+                <div class="list-item">
+                    New awareness
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HARMONIZATION -->
+
+        <section>
+
+            <h2 class="section-title">
+                Harmonization of <span>Being</span>
+            </h2>
+
+            <p class="section-text">
+                Psyche Magnetism brings together different dimensions
+                of your experience, creating a symbolic framework for
+                greater balance, clarity and connection with your
+                inner strength.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Physical Body</h3>
+                    <p>
+                        Become more aware of your physical presence
+                        and connection with yourself.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Mind</h3>
+                    <p>
+                        Observe your thoughts and develop greater
+                        clarity and conscious awareness.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Energetic Dimension</h3>
+                    <p>
+                        Explore the symbolic language of subtle energy
+                        and your personal inner experience.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REALIZATION -->
+
+        <section>
+
+            <h2 class="section-title">
+                <span>Realization</span>
+            </h2>
+
+            <p class="section-text">
+                When you begin to connect with your inner world,
+                awareness can become a foundation for personal growth
+                and creative expression.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Understand Who You Are</h3>
+                    <p>
+                        Develop a clearer relationship with your identity,
+                        desires and inner direction.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Strengthen Your Center</h3>
+                    <p>
+                        Build a stronger sense of presence and connection
+                        with your inner self.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Awaken Your Creativity</h3>
+                    <p>
+                        Give more space to your imagination, ideas and
+                        personal creative potential.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <div class="final">
+
+            <h2>
+                Enter Your <span style="color:#cdb5ff;">Inner World</span>
+            </h2>
+
+            <p>
+                The most important journey is not outside you.
+                It is within you. There lives your truth.
+                There your power begins.
+            </p>
+
+            <a href="#" class="button">
+                Awaken Your Awareness
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock %}

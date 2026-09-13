@@ -1,0 +1,916 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Astro-Numerology – Long-Term Progressive Reading</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0820;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .page {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 24px;
+            background: #18112e;
+            border: 1px solid rgba(255,255,255,.12);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: rgba(255,255,255,.4);
+            letter-spacing: 1px;
+        }
+
+        .eyebrow {
+            color: #cdb5ff;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1.08;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #cdb5ff;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            color: rgb(255, 255, 255);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+
+            background: #ffffff;
+            color: #0d0820;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+        .button:hover {
+            background: #cdb5ff;
+            transform: translateY(-2px);
+        }
+
+        /* QUOTE */
+
+        .quote {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 100px;
+        }
+
+        .quote p {
+            font-size: clamp(25px, 4vw, 40px);
+            line-height: 1.35;
+            font-style: italic;
+        }
+
+        .quote span {
+            display: block;
+            margin-top: 20px;
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            margin-bottom: 90px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #cdb5ff;
+        }
+
+        .intro {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: rgba(255,255,255,.7);
+            font-size: 17px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px;
+
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .card h3 {
+            color: #cdb5ff;
+            font-size: 21px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: rgb(255, 255, 255);
+        }
+
+        .card ul {
+            list-style: none;
+            color: rgb(255, 255, 255);
+        }
+
+        .card li {
+            margin-bottom: 12px;
+        }
+
+        .card li::before {
+            content: "✦";
+            color: #cdb5ff;
+            margin-right: 10px;
+        }
+
+        /* TIMELINE */
+
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(205,181,255,.25);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+
+            background: #cdb5ff;
+            box-shadow: 0 0 15px rgba(205,181,255,.35);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -6px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -6px;
+        }
+
+        .timeline-item h3 {
+            color: #cdb5ff;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: rgb(255, 255, 255);
+        }
+
+        /* KARMA / DHARMA */
+
+        .karma-dharma {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .karma-card,
+        .dharma-card {
+            padding: 45px 30px;
+            border-radius: 22px;
+            text-align: center;
+
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .karma-card h3,
+        .dharma-card h3 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .karma-card h3 {
+            color: #aaa0c5;
+        }
+
+        .dharma-card h3 {
+            color: #cdb5ff;
+        }
+
+        .karma-card p,
+        .dharma-card p {
+            color: rgb(255, 255, 255);
+        }
+
+        .arrow {
+            display: block;
+            margin: 25px 0;
+            font-size: 28px;
+            color: #cdb5ff;
+        }
+
+        /* TRANSFORMATION */
+
+        .transformation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .transformation-card {
+            padding: 35px 25px;
+            text-align: center;
+
+            border-radius: 20px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .transformation-card strong {
+            font-size: 19px;
+        }
+
+        .transformation-card .arrow {
+            margin: 10px 0;
+            font-size: 25px;
+        }
+
+        .transformation-card p {
+            color: rgb(255, 255, 255);
+        }
+
+        /* FINAL CTA */
+
+        .final {
+            text-align: center;
+            padding: 70px 25px;
+            border-radius: 25px;
+
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .final h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: rgb(255, 255, 255);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 35px 18px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                margin-bottom: 70px;
+            }
+
+            .image-placeholder {
+                aspect-ratio: 4 / 3;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .karma-dharma {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-left: 40px;
+                padding-right: 10px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 4px;
+                right: auto;
+            }
+
+            .section {
+                margin-bottom: 65px;
+            }
+
+            .quote {
+                margin-bottom: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .page {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .hero-subtitle {
+                font-size: 19px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .quote p {
+                font-size: 25px;
+            }
+
+            .karma-card,
+            .dharma-card {
+                padding: 35px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <img src="static/image/image7.jpeg" alt="">
+
+            <div>
+
+                <div class="eyebrow">
+                    Astro-Numerology
+                </div>
+
+                <h1>
+                    Long-Term
+                    <span>Progressive Reading</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Understand your Karma.
+                    Activate your Dharma.
+                    Live your time.
+                </p>
+
+                <p class="hero-text">
+                    An advanced evolutionary analysis that uses
+                    astrological transits and progressions to help
+                    you understand your path through time and act
+                    during the most favorable moments.
+                </p>
+
+                <a href="#" class="button">
+                    Discover Your Path
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUOTE -->
+
+        <section class="quote">
+
+            <p>
+                “Every soul has its own timing.
+                When you recognize it… you begin to truly live.”
+            </p>
+
+            <span>
+                — AM
+            </span>
+
+        </section>
+
+
+        <!-- INTRO -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                More Than a <span>Prediction</span>
+            </h2>
+
+            <p class="intro">
+                This is an advanced evolutionary reading designed to
+                help you understand how your life develops over time.
+                Rather than simply predicting events, it explores
+                the timing and evolution of the energies shaping your journey.
+            </p>
+
+            <br>
+
+            <p class="intro">
+                Through transits, progressions and your natal chart,
+                you can recognize when different aspects of your potential
+                are ready to emerge and how to work with them consciously.
+            </p>
+
+        </section>
+
+
+        <!-- WHAT YOU DISCOVER -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                What You <span>Discover</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Your Karmic Roots</h3>
+
+                    <p>
+                        Explore the patterns and experiences from the past
+                        that continue to influence your present journey.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Your Dharma</h3>
+
+                    <p>
+                        Discover the direction of your evolution and
+                        the qualities you are being called to develop.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Your Present Evolution</h3>
+
+                    <p>
+                        Understand the transformation taking place within
+                        you and the energies currently becoming active.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Future Opportunities</h3>
+
+                    <p>
+                        Recognize potential periods of growth,
+                        change and new experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- METHOD -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                The Method Is Based <span>On</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Astrological Transits</h3>
+
+                    <p>
+                        Planetary movements that reveal when specific
+                        energies become active in your life.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Evolutionary Progressions</h3>
+
+                    <p>
+                        A deeper look at your inner development and
+                        the gradual unfolding of your potential.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Your Natal Chart</h3>
+
+                    <p>
+                        Your birth chart provides the foundation for
+                        understanding the unique patterns of your journey.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <p class="intro">
+                Together, these elements help reveal
+                <strong>when and how different energies become active</strong>
+                in your life.
+            </p>
+
+        </section>
+
+
+        <!-- KARMA / DHARMA -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                The <span>Key</span> of the System
+            </h2>
+
+            <div class="karma-dharma">
+
+                <div class="karma-card">
+
+                    <h3>Dragon's Tail</h3>
+
+                    <p>
+                        <strong>Karma</strong>
+                    </p>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        The experiences, patterns and lessons from
+                        the past that you carry with you.
+                    </p>
+
+                </div>
+
+
+                <div class="dharma-card">
+
+                    <h3>Dragon's Head</h3>
+
+                    <p>
+                        <strong>Dharma</strong>
+                    </p>
+
+                    <span class="arrow">↑</span>
+
+                    <p>
+                        The direction of your evolution and the path
+                        toward what you are becoming.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <p class="intro">
+                Your task is not to remain attached to what you have already
+                experienced, but to move toward what you are destined to become.
+            </p>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                The True Meaning of <span>Progress</span>
+            </h2>
+
+            <p class="intro">
+                Not everything happens immediately.
+                Within you exists a potential that develops over time.
+            </p>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <h3>What Will Emerge</h3>
+
+                    <p>
+                        Discover which aspects of yourself are
+                        ready to emerge and develop.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <h3>When It Activates</h3>
+
+                    <p>
+                        Recognize the periods when these energies
+                        become active in your life.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <h3>How to Transform It</h3>
+
+                    <p>
+                        Learn how to turn emerging potential into
+                        conscious strength and personal growth.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT YOU GET -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                What You <span>Gain</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Deep Understanding</h3>
+
+                    <p>
+                        Develop a deeper understanding of your personal
+                        journey and its evolutionary direction.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Clarity in Important Choices</h3>
+
+                    <p>
+                        Gain greater awareness when approaching
+                        important decisions and turning points.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Recognize the Right Moment</h3>
+
+                    <p>
+                        Become more aware of the periods when it may
+                        be appropriate to act, change or move forward.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Move Beyond Inner Blocks</h3>
+
+                    <p>
+                        Recognize recurring patterns and transform them
+                        into opportunities for personal development.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRANSFORMATION -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                <span>Transformation</span>
+            </h2>
+
+            <div class="transformation">
+
+                <div class="transformation-card">
+
+                    <strong>Repetition</strong>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        Evolution
+                    </p>
+
+                </div>
+
+
+                <div class="transformation-card">
+
+                    <strong>Confusion</strong>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        Direction
+                    </p>
+
+                </div>
+
+
+                <div class="transformation-card">
+
+                    <strong>Karma</strong>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        Dharma
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL CTA -->
+
+        <section class="final">
+
+            <h2>
+                Understand Your Time
+            </h2>
+
+            <p>
+                Explore your long-term evolutionary path, recognize
+                the energies that are becoming active and discover
+                how to move consciously toward your future.
+            </p>
+
+            <a href="#" class="button">
+                Begin Your Reading
+            </a>
+
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+{% endblock %}

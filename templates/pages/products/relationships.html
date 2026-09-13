@@ -1,0 +1,589 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship & Compatibility Astro-Numerology</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0d0820;
+        color: #ffffff;
+        line-height: 1.7;
+    }
+
+    .page {
+        padding: 70px 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .image-placeholder {
+        height: 500px;
+        background: #18112e;
+        border: 1px solid rgba(255,255,255, 0.12);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9f91bd;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 5vw, 62px);
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span,
+    .section-title span {
+        color: #cdb5ff;
+    }
+
+    .subtitle {
+        font-size: 21px;
+        color: #d7cce9;
+        margin-bottom: 30px;
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 15px 32px;
+        border-radius: 50px;
+        background: #ffffff;
+        color: #0d0820;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.25s ease;
+    }
+
+    .cta:hover {
+        background: #cdb5ff;
+        transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+        margin-bottom: 75px;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+    }
+
+    .section-text {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 850px;
+    }
+
+    .quote {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 80px;
+        font-size: 26px;
+        font-style: italic;
+        color: #ffffff;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        padding: 30px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+    }
+
+    .card h3 {
+        color: #cdb5ff;
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #ffffff;
+    }
+
+    /* Lists */
+    .list {
+        display: grid;
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .list-item {
+        padding: 18px 22px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #fffeff;
+    }
+
+    .list-item::before {
+        content: "✓";
+        color: #cdb5ff;
+        font-weight: bold;
+        margin-right: 12px;
+    }
+
+    /* Relationship cards */
+    .relationship-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .relationship-card {
+        padding: 30px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+    }
+
+    .relationship-card h3 {
+        font-size: 23px;
+        color: #cdb5ff;
+        margin-bottom: 15px;
+    }
+
+    .relationship-card p {
+        color: #ffffff;
+        margin-bottom: 15px;
+    }
+
+    .relationship-card ul {
+        list-style: none;
+        color: #ffffff;
+    }
+
+    .relationship-card li {
+        margin: 7px 0;
+    }
+
+    .relationship-card li::before {
+        content: "•";
+        color: #cdb5ff;
+        margin-right: 10px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+        text-align: center;
+        padding: 70px 30px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 28px;
+    }
+
+    .final-cta h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .final-cta p {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 720px;
+        margin: 0 auto 30px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .page {
+            padding: 45px 18px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .image-placeholder {
+            height: 330px;
+            order: -1;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+        }
+
+        .cards,
+        .relationship-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 29px;
+        }
+
+        .quote {
+            font-size: 21px;
+            margin-bottom: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .final-cta {
+            padding: 50px 22px;
+        }
+
+        .final-cta h2 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .image-placeholder {
+            height: 280px;
+        }
+
+        .card,
+        .relationship-card {
+            padding: 24px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="page">
+    <div class="container">
+
+```
+    <!-- HERO -->
+    <div class="hero">
+
+        <img src="static/image/image9.jpeg" alt="">
+
+        <div>
+            <h1>
+                Relationship &amp;
+                <span>Compatibility Astro-Numerology</span>
+            </h1>
+
+            <p class="subtitle">
+                The energetic code behind encounters,
+                relationships, and soul connections.
+            </p>
+
+            <a href="#" class="cta">
+                Discover Your Compatibility
+            </a>
+        </div>
+
+    </div>
+
+    <!-- INTRO -->
+    <div class="quote">
+        “Every encounter is a mirror. Every connection is a doorway.”
+    </div>
+
+    <!-- INTRODUCTION -->
+    <section>
+        <h2 class="section-title">
+            The <span>Code of Connection</span>
+        </h2>
+
+        <p class="section-text">
+            Every relationship begins with an energetic encounter.
+            Every connection carries its own unique code, written within
+            the universe.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            Nothing happens by chance. Every soul meets another soul
+            to evolve, understand, and transform.
+        </p>
+    </section>
+
+    <!-- SECRET LANGUAGE -->
+    <section>
+        <h2 class="section-title">
+            The Secret <span>Language of Relationships</span>
+        </h2>
+
+        <p class="section-text">
+            Through your date of birth, Relationship Astro-Numerology
+            explores the deeper dynamics between two people and reveals:
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Deep affinities and natural compatibility
+            </div>
+
+            <div class="list-item">
+                Energetic differences
+            </div>
+
+            <div class="list-item">
+                The strengths within the connection
+            </div>
+
+            <div class="list-item">
+                Evolutionary challenges
+            </div>
+
+            <div class="list-item">
+                The lessons you may bring to one another
+            </div>
+
+        </div>
+
+        <br>
+
+        <p class="section-text">
+            A method designed to translate the invisible language of
+            numbers into greater clarity and understanding.
+        </p>
+    </section>
+
+    <!-- TYPES OF RELATIONSHIPS -->
+    <section>
+        <h2 class="section-title">
+            Explore Your <span>Connections</span>
+        </h2>
+
+        <div class="relationship-grid">
+
+            <!-- LOVE -->
+            <div class="relationship-card">
+                <h3>❤️ Love &amp; Marriage</h3>
+
+                <p>Understand:</p>
+
+                <ul>
+                    <li>The attraction between two people</li>
+                    <li>The harmony within the relationship</li>
+                    <li>The challenges to transform</li>
+                    <li>The evolutionary potential of the connection</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Every relationship can become a journey of growth.
+                </p>
+            </div>
+
+            <!-- FAMILY -->
+            <div class="relationship-card">
+                <h3>👨‍👩‍👧 Parents &amp; Children</h3>
+
+                <p>Discover:</p>
+
+                <ul>
+                    <li>Family soul connections</li>
+                    <li>Connections between generations</li>
+                    <li>The meaning behind significant encounters</li>
+                    <li>Ancestral patterns and DNA symbolism</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Every family can become a field of evolution.
+                </p>
+            </div>
+
+            <!-- BUSINESS -->
+            <div class="relationship-card">
+                <h3>💼 Partners &amp; Collaborations</h3>
+
+                <p>Explore:</p>
+
+                <ul>
+                    <li>Compatibility in the workplace</li>
+                    <li>Dynamics between business partners</li>
+                    <li>The balance between giving and receiving</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Build more conscious and resilient professional
+                    relationships.
+                </p>
+            </div>
+
+            <!-- FRIENDSHIPS -->
+            <div class="relationship-card">
+                <h3>🤝 Friendships &amp; Social Bonds</h3>
+
+                <p>Recognize:</p>
+
+                <ul>
+                    <li>Natural affinities</li>
+                    <li>Connections that encourage growth</li>
+                    <li>The role people play in your journey</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Not everyone stays. But everyone teaches us something.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SPECIAL CONNECTIONS -->
+    <section>
+        <h2 class="section-title">
+            🐾 <span>Special Connections</span>
+        </h2>
+
+        <p class="section-text">
+            Even our bonds with animals and other meaningful presences
+            can hold a special place in our emotional and energetic
+            experience.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            These connections may be subtle, yet deeply meaningful,
+            becoming part of the journey we share with those around us.
+        </p>
+    </section>
+
+    <!-- KEY -->
+    <section>
+        <h2 class="section-title">
+            🌌 The Key to <span>Compatibility</span>
+        </h2>
+
+        <p class="section-text">
+            Astro-Numerology offers a symbolic perspective through which
+            you can explore:
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                The invisible thread connecting two people
+            </div>
+
+            <div class="list-item">
+                The harmonies worth nurturing
+            </div>
+
+            <div class="list-item">
+                The challenges that can become opportunities for growth
+            </div>
+
+            <div class="list-item">
+                The deeper purpose you may discover within an encounter
+            </div>
+
+        </div>
+    </section>
+
+    <!-- POWER -->
+    <section>
+        <h2 class="section-title">
+            🔮 The <span>True Power</span>
+        </h2>
+
+        <p class="section-text">
+            Understanding a relationship can change the way you experience
+            it.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            When you understand the symbolic code of a connection,
+            you can move from simply reacting to the relationship
+            toward creating it with greater awareness.
+        </p>
+    </section>
+
+    <!-- FINAL QUOTE -->
+    <div class="quote">
+        “The souls we meet do not cross our path by chance.
+        They meet us to recognize, heal, and grow.”
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+
+        <h2>
+            Understand Your
+            <span>Connections</span>
+        </h2>
+
+        <p>
+            Explore the symbolic energies, affinities, challenges,
+            and deeper meaning behind the relationships in your life.
+        </p>
+
+        <a href="#" class="cta">
+            Explore Your Compatibility
+        </a>
+
+    </div>
+
+</div>
+
+<br>
+
+
+</body>
+</html>
+
+{% endblock %}

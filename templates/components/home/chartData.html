@@ -1,24 +1,29 @@
+{% load i18n %}
+<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 10px;">{% trans "Zodiaco stars and planets in real time" %}</h1>
+
+<br><br>
+
 <section class="widget glassBg">
     <div class="userDataContainer">
         <div class="userDataData">
             <div class="userDataRow">
-                <p class="userDataCol">Country: <span>{{chartData.Country}}</span></p>
-                <p class="userDataCol">City: <span>{{chartData.City}}</span></p>
+                <p class="userDataCol">{% trans "Country: " %}<span>{{chartData.Country}}</span></p>
+                <p class="userDataCol">{% trans "City: " %} <span>{{chartData.City}}</span></p>
             </div>
             <div class="userDataRow">
-                <p class="userDataCol">Latitude: <span>{{chartData.Latitude}}</span></p>
-                <p class="userDataCol">Longitude: <span>{{chartData.Longitude}}</span></p>
+                <p class="userDataCol">{% trans "Latitude: " %}<span>{{chartData.Latitude}}</span></p>
+                <p class="userDataCol">{% trans "Longitude: " %}<span>{{chartData.Longitude}}</span></p>
             </div>
             <div class="userDataRow">
-                <p class="userDataCol">UTC Time: <span>{{chartData.UTCTime}}</span></p>
-                <p class="userDataCol">Local Time: <span>{{chartData.LocalTime}}</span></p>
+                <p class="userDataCol">{% trans "UTC Time: " %}<span>{{chartData.UTCTime}}</span></p>
+                <p class="userDataCol">{% trans "Local Time: " %}<span>{{chartData.LocalTime}}</span></p>
             </div>
             <div class="userDataRow">
-                <p class="userDataCol">Chart System: <span>Astro-Numerology Egizio</span></p>
+                <p class="userDataCol">{% trans "Chart System: " %} <span>{% trans "Astro-Numerology Egizio" %}</span></p>
             </div>
         </div>
         <div>
-            <p class="tableTitle" style="margin-bottom: 10px;"> Magic Square</p>
+            <p class="tableTitle" style="margin-bottom: 10px;">{% trans "Magic Square" %}</p>
             <table id="Talisman" class="transparent-table-userData">
                 <tr>
                     <td style="color: {{chartData.Talisman.0.color}};">{{chartData.Talisman.0.value}} <sup style="color: {{chartData.Talisman.0.supColor}};">{{chartData.Talisman.0.sup}}</sup></td>
@@ -41,7 +46,7 @@
                     <td style="color: {{chartData.Talisman.11.color}};">{{chartData.Talisman.11.value}} <sup style="color: {{chartData.Talisman.11.supColor}};">{{chartData.Talisman.11.sup}}</sup></td>
                 </tr>
             </table>
-            <p class="tableTitle" style="margin-top: 10px; text-align: center;">Lucky numbers for today</p>
+            <p class="tableTitle" style="margin-top: 10px; text-align: center;">{% trans "Lucky numbers for today" %}</p>
         </div>
     </div>
 </section>

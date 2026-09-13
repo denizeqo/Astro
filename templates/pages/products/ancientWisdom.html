@@ -1,0 +1,580 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Egyptian Medical Astro-Numerology</title>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0d0820;
+        color: #ffffff;
+        line-height: 1.7;
+    }
+
+    .page {
+        padding: 70px 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .image-placeholder {
+        height: 500px;
+        background: #18112e;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9f91bd;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 5vw, 64px);
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span,
+    .section-title span {
+        color: #cdb5ff;
+    }
+
+    .subtitle {
+        font-size: 21px;
+        color: #d7cce9;
+        margin-bottom: 30px;
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 15px 32px;
+        border-radius: 50px;
+        background: #ffffff;
+        color: #0d0820;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.25s ease;
+    }
+
+    .cta:hover {
+        background: #cdb5ff;
+        transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+        margin-bottom: 75px;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+    }
+
+    .section-text {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 850px;
+    }
+
+    .quote {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 80px;
+        font-size: 26px;
+        font-style: italic;
+        color: #f8f6fa;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        padding: 30px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+    }
+
+    .card h3 {
+        color: #cdb5ff;
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #f8f8f8;
+    }
+
+    /* Lists */
+    .list {
+        display: grid;
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .list-item {
+        padding: 18px 22px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #ffffff;
+    }
+
+    .list-item::before {
+        content: "✓";
+        color: #cdb5ff;
+        font-weight: bold;
+        margin-right: 12px;
+    }
+
+    /* Integration */
+    .integration {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .integration-item {
+        padding: 20px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #eee7f8;
+    }
+
+    /* Final CTA */
+    .final-cta {
+        text-align: center;
+        padding: 70px 30px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 28px;
+    }
+
+    .final-cta h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .final-cta p {
+        color: #ffffff;
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .page {
+            padding: 45px 18px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .image-placeholder {
+            height: 330px;
+            order: -1;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+        }
+
+        .cards,
+        .integration {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 29px;
+        }
+
+        .quote {
+            font-size: 21px;
+            margin-bottom: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .final-cta {
+            padding: 50px 22px;
+        }
+
+        .final-cta h2 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .image-placeholder {
+            height: 280px;
+        }
+
+        .card {
+            padding: 24px;
+        }
+
+        .list-item {
+            padding: 15px 17px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+    <div class="container">
+
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <img src="static/image/image8.jpeg" alt="">
+
+        <div>
+            <h1>
+                Ancient Egyptian
+                <span>Medical Astro-Numerology</span>
+            </h1>
+
+            <p class="subtitle">
+                An ancient wisdom that brings together the Stars,
+                Numbers, and Life Energy.
+            </p>
+
+            <a href="#" class="cta">
+                Discover Your Reading
+            </a>
+        </div>
+
+    </div>
+
+    <!-- INTRO -->
+    <div class="quote">
+        “Reconnect with your deepest essence and restore the balance
+        of your energy.”
+    </div>
+
+    <section>
+        <h2 class="section-title">
+            An <span>Ancient Knowledge</span>
+        </h2>
+
+        <p class="section-text">
+            There is an ancestral knowledge, preserved within the temples
+            of ancient Egypt, that combines the language of the stars with
+            the power of numbers and the harmony of the energetic body.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            This system begins with your origin — your date of birth —
+            and creates a unique map for exploring your inner nature,
+            potential, and energetic balance.
+        </p>
+    </section>
+
+    <!-- AREAS -->
+    <section>
+        <h2 class="section-title">
+            Areas of <span>Exploration</span>
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Inner Balance</h3>
+                <p>
+                    Explore the energies connected with your inner
+                    nature and seek greater harmony within yourself.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Self-Realization</h3>
+                <p>
+                    Discover your deeper qualities, talents, and
+                    personal potential.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Prosperity</h3>
+                <p>
+                    Explore the symbolic energies associated with
+                    growth, opportunities, and abundance.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Relationships</h3>
+                <p>
+                    Gain a deeper perspective on the energies that
+                    influence your connections with others.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- METHOD -->
+    <section>
+        <h2 class="section-title">
+            A <span>Unique Method</span>
+        </h2>
+
+        <p class="section-text">
+            This approach combines several symbolic systems to create
+            a deeper interpretation of your personal energetic profile.
+        </p>
+
+        <div class="integration">
+
+            <div class="integration-item">
+                ✦ The Influences of the Stars
+            </div>
+
+            <div class="integration-item">
+                ✦ The Seven Traditional Planets
+            </div>
+
+            <div class="integration-item">
+                ✦ The Arabic Parts
+            </div>
+
+            <div class="integration-item">
+                ✦ The Sacred Astrological Houses
+            </div>
+
+            <div class="integration-item">
+                ✦ Your Birth Numbers
+            </div>
+
+        </div>
+
+        <br>
+
+        <p class="section-text">
+            The purpose is to reveal your true essence from its deepest
+            roots — the first step toward greater balance.
+        </p>
+    </section>
+
+    <!-- JOURNEY -->
+    <section>
+        <h2 class="section-title">
+            A Journey <span>Within Yourself</span>
+        </h2>
+
+        <p class="section-text">
+            Through symbols, numbers, and archetypes, you can explore:
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Who you are at your deepest level
+            </div>
+
+            <div class="list-item">
+                Which energies guide your journey
+            </div>
+
+            <div class="list-item">
+                Which talents are waiting to be awakened
+            </div>
+
+            <div class="list-item">
+                How to cultivate greater harmony between body,
+                mind, and spirit
+            </div>
+
+        </div>
+
+        <br>
+
+        <p class="section-text">
+            A bridge between the wisdom of the heavens and the inner
+            truth of the human being.
+        </p>
+    </section>
+
+    <!-- NUMBERS -->
+    <section>
+        <h2 class="section-title">
+            Numbers, Symbols &amp;
+            <span>Energetic Healing</span>
+        </h2>
+
+        <p class="section-text">
+            In the Egyptian tradition, a number was not simply a quantity,
+            but a living vibration. Every symbol represented energy.
+            Every number represented consciousness.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            Through these principles, interpretive maps, readings of
+            destiny, and practices for energetic balance were developed.
+        </p>
+    </section>
+
+    <!-- TECHNIQUES -->
+    <section>
+        <h2 class="section-title">
+            Ancient <span>Harmonization Techniques</span>
+        </h2>
+
+        <p class="section-text">
+            Ancient Egyptian tradition used various practices intended
+            to restore balance and harmony.
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Sacred rituals and symbolic formulas
+            </div>
+
+            <div class="list-item">
+                Herbs and natural preparations
+            </div>
+
+            <div class="list-item">
+                Energetic concentration techniques
+            </div>
+
+            <div class="list-item">
+                Laying on of hands
+            </div>
+
+        </div>
+
+        <br>
+
+        <p class="section-text">
+            One particularly powerful practice was known as
+            “healing through sleep,” in which the priest used presence,
+            touch, and energy as part of a process intended to encourage
+            the individual's energetic rebalancing.
+        </p>
+
+        <br>
+
+        <p class="section-text">
+            These ancient traditions are presented as part of the
+            historical roots of what is now described as energetic
+            magnetism and bioenergetic practices.
+        </p>
+    </section>
+
+    <!-- WHAT YOU RECEIVE -->
+    <section>
+        <h2 class="section-title">
+            The <span>Call of Your Essence</span>
+        </h2>
+
+        <p class="section-text">
+            This analysis is designed to guide you toward:
+        </p>
+
+        <div class="list">
+
+            <div class="list-item">
+                Understanding your origins
+            </div>
+
+            <div class="list-item">
+                Restoring balance within your energy
+            </div>
+
+            <div class="list-item">
+                Activating your potential
+            </div>
+
+            <div class="list-item">
+                Living in greater harmony with your path
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+
+        <h2>
+            Discover Your <span>Inner Essence</span>
+        </h2>
+
+        <p>
+            Explore the ancient connection between stars, numbers,
+            symbols, and your personal journey.
+        </p>
+
+        <a href="#" class="cta">
+            Start Your Reading
+        </a>
+
+    </div>
+
+</div>
+
+<br>
+
+</body>
+</html>
+{% endblock %}

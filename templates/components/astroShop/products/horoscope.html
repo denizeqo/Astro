@@ -1,0 +1,42 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Horoscope" %}
+        </span>
+
+        <img
+            src="static/image/image1.jpeg"
+            alt="Astro Numerology Personalized Horoscope"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro Numerology – Personalized Horoscope" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Discover the energies that drive your life every
+            day and every month. Explore love, work, emotions
+            and lucky numbers with practical guidance to help
+            you act at the right time.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/another-page/"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

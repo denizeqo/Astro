@@ -1,0 +1,39 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Stars" %}
+        </span>
+
+        <img
+            src="static/image/image17.jpg"
+            alt="Relationships and Compatibility"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Sidereal Astro-Numerology" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Through this ancient system, your birth chart is reconstructed to help you gain a deeper understanding of your roots, your present, and the path that lies ahead.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/stars"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

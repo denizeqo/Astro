@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Magnetism" %}
+        </span>
+
+        <img
+            src="static/image/image13.jpeg"
+            alt="Relationships and Compatibility"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro-Magnetism" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            An integrated study of astrology, numerology
+            and subtle energy designed to explore your
+            talents, vocation and evolutionary direction.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/magnetism"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

@@ -1,0 +1,1393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-13 19:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\components\aboutUs\birthCode.html:7
+msgid "The Birth Code"
+msgstr "Il Codice di Nascita"
+
+#: .\templates\components\aboutUs\birthCode.html:10
+msgid ""
+"\n"
+"                At the heart of the system lies a fundamental discovery.\n"
+"                "
+msgstr ""
+"\n"
+"                Al cuore del sistema si trova una scoperta fondamentale.\n"
+"                "
+
+#: .\templates\components\aboutUs\birthCode.html:19
+msgid ""
+"\n"
+"                From the date of birth, 12 key numbers emerge.\n"
+"                "
+msgstr ""
+"\n"
+"                Dalla data di nascita emergono 12 numeri fondamentali.\n"
+"                "
+
+#: .\templates\components\aboutUs\birthCode.html:32
+msgid "Your Essence"
+msgstr "La Tua Essenza"
+
+#: .\templates\components\aboutUs\birthCode.html:35
+msgid ""
+"\n"
+"                        The fundamental qualities and inner nature\n"
+"                        that define your personal structure.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Le qualità fondamentali e la natura interiore\n"
+"                        che definiscono la tua struttura personale.\n"
+"                        "
+
+#: .\templates\components\aboutUs\birthCode.html:50
+msgid "Your Abilities"
+msgstr "Le Tue Capacità"
+
+#: .\templates\components\aboutUs\birthCode.html:53
+msgid ""
+"\n"
+"                        The talents, capacities and potential\n"
+"                        that you can develop throughout life.\n"
+"                        "
+msgstr ""
+"\n"
+"                        I talenti, le capacità e il potenziale\n"
+"                        che puoi sviluppare nel corso della vita.\n"
+"                        "
+
+#: .\templates\components\aboutUs\birthCode.html:68
+msgid "Your Challenges"
+msgstr "Le Tue Sfide"
+
+#: .\templates\components\aboutUs\birthCode.html:71
+msgid ""
+"\n"
+"                        The experiences and lessons that can\n"
+"                        contribute to your evolutionary path.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Le esperienze e gli insegnamenti che possono\n"
+"                        contribuire al tuo percorso evolutivo.\n"
+"                        "
+
+#: .\templates\components\aboutUs\birthCode.html:84
+msgid ""
+"\n"
+"                    In ancient traditions, these codes were regarded\n"
+"                    as a personal talisman. Today, they become a tool\n"
+"                    for self-awareness and orientation.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Nelle antiche tradizioni, questi codici erano "
+"considerati\n"
+"                    un talismano personale. Oggi diventano uno strumento\n"
+"                    di consapevolezza e orientamento.\n"
+"                    "
+
+#: .\templates\components\aboutUs\final.html:6
+msgid "A Project Born From A Lifetime Of Experience"
+msgstr "Un Progetto Nato da una Vita di Esperienza"
+
+#: .\templates\components\aboutUs\final.html:13
+msgid ""
+"\n"
+"            Astro Magnetism was born from a lifetime of experience, study, "
+"and research. \n"
+"            "
+msgstr ""
+"\n"
+"            Astro Magnetismo nasce da una vita di esperienza, studio e "
+"ricerca.\n"
+"            "
+
+#: .\templates\components\aboutUs\final.html:17
+msgid ""
+"\n"
+"            Every person carries a direction within themselves. Sometimes, "
+"the direction is not missing. What is missing is simply a key to recognize "
+"it.\n"
+"            "
+msgstr ""
+"\n"
+"            Ogni persona porta dentro di sé una direzione. A volte, la "
+"direzione\n"
+"            non manca. Ciò che manca è semplicemente una chiave per "
+"riconoscerla.\n"
+"            "
+
+#: .\templates\components\aboutUs\final.html:23
+#: .\templates\components\astroShop\hero.html:5
+#: .\templates\components\nav.html:17
+msgid "Astro Magnetismo"
+msgstr "Astro Magnetismo"
+
+#: .\templates\components\aboutUs\final.html:29
+msgid ""
+"\n"
+"            When the sky reveals its language, the soul recognizes its "
+"destiny\n"
+"            "
+msgstr ""
+"\n"
+"            Quando il cielo rivela il suo linguaggio, l'anima riconosce il "
+"suo destino\n"
+"            "
+
+#: .\templates\components\aboutUs\fromTheDate.html:7
+msgid "From The Date Of Birth To Self-Knowledge"
+msgstr "Dalla Data di Nascita alla Conoscenza di Sé"
+
+#: .\templates\components\aboutUs\fromTheDate.html:13
+msgid ""
+"\n"
+"                Based on your date of birth, Astro Magnetism helps you "
+"discover more deeply who you are, understand your energetic structure, "
+"recognize your talents and face the experiences of life with greater "
+"awareness.\n"
+"                "
+msgstr ""
+"\n"
+"                In base alla tua data di nascita, Astro Magnetismo ti aiuta "
+"a\n"
+"                scoprire più profondamente chi sei, comprendere la tua "
+"struttura\n"
+"                energetica, riconoscere i tuoi talenti e affrontare le "
+"esperienze\n"
+"                della vita con maggiore consapevolezza.\n"
+"                "
+
+#: .\templates\components\aboutUs\fromTheDate.html:19
+msgid ""
+"\n"
+"                We help you discover who you are, understand your energy and "
+"face life with greater awareness. But knowing yourself is only the first "
+"step. \n"
+"                The true journey consists of becoming a conscious creator of "
+"your own destiny, developing your potential and learning to use your "
+"personal magnetism in a personalized and conscious way.\n"
+"                "
+msgstr ""
+"\n"
+"                Ti aiutiamo a scoprire chi sei, comprendere la tua energia "
+"e\n"
+"                affrontare la vita con maggiore consapevolezza. Ma conoscere "
+"se\n"
+"                stessi è solo il primo passo.\n"
+"                Il vero viaggio consiste nel diventare creatori consapevoli "
+"del\n"
+"                proprio destino, sviluppare il proprio potenziale e imparare "
+"a\n"
+"                utilizzare il proprio magnetismo personale in modo "
+"consapevole e\n"
+"                personalizzato.\n"
+"                "
+
+#: .\templates\components\aboutUs\hero.html:6
+#: .\templates\components\home\landingPage.html:22
+#: .\templates\components\nav.html:15
+msgid "About Us"
+msgstr "Chi siamo"
+
+#: .\templates\components\aboutUs\hero.html:10
+msgid "Astro "
+msgstr "Astro "
+
+#: .\templates\components\aboutUs\hero.html:10
+msgid "Magnetismo"
+msgstr "Magnetismo"
+
+#: .\templates\components\aboutUs\hero.html:14
+msgid ""
+"\n"
+"            A vision born from a lifetime of research, experience,\n"
+"            observation and a deep exploration of the laws that connect\n"
+"            the human being with the universe.\n"
+"            "
+msgstr ""
+"\n"
+"            Una visione nata da una vita di ricerca, esperienza,\n"
+"            osservazione e profonda esplorazione delle leggi che collegano\n"
+"            l'essere umano all'universo.\n"
+"            "
+
+#: .\templates\components\aboutUs\mission.html:7
+msgid "Our Mission"
+msgstr "La Nostra Missione"
+
+#: .\templates\components\aboutUs\mission.html:13
+msgid ""
+"\n"
+"                The mission of Astro Magnetism is to make a profound "
+"understanding of the human being accessible to everyone, helping each person "
+"understand themselves, recognize their potential, and find tools for "
+"guidance along their personal journey.\n"
+"                "
+msgstr ""
+"\n"
+"                La missione di Astro Magnetismo è rendere accessibile a "
+"tutti\n"
+"                una profonda comprensione dell'essere umano, aiutando ogni "
+"persona\n"
+"                a comprendere se stessa, riconoscere il proprio potenziale e "
+"trovare\n"
+"                strumenti di orientamento lungo il proprio percorso "
+"personale.\n"
+"                "
+
+#: .\templates\components\aboutUs\mission.html:21
+msgid ""
+"\n"
+"                    We offer a key to reading what is already within you.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Offriamo una chiave per leggere ciò che è già dentro di "
+"te.\n"
+"                    "
+
+#: .\templates\components\aboutUs\principle.html:7
+msgid "The Principle of the Method"
+msgstr "Il Principio del Metodo"
+
+#: .\templates\components\aboutUs\principle.html:13
+msgid ""
+"\n"
+"                Astro Magnetismo is based on a clear vision:\n"
+"                no energy is ever simply positive or negative.\n"
+"                "
+msgstr ""
+"\n"
+"                Astro Magnetismo si basa su una visione chiara:\n"
+"                nessuna energia è mai semplicemente positiva o negativa.\n"
+"                "
+
+#: .\templates\components\aboutUs\principle.html:20
+msgid ""
+"\n"
+"                Every energy always contains three dimensions:\n"
+"                "
+msgstr ""
+"\n"
+"                Ogni energia contiene sempre tre dimensioni:\n"
+"                "
+
+#: .\templates\components\aboutUs\principle.html:29
+msgid "The Gift"
+msgstr "Il Dono"
+
+#: .\templates\components\aboutUs\principle.html:31
+msgid ""
+"\n"
+"                        A quality or potential that can be expressed\n"
+"                        and developed.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Una qualità o un potenziale che può essere espresso\n"
+"                        e sviluppato.\n"
+"                        "
+
+#: .\templates\components\aboutUs\principle.html:40
+msgid "The Challenge"
+msgstr "La Sfida"
+
+#: .\templates\components\aboutUs\principle.html:42
+msgid ""
+"\n"
+"                        An experience that invites awareness,\n"
+"                        transformation and growth.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Un'esperienza che invita alla consapevolezza,\n"
+"                        alla trasformazione e alla crescita.\n"
+"                        "
+
+#: .\templates\components\aboutUs\principle.html:51
+msgid "The Lesson"
+msgstr "La Lezione"
+
+#: .\templates\components\aboutUs\principle.html:53
+msgid ""
+"\n"
+"                        A deeper understanding that can emerge through "
+"experience and transform the challenge into awareness.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Una comprensione più profonda che può emergere "
+"attraverso\n"
+"                        l'esperienza e trasformare la sfida in "
+"consapevolezza.\n"
+"                        "
+
+#: .\templates\components\aboutUs\principle.html:63
+msgid ""
+"\n"
+"                    Light and shadow are two aspects of the same energy.\n"
+"                    Understanding this means transforming the way\n"
+"                    we experience our lives.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Luce e ombra sono due aspetti della stessa energia.\n"
+"                    Comprendere questo significa trasformare il modo\n"
+"                    in cui viviamo le nostre vite.\n"
+"                    "
+
+#: .\templates\components\aboutUs\theJourney.html:7
+msgid "The Journey Of Astro Magnetism"
+msgstr "Il Viaggio di Astro Magnetismo"
+
+#: .\templates\components\aboutUs\theJourney.html:13
+msgid "Know → Understand → Transform → Harmonize → Realize"
+msgstr "Conoscere → Comprendere → Trasformare → Armonizzare → Realizzare"
+
+#: .\templates\components\aboutUs\theJourney.html:17
+msgid ""
+"\n"
+"                Know your law of birth. \n"
+"                Understand your energies Transform your challenges into "
+"awareness.\n"
+"                Harmonize Spirit and Soul. \n"
+"                Develop your potential. Because the true goal is not simply "
+"to know your destiny.\n"
+"                It is to learn how to live it. \n"
+"                And when what is above finds its balance with what is below, "
+"we can move closer to what we call:\n"
+"                "
+msgstr ""
+"\n"
+"                Conosci la tua legge di nascita.\n"
+"                Comprendi le tue energie. Trasforma le tue sfide in "
+"consapevolezza.\n"
+"                Armonizza Spirito e Anima.\n"
+"                Sviluppa il tuo potenziale. Perché il vero obiettivo non è\n"
+"                semplicemente conoscere il tuo destino.\n"
+"                È imparare a viverlo.\n"
+"                E quando ciò che è sopra trova il suo equilibrio con ciò che "
+"è sotto,\n"
+"                possiamo avvicinarci a ciò che chiamiamo:\n"
+"                "
+
+#: .\templates\components\aboutUs\theJourney.html:28
+msgid ""
+"\n"
+"                THE REALIZATION OF OUR EARTHLY PARADISE.\n"
+"                "
+msgstr ""
+"\n"
+"                LA REALIZZAZIONE DEL NOSTRO PARADISO TERRENO.\n"
+"                "
+
+#: .\templates\components\aboutUs\theMethod.html:8
+msgid "The Astro Magnetismo Method"
+msgstr "Il Metodo di Astro Magnetismo"
+
+#: .\templates\components\aboutUs\theMethod.html:11
+msgid ""
+"\n"
+"                An integrated system bringing together three\n"
+"                complementary dimensions of knowledge.\n"
+"                "
+msgstr ""
+"\n"
+"                Un sistema integrato che riunisce tre\n"
+"                dimensioni complementari della conoscenza.\n"
+"                "
+
+#: .\templates\components\aboutUs\theMethod.html:27
+msgid "Astrology"
+msgstr "Astrologia"
+
+#: .\templates\components\aboutUs\theMethod.html:30
+msgid ""
+"\n"
+"                    The stars and planets and their symbolic\n"
+"                    relationship with our lives and cycles.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Le stelle e i pianeti e la loro relazione simbolica\n"
+"                    con le nostre vite e i nostri cicli.\n"
+"                    "
+
+#: .\templates\components\aboutUs\theMethod.html:45
+msgid "Numerology"
+msgstr "Numerologia"
+
+#: .\templates\components\aboutUs\theMethod.html:48
+msgid ""
+"\n"
+"                    The numerical codes contained within\n"
+"                    the date of birth.\n"
+"                    "
+msgstr ""
+"\n"
+"                    I codici numerici contenuti nella\n"
+"                    data di nascita.\n"
+"                    "
+
+#: .\templates\components\aboutUs\theMethod.html:63
+#: .\templates\components\astroShop\products\magnetism.html:7
+msgid "Magnetism"
+msgstr "Magnetismo"
+
+#: .\templates\components\aboutUs\theMethod.html:66
+msgid ""
+"\n"
+"                    The dimension of energy, attraction and\n"
+"                    personal magnetism.\n"
+"                    "
+msgstr ""
+"\n"
+"                    La dimensione dell'energia, dell'attrazione e\n"
+"                    del magnetismo personale.\n"
+"                    "
+
+#: .\templates\components\aboutUs\theMethod.html:78
+msgid ""
+"\n"
+"                This method introduces an innovative key: the \n"
+"                "
+msgstr ""
+"\n"
+"                Questo metodo introduce una chiave innovativa:\n"
+"                "
+
+#: .\templates\components\aboutUs\theMethod.html:82
+msgid ""
+"\n"
+"                    \"Zodiac within the Zodiac.\"\n"
+"                    "
+msgstr ""
+"\n"
+"                    \"Lo Zodiaco nello Zodiaco.\"\n"
+"                    "
+
+#: .\templates\components\aboutUs\theMethod.html:89
+msgid ""
+"\n"
+"                A reading that does not stop at appearances,\n"
+"                but moves deeper into the inner structure of\n"
+"                the individual.\n"
+"                "
+msgstr ""
+"\n"
+"                Una lettura che non si ferma alle apparenze,\n"
+"                ma penetra più profondamente nella struttura interiore\n"
+"                dell'individuo.\n"
+"                "
+
+#: .\templates\components\aboutUs\visionBorn.html:6
+msgid "A Vision Born from a Lifetime"
+msgstr "Una Visione Nata da una Vita di Esperienza"
+
+#: .\templates\components\aboutUs\visionBorn.html:12
+msgid ""
+"\n"
+"                Astro Magnetism is an integrated system of self-knowledge "
+"that combines Astrology, Astro-Numerology and Astro Magnetism, creating a "
+"personal and profound vision of the human being. \n"
+"                This platform is born from the study of the relationship "
+"between Macrocosm and Microcosm and of the laws that govern the Universe and "
+"life, connecting what exists in the greater Universe with what lives and "
+"manifests within the human being.\n"
+"                "
+msgstr ""
+"\n"
+"                Astro Magnetismo è un sistema integrato di conoscenza di sé\n"
+"                che combina Astrologia, Astro-Numerologia e Astro "
+"Magnetismo,\n"
+"                creando una visione personale e profonda dell'essere umano.\n"
+"                Questa piattaforma nasce dallo studio della relazione tra\n"
+"                Macrocosmo e Microcosmo e delle leggi che governano "
+"l'Universo\n"
+"                e la vita, collegando ciò che esiste nell'Universo più "
+"grande\n"
+"                con ciò che vive e si manifesta nell'essere umano.\n"
+"                "
+
+#: .\templates\components\aboutUs\visionBorn.html:19
+msgid ""
+"\n"
+"                At the foundation of this vision is a fundamental principle: "
+"every human being is shaped by a law of birth, experience and "
+"transformation.\n"
+"                "
+msgstr ""
+"\n"
+"                Alla base di questa visione c'è un principio fondamentale:\n"
+"                ogni essere umano è plasmato da una legge di nascita,\n"
+"                esperienza e trasformazione.\n"
+"                "
+
+#: .\templates\components\aboutUs\visionBorn.html:25
+msgid ""
+"\n"
+"                Throughout life, the human being exists between two great "
+"dimensions: above and below, Spirit and Soul.\n"
+"                Spirit represents the unconscious, the higher dimension of "
+"our being: our inner potential, the unconscious, ancestral energies, "
+"archetypes, innate vocations and natural talents that we carry within us.\n"
+"                Soul represents the conscious and tangible dimension: our "
+"experience, our choices, our emotions and the life we live on Earth.\n"
+"                "
+msgstr ""
+"\n"
+"                Nel corso della vita, l'essere umano esiste tra due grandi\n"
+"                dimensioni: sopra e sotto, Spirito e Anima.\n"
+"                Lo Spirito rappresenta l'inconscio, la dimensione superiore\n"
+"                del nostro essere: il nostro potenziale interiore, "
+"l'inconscio,\n"
+"                le energie ancestrali, gli archetipi, le vocazioni innate e "
+"i\n"
+"                talenti naturali che portiamo dentro di noi.\n"
+"                L'Anima rappresenta la dimensione cosciente e tangibile: la "
+"nostra\n"
+"                esperienza, le nostre scelte, le nostre emozioni e la vita "
+"che\n"
+"                viviamo sulla Terra.\n"
+"                "
+
+#: .\templates\components\aboutUs\visionBorn.html:33
+msgid ""
+"\n"
+"                The journey of life consists of creating a conscious balance "
+"between these two dimensions, so that the potential of Spirit can find "
+"expression in reality through the Soul.\n"
+"                For this reason, our task is not to place one force against "
+"the other, but to harmonize Spirit and Soul within the different spheres of "
+"life. \n"
+"                When these two dimensions come into harmony, the potential "
+"we carry within us can begin to fully manifest in our lives.\n"
+"                "
+msgstr ""
+"\n"
+"                Il viaggio della vita consiste nel creare un equilibrio\n"
+"                consapevole tra queste due dimensioni, affinché il "
+"potenziale\n"
+"                dello Spirito possa trovare espressione nella realtà "
+"attraverso\n"
+"                l'Anima.\n"
+"                Per questo motivo, il nostro compito non è contrapporre una "
+"forza\n"
+"                all'altra, ma armonizzare Spirito e Anima nelle diverse "
+"sfere\n"
+"                della vita.\n"
+"                Quando queste due dimensioni entrano in armonia, il "
+"potenziale\n"
+"                che portiamo dentro di noi può iniziare a manifestarsi "
+"pienamente\n"
+"                nella nostra vita.\n"
+"                "
+
+#: .\templates\components\aboutUs\whatWeOffer.html:8
+msgid "What You Can Explore Through The Method"
+msgstr "Cosa Puoi Esplorare Attraverso il Metodo"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:11
+msgid ""
+"\n"
+"                Through our method, you can explore and develop\n"
+"                different dimensions of your personal journey.\n"
+"                "
+msgstr ""
+"\n"
+"                Attraverso il nostro metodo, puoi esplorare e sviluppare\n"
+"                diverse dimensioni del tuo percorso personale.\n"
+"                "
+
+#: .\templates\components\aboutUs\whatWeOffer.html:22
+msgid "Know Yourself"
+msgstr "Conosci Te Stesso"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:24
+msgid "Discover your inner structure and your essence."
+msgstr "Scopri la tua struttura interiore e la tua essenza."
+
+#: .\templates\components\aboutUs\whatWeOffer.html:28
+msgid "Understand Your Energy"
+msgstr "Comprendi la Tua Energia"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:30
+msgid "Recognize how your energies manifest in your life."
+msgstr "Riconosci come le tue energie si manifestano nella tua vita."
+
+#: .\templates\components\aboutUs\whatWeOffer.html:34
+msgid "Develop Your Personal Magnetism"
+msgstr "Sviluppa il Tuo Magnetismo Personale"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:36
+msgid "Learn to consciously express your potential."
+msgstr "Impara a esprimere consapevolmente il tuo potenziale."
+
+#: .\templates\components\aboutUs\whatWeOffer.html:41
+msgid "Recognize Your Talents"
+msgstr "Riconosci i Tuoi Talenti"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:43
+msgid "Discover your abilities, innate vocations, and inner resources."
+msgstr ""
+"Scopri le tue capacità, le vocazioni innate e le tue risorse interiori."
+
+#: .\templates\components\aboutUs\whatWeOffer.html:47
+msgid "Understand Your Challenges"
+msgstr "Comprendi le Tue Sfide"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:49
+msgid "Transform difficulties into opportunities for awareness and growth."
+msgstr "Trasforma le difficoltà in opportunità di consapevolezza e crescita."
+
+#: .\templates\components\aboutUs\whatWeOffer.html:53
+msgid "Gain Guidance for Your Choices"
+msgstr "Ottieni una Guida per le Tue Scelte"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:55
+msgid "Develop greater awareness across the different spheres of life."
+msgstr "Sviluppa una maggiore consapevolezza nelle diverse sfere della vita."
+
+#: .\templates\components\aboutUs\whatWeOffer.html:59
+msgid "Live with Greater Balance"
+msgstr "Vivi con Maggiore Equilibrio"
+
+#: .\templates\components\aboutUs\whatWeOffer.html:61
+msgid "Harmonize who you are with the life you live."
+msgstr "Armonizza ciò che sei con la vita che vivi."
+
+#: .\templates\components\astroShop\hero.html:9
+msgid "Explore Your "
+msgstr "Esplora il Tuo "
+
+#: .\templates\components\astroShop\hero.html:9
+msgid "Path"
+msgstr "Percorso"
+
+#: .\templates\components\astroShop\hero.html:13
+msgid ""
+"\n"
+"        Discover our collection of astro-numerological readings,\n"
+"        energetic studies and personalized tools designed to help\n"
+"        you understand yourself, your cycles and your path.\n"
+"        "
+msgstr ""
+"\n"
+"        Scopri la nostra collezione di letture astro-numerologiche,\n"
+"        studi energetici e strumenti personalizzati pensati per aiutarti\n"
+"        a comprendere te stesso, i tuoi cicli e il tuo percorso.\n"
+"        "
+
+#: .\templates\components\astroShop\products\ancientWisdom.html:7
+msgid "Ancient Wisdom"
+msgstr "Antica Saggezza"
+
+#: .\templates\components\astroShop\products\ancientWisdom.html:20
+msgid "Ancient Egyptian Medical Astro-Numerology"
+msgstr "Astro-Numerologia Medica dell'Antico Egitto"
+
+#: .\templates\components\astroShop\products\ancientWisdom.html:24
+msgid ""
+"\n"
+"            Explore an ancient system connecting stars,\n"
+"            numbers and vital energy to help restore balance\n"
+"            and reconnect with your deeper essence.\n"
+"            "
+msgstr ""
+"\n"
+"            Esplora un antico sistema che collega stelle,\n"
+"            numeri ed energia vitale per aiutarti a ritrovare l'equilibrio\n"
+"            e riconnetterti con la tua essenza più profonda.\n"
+"            "
+
+#: .\templates\components\astroShop\products\ancientWisdom.html:35
+#: .\templates\components\astroShop\products\astrography.html:35
+#: .\templates\components\astroShop\products\birthChart.html:36
+#: .\templates\components\astroShop\products\destiny.html:35
+#: .\templates\components\astroShop\products\essentialOils.html:35
+#: .\templates\components\astroShop\products\evolution.html:35
+#: .\templates\components\astroShop\products\forecast.html:35
+#: .\templates\components\astroShop\products\horoscope.html:36
+#: .\templates\components\astroShop\products\innerWorld.html:35
+#: .\templates\components\astroShop\products\lifeMap.html:35
+#: .\templates\components\astroShop\products\lunar.html:35
+#: .\templates\components\astroShop\products\magnetism.html:35
+#: .\templates\components\astroShop\products\moon.html:35
+#: .\templates\components\astroShop\products\relationships.html:34
+#: .\templates\components\astroShop\products\soul.html:35
+#: .\templates\components\astroShop\products\stars.html:33
+msgid "Explore"
+msgstr "Esplora"
+
+#: .\templates\components\astroShop\products\astrography.html:7
+msgid "Astrography"
+msgstr "Astrografia"
+
+#: .\templates\components\astroShop\products\astrography.html:20
+msgid " Astro-Numerology Astrography"
+msgstr " Astrografia Astro-Numerologica"
+
+#: .\templates\components\astroShop\products\astrography.html:24
+msgid ""
+"\n"
+"            Discover how the energies of the sky connect\n"
+"            with places on Earth and explore environments\n"
+"            that may resonate with your goals and path.\n"
+"            "
+msgstr ""
+"\n"
+"            Scopri come le energie del cielo si collegano\n"
+"            ai luoghi sulla Terra ed esplora ambienti\n"
+"            che possono essere in sintonia con i tuoi obiettivi e il tuo "
+"percorso.\n"
+"            "
+
+#: .\templates\components\astroShop\products\birthChart.html:7
+msgid "Birth Chart"
+msgstr "Tema Natale"
+
+#: .\templates\components\astroShop\products\birthChart.html:20
+msgid "Astro-Numerological Birth Chart of the Fixed Stars"
+msgstr "Tema Natale Astro-Numerologico delle Stelle Fisse"
+
+#: .\templates\components\astroShop\products\birthChart.html:24
+msgid ""
+"\n"
+"            Discover your destiny map through the fixed stars\n"
+"            and your birth numbers. A profound guide to\n"
+"            understanding yourself and recognizing the right\n"
+"            moments for transformation.\n"
+"            "
+msgstr ""
+"\n"
+"            Scopri la mappa del tuo destino attraverso le stelle fisse\n"
+"            e i tuoi numeri di nascita. Una guida profonda per\n"
+"            comprendere te stesso e riconoscere i momenti giusti\n"
+"            per la trasformazione.\n"
+"            "
+
+#: .\templates\components\astroShop\products\destiny.html:7
+msgid "Destiny"
+msgstr "Destino"
+
+#: .\templates\components\astroShop\products\destiny.html:20
+msgid "Astro-Numerology – The Wheel of Destiny"
+msgstr "Astro-Numerologia – La Ruota del Destino"
+
+#: .\templates\components\astroShop\products\destiny.html:24
+msgid ""
+"\n"
+"            Activate your destiny and explore the areas of\n"
+"            personality, health, relationships, career,\n"
+"            vocation, prosperity and money.\n"
+"            "
+msgstr ""
+"\n"
+"            Attiva il tuo destino ed esplora gli ambiti della\n"
+"            personalità, della salute, delle relazioni, della carriera,\n"
+"            della vocazione, della prosperità e del denaro.\n"
+"            "
+
+#: .\templates\components\astroShop\products\essentialOils.html:7
+msgid "Essential Oils"
+msgstr "Oli Essenziali"
+
+#: .\templates\components\astroShop\products\essentialOils.html:20
+msgid "Personalized Essential Oil Elixirs"
+msgstr "Elisir Personalizzati di Oli Essenziali"
+
+#: .\templates\components\astroShop\products\essentialOils.html:24
+msgid ""
+"\n"
+"            A unique blend created specifically for you,\n"
+"            designed to support balance of body, mind and\n"
+"            energy through the natural vibration of essential oils.\n"
+"            "
+msgstr ""
+"\n"
+"            Una miscela unica creata appositamente per te,\n"
+"            progettata per sostenere l'equilibrio di corpo, mente ed\n"
+"            energia attraverso la vibrazione naturale degli oli essenziali.\n"
+"            "
+
+#: .\templates\components\astroShop\products\evolution.html:7
+msgid "Evolution"
+msgstr "Evoluzione"
+
+#: .\templates\components\astroShop\products\evolution.html:20
+msgid "Long-Term Progressive Astronumerology"
+msgstr "Astronumerologia Progressiva a Lungo Termine"
+
+#: .\templates\components\astroShop\products\evolution.html:24
+msgid ""
+"\n"
+"            Understand your Karma, activate your Dharma and\n"
+"            explore your path over time through transits\n"
+"            and progressions.\n"
+"            "
+msgstr ""
+"\n"
+"            Comprendi il tuo Karma, attiva il tuo Dharma ed\n"
+"            esplora il tuo percorso nel tempo attraverso i transiti\n"
+"            e le progressioni.\n"
+"            "
+
+#: .\templates\components\astroShop\products\forecast.html:7
+msgid "Forecast"
+msgstr "Previsione"
+
+#: .\templates\components\astroShop\products\forecast.html:20
+msgid "Astro Numerology – Custom 12 Month Forecast"
+msgstr "Astro-Numerologia – Previsione Personalizzata di 12 Mesi"
+
+#: .\templates\components\astroShop\products\forecast.html:24
+msgid ""
+"\n"
+"            Anticipate your future through an astro-numerological\n"
+"            analysis of your birth and receive guidance for the\n"
+"            next 12 months.\n"
+"            "
+msgstr ""
+"\n"
+"            Anticipa il tuo futuro attraverso un'analisi\n"
+"            astro-numerologica della tua nascita e ricevi una guida per\n"
+"            i prossimi 12 mesi.\n"
+"            "
+
+#: .\templates\components\astroShop\products\horoscope.html:7
+msgid "Horoscope"
+msgstr "Oroscopo"
+
+#: .\templates\components\astroShop\products\horoscope.html:20
+msgid "Astro Numerology – Personalized Horoscope"
+msgstr "Astro-Numerologia – Oroscopo Personalizzato"
+
+#: .\templates\components\astroShop\products\horoscope.html:24
+msgid ""
+"\n"
+"            Discover the energies that drive your life every\n"
+"            day and every month. Explore love, work, emotions\n"
+"            and lucky numbers with practical guidance to help\n"
+"            you act at the right time.\n"
+"            "
+msgstr ""
+"\n"
+"            Scopri le energie che guidano la tua vita ogni\n"
+"            giorno e ogni mese. Esplora l'amore, il lavoro, le emozioni\n"
+"            e i numeri fortunati con una guida pratica per aiutarti\n"
+"            ad agire nel momento giusto.\n"
+"            "
+
+#: .\templates\components\astroShop\products\innerWorld.html:7
+msgid "Inner World"
+msgstr "Mondo Interiore"
+
+#: .\templates\components\astroShop\products\innerWorld.html:20
+msgid "Psychic Magnetism"
+msgstr "Magnetismo Psichico"
+
+#: .\templates\components\astroShop\products\innerWorld.html:24
+msgid ""
+"\n"
+"            Explore the invisible dimensions of your inner\n"
+"            world through astrology, numerology and subtle\n"
+"            energies to support personal growth and balance.\n"
+"            "
+msgstr ""
+"\n"
+"            Esplora le dimensioni invisibili del tuo mondo\n"
+"            interiore attraverso l'astrologia, la numerologia e le energie\n"
+"            sottili per sostenere la crescita personale e l'equilibrio.\n"
+"            "
+
+#: .\templates\components\astroShop\products\lifeMap.html:7
+msgid "Life Map"
+msgstr "Mappa della Vita"
+
+#: .\templates\components\astroShop\products\lifeMap.html:20
+msgid "Astral Astro-Numerology – The Sacred Map"
+msgstr "Astro-Numerologia Astrale – La Mappa Sacra"
+
+#: .\templates\components\astroShop\products\lifeMap.html:24
+msgid ""
+"\n"
+"            Discover the invisible structure of your destiny\n"
+"            through a profound study of the stars and the\n"
+"            vibration of numbers.\n"
+"            "
+msgstr ""
+"\n"
+"            Scopri la struttura invisibile del tuo destino\n"
+"            attraverso uno studio profondo delle stelle e della\n"
+"            vibrazione dei numeri.\n"
+"            "
+
+#: .\templates\components\astroShop\products\lunar.html:7
+msgid "Lunar"
+msgstr "Lunare"
+
+#: .\templates\components\astroShop\products\lunar.html:20
+msgid "Astro-Numerology – Lunar Horoscope"
+msgstr "Astro-Numerologia – Oroscopo Lunare"
+
+#: .\templates\components\astroShop\products\lunar.html:24
+msgid ""
+"\n"
+"            Follow the rhythm of the Moon and live at the\n"
+"            right moment. Understand when to act, when to\n"
+"            wait and when to transform.\n"
+"            "
+msgstr ""
+"\n"
+"            Segui il ritmo della Luna e vivi nel\n"
+"            momento giusto. Comprendi quando agire, quando\n"
+"            aspettare e quando trasformare.\n"
+"            "
+
+#: .\templates\components\astroShop\products\magnetism.html:20
+msgid "Astro-Magnetism"
+msgstr "Astro-Magnetismo"
+
+#: .\templates\components\astroShop\products\magnetism.html:24
+msgid ""
+"\n"
+"            An integrated study of astrology, numerology\n"
+"            and subtle energy designed to explore your\n"
+"            talents, vocation and evolutionary direction.\n"
+"            "
+msgstr ""
+"\n"
+"            Uno studio integrato di astrologia, numerologia\n"
+"            ed energia sottile, progettato per esplorare i tuoi\n"
+"            talenti, la tua vocazione e la tua direzione evolutiva.\n"
+"            "
+
+#: .\templates\components\astroShop\products\moon.html:7
+msgid "Moon"
+msgstr "Luna"
+
+#: .\templates\components\astroShop\products\moon.html:20
+msgid "Astro Numerological Calendar of the Moon Phases"
+msgstr "Calendario Astro-Numerologico delle Fasi Lunari"
+
+#: .\templates\components\astroShop\products\moon.html:24
+msgid ""
+"\n"
+"            Follow the cycles of the Moon, daily transits and\n"
+"            the active zodiac sign. Understand the energies of\n"
+"            the moment and act with greater awareness.\n"
+"            "
+msgstr ""
+"\n"
+"            Segui i cicli della Luna, i transiti quotidiani e\n"
+"            il segno zodiacale attivo. Comprendi le energie del\n"
+"            momento e agisci con maggiore consapevolezza.\n"
+"            "
+
+#: .\templates\components\astroShop\products\relationships.html:7
+msgid "Relationships"
+msgstr "Relazioni"
+
+#: .\templates\components\astroShop\products\relationships.html:20
+msgid "Astro-Numerology of Relationships & Compatibility"
+msgstr "Astro-Numerologia delle Relazioni e della Compatibilità"
+
+#: .\templates\components\astroShop\products\relationships.html:24
+msgid ""
+"\n"
+"            Explore the energetic codes behind love, family,\n"
+"            friendships, work and deeper soul connections.\n"
+"            "
+msgstr ""
+"\n"
+"            Esplora i codici energetici alla base dell'amore, della "
+"famiglia,\n"
+"            delle amicizie, del lavoro e delle connessioni più profonde "
+"dell'anima.\n"
+"            "
+
+#: .\templates\components\astroShop\products\soul.html:7
+msgid "Soul"
+msgstr "Anima"
+
+#: .\templates\components\astroShop\products\soul.html:20
+msgid "Astro-Numerology of the Soul"
+msgstr "Astro-Numerologia dell'Anima"
+
+#: .\templates\components\astroShop\products\soul.html:24
+msgid ""
+"\n"
+"            Discover the sacred code of your inner essence\n"
+"            and explore the 12 gates of life, including\n"
+"            prosperity, relationships, career and spiritual growth.\n"
+"            "
+msgstr ""
+"\n"
+"            Scopri il codice sacro della tua essenza interiore\n"
+"            ed esplora le 12 porte della vita, tra cui\n"
+"            prosperità, relazioni, carriera e crescita spirituale.\n"
+"            "
+
+#: .\templates\components\astroShop\products\stars.html:7
+msgid "Stars"
+msgstr "Stelle"
+
+#: .\templates\components\astroShop\products\stars.html:20
+msgid "Sidereal Astro-Numerology"
+msgstr "Astro-Numerologia Siderale"
+
+#: .\templates\components\astroShop\products\stars.html:24
+msgid ""
+"\n"
+"            Through this ancient system, your birth chart is reconstructed "
+"to help you gain a deeper understanding of your roots, your present, and the "
+"path that lies ahead.\n"
+"            "
+msgstr ""
+"\n"
+"            Attraverso questo antico sistema, il tuo tema natale viene ricostruito "
+"per aiutarti a comprendere più profondamente le tue radici, il tuo presente e il "
+"percorso che ti attende.\n"
+"            "
+
+#: .\templates\components\astroShop\shopBottom.html:5
+msgid ""
+"\n"
+"        Every journey begins with understanding.\n"
+"        Explore the Astro Magnetismo methods and discover\n"
+"        the path that resonates with you.\n"
+"        "
+msgstr ""
+"\n"
+"        Ogni viaggio inizia dalla comprensione.\n"
+"        Esplora i metodi di Astro Magnetismo e scopri\n"
+"        il percorso che risuona con te.\n"
+"        "
+
+#: .\templates\components\home\chartData.html:2
+msgid "Zodiaco stars and planets in real time"
+msgstr "Stelle e pianeti dello Zodiaco in tempo reale"
+
+#: .\templates\components\home\chartData.html:10
+msgid "Country: "
+msgstr "Paese: "
+
+#: .\templates\components\home\chartData.html:11
+msgid "City: "
+msgstr "Città: "
+
+#: .\templates\components\home\chartData.html:14
+msgid "Latitude: "
+msgstr "Latitudine: "
+
+#: .\templates\components\home\chartData.html:15
+msgid "Longitude: "
+msgstr "Longitudine: "
+
+#: .\templates\components\home\chartData.html:18
+msgid "UTC Time: "
+msgstr "Ora UTC: "
+
+#: .\templates\components\home\chartData.html:19
+msgid "Local Time: "
+msgstr "Ora locale: "
+
+#: .\templates\components\home\chartData.html:22
+msgid "Chart System: "
+msgstr "Sistema del tema: "
+
+#: .\templates\components\home\chartData.html:22
+msgid "Astro-Numerology Egizio"
+msgstr "Astro-Numerologia Egizia"
+
+#: .\templates\components\home\chartData.html:26
+msgid "Magic Square"
+msgstr "Quadrato Magico"
+
+#: .\templates\components\home\chartData.html:49
+msgid "Lucky numbers for today"
+msgstr "Numeri fortunati di oggi"
+
+#: .\templates\components\home\chartDescription.html:2
+msgid "Advanced Astro-Numerology System"
+msgstr "Sistema Avanzato di Astro-Numerologia"
+
+#: .\templates\components\home\chartDescription.html:6
+msgid ""
+"\n"
+"        Astro Magnetismo is a unique, advanced platform and system that "
+"integrates Astrology, Numerology, and Magnetism into a single system of "
+"knowledge.\n"
+"        A unique chart that connects stars, planets, houses, signs, numbers, "
+"and real life.\n"
+"        This method introduces an innovative key: \n"
+"        "
+msgstr ""
+"\n"
+"        Astro Magnetismo è una piattaforma e un sistema unico e avanzato che "
+"integra Astrologia, Numerologia e Magnetismo in un unico sistema di "
+"conoscenza.\n"
+"        Un tema unico che collega stelle, pianeti, case, segni, numeri e "
+"vita reale.\n"
+"        Questo metodo introduce una chiave innovativa:\n"
+"        "
+
+#: .\templates\components\home\chartDescription.html:13
+msgid ""
+"\n"
+"            The Zodiac within the Zodiac.\n"
+"            "
+msgstr ""
+"\n"
+"            Lo Zodiaco nello Zodiaco.\n"
+"            "
+
+#: .\templates\components\home\chartDescription.html:17
+msgid ""
+"\n"
+"        A reading that does not stop at appearances, but enters the inner "
+"structure of the human being.\n"
+"        It does not simply describe who you are. It shows you how your "
+"energy operates.\n"
+"        Through the 12 Birth Numbers, you discover your potential, "
+"archetypes, talents, directions, and life cycles.\n"
+"        Transform knowledge into evolution.\n"
+"        "
+msgstr ""
+"\n"
+"        Una lettura che non si ferma alle apparenze, ma entra nella "
+"struttura interiore dell'essere umano.\n"
+"        Non descrive semplicemente chi sei. Ti mostra come opera la tua "
+"energia.\n"
+"        Attraverso i 12 Numeri di Nascita, scopri il tuo potenziale, gli "
+"archetipi, i talenti, le direzioni e i cicli della vita.\n"
+"        Trasforma la conoscenza in evoluzione.\n"
+"        "
+
+#: .\templates\components\home\chartDescription.html:25
+msgid ""
+"\n"
+"            The chart is not destiny… it is power.\n"
+"            "
+msgstr ""
+"\n"
+"            Il tema non è il destino… è il potere.\n"
+"            "
+
+#: .\templates\components\home\chartDescription.html:29
+msgid ""
+"\n"
+"        Astro Magnetismo reads the face of humanity in the stars—and "
+"discovers the star within the human being.\n"
+"        "
+msgstr ""
+"\n"
+"        Astro Magnetismo legge il volto dell'umanità nelle stelle e scopre "
+"la stella che vive dentro l'essere umano.\n"
+"        "
+
+#: .\templates\components\home\chartDescription.html:35
+msgid ""
+"\n"
+"            What if I told you… that your destiny is already written… but no "
+"one ever taught you how to read it?\n"
+"            "
+msgstr ""
+"\n"
+"            E se ti dicessi… che il tuo destino è già scritto… ma nessuno ti "
+"ha mai insegnato a leggerlo?\n"
+"            "
+
+#: .\templates\components\home\chartDescription.html:43
+msgid "Read More"
+msgstr "Leggi di più"
+
+#: .\templates\components\home\fufillYourDestiny.html:3
+msgid "Fulfill your destiny"
+msgstr "Realizza il tuo destino"
+
+#: .\templates\components\home\fufillYourDestiny.html:5
+msgid ""
+"\n"
+"        The meeting point between the macrocosm and the microcosm, where\n"
+"        "
+msgstr ""
+"\n"
+"        Il punto d'incontro tra il macrocosmo e il microcosmo, dove\n"
+"        "
+
+#: .\templates\components\home\fufillYourDestiny.html:10
+msgid ""
+"    \n"
+"            one reads the symbol of man in the heavens and the reflection of "
+"the heavens in man. \n"
+"            When the sky reveals its language, the soul recognizes its own "
+"destiny.    \n"
+"            Know your inner universe, and you will discover your light.\n"
+"        "
+msgstr ""
+"    \n"
+"            si legge il simbolo dell'uomo nei cieli e il riflesso dei cieli "
+"nell'uomo.\n"
+"            Quando il cielo rivela il suo linguaggio, l'anima riconosce il "
+"proprio destino.\n"
+"            Conosci il tuo universo interiore e scoprirai la tua luce.\n"
+"        "
+
+#: .\templates\components\home\fufillYourDestiny.html:16
+msgid ""
+"\n"
+"        Your destiny is in your hands. Become the architects of your own "
+"fate by beginning to shape the life you have always dreamed of. \n"
+"        You have a wide range of paths to explore: follow your intuition and "
+"choose what resonates most deeply with you and your true nature.\n"
+"        "
+msgstr ""
+"\n"
+"        Il tuo destino è nelle tue mani. Diventa l'artefice del tuo destino "
+"cominciando a dare forma alla vita che hai sempre sognato.\n"
+"        Hai un'ampia gamma di percorsi da esplorare: segui il tuo intuito e "
+"scegli ciò che risuona più profondamente con te e con la tua vera natura.\n"
+"        "
+
+#: .\templates\components\home\fufillYourDestiny.html:21
+msgid ""
+"\n"
+"        Each chart is personally crafted by the author through in-depth, "
+"dedicated study.\n"
+"        "
+msgstr ""
+"\n"
+"        Ogni tema viene elaborato personalmente dall'autore attraverso uno "
+"studio approfondito e dedicato.\n"
+"        "
+
+#: .\templates\components\home\fufillYourDestiny.html:25
+msgid ""
+"\n"
+"        • Date of birth • Time of birth • Place of birth\n"
+"        "
+msgstr ""
+"\n"
+"        • Data di nascita • Ora di nascita • Luogo di nascita\n"
+"        "
+
+#: .\templates\components\home\landingPage.html:5
+msgid "Welcome to the"
+msgstr "Benvenuti nel"
+
+#: .\templates\components\home\landingPage.html:5
+msgid "Astro Magnetism Universe"
+msgstr "Universo di Astro Magnetismo"
+
+#: .\templates\components\home\landingPage.html:8
+msgid ""
+"\n"
+"            There is a language capable of connecting the Heavens, Nature, "
+"and the Human Being—the meeting point between Macrocosm and Microcosm. \n"
+"            This original method integrates Astrology, Numerology, and "
+"Magnetism into a single system of knowledge, allowing you to decipher the "
+"energies of your life and discover your inner essence.\n"
+"            From this emerges clarity about your archetypes and talents, "
+"guiding your choices with greater awareness.\n"
+"            Understand the Energy. Awaken the Potential. Create Your "
+"Destiny.\n"
+"            "
+msgstr ""
+"\n"
+"            Esiste un linguaggio capace di connettere i Cieli, la Natura e "
+"l'Essere Umano: il punto d'incontro tra Macrocosmo e Microcosmo.\n"
+"            Questo metodo originale integra Astrologia, Numerologia e "
+"Magnetismo in un unico sistema di conoscenza, permettendoti di decifrare le "
+"energie della tua vita e scoprire la tua essenza interiore.\n"
+"            Da questo nasce una maggiore chiarezza sui tuoi archetipi e "
+"talenti, guidando le tue scelte con maggiore consapevolezza.\n"
+"            Comprendi l'Energia. Risveglia il Potenziale. Crea il tuo "
+"Destino.\n"
+"            "
+
+#: .\templates\components\home\landingPage.html:16
+msgid ""
+"\n"
+"                Where the heavens meet the human being, and knowledge "
+"becomes transformation.\n"
+"                "
+msgstr ""
+"\n"
+"                Dove i cieli incontrano l'essere umano e la conoscenza "
+"diventa trasformazione.\n"
+"                "
+
+#: .\templates\components\home\landingPage.html:21
+msgid "Your chart"
+msgstr "Il tuo tema"
+
+#: .\templates\components\home\landingPage.html:33
+msgid "Traditional Ancient Astro-Numerology"
+msgstr "Astro-Numerologia Tradizionale Antica"
+
+#: .\templates\components\home\landingPage.html:35
+msgid ""
+"\n"
+"            Numbers are living entities, powerful ideas, and the true force "
+"of the universe. Your birth number has the power to guide you from poverty "
+"to the highest peaks of life.\n"
+"            Your 12 numbers represent the 12 Gates of Life, each of which "
+"opens 12 further hidden gates. Together, they form your personal essence.\n"
+"            Your 12 numbers create your Birth Talisman—your luck, your "
+"power, your protection, and your providence.\n"
+"            "
+msgstr ""
+"\n"
+"            I numeri sono entità viventi, idee potenti e la vera forza "
+"dell'universo. Il tuo numero di nascita ha il potere di guidarti dalla "
+"povertà fino alle vette più alte della vita.\n"
+"            I tuoi 12 numeri rappresentano le 12 Porte della Vita, ognuna "
+"delle quali apre altre 12 porte nascoste. Insieme, formano la tua essenza "
+"personale.\n"
+"            I tuoi 12 numeri creano il tuo Talismano di Nascita: la tua "
+"fortuna, il tuo potere, la tua protezione e la tua provvidenza.\n"
+"            "
+
+#: .\templates\components\home\landingPage.html:42
+msgid ""
+"\n"
+"                Do you truly know your numbers? Discover your essence. "
+"Discover your destiny.\n"
+"                "
+msgstr ""
+"\n"
+"                Conosci davvero i tuoi numeri? Scopri la tua essenza. Scopri "
+"il tuo destino.\n"
+"                "
+
+#: .\templates\components\nav.html:14
+msgid "Home"
+msgstr "Home"
+
+#: .\templates\components\nav.html:16
+msgid "Astro Shop"
+msgstr "Negozio Astro"
+
+#~ msgid "Shop"
+#~ msgstr "Negozio"

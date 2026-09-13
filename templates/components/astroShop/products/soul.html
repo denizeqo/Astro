@@ -1,0 +1,41 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Soul" %}
+        </span>
+
+        <img
+            src="static/image/image11.jpeg"
+            alt="Relationships and Compatibility"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro-Numerology of the Soul" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Discover the sacred code of your inner essence
+            and explore the 12 gates of life, including
+            prosperity, relationships, career and spiritual growth.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/soul"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

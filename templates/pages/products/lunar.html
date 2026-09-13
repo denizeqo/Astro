@@ -1,0 +1,698 @@
+{% extends 'index.html' %}
+
+
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Astro-Numerology – Lunar Horoscope</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0820;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .page {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 24px;
+            background: #18112e;
+            border: 1px solid rgba(255,255,255,.12);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: rgba(255,255,255,.4);
+            letter-spacing: 1px;
+        }
+
+        .eyebrow {
+            color: #cdb5ff;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1.08;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #cdb5ff;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            color: rgb(255, 255, 255);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+
+            background: #ffffff;
+            color: #0d0820;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+        .button:hover {
+            background: #cdb5ff;
+            transform: translateY(-2px);
+        }
+
+        /* QUOTE */
+
+        .quote {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 100px;
+        }
+
+        .quote p {
+            font-size: clamp(25px, 4vw, 40px);
+            line-height: 1.35;
+            font-style: italic;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            margin-bottom: 90px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #cdb5ff;
+        }
+
+        .intro {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.979);
+            font-size: 17px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px;
+
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .card h3 {
+            color: #cdb5ff;
+            font-size: 21px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: rgb(255, 255, 255);
+        }
+
+        /* MOON CYCLE */
+
+        .moon-cycle {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .moon-phase {
+            padding: 30px 20px;
+            text-align: center;
+
+            border-radius: 20px;
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .moon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+            background: #f4f1ff;
+
+            box-shadow: 0 0 30px rgba(205,181,255,.18);
+        }
+
+        .moon-phase h3 {
+            color: #cdb5ff;
+            font-size: 19px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .moon-phase p {
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+        }
+
+        /* TRANSFORMATION */
+
+        .transformation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .transformation-card {
+            padding: 35px 25px;
+            text-align: center;
+
+            border-radius: 20px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .transformation-card .arrow {
+            display: block;
+            color: #cdb5ff;
+            font-size: 25px;
+            margin: 10px 0;
+        }
+
+        .transformation-card p {
+            color: rgb(255, 255, 255);
+        }
+
+        .transformation-card strong {
+            font-size: 19px;
+        }
+
+        /* FINAL CTA */
+
+        .final {
+            text-align: center;
+            padding: 70px 25px;
+            border-radius: 25px;
+
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .final h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: rgb(255, 255, 255);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 35px 18px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                margin-bottom: 70px;
+            }
+
+            .image-placeholder {
+                aspect-ratio: 4 / 3;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .moon-cycle {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .transformation {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin-bottom: 65px;
+            }
+
+            .quote {
+                margin-bottom: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .page {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .hero-subtitle {
+                font-size: 19px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .moon-cycle {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .moon-phase {
+                padding: 25px 12px;
+            }
+
+            .moon {
+                width: 55px;
+                height: 55px;
+            }
+
+            .quote p {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <img src="static/image/image5.jpeg" alt="">
+
+            <div>
+
+                <div class="eyebrow">
+                    Astro-Numerology
+                </div>
+
+                <h1>
+                    <span>Lunar</span> Horoscope
+                </h1>
+
+                <p class="hero-subtitle">
+                    Follow the rhythm of the Moon.
+                    Live in the right moment.
+                </p>
+
+                <p class="hero-text">
+                    The Astro-Numerological Lunar Horoscope guides you
+                    through the phases of the Moon, from your birth
+                    to the current transits, helping you understand
+                    when to act, when to wait and when to transform.
+                </p>
+
+                <a href="#" class="button">
+                    Discover Your Lunar Cycle
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUOTE -->
+
+        <section class="quote">
+
+            <p>
+                “The Moon speaks…
+                when you learn to listen, everything changes.”
+            </p>
+
+        </section>
+
+
+        <!-- INTRO -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                <span>Synchronize</span> With the Universe
+            </h2>
+
+            <p class="intro">
+                This method goes beyond simply observing the Moon.
+                It helps you recognize its rhythm in relation to your
+                personal birth chart and the cycles unfolding around you.
+            </p>
+
+            <br>
+
+            <p class="intro">
+                Learn to recognize the moments for action, patience,
+                transformation and new beginnings — allowing you to
+                move with the rhythm rather than against it.
+            </p>
+
+        </section>
+
+
+        <!-- WHAT YOU DISCOVER -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                What You <span>Discover</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>🌙 Your Lunar Influence</h3>
+                    <p>
+                        Explore the influence of the Moon on your
+                        personality, emotions and natural rhythms.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🌒 Key Lunar Phases</h3>
+                    <p>
+                        Understand the lunar phases connected to
+                        important moments throughout your life.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>❤️ Love & Relationships</h3>
+                    <p>
+                        Recognize favorable periods for love,
+                        relationships and new beginnings.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>✨ Growth & Prosperity</h3>
+                    <p>
+                        Identify opportunities connected to money,
+                        personal growth and fulfillment.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🔄 Transformation</h3>
+                    <p>
+                        Discover the ideal moments to release what
+                        no longer serves you and begin a new cycle.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MOON CYCLE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                The <span>Cycle of the Moon</span>
+            </h2>
+
+            <div class="moon-cycle">
+
+                <div class="moon-phase">
+
+                    <div class="moon"></div>
+
+                    <h3>New Moon</h3>
+
+                    <p>
+                        Beginnings, intentions
+                        and new projects.
+                    </p>
+
+                </div>
+
+
+                <div class="moon-phase">
+
+                    <div class="moon"></div>
+
+                    <h3>First Quarter</h3>
+
+                    <p>
+                        Action, decisions
+                        and growth.
+                    </p>
+
+                </div>
+
+
+                <div class="moon-phase">
+
+                    <div class="moon"></div>
+
+                    <h3>Full Moon</h3>
+
+                    <p>
+                        Fulfillment, emotions
+                        and results.
+                    </p>
+
+                </div>
+
+
+                <div class="moon-phase">
+
+                    <div class="moon"></div>
+
+                    <h3>Last Quarter</h3>
+
+                    <p>
+                        Release, transformation
+                        and purification.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- POWER OF THE METHOD -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                The <span>Power of This Method</span>
+            </h2>
+
+            <p class="intro">
+                Learn to recognize the moments when your energy is
+                aligned with the natural rhythm of your personal cycle.
+            </p>
+
+            <br>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>When to Begin</h3>
+                    <p>
+                        Recognize the periods that support new ideas,
+                        intentions and beginnings.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>When to Act</h3>
+                    <p>
+                        Identify moments when taking action can move
+                        your plans forward.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>When to Wait</h3>
+                    <p>
+                        Understand when patience and observation
+                        may be more beneficial than action.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>When to Close a Cycle</h3>
+                    <p>
+                        Recognize when it is time to release,
+                        complete and make space for something new.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRANSFORMATION -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                From Confusion to <span>Clarity</span>
+            </h2>
+
+            <div class="transformation">
+
+                <div class="transformation-card">
+
+                    <strong>Confusion</strong>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        Clarity
+                    </p>
+
+                </div>
+
+
+                <div class="transformation-card">
+
+                    <strong>Forcing</strong>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        Flow
+                    </p>
+
+                </div>
+
+
+                <div class="transformation-card">
+
+                    <strong>Doubt</strong>
+
+                    <span class="arrow">↓</span>
+
+                    <p>
+                        Direction
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL CTA -->
+
+        <section class="final">
+
+            <h2>
+                Follow the Rhythm of the Moon
+            </h2>
+
+            <p>
+                Discover your lunar cycles, understand the moments
+                for action and learn to move with the rhythm of
+                the universe.
+            </p>
+
+            <a href="#" class="button">
+                Start Your Lunar Reading
+            </a>
+
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+{% endblock %}

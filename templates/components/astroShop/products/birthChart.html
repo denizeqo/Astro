@@ -1,0 +1,42 @@
+{% load i18n %}
+<article class="product-card">
+
+    <div class="product-image">
+
+        <span class="product-category">
+            {% trans "Birth Chart" %}
+        </span>
+
+        <img
+            src="static/image/image3.jpeg"
+            alt="Fixed Stars Birth Chart"
+        >
+
+    </div>
+
+    <div class="product-content">
+
+        <h2>
+            {% trans "Astro-Numerological Birth Chart of the Fixed Stars" %}
+        </h2>
+
+        <p>
+            {% blocktrans %}
+            Discover your destiny map through the fixed stars
+            and your birth numbers. A profound guide to
+            understanding yourself and recognizing the right
+            moments for transformation.
+            {% endblocktrans %}
+        </p>
+
+        <a
+            href="/birthChart"
+            class="product-button"
+        >
+            {% trans "Explore" %}
+            <span>→</span>
+        </a>
+
+    </div>
+
+</article>

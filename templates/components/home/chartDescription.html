@@ -1,29 +1,46 @@
-<h1 class="title">Advanced Astro-Numerology System</h1>
+{% load i18n %}
+<h1 class="title">{% trans "Advanced Astro-Numerology System" %}</h1>
 
 <div id="dailydescription" style="overflow: hidden;">
     <p class="description__con" style="font-family: 'Poppins', sans-serif;">
-       Astro Magnetismo is a unique, advanced platform and system that integrates Astrology, Numerology, and Magnetism into a single system of knowledge.
-
+        {% blocktrans %}
+        Astro Magnetismo is a unique, advanced platform and system that integrates Astrology, Numerology, and Magnetism into a single system of knowledge.
         A unique chart that connects stars, planets, houses, signs, numbers, and real life.
+        This method introduces an innovative key: 
+        {% endblocktrans %} 
 
-        This method introduces an innovative key: <span style="color: #FFEA99; font-family: 'Poppins', sans-serif;">The Zodiac within the Zodiac.</span> A reading that does not stop at appearances, but enters the inner structure of the human being.
-
+        <span style="color: #FFEA99; font-family: 'Poppins', sans-serif;">
+            {% blocktrans %}
+            The Zodiac within the Zodiac.
+            {% endblocktrans %} 
+        </span> 
+        {% blocktrans %}
+        A reading that does not stop at appearances, but enters the inner structure of the human being.
         It does not simply describe who you are. It shows you how your energy operates.
-
         Through the 12 Birth Numbers, you discover your potential, archetypes, talents, directions, and life cycles.
-
         Transform knowledge into evolution.
+        {% endblocktrans %} 
 
-        <span style="color: #FFEA99; font-family: 'Poppins', sans-serif;">The chart is not destiny… it is power.</span>
-
+        <span style="color: #FFEA99; font-family: 'Poppins', sans-serif;">
+            {% blocktrans %}
+            The chart is not destiny… it is power.
+            {% endblocktrans %} 
+        </span>
+        {% blocktrans %}
         Astro Magnetismo reads the face of humanity in the stars—and discovers the star within the human being.
+        {% endblocktrans %} 
+
         <br>
-        <span style="color: #FFEA99; font-family: 'Poppins', sans-serif;">What if I told you… that your destiny is already written… but no one ever taught you how to read it?</span>
+        <span style="color: #FFEA99; font-family: 'Poppins', sans-serif;">
+            {% blocktrans %}
+            What if I told you… that your destiny is already written… but no one ever taught you how to read it?
+            {% endblocktrans %} 
+        </span>
     </p>
 </div>
 
 <div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; margin-top: 30px;">
-    <button id="moreBtn" class="primarButton" onclick="hiddenShowText()">Read More</button>
+    <button id="moreBtn" class="primarButton" onclick="hiddenShowText()">{% trans "Read More" %}</button>
 </div>
 
 <script>
