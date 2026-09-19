@@ -4,6 +4,7 @@
 
 {% block main %}
 
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,35 +15,64 @@
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         body {
+            width: 100%;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #0d0820;
             color: #ffffff;
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         .page {
-            padding: 70px 20px;
+            width: 100%;
+            min-height: 100vh;
+            padding: 60px 20px;
         }
 
         .container {
+            width: 100%;
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         /* HERO */
-
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 60px;
             align-items: center;
             min-height: 520px;
+        }
+
+        .hero > img {
+            width: 100%;
+            max-height: 560px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-content {
+            min-width: 0;
         }
 
         .image-placeholder {
@@ -59,9 +89,10 @@
         }
 
         .hero h1 {
-            font-size: 54px;
+            font-size: clamp(38px, 5vw, 54px);
             line-height: 1.1;
             margin-bottom: 25px;
+            overflow-wrap: anywhere;
         }
 
         .hero h1 span {
@@ -76,6 +107,7 @@
 
         .button {
             display: inline-block;
+            max-width: 100%;
             margin-top: 12px;
             background: #ffffff;
             color: #0d0820;
@@ -83,6 +115,7 @@
             padding: 14px 28px;
             border-radius: 30px;
             font-weight: bold;
+            text-align: center;
             transition: 0.25s ease;
         }
 
@@ -92,14 +125,15 @@
         }
 
         /* GENERAL */
-
         section {
             margin-top: 100px;
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: clamp(30px, 4vw, 36px);
             margin-bottom: 18px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
         }
 
         .section-title span {
@@ -113,26 +147,27 @@
         }
 
         /* QUOTE */
-
         .quote {
             margin: 80px auto;
             max-width: 850px;
+            padding: 0 10px;
             text-align: center;
-            font-size: 27px;
+            font-size: clamp(22px, 4vw, 27px);
+            line-height: 1.5;
             font-style: italic;
             color: #ffffff;
         }
 
         /* CARDS */
-
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
             margin-top: 35px;
         }
 
         .card {
+            min-width: 0;
             background: rgba(255,255,255,0.045);
             border: 1px solid rgba(255,255,255,0.09);
             border-radius: 18px;
@@ -143,6 +178,7 @@
             color: #cdb5ff;
             margin-bottom: 10px;
             font-size: 21px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -150,7 +186,6 @@
         }
 
         /* ENERGY CARDS */
-
         .energy-card {
             position: relative;
             overflow: hidden;
@@ -176,20 +211,21 @@
         }
 
         /* LIST */
-
         .list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 15px;
             margin-top: 30px;
         }
 
         .list-item {
+            min-width: 0;
             padding: 18px 20px;
             background: rgba(255,255,255,0.04);
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.07);
             color: #ffffff;
+            overflow-wrap: anywhere;
         }
 
         .list-item::before {
@@ -199,7 +235,6 @@
         }
 
         /* FINAL CTA */
-
         .final {
             text-align: center;
             padding: 90px 20px;
@@ -208,8 +243,10 @@
         }
 
         .final h2 {
-            font-size: 42px;
+            font-size: clamp(32px, 5vw, 42px);
+            line-height: 1.2;
             margin-bottom: 20px;
+            overflow-wrap: anywhere;
         }
 
         .final p {
@@ -219,10 +256,8 @@
             font-size: 18px;
         }
 
-        /* MOBILE */
-
+        /* TABLET / MOBILE */
         @media (max-width: 768px) {
-
             .page {
                 padding: 40px 18px;
             }
@@ -233,9 +268,17 @@
                 min-height: auto;
             }
 
+            .hero > img {
+                order: -1;
+                width: 100%;
+                max-height: none;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
             .image-placeholder {
                 height: 300px;
-                order: 2;
+                order: -1;
             }
 
             .hero-content {
@@ -243,7 +286,7 @@
             }
 
             .hero h1 {
-                font-size: 42px;
+                font-size: clamp(36px, 9vw, 42px);
             }
 
             .hero p {
@@ -254,12 +297,7 @@
                 margin-top: 70px;
             }
 
-            .section-title {
-                font-size: 30px;
-            }
-
             .quote {
-                font-size: 22px;
                 margin: 60px auto;
             }
 
@@ -272,16 +310,29 @@
                 margin-top: 70px;
                 padding: 70px 10px;
             }
-
-            .final h2 {
-                font-size: 32px;
-            }
         }
 
         @media (max-width: 480px) {
+            .page {
+                padding: 30px 14px;
+            }
+
+            .hero {
+                gap: 26px;
+            }
+
+            .hero > img {
+                border-radius: 18px;
+            }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 34px;
+            }
+
+            .hero p,
+            .section-text,
+            .final p {
+                font-size: 16px;
             }
 
             .image-placeholder {
@@ -289,7 +340,25 @@
             }
 
             .card {
-                padding: 24px;
+                padding: 22px;
+            }
+
+            .list-item {
+                padding: 15px 17px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 14px 20px;
+            }
+
+            .quote {
+                margin: 50px auto;
+                font-size: 21px;
+            }
+
+            .final {
+                padding: 55px 0;
             }
         }
     </style>
@@ -310,23 +379,27 @@
             <div class="hero-content">
 
                 <h1>
-                    Personalized <span>Essential Oil Elixir</span>
+                    {% trans "Personalized" %} <span>{% trans "Essential Oil Elixir" %}</span>
                 </h1>
 
                 <p>
+                    {% blocktrans %}
                     A unique blend created especially for you,
                     inspired by the natural properties and symbolic
                     vibrations of essential oils.
+                    {% endblocktrans %}
                 </p>
 
                 <p>
+                    {% blocktrans %}
                     A personalized approach designed to connect
                     body, mind and energy through a carefully selected
                     aromatic blend.
+                    {% endblocktrans %}
                 </p>
 
                 <a href="#" class="button">
-                    Discover Your Elixir
+                    {% trans "Discover Your Elixir" %}
                 </a>
 
             </div>
@@ -337,7 +410,7 @@
         <!-- QUOTE -->
 
         <div class="quote">
-            “Everything is energy. Everything vibrates.”
+            {% trans "“Everything is energy. Everything vibrates.”" %}
         </div>
 
 
@@ -346,38 +419,46 @@
         <section>
 
             <h2 class="section-title">
-                Origin & <span>Principle</span>
+                {% trans "Origin &" %} <span>{% trans "Principle" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 These personalized elixirs are inspired by the meeting
                 of ancient traditions, Egyptian Medical Astro-Numerology
                 and modern approaches to the human energetic field.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Egyptian Medical Astro-Numerology</h3>
+                    <h3>{% trans "Egyptian Medical Astro-Numerology" %}</h3>
                     <p>
+                        {% blocktrans %}
                         A symbolic system connecting birth information,
                         numbers and celestial correspondences.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Ancient Traditions</h3>
+                    <h3>{% trans "Ancient Traditions" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Aromatic plants and essential oils have been part
                         of traditional practices across cultures for centuries.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Energetic Knowledge</h3>
+                    <h3>{% trans "Energetic Knowledge" %}</h3>
                     <p>
+                        {% blocktrans %}
                         A framework exploring the relationship between
                         personal states, symbolic vibrations and energy.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -391,26 +472,30 @@
         <section>
 
             <h2 class="section-title">
-                Two Fundamental <span>Principles</span>
+                {% trans "Two Fundamental" %} <span>{% trans "Principles" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Law of Compatibility</h3>
+                    <h3>{% trans "Law of Compatibility" %}</h3>
                     <p>
+                        {% blocktrans %}
                         The system proposes that each person may resonate
                         differently with particular aromas, plants and
                         symbolic energetic qualities.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Degree of Receptivity</h3>
+                    <h3>{% trans "Degree of Receptivity" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Your experience of an aromatic blend can vary
                         depending on your individual state, perception
                         and receptivity.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -424,32 +509,34 @@
         <section>
 
             <h2 class="section-title">
-                The <span>Energetic System</span>
+                {% trans "The" %} <span>{% trans "Energetic System" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 Within the energetic framework of this practice, the human
                 body is viewed as a complex vibrational field. Essential oils
                 are explored for their aromatic qualities and their symbolic
                 relationship with different dimensions of experience.
+                {% endblocktrans %}
             </p>
 
             <div class="list">
 
                 <div class="list-item">
-                    Physical body
+                    {% trans "Physical body" %}
                 </div>
 
                 <div class="list-item">
-                    Mind
+                    {% trans "Mind" %}
                 </div>
 
                 <div class="list-item">
-                    Emotions
+                    {% trans "Emotions" %}
                 </div>
 
                 <div class="list-item">
-                    Subtle energy
+                    {% trans "Subtle energy" %}
                 </div>
 
             </div>
@@ -462,13 +549,15 @@
         <section>
 
             <h2 class="section-title">
-                Energetic <span>Correspondences</span>
+                {% trans "Energetic" %} <span>{% trans "Correspondences" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 The elixir system associates the four elements with
                 different zodiac signs, aromatic notes and symbolic
                 qualities.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
@@ -477,20 +566,20 @@
 
                     <div class="energy-symbol">🌬️</div>
 
-                    <h3>Air — Top Notes</h3>
+                    <h3>{% trans "Air — Top Notes" %}</h3>
 
                     <p class="signs">
-                        <strong>Signs:</strong>
-                        Gemini • Libra • Aquarius
+                        <strong>{% trans "Signs:" %}</strong>
+                        {% trans "Gemini • Libra • Aquarius" %}
                     </p>
 
                     <p class="oils">
-                        <strong>Oils:</strong>
-                        Bergamot, Lavender, Mint
+                        <strong>{% trans "Oils:" %}</strong>
+                        {% trans "Bergamot, Lavender, Mint" %}
                     </p>
 
                     <p class="meaning">
-                        Mental clarity • Concentration • Lightness
+                        {% trans "Mental clarity • Concentration • Lightness" %}
                     </p>
 
                 </div>
@@ -500,20 +589,20 @@
 
                     <div class="energy-symbol">🔥</div>
 
-                    <h3>Fire — Spicy Notes</h3>
+                    <h3>{% trans "Fire — Spicy Notes" %}</h3>
 
                     <p class="signs">
-                        <strong>Signs:</strong>
-                        Aries • Leo • Sagittarius
+                        <strong>{% trans "Signs:" %}</strong>
+                        {% trans "Aries • Leo • Sagittarius" %}
                     </p>
 
                     <p class="oils">
-                        <strong>Oils:</strong>
-                        Cinnamon, Ginger, Rosemary
+                        <strong>{% trans "Oils:" %}</strong>
+                        {% trans "Cinnamon, Ginger, Rosemary" %}
                     </p>
 
                     <p class="meaning">
-                        Energy • Strength • Activation
+                        {% trans "Energy • Strength • Activation" %}
                     </p>
 
                 </div>
@@ -523,20 +612,20 @@
 
                     <div class="energy-symbol">💧</div>
 
-                    <h3>Water — Heart Notes</h3>
+                    <h3>{% trans "Water — Heart Notes" %}</h3>
 
                     <p class="signs">
-                        <strong>Signs:</strong>
-                        Cancer • Scorpio • Pisces
+                        <strong>{% trans "Signs:" %}</strong>
+                        {% trans "Cancer • Scorpio • Pisces" %}
                     </p>
 
                     <p class="oils">
-                        <strong>Oils:</strong>
-                        Jasmine, Chamomile, Lemon Balm
+                        <strong>{% trans "Oils:" %}</strong>
+                        {% trans "Jasmine, Chamomile, Lemon Balm" %}
                     </p>
 
                     <p class="meaning">
-                        Emotions • Love • Relaxation
+                        {% trans "Emotions" %} • Love • Relaxation
                     </p>
 
                 </div>
@@ -546,20 +635,20 @@
 
                     <div class="energy-symbol">🌍</div>
 
-                    <h3>Earth — Base Notes</h3>
+                    <h3>{% trans "Earth — Base Notes" %}</h3>
 
                     <p class="signs">
-                        <strong>Signs:</strong>
-                        Taurus • Virgo • Capricorn
+                        <strong>{% trans "Signs:" %}</strong>
+                        {% trans "Taurus • Virgo • Capricorn" %}
                     </p>
 
                     <p class="oils">
-                        <strong>Oils:</strong>
-                        Patchouli, Vetiver, Myrrh
+                        <strong>{% trans "Oils:" %}</strong>
+                        {% trans "Patchouli, Vetiver, Myrrh" %}
                     </p>
 
                     <p class="meaning">
-                        Stability • Grounding • Security
+                        {% trans "Stability • Grounding • Security" %}
                     </p>
 
                 </div>
@@ -574,39 +663,43 @@
         <section>
 
             <h2 class="section-title">
-                How Essential Oils <span>Are Used</span>
+                {% trans "How Essential Oils" %} <span>{% trans "Are Used" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 Essential oils are highly concentrated aromatic substances.
                 In this approach, they are used as part of an intentional
                 sensory and energetic practice.
+                {% endblocktrans %}
             </p>
 
             <div class="list">
 
                 <div class="list-item">
-                    Inhalation
+                    {% trans "Inhalation" %}
                 </div>
 
                 <div class="list-item">
-                    Diffusion
+                    {% trans "Diffusion" %}
                 </div>
 
                 <div class="list-item">
-                    Topical application when appropriate
+                    {% trans "Topical application when appropriate" %}
                 </div>
 
                 <div class="list-item">
-                    Blending oils together for a personalized aroma
+                    {% trans "Blending oils together for a personalized aroma" %}
                 </div>
 
             </div>
 
             <p class="section-text" style="margin-top:30px;">
+                {% blocktrans %}
                 The combination of different oils creates a unique aromatic
                 profile, allowing the elixir to become a personalized part
                 of your daily ritual.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -617,46 +710,56 @@
         <section>
 
             <h2 class="section-title">
-                The <span>Teaching of Energy</span>
+                {% trans "The" %} <span>{% trans "Teaching of Energy" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 True balance begins with learning to listen to yourself.
                 The elixirs are not presented simply as fragrances, but as
                 tools for intention, reflection and awareness.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Listen</h3>
+                    <h3>{% trans "Listen" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Become more aware of your sensations, emotions
                         and personal needs.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Connect</h3>
+                    <h3>{% trans "Connect" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Create a more conscious relationship with your
                         body, mind and inner experience.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Transform</h3>
+                    <h3>{% trans "Transform" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Turn your aromatic ritual into a moment of
                         reflection and personal awareness.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Harmonize</h3>
+                    <h3>{% trans "Harmonize" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Create a daily practice centered around balance,
                         presence and inner connection.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -670,17 +773,19 @@
         <div class="final">
 
             <h2>
-                Your Personal <span style="color:#cdb5ff;">Elixir</span>
+                {% trans "Your Personal" %} <span style="color:#cdb5ff;">{% trans "Elixir" %}</span>
             </h2>
 
             <p>
+                {% blocktrans %}
                 Discover an aromatic blend created around your personal
                 energetic profile and turn your daily ritual into a moment
                 of connection, awareness and intention.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="button">
-                Create Your Elixir
+                {% trans "Create Your Elixir" %}
             </a>
 
         </div>
@@ -691,7 +796,6 @@
 
 </body>
 </html>
-
 
 
 

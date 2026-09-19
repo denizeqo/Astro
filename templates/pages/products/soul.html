@@ -4,6 +4,7 @@
 
 {% block main %}
 
+{% load i18n %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -15,23 +16,40 @@
 
 <style>
     * {
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        width: 100%;
+        overflow-x: hidden;
     }
 
     body {
+        width: 100%;
+        margin: 0;
         font-family: Arial, Helvetica, sans-serif;
         background: #0d0820;
         color: #ffffff;
         line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
     }
 
     .page {
-        padding: 70px 20px;
+        width: 100%;
+        min-height: 100vh;
+        padding: 60px 20px;
     }
 
     .container {
+        width: 100%;
         max-width: 1100px;
         margin: 0 auto;
     }
@@ -39,10 +57,22 @@
     /* Hero */
     .hero {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 60px;
         align-items: center;
         margin-bottom: 80px;
+    }
+
+    .hero > img {
+        width: 100%;
+        max-height: 560px;
+        object-fit: cover;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero > div {
+        min-width: 0;
     }
 
     .image-placeholder {
@@ -121,7 +151,7 @@
     /* Cards */
     .cards {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
         margin-top: 30px;
     }
@@ -168,7 +198,7 @@
     /* Number Code */
     .number-code {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 30px;
         margin-top: 35px;
     }
@@ -215,7 +245,7 @@
     /* Doors */
     .doors {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
         margin-top: 30px;
     }
@@ -274,6 +304,14 @@
             margin-bottom: 60px;
         }
 
+        .hero > img {
+            order: -1;
+            width: 100%;
+            max-height: none;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
         .image-placeholder {
             height: 330px;
             order: -1;
@@ -320,6 +358,14 @@
 
     @media (max-width: 480px) {
 
+        .page {
+            padding: 30px 14px;
+        }
+
+        .hero > img {
+            border-radius: 18px;
+        }
+
         .hero h1 {
             font-size: 36px;
         }
@@ -331,6 +377,21 @@
         .card,
         .number-box {
             padding: 23px;
+        }
+
+        .cta {
+            width: 100%;
+            text-align: center;
+        }
+
+        .section-text,
+        .final-cta p {
+            font-size: 16px;
+        }
+
+        .question {
+            font-size: 16px;
+            padding: 18px;
         }
 
         .list-item {
@@ -345,7 +406,6 @@
 
 <div class="page">
 
-```
 <div class="container">
 
     <!-- HERO -->
@@ -356,16 +416,16 @@
         <div>
 
             <h1>
-                <span>Soul</span>
-                Astro-Numerology
+                <span>{% trans "Soul" %}</span>
+                {% trans "Astro-Numerology" %}
             </h1>
 
             <p class="subtitle">
-                The sacred code of your inner essence.
+                {% trans "The sacred code of your inner essence." %}
             </p>
 
             <a href="#" class="cta">
-                Discover Your Soul Code
+                {% trans "Discover Your Soul Code" %}
             </a>
 
         </div>
@@ -375,7 +435,7 @@
 
     <!-- INTRO -->
     <div class="quote">
-        “The Soul Talisman and the 12 Gates of Life.”
+        {% trans "“The Soul Talisman and the 12 Gates of Life.”" %}
     </div>
 
 
@@ -383,61 +443,75 @@
     <section>
 
         <h2 class="section-title">
-            The <span>12 Gates of Life</span>
+            {% trans "The" %} <span>{% trans "12 Gates of Life" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             The Soul Talisman explores twelve symbolic dimensions of
             your life and the energies that shape your journey.
+            {% endblocktrans %}
         </p>
 
         <div class="cards">
 
             <div class="card">
-                <h3>Health &amp; Energetic Harmony</h3>
+                <h3>{% trans "Health & Energetic Harmony" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore the symbolic energies connected with
                     balance and inner harmony.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Wealth &amp; Prosperity</h3>
+                <h3>{% trans "Wealth & Prosperity" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Discover the numerical patterns associated with
                     material potential and abundance.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Career &amp; Personal Fulfillment</h3>
+                <h3>{% trans "Career & Personal Fulfillment" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore your potential, direction, and personal
                     path toward fulfillment.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Relationships &amp; Soul Connections</h3>
+                <h3>{% trans "Relationships & Soul Connections" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Gain a deeper perspective on relationships and
                     meaningful connections.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Business &amp; Material Opportunities</h3>
+                <h3>{% trans "Business & Material Opportunities" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore symbolic patterns connected with
                     opportunities and practical ambitions.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Inner Balance &amp; Spiritual Growth</h3>
+                <h3>{% trans "Inner Balance & Spiritual Growth" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Reflect on your inner development, awareness,
                     and personal growth.
+                    {% endblocktrans %}
                 </p>
             </div>
 
@@ -450,13 +524,15 @@
     <section>
 
         <h2 class="section-title">
-            The <span>12-Number Talisman</span>
+            {% trans "The" %} <span>{% trans "12-Number Talisman" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             The twelve numbers are symbolic keys used to interpret
             your earthly experience. They represent the memory of
             the soul and the journey of destiny.
+            {% endblocktrans %}
         </p>
 
         <div class="number-code">
@@ -465,12 +541,14 @@
 
                 <div class="big">01</div>
 
-                <h3>The Number</h3>
+                <h3>{% trans "The Number" %}</h3>
 
                 <p>
+                    {% blocktrans %}
                     The number is the code — a symbolic language
                     through which different aspects of your journey
                     can be explored.
+                    {% endblocktrans %}
                 </p>
 
             </div>
@@ -479,11 +557,13 @@
 
                 <div class="big">∞</div>
 
-                <h3>The Soul</h3>
+                <h3>{% trans "The Soul" %}</h3>
 
                 <p>
+                    {% blocktrans %}
                     The soul is the key, while your destiny is the
                     journey that reveals itself step by step.
+                    {% endblocktrans %}
                 </p>
 
             </div>
@@ -497,22 +577,26 @@
     <section>
 
         <h2 class="section-title">
-            Your Personal <span>Energy Talisman</span>
+            {% trans "Your Personal" %} <span>{% trans "Energy Talisman" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Through your date of birth, a structure composed of
             twelve sacred numbers is revealed — a personal energetic
             talisman represented by a magic square containing the
             fundamental vibrations of your existence.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             Within you exists an invisible guide: a deep memory that
             holds talents, experiences, potential, and directions
             for your journey.
+            {% endblocktrans %}
         </p>
 
     </section>
@@ -522,28 +606,30 @@
     <section>
 
         <h2 class="section-title">
-            The Language of <span>Numbers &amp; Archetypes</span>
+            {% trans "The Language of" %} <span>{% trans "Numbers & Archetypes" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Soul Astro-Numerology is a study of your inner code,
             creating a symbolic bridge between your past, present,
             and future through the language of numbers and celestial
             archetypes.
+            {% endblocktrans %}
         </p>
 
         <div class="list">
 
             <div class="list-item">
-                Every number carries a meaning
+                {% trans "Every number carries a meaning" %}
             </div>
 
             <div class="list-item">
-                Every number represents a frequency
+                {% trans "Every number represents a frequency" %}
             </div>
 
             <div class="list-item">
-                Every number offers a lesson
+                {% trans "Every number offers a lesson" %}
             </div>
 
         </div>
@@ -551,9 +637,11 @@
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             Each becomes a doorway through which you can explore
             your deeper roots, innate abilities, and the energies
             you may develop throughout your life.
+            {% endblocktrans %}
         </p>
 
     </section>
@@ -563,31 +651,33 @@
     <section>
 
         <h2 class="section-title">
-            A Symbolic <span>Map of Your Journey</span>
+            {% trans "A Symbolic" %} <span>{% trans "Map of Your Journey" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             The magic square becomes a symbolic map of your journey —
             a bridge between who you were, who you are, and who you
             can become.
+            {% endblocktrans %}
         </p>
 
         <div class="questions">
 
             <div class="question">
-                What is the meaning of my life?
+                {% trans "What is the meaning of my life?" %}
             </div>
 
             <div class="question">
-                What talents do I carry within me?
+                {% trans "What talents do I carry within me?" %}
             </div>
 
             <div class="question">
-                Which energies do I need to bring into harmony?
+                {% trans "Which energies do I need to bring into harmony?" %}
             </div>
 
             <div class="question">
-                Which direction can lead me toward fulfillment?
+                {% trans "Which direction can lead me toward fulfillment?" %}
             </div>
 
         </div>
@@ -599,21 +689,25 @@
     <section>
 
         <h2 class="section-title">
-            Discover Your <span>Deeper Direction</span>
+            {% trans "Discover Your" %} <span>{% trans "Deeper Direction" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Through your birth chart, numbers, and stars, this reading
             invites you to connect with your most authentic essence
             and recognize the invisible thread linking every phase
             of your life.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             Discover your path and explore the deeper purpose revealed
             through your personal symbolic map.
+            {% endblocktrans %}
         </p>
 
     </section>
@@ -623,12 +717,14 @@
     <section>
 
         <h2 class="section-title">
-            Open the <span>12 Gates of Life</span>
+            {% trans "Open the" %} <span>{% trans "12 Gates of Life" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Through your date of birth, your numbers, and your stars,
             twelve symbolic Gates of Life open before you.
+            {% endblocktrans %}
         </p>
 
         <div class="doors">
@@ -636,21 +732,21 @@
             <div class="door">
                 <div class="door-number">12</div>
                 <p>
-                    Gates of your evolutionary journey
+                    {% trans "Gates of your evolutionary journey" %}
                 </p>
             </div>
 
             <div class="door">
                 <div class="door-number">∞</div>
                 <p>
-                    Each gate contains further doors
+                    {% trans "Each gate contains further doors" %}
                 </p>
             </div>
 
             <div class="door">
                 <div class="door-number">∞</div>
                 <p>
-                    An ongoing path of growth and awareness
+                    {% trans "An ongoing path of growth and awareness" %}
                 </p>
             </div>
 
@@ -659,9 +755,11 @@
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             Each gate represents a stage of your evolution and
             contains further symbolic doors, creating an infinite
             journey of growth and awareness.
+            {% endblocktrans %}
         </p>
 
     </section>
@@ -671,21 +769,21 @@
     <section>
 
         <h2 class="section-title">
-            What It Means to <span>Walk Through Them</span>
+            {% trans "What It Means to" %} <span>{% trans "Walk Through Them" %}</span>
         </h2>
 
         <div class="list">
 
             <div class="list-item">
-                Live fully in the present
+                {% trans "Live fully in the present" %}
             </div>
 
             <div class="list-item">
-                Align yourself with your path
+                {% trans "Align yourself with your path" %}
             </div>
 
             <div class="list-item">
-                Activate your potential
+                {% trans "Activate your potential" %}
             </div>
 
         </div>
@@ -697,51 +795,55 @@
     <section>
 
         <h2 class="section-title">
-            <span>Know Yourself.</span>
-            Transform Your Life.
+            <span>{% trans "Know Yourself." %}</span>
+            {% trans "Transform Your Life." %}
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Understanding who you truly are can help you give meaning
             to your experiences, recognize inner blocks, and approach
             important decisions with greater awareness.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             When you explore your inner essence, your perspective
             can begin to change.
+            {% endblocktrans %}
         </p>
 
         <div class="cards">
 
             <div class="card">
-                <h3>Love</h3>
+                <h3>{% trans "Love" %}</h3>
             </div>
 
             <div class="card">
-                <h3>Balance</h3>
+                <h3>{% trans "Balance" %}</h3>
             </div>
 
             <div class="card">
-                <h3>Intuition</h3>
+                <h3>{% trans "Intuition" %}</h3>
             </div>
 
             <div class="card">
-                <h3>Guidance</h3>
+                <h3>{% trans "Guidance" %}</h3>
             </div>
 
             <div class="card">
-                <h3>Growth</h3>
+                <h3>{% trans "Growth" %}</h3>
             </div>
 
             <div class="card">
-                <h3>Fulfillment</h3>
+                <h3>{% trans "Fulfillment" %}</h3>
             </div>
 
             <div class="card">
-                <h3>Freedom</h3>
+                <h3>{% trans "Freedom" %}</h3>
             </div>
 
         </div>
@@ -753,20 +855,22 @@
     <div class="final-cta">
 
         <h2>
-            Your Soul <span>Knows the Way.</span>
+            {% trans "Your Soul" %} <span>{% trans "Knows the Way." %}</span>
         </h2>
 
         <p>
+            {% blocktrans %}
             Explore your personal numbers, your symbolic soul code,
             and the deeper path revealed through your birth date.
+            {% endblocktrans %}
         </p>
 
         <p>
-            You only need to remember.
+            {% trans "You only need to remember." %}
         </p>
 
         <a href="#" class="cta">
-            Discover Your Soul Code
+            {% trans "Discover Your Soul Code" %}
         </a>
 
     </div>
@@ -775,8 +879,6 @@
 
 </body>
 </html>
-
-
 
 
 {% endblock %}

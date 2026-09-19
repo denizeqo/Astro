@@ -3,13 +3,14 @@
 
 
 {% block main %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Astro-Numerology – Personalized 12-Month Forecast</title>
+    <title>{% trans "Astro-Numerology" %} – {% trans "Personalized" %} 12-Month Forecast</title>
 
     <style>
         * {
@@ -18,30 +19,59 @@
             box-sizing: border-box;
         }
 
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         body {
+            width: 100%;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #0d0820;
             color: #ffffff;
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         .page {
+            width: 100%;
+            min-height: 100vh;
             padding: 60px 20px;
         }
 
         .container {
+            width: 100%;
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         /* HERO */
-
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 60px;
             align-items: center;
             margin-bottom: 100px;
+        }
+
+        .hero > img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .hero > div {
+            min-width: 0;
         }
 
         .image-placeholder {
@@ -50,11 +80,9 @@
             border-radius: 24px;
             background: #18112e;
             border: 1px solid rgba(255,255,255,.12);
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             color: rgba(255,255,255,.4);
             letter-spacing: 1px;
         }
@@ -70,6 +98,7 @@
             line-height: 1.08;
             font-weight: 500;
             margin-bottom: 25px;
+            overflow-wrap: anywhere;
         }
 
         h1 span {
@@ -90,15 +119,14 @@
 
         .button {
             display: inline-block;
+            max-width: 100%;
             padding: 14px 32px;
             border-radius: 50px;
-
             background: #ffffff;
             color: #0d0820;
-
             text-decoration: none;
             font-weight: 600;
-
+            text-align: center;
             transition: .3s ease;
         }
 
@@ -108,7 +136,6 @@
         }
 
         /* QUOTE */
-
         .quote {
             text-align: center;
             max-width: 850px;
@@ -121,17 +148,25 @@
             font-style: italic;
         }
 
-        /* SECTIONS */
+        .quote span {
+            display: block;
+            margin-top: 20px;
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+        }
 
+        /* SECTIONS */
         .section {
             margin-bottom: 90px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 34px;
+            font-size: clamp(30px, 4vw, 34px);
             font-weight: 500;
             margin-bottom: 45px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
         }
 
         .section-title span {
@@ -147,17 +182,16 @@
         }
 
         /* CARDS */
-
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
 
         .card {
+            min-width: 0;
             padding: 30px;
             border-radius: 20px;
-
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -167,6 +201,7 @@
             font-size: 21px;
             font-weight: 500;
             margin-bottom: 15px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -176,10 +211,12 @@
         .card ul {
             list-style: none;
             color: rgb(255, 255, 255);
+            padding-left: 0;
         }
 
         .card li {
             margin-bottom: 12px;
+            overflow-wrap: anywhere;
         }
 
         .card li::before {
@@ -189,17 +226,16 @@
         }
 
         /* 12 MONTHS */
-
         .months {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 15px;
         }
 
         .month {
+            min-width: 0;
             padding: 25px 15px;
             text-align: center;
-
             border-radius: 18px;
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.08);
@@ -214,20 +250,20 @@
         .month-name {
             font-size: 14px;
             color: rgb(255, 255, 255);
+            overflow-wrap: anywhere;
         }
 
         /* METHOD */
-
         .method {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
         }
 
         .method-card {
+            min-width: 0;
             padding: 35px 25px;
             text-align: center;
-
             border-radius: 20px;
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.1);
@@ -242,6 +278,7 @@
             color: #cdb5ff;
             font-weight: 500;
             margin-bottom: 10px;
+            overflow-wrap: anywhere;
         }
 
         .method-card p {
@@ -250,17 +287,16 @@
         }
 
         /* TRANSFORMATION */
-
         .transformation {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
         }
 
         .transformation-card {
+            min-width: 0;
             padding: 35px 25px;
             text-align: center;
-
             border-radius: 20px;
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.1);
@@ -282,12 +318,10 @@
         }
 
         /* FINAL CTA */
-
         .final {
             text-align: center;
             padding: 70px 25px;
             border-radius: 25px;
-
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -295,7 +329,9 @@
         .final h2 {
             font-size: clamp(30px, 4vw, 45px);
             font-weight: 500;
+            line-height: 1.2;
             margin-bottom: 20px;
+            overflow-wrap: anywhere;
         }
 
         .final p {
@@ -304,10 +340,14 @@
             color: rgb(255, 255, 255);
         }
 
-        /* MOBILE */
+        /* TABLET / MOBILE */
+        @media (max-width: 900px) {
+            .months {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
 
         @media (max-width: 768px) {
-
             .page {
                 padding: 35px 18px;
             }
@@ -318,6 +358,11 @@
                 margin-bottom: 70px;
             }
 
+            .hero > img {
+                order: -1;
+                aspect-ratio: 4 / 3;
+            }
+
             .image-placeholder {
                 aspect-ratio: 4 / 3;
             }
@@ -326,20 +371,14 @@
                 font-size: 40px;
             }
 
-            .cards {
+            .cards,
+            .method,
+            .transformation {
                 grid-template-columns: 1fr;
             }
 
             .months {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .method {
-                grid-template-columns: 1fr;
-            }
-
-            .transformation {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .section {
@@ -352,9 +391,17 @@
         }
 
         @media (max-width: 480px) {
-
             .page {
                 padding: 25px 15px;
+            }
+
+            .hero {
+                gap: 26px;
+                margin-bottom: 55px;
+            }
+
+            .hero > img {
+                border-radius: 18px;
             }
 
             h1 {
@@ -365,16 +412,19 @@
                 font-size: 19px;
             }
 
-            .hero-text {
+            .hero-text,
+            .intro,
+            .final p {
                 font-size: 16px;
             }
 
             .button {
                 width: 100%;
-                text-align: center;
+                padding: 14px 20px;
             }
 
             .months {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 10px;
             }
 
@@ -386,8 +436,32 @@
                 font-size: 25px;
             }
 
+            .quote {
+                margin-bottom: 55px;
+            }
+
             .quote p {
-                font-size: 25px;
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .method-card,
+            .transformation-card {
+                padding: 28px 20px;
+            }
+
+            .final {
+                padding: 50px 18px;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .months {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -408,28 +482,32 @@
             <div>
 
                 <div class="eyebrow">
-                    Astro-Numerology
+                    {% trans "Astro-Numerology" %}
                 </div>
 
                 <h1>
-                    Personalized
-                    <span>12-Month Forecast</span>
+                    {% trans "Personalized" %}
+                    <span>{% trans "12-Month Forecast" %}</span>
                 </h1>
 
                 <p class="hero-subtitle">
+                    {% blocktrans %}
                     Anticipate your future.
                     Act at the right moment.
+                    {% endblocktrans %}
                 </p>
 
                 <p class="hero-text">
+                    {% blocktrans %}
                     Through an astro-numerological analysis of your birth,
                     a complete forecast of the next 12 months is created
                     to guide you with greater clarity through the most
                     important choices in your life.
+                    {% endblocktrans %}
                 </p>
 
                 <a href="#" class="button">
-                    Discover Your Forecast
+                    {% trans "Discover Your Forecast" %}
                 </a>
 
             </div>
@@ -442,12 +520,14 @@
         <section class="quote">
 
             <p>
+                {% blocktrans %}
                 “The future is not something you wait for…
                 it is something you recognize.”
+                {% endblocktrans %}
             </p>
 
             <span>
-                — AM
+                {% trans "— AM" %}
             </span>
 
         </section>
@@ -458,22 +538,26 @@
         <section class="section">
 
             <h2 class="section-title">
-                More Than a <span>Prediction</span>
+                {% trans "More Than a" %} <span>{% trans "Prediction" %}</span>
             </h2>
 
             <p class="intro">
+                {% blocktrans %}
                 This personalized 12-month forecast is not simply about
                 predicting what may happen. It is about developing an
                 awareness of time — understanding the energies surrounding
                 each period and recognizing when to act.
+                {% endblocktrans %}
             </p>
 
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 By combining your birth information with astrological
                 and numerological cycles, the forecast provides a
                 month-by-month perspective on the year ahead.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -484,62 +568,72 @@
         <section class="section">
 
             <h2 class="section-title">
-                What You <span>Receive</span>
+                {% trans "What You" %} <span>{% trans "Receive" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>Month-by-Month Forecast</h3>
+                    <h3>{% trans "Month-by-Month Forecast" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         A complete overview of the energy and themes
                         unfolding throughout each month.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Dominant Energy</h3>
+                    <h3>{% trans "Dominant Energy" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Discover the main energetic influence shaping
                         each period of your year.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Opportunities & Challenges</h3>
+                    <h3>{% trans "Opportunities & Challenges" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Recognize favorable moments and understand
                         the challenges that may require greater awareness.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Love, Work & Money</h3>
+                    <h3>{% trans "Love, Work & Money" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Insights into relationships, career,
                         finances and personal development.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Practical Guidance</h3>
+                    <h3>{% trans "Practical Guidance" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Clear guidance to help you approach important
                         decisions throughout the year.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -554,69 +648,69 @@
         <section class="section">
 
             <h2 class="section-title">
-                Your Next <span>12 Months</span>
+                {% trans "Your Next" %} <span>{% trans "12 Months" %}</span>
             </h2>
 
             <div class="months">
 
                 <div class="month">
                     <div class="month-number">01</div>
-                    <div class="month-name">Month One</div>
+                    <div class="month-name">{% trans "Month One" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">02</div>
-                    <div class="month-name">Month Two</div>
+                    <div class="month-name">{% trans "Month Two" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">03</div>
-                    <div class="month-name">Month Three</div>
+                    <div class="month-name">{% trans "Month Three" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">04</div>
-                    <div class="month-name">Month Four</div>
+                    <div class="month-name">{% trans "Month Four" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">05</div>
-                    <div class="month-name">Month Five</div>
+                    <div class="month-name">{% trans "Month Five" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">06</div>
-                    <div class="month-name">Month Six</div>
+                    <div class="month-name">{% trans "Month Six" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">07</div>
-                    <div class="month-name">Month Seven</div>
+                    <div class="month-name">{% trans "Month Seven" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">08</div>
-                    <div class="month-name">Month Eight</div>
+                    <div class="month-name">{% trans "Month Eight" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">09</div>
-                    <div class="month-name">Month Nine</div>
+                    <div class="month-name">{% trans "Month Nine" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">10</div>
-                    <div class="month-name">Month Ten</div>
+                    <div class="month-name">{% trans "Month Ten" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">11</div>
-                    <div class="month-name">Month Eleven</div>
+                    <div class="month-name">{% trans "Month Eleven" %}</div>
                 </div>
 
                 <div class="month">
                     <div class="month-number">12</div>
-                    <div class="month-name">Month Twelve</div>
+                    <div class="month-name">{% trans "Month Twelve" %}</div>
                 </div>
 
             </div>
@@ -629,7 +723,7 @@
         <section class="section">
 
             <h2 class="section-title">
-                The Method Is Based <span>On</span>
+                {% trans "The Method Is Based" %} <span>{% trans "On" %}</span>
             </h2>
 
             <div class="method">
@@ -638,11 +732,13 @@
 
                     <div class="method-icon">✦</div>
 
-                    <h3>Astrological Transits</h3>
+                    <h3>{% trans "Astrological Transits" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Planetary movements that reveal the changing
                         energies influencing your path.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -652,11 +748,13 @@
 
                     <div class="method-icon">◐</div>
 
-                    <h3>Evolutionary Progressions</h3>
+                    <h3>{% trans "Evolutionary Progressions" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Cycles that reflect your inner development
                         and personal evolution.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -666,11 +764,13 @@
 
                     <div class="method-icon">∞</div>
 
-                    <h3>Personal Birth Numbers</h3>
+                    <h3>{% trans "Personal Birth Numbers" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Your unique numerological patterns derived
                         from your birth date.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -680,9 +780,11 @@
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 Together, these elements help reveal not only
                 <strong>what may happen</strong> — but
                 <strong>when it may happen.</strong>
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -693,31 +795,35 @@
         <section class="section">
 
             <h2 class="section-title">
-                Your <span>Path</span>
+                {% trans "Your" %} <span>{% trans "Path" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>The Numbers Reveal</h3>
+                    <h3>{% trans "The Numbers Reveal" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Your personal numbers reveal patterns of
                         inner development and the stages of your
                         personal evolution.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>The Stars Indicate</h3>
+                    <h3>{% trans "The Stars Indicate" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         The stars and planetary cycles help identify
                         the moments when a particular energy becomes
                         ready to emerge.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -727,8 +833,10 @@
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 When an energy is ready, it can open the way toward
                 new experiences, choices and directions.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -739,19 +847,19 @@
         <section class="section">
 
             <h2 class="section-title">
-                <span>Transformation</span>
+                <span>{% trans "Transformation" %}</span>
             </h2>
 
             <div class="transformation">
 
                 <div class="transformation-card">
 
-                    <strong>Uncertainty</strong>
+                    <strong>{% trans "Uncertainty" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Vision
+                        {% trans "Vision" %}
                     </p>
 
                 </div>
@@ -759,12 +867,12 @@
 
                 <div class="transformation-card">
 
-                    <strong>Waiting</strong>
+                    <strong>{% trans "Waiting" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Conscious Action
+                        {% trans "Conscious Action" %}
                     </p>
 
                 </div>
@@ -772,12 +880,12 @@
 
                 <div class="transformation-card">
 
-                    <strong>Confusion</strong>
+                    <strong>{% trans "Confusion" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Clear Direction
+                        {% trans "Clear Direction" %}
                     </p>
 
                 </div>
@@ -792,17 +900,19 @@
         <section class="final">
 
             <h2>
-                See the Year Ahead
+                {% trans "See the Year Ahead" %}
             </h2>
 
             <p>
+                {% blocktrans %}
                 Discover the energies, opportunities and turning points
                 that may shape your next 12 months — and learn to
                 recognize the right moment to act.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="button">
-                Get Your 12-Month Forecast
+                {% trans "Get Your 12-Month Forecast" %}
             </a>
 
         </section>
@@ -813,5 +923,4 @@
 
 </body>
 </html>
-
 {% endblock %}

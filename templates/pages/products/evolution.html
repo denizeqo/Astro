@@ -3,13 +3,14 @@
 
 
 {% block main %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Astro-Numerology – Long-Term Progressive Reading</title>
+    <title>{% trans "Astro-Numerology" %} – {% trans "Long-Term" %} Progressive Reading</title>
 
     <style>
         * {
@@ -18,30 +19,59 @@
             box-sizing: border-box;
         }
 
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         body {
+            width: 100%;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #0d0820;
             color: #ffffff;
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         .page {
+            width: 100%;
+            min-height: 100vh;
             padding: 60px 20px;
         }
 
         .container {
+            width: 100%;
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         /* HERO */
-
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 60px;
             align-items: center;
             margin-bottom: 100px;
+        }
+
+        .hero > img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .hero > div {
+            min-width: 0;
         }
 
         .image-placeholder {
@@ -50,11 +80,9 @@
             border-radius: 24px;
             background: #18112e;
             border: 1px solid rgba(255,255,255,.12);
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             color: rgba(255,255,255,.4);
             letter-spacing: 1px;
         }
@@ -70,6 +98,7 @@
             line-height: 1.08;
             font-weight: 500;
             margin-bottom: 25px;
+            overflow-wrap: anywhere;
         }
 
         h1 span {
@@ -90,15 +119,14 @@
 
         .button {
             display: inline-block;
+            max-width: 100%;
             padding: 14px 32px;
             border-radius: 50px;
-
             background: #ffffff;
             color: #0d0820;
-
             text-decoration: none;
             font-weight: 600;
-
+            text-align: center;
             transition: .3s ease;
         }
 
@@ -108,7 +136,6 @@
         }
 
         /* QUOTE */
-
         .quote {
             text-align: center;
             max-width: 850px;
@@ -129,16 +156,17 @@
         }
 
         /* SECTIONS */
-
         .section {
             margin-bottom: 90px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 34px;
+            font-size: clamp(30px, 4vw, 34px);
             font-weight: 500;
             margin-bottom: 45px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
         }
 
         .section-title span {
@@ -154,17 +182,16 @@
         }
 
         /* CARDS */
-
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
 
         .card {
+            min-width: 0;
             padding: 30px;
             border-radius: 20px;
-
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -174,6 +201,7 @@
             font-size: 21px;
             font-weight: 500;
             margin-bottom: 15px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -183,10 +211,12 @@
         .card ul {
             list-style: none;
             color: rgb(255, 255, 255);
+            padding-left: 0;
         }
 
         .card li {
             margin-bottom: 12px;
+            overflow-wrap: anywhere;
         }
 
         .card li::before {
@@ -196,7 +226,6 @@
         }
 
         /* TIMELINE */
-
         .timeline {
             position: relative;
             max-width: 850px;
@@ -232,11 +261,9 @@
         .timeline-dot {
             position: absolute;
             top: 30px;
-
             width: 12px;
             height: 12px;
             border-radius: 50%;
-
             background: #cdb5ff;
             box-shadow: 0 0 15px rgba(205,181,255,.35);
         }
@@ -261,19 +288,18 @@
         }
 
         /* KARMA / DHARMA */
-
         .karma-dharma {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
 
         .karma-card,
         .dharma-card {
+            min-width: 0;
             padding: 45px 30px;
             border-radius: 22px;
             text-align: center;
-
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -306,17 +332,16 @@
         }
 
         /* TRANSFORMATION */
-
         .transformation {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
         }
 
         .transformation-card {
+            min-width: 0;
             padding: 35px 25px;
             text-align: center;
-
             border-radius: 20px;
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.1);
@@ -336,12 +361,10 @@
         }
 
         /* FINAL CTA */
-
         .final {
             text-align: center;
             padding: 70px 25px;
             border-radius: 25px;
-
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -349,7 +372,9 @@
         .final h2 {
             font-size: clamp(30px, 4vw, 45px);
             font-weight: 500;
+            line-height: 1.2;
             margin-bottom: 20px;
+            overflow-wrap: anywhere;
         }
 
         .final p {
@@ -358,10 +383,8 @@
             color: rgb(255, 255, 255);
         }
 
-        /* MOBILE */
-
+        /* TABLET / MOBILE */
         @media (max-width: 768px) {
-
             .page {
                 padding: 35px 18px;
             }
@@ -372,6 +395,11 @@
                 margin-bottom: 70px;
             }
 
+            .hero > img {
+                order: -1;
+                aspect-ratio: 4 / 3;
+            }
+
             .image-placeholder {
                 aspect-ratio: 4 / 3;
             }
@@ -380,28 +408,27 @@
                 font-size: 40px;
             }
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .karma-dharma {
-                grid-template-columns: 1fr;
-            }
-
+            .cards,
+            .karma-dharma,
             .transformation {
                 grid-template-columns: 1fr;
             }
 
+            .timeline {
+                padding-left: 0;
+            }
+
             .timeline::before {
                 left: 10px;
+                transform: none;
             }
 
             .timeline-item,
-            .timeline-item:nth-child(even) {
+            .timeline-item:nth-child(even),
+            .timeline-item:nth-child(odd) {
                 width: 100%;
                 left: 0;
-                padding-left: 40px;
-                padding-right: 10px;
+                padding: 18px 10px 18px 40px;
                 text-align: left;
             }
 
@@ -421,9 +448,17 @@
         }
 
         @media (max-width: 480px) {
-
             .page {
                 padding: 25px 15px;
+            }
+
+            .hero {
+                gap: 26px;
+                margin-bottom: 55px;
+            }
+
+            .hero > img {
+                border-radius: 18px;
             }
 
             h1 {
@@ -434,22 +469,41 @@
                 font-size: 19px;
             }
 
-            .hero-text {
+            .hero-text,
+            .intro,
+            .final p {
                 font-size: 16px;
             }
 
             .button {
                 width: 100%;
-                text-align: center;
+                padding: 14px 20px;
+            }
+
+            .quote {
+                margin-bottom: 55px;
             }
 
             .quote p {
-                font-size: 25px;
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 22px;
             }
 
             .karma-card,
             .dharma-card {
                 padding: 35px 22px;
+            }
+
+            .transformation-card {
+                padding: 28px 20px;
+            }
+
+            .final {
+                padding: 50px 18px;
+                border-radius: 20px;
             }
         }
     </style>
@@ -470,29 +524,33 @@
             <div>
 
                 <div class="eyebrow">
-                    Astro-Numerology
+                    {% trans "Astro-Numerology" %}
                 </div>
 
                 <h1>
-                    Long-Term
-                    <span>Progressive Reading</span>
+                    {% trans "Long-Term" %}
+                    <span>{% trans "Progressive Reading" %}</span>
                 </h1>
 
                 <p class="hero-subtitle">
+                    {% blocktrans %}
                     Understand your Karma.
                     Activate your Dharma.
                     Live your time.
+                    {% endblocktrans %}
                 </p>
 
                 <p class="hero-text">
+                    {% blocktrans %}
                     An advanced evolutionary analysis that uses
                     astrological transits and progressions to help
                     you understand your path through time and act
                     during the most favorable moments.
+                    {% endblocktrans %}
                 </p>
 
                 <a href="#" class="button">
-                    Discover Your Path
+                    {% trans "Discover Your Path" %}
                 </a>
 
             </div>
@@ -505,12 +563,14 @@
         <section class="quote">
 
             <p>
+                {% blocktrans %}
                 “Every soul has its own timing.
                 When you recognize it… you begin to truly live.”
+                {% endblocktrans %}
             </p>
 
             <span>
-                — AM
+                {% trans "— AM" %}
             </span>
 
         </section>
@@ -521,22 +581,26 @@
         <section class="section">
 
             <h2 class="section-title">
-                More Than a <span>Prediction</span>
+                {% trans "More Than a" %} <span>{% trans "Prediction" %}</span>
             </h2>
 
             <p class="intro">
+                {% blocktrans %}
                 This is an advanced evolutionary reading designed to
                 help you understand how your life develops over time.
                 Rather than simply predicting events, it explores
                 the timing and evolution of the energies shaping your journey.
+                {% endblocktrans %}
             </p>
 
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 Through transits, progressions and your natal chart,
                 you can recognize when different aspects of your potential
                 are ready to emerge and how to work with them consciously.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -547,51 +611,59 @@
         <section class="section">
 
             <h2 class="section-title">
-                What You <span>Discover</span>
+                {% trans "What You" %} <span>{% trans "Discover" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>Your Karmic Roots</h3>
+                    <h3>{% trans "Your Karmic Roots" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Explore the patterns and experiences from the past
                         that continue to influence your present journey.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Your Dharma</h3>
+                    <h3>{% trans "Your Dharma" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Discover the direction of your evolution and
                         the qualities you are being called to develop.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Your Present Evolution</h3>
+                    <h3>{% trans "Your Present Evolution" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Understand the transformation taking place within
                         you and the energies currently becoming active.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Future Opportunities</h3>
+                    <h3>{% trans "Future Opportunities" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Recognize potential periods of growth,
                         change and new experiences.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -606,40 +678,46 @@
         <section class="section">
 
             <h2 class="section-title">
-                The Method Is Based <span>On</span>
+                {% trans "The Method Is Based" %} <span>{% trans "On" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>Astrological Transits</h3>
+                    <h3>{% trans "Astrological Transits" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Planetary movements that reveal when specific
                         energies become active in your life.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Evolutionary Progressions</h3>
+                    <h3>{% trans "Evolutionary Progressions" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         A deeper look at your inner development and
                         the gradual unfolding of your potential.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Your Natal Chart</h3>
+                    <h3>{% trans "Your Natal Chart" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Your birth chart provides the foundation for
                         understanding the unique patterns of your journey.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -649,9 +727,11 @@
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 Together, these elements help reveal
                 <strong>when and how different energies become active</strong>
                 in your life.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -662,24 +742,26 @@
         <section class="section">
 
             <h2 class="section-title">
-                The <span>Key</span> of the System
+                {% trans "The" %} <span>{% trans "Key" %}</span> {% trans "of the System" %}
             </h2>
 
             <div class="karma-dharma">
 
                 <div class="karma-card">
 
-                    <h3>Dragon's Tail</h3>
+                    <h3>{% trans "Dragon's Tail" %}</h3>
 
                     <p>
-                        <strong>Karma</strong>
+                        <strong>{% trans "Karma" %}</strong>
                     </p>
 
                     <span class="arrow">↓</span>
 
                     <p>
+                        {% blocktrans %}
                         The experiences, patterns and lessons from
                         the past that you carry with you.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -687,17 +769,19 @@
 
                 <div class="dharma-card">
 
-                    <h3>Dragon's Head</h3>
+                    <h3>{% trans "Dragon's Head" %}</h3>
 
                     <p>
-                        <strong>Dharma</strong>
+                        <strong>{% trans "Dharma" %}</strong>
                     </p>
 
                     <span class="arrow">↑</span>
 
                     <p>
+                        {% blocktrans %}
                         The direction of your evolution and the path
                         toward what you are becoming.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -707,8 +791,10 @@
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 Your task is not to remain attached to what you have already
                 experienced, but to move toward what you are destined to become.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -719,12 +805,14 @@
         <section class="section">
 
             <h2 class="section-title">
-                The True Meaning of <span>Progress</span>
+                {% trans "The True Meaning of" %} <span>{% trans "Progress" %}</span>
             </h2>
 
             <p class="intro">
+                {% blocktrans %}
                 Not everything happens immediately.
                 Within you exists a potential that develops over time.
+                {% endblocktrans %}
             </p>
 
             <div class="timeline">
@@ -733,11 +821,13 @@
 
                     <div class="timeline-dot"></div>
 
-                    <h3>What Will Emerge</h3>
+                    <h3>{% trans "What Will Emerge" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Discover which aspects of yourself are
                         ready to emerge and develop.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -747,11 +837,13 @@
 
                     <div class="timeline-dot"></div>
 
-                    <h3>When It Activates</h3>
+                    <h3>{% trans "When It Activates" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Recognize the periods when these energies
                         become active in your life.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -761,11 +853,13 @@
 
                     <div class="timeline-dot"></div>
 
-                    <h3>How to Transform It</h3>
+                    <h3>{% trans "How to Transform It" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Learn how to turn emerging potential into
                         conscious strength and personal growth.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -780,51 +874,59 @@
         <section class="section">
 
             <h2 class="section-title">
-                What You <span>Gain</span>
+                {% trans "What You" %} <span>{% trans "Gain" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>Deep Understanding</h3>
+                    <h3>{% trans "Deep Understanding" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Develop a deeper understanding of your personal
                         journey and its evolutionary direction.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Clarity in Important Choices</h3>
+                    <h3>{% trans "Clarity in Important Choices" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Gain greater awareness when approaching
                         important decisions and turning points.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Recognize the Right Moment</h3>
+                    <h3>{% trans "Recognize the Right Moment" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Become more aware of the periods when it may
                         be appropriate to act, change or move forward.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
 
                 <div class="card">
 
-                    <h3>Move Beyond Inner Blocks</h3>
+                    <h3>{% trans "Move Beyond Inner Blocks" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Recognize recurring patterns and transform them
                         into opportunities for personal development.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -839,19 +941,19 @@
         <section class="section">
 
             <h2 class="section-title">
-                <span>Transformation</span>
+                <span>{% trans "Transformation" %}</span>
             </h2>
 
             <div class="transformation">
 
                 <div class="transformation-card">
 
-                    <strong>Repetition</strong>
+                    <strong>{% trans "Repetition" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Evolution
+                        {% trans "Evolution" %}
                     </p>
 
                 </div>
@@ -859,12 +961,12 @@
 
                 <div class="transformation-card">
 
-                    <strong>Confusion</strong>
+                    <strong>{% trans "Confusion" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Direction
+                        {% trans "Direction" %}
                     </p>
 
                 </div>
@@ -872,12 +974,12 @@
 
                 <div class="transformation-card">
 
-                    <strong>Karma</strong>
+                    <strong>{% trans "Karma" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Dharma
+                        {% trans "Dharma" %}
                     </p>
 
                 </div>
@@ -892,17 +994,19 @@
         <section class="final">
 
             <h2>
-                Understand Your Time
+                {% trans "Understand Your Time" %}
             </h2>
 
             <p>
+                {% blocktrans %}
                 Explore your long-term evolutionary path, recognize
                 the energies that are becoming active and discover
                 how to move consciously toward your future.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="button">
-                Begin Your Reading
+                {% trans "Begin Your Reading" %}
             </a>
 
         </section>

@@ -23,5 +23,6 @@ urlpatterns = [
     path('innerWorld', views.prInnerWorld, name='innerWorld'),
     path('essentialOils', views.prEssentialOils, name='essentialOils'),
     path('stars', views.prStars, name='stars'),
+    path('forecast', views.prForecast, name='forecast'),
 
 ]

@@ -3,6 +3,7 @@
 
 
 {% block main %}
+{% load i18n %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,23 +15,41 @@
 
 <style>
     * {
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
     }
 
     body {
+        width: 100%;
+        margin: 0;
         font-family: Arial, Helvetica, sans-serif;
         background: #0d0820;
         color: #ffffff;
         line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
     }
 
     .page {
-        padding: 70px 20px;
+        width: 100%;
+        min-height: 100vh;
+        padding: 60px 20px;
     }
 
     .container {
+        width: 100%;
         max-width: 1100px;
         margin: 0 auto;
     }
@@ -38,10 +57,22 @@
     /* Hero */
     .hero {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 60px;
         align-items: center;
         margin-bottom: 80px;
+    }
+
+    .hero > img {
+        width: 100%;
+        max-height: 560px;
+        object-fit: cover;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero > div {
+        min-width: 0;
     }
 
     .image-placeholder {
@@ -61,10 +92,12 @@
         font-size: clamp(38px, 5vw, 62px);
         line-height: 1.1;
         margin-bottom: 25px;
+        overflow-wrap: anywhere;
     }
 
     .hero h1 span,
-    .section-title span {
+    .section-title span,
+    .final-cta h2 span {
         color: #cdb5ff;
     }
 
@@ -76,12 +109,14 @@
 
     .cta {
         display: inline-block;
+        max-width: 100%;
         padding: 15px 32px;
         border-radius: 50px;
         background: #ffffff;
         color: #0d0820;
         text-decoration: none;
         font-weight: bold;
+        text-align: center;
         transition: 0.25s ease;
     }
 
@@ -96,9 +131,10 @@
     }
 
     .section-title {
-        font-size: 34px;
+        font-size: clamp(29px, 4vw, 34px);
         margin-bottom: 25px;
         line-height: 1.2;
+        overflow-wrap: anywhere;
     }
 
     .section-text {
@@ -119,12 +155,13 @@
     /* Cards */
     .cards {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
         margin-top: 30px;
     }
 
     .card {
+        min-width: 0;
         padding: 28px;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -135,6 +172,7 @@
         color: #cdb5ff;
         font-size: 21px;
         margin-bottom: 12px;
+        overflow-wrap: anywhere;
     }
 
     .card p {
@@ -154,6 +192,7 @@
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         color: #ffffff;
+        overflow-wrap: anywhere;
     }
 
     .list-item::before {
@@ -194,13 +233,10 @@
     }
 
     .final-cta h2 {
-        font-size: 40px;
+        font-size: clamp(32px, 5vw, 40px);
         line-height: 1.2;
         margin-bottom: 20px;
-    }
-
-    .final-cta h2 span {
-        color: #cdb5ff;
+        overflow-wrap: anywhere;
     }
 
     .final-cta p {
@@ -210,17 +246,23 @@
         margin: 0 auto 30px;
     }
 
-    /* Mobile */
+    /* Tablet / Mobile */
     @media (max-width: 768px) {
-
         .page {
-            padding: 45px 18px;
+            padding: 42px 18px;
         }
 
         .hero {
             grid-template-columns: 1fr;
-            gap: 35px;
+            gap: 32px;
             margin-bottom: 60px;
+        }
+
+        .hero > img {
+            order: -1;
+            max-height: none;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
         }
 
         .image-placeholder {
@@ -229,7 +271,7 @@
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: clamp(36px, 9vw, 42px);
         }
 
         .subtitle {
@@ -238,10 +280,6 @@
 
         .cards {
             grid-template-columns: 1fr;
-        }
-
-        .section-title {
-            font-size: 29px;
         }
 
         .quote {
@@ -260,28 +298,71 @@
         .final-cta {
             padding: 50px 22px;
         }
-
-        .final-cta h2 {
-            font-size: 32px;
-        }
     }
 
     @media (max-width: 480px) {
-
-        .hero h1 {
-            font-size: 36px;
+        .page {
+            padding: 32px 14px;
         }
 
-        .image-placeholder {
-            height: 280px;
+        .hero {
+            gap: 26px;
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+        }
+
+        .hero > img {
+            border-radius: 18px;
+        }
+
+        .subtitle,
+        .section-text,
+        .compass p,
+        .final-cta p {
+            font-size: 16px;
+        }
+
+        .cta {
+            width: 100%;
+            padding: 14px 20px;
+        }
+
+        .quote {
+            font-size: 19px;
+            line-height: 1.55;
+            margin-bottom: 48px;
         }
 
         .card {
-            padding: 23px;
+            padding: 22px;
+        }
+
+        .card h3 {
+            font-size: 20px;
         }
 
         .list-item {
             padding: 15px 17px;
+        }
+
+        .compass {
+            padding: 24px 18px;
+        }
+
+        .compass-title {
+            font-size: 23px;
+        }
+
+        .final-cta {
+            padding: 40px 18px;
+            border-radius: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
         }
     }
 </style>
@@ -303,17 +384,19 @@
         <div>
 
             <h1>
-                <span>Astrographic</span>
-                Astro-Numerology
+                <span>{% trans "Astrographic" %}</span>
+                {% trans "Astro-Numerology" %}
             </h1>
 
             <p class="subtitle">
+                {% blocktrans %}
                 Discover the places where your personal energy
                 can align with the world around you.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="cta">
-                Discover Your Map
+                {% trans "Discover Your Map" %}
             </a>
 
         </div>
@@ -323,8 +406,10 @@
 
     <!-- INTRO -->
     <div class="quote">
+        {% blocktrans %}
         “Every place has a vibration. Every place responds
         differently to your energy.”
+        {% endblocktrans %}
     </div>
 
 
@@ -332,38 +417,42 @@
     <section>
 
         <h2 class="section-title">
-            Your Personal <span>Map</span>
+            {% trans "Your Personal" %} <span>{% trans "Map" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Through your date of birth, the planets, numbers, and
             their movements, a personal map is created that connects
             the energies of the sky with places on Earth.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             This symbolic map explores how different locations may
             resonate with your personal energy and your goals.
+            {% endblocktrans %}
         </p>
 
         <div class="list">
 
             <div class="list-item">
-                Places that may support personal fulfillment
+                {% trans "Places that may support personal fulfillment" %}
             </div>
 
             <div class="list-item">
-                Spaces aligned with your goals
+                {% trans "Spaces aligned with your goals" %}
             </div>
 
             <div class="list-item">
-                Environments that may amplify opportunities
+                {% trans "Environments that may amplify opportunities" %}
             </div>
 
             <div class="list-item">
-                Areas that may present challenges or energetic blocks
+                {% trans "Areas that may present challenges or energetic blocks" %}
             </div>
 
         </div>
@@ -375,65 +464,79 @@
     <section>
 
         <h2 class="section-title">
-            <span>Areas of Life</span>
-            Explored
+            <span>{% trans "Areas of Life" %}</span>
+            {% trans "Explored" %}
         </h2>
 
         <div class="cards">
 
             <div class="card">
-                <h3>Health &amp; Well-Being</h3>
+                <h3>{% trans "Health & Well-Being" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore locations in relation to your personal
                     sense of balance and well-being.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Finances &amp; Prosperity</h3>
+                <h3>{% trans "Finances & Prosperity" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Identify places symbolically associated with
                     growth and opportunities.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Career &amp; Fulfillment</h3>
+                <h3>{% trans "Career & Fulfillment" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore environments that may support your
                     professional goals and ambitions.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Relationships &amp; Love</h3>
+                <h3>{% trans "Relationships & Love" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Discover how different places may influence
                     your relationship experiences.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Family &amp; Fertility</h3>
+                <h3>{% trans "Family & Fertility" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore the symbolic relationship between
                     locations and family-related themes.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Business &amp; Collaborations</h3>
+                <h3>{% trans "Business & Collaborations" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Consider locations in relation to partnerships,
                     business, and professional connections.
+                    {% endblocktrans %}
                 </p>
             </div>
 
             <div class="card">
-                <h3>Travel &amp; New Beginnings</h3>
+                <h3>{% trans "Travel & New Beginnings" %}</h3>
                 <p>
+                    {% blocktrans %}
                     Explore places connected with change, travel,
                     fresh starts, and new experiences.
+                    {% endblocktrans %}
                 </p>
             </div>
 
@@ -446,38 +549,40 @@
     <section>
 
         <h2 class="section-title">
-            How It <span>Works</span>
+            {% trans "How It" %} <span>{% trans "Works" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Your personal energetic compass is created through
             a combination of astrological and numerological elements:
+            {% endblocktrans %}
         </p>
 
         <div class="list">
 
             <div class="list-item">
-                Your date of birth
+                {% trans "Your date of birth" %}
             </div>
 
             <div class="list-item">
-                Your Ascendant and planets
+                {% trans "Your Ascendant and planets" %}
             </div>
 
             <div class="list-item">
-                Astrological houses
+                {% trans "Astrological houses" %}
             </div>
 
             <div class="list-item">
-                Zodiac signs
+                {% trans "Zodiac signs" %}
             </div>
 
             <div class="list-item">
-                Personal numbers
+                {% trans "Personal numbers" %}
             </div>
 
             <div class="list-item">
-                Transits and progressions
+                {% trans "Transits and progressions" %}
             </div>
 
         </div>
@@ -485,12 +590,14 @@
         <div class="compass">
 
             <div class="compass-title">
-                Your Energetic Compass
+                {% trans "Your Energetic Compass" %}
             </div>
 
             <p>
+                {% blocktrans %}
                 A symbolic connection between the sky above you
                 and the places you encounter on Earth.
+                {% endblocktrans %}
             </p>
 
         </div>
@@ -502,34 +609,42 @@
     <section>
 
         <h2 class="section-title">
-            The <span>Teaching of Energy</span>
+            {% trans "The" %} <span>{% trans "Teaching of Energy" %}</span>
         </h2>
 
         <p class="section-text">
+            {% blocktrans %}
             Not every place is right for you.
             Some places help you grow.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             Others may challenge you.
             Awareness can guide you in making conscious choices
             about where you live, work, travel, and begin again.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             It is not simply chance that guides you.
             It is the symbolic resonance between you and a place.
+            {% endblocktrans %}
         </p>
 
         <br>
 
         <p class="section-text">
+            {% blocktrans %}
             When you find a place that resonates with you,
             your energy can feel more expansive and aligned.
+            {% endblocktrans %}
         </p>
 
     </section>
@@ -539,29 +654,29 @@
     <section>
 
         <h2 class="section-title">
-            Find the Place Where You Can <span>Thrive</span>
+            {% trans "Find the Place Where You Can" %} <span>{% trans "Thrive" %}</span>
         </h2>
 
         <p class="section-text">
-            Discover where you may choose to:
+            {% trans "Discover where you may choose to:" %}
         </p>
 
         <div class="list">
 
             <div class="list-item">
-                Build your home
+                {% trans "Build your home" %}
             </div>
 
             <div class="list-item">
-                Develop your projects
+                {% trans "Develop your projects" %}
             </div>
 
             <div class="list-item">
-                Encounter new opportunities
+                {% trans "Encounter new opportunities" %}
             </div>
 
             <div class="list-item">
-                Create a greater sense of harmony
+                {% trans "Create a greater sense of harmony" %}
             </div>
 
         </div>
@@ -573,19 +688,21 @@
     <div class="final-cta">
 
         <h2>
-            Find Your Place.
-            <span>Align Your Energy.</span>
-            Fulfill Your Path.
+            {% trans "Find Your Place." %}
+            <span>{% trans "Align Your Energy." %}</span>
+            {% trans "Fulfill Your Path." %}
         </h2>
 
         <p>
+            {% blocktrans %}
             Explore the connection between your personal birth map,
             the energies of different places, and the journey you
             are creating for yourself.
+            {% endblocktrans %}
         </p>
 
         <a href="#" class="cta">
-            Discover Your Astrographic Map
+            {% trans "Discover Your Astrographic Map" %}
         </a>
 
     </div>

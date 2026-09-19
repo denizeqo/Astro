@@ -3,46 +3,76 @@
 
 
 {% block main %}
-
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Astro-Numerology – Lunar Horoscope</title>
+    <title>{% trans "Astro-Numerology" %} – Lunar Horoscope</title>
 
     <style>
-        * {
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         body {
+            width: 100%;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #0d0820;
             color: #ffffff;
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         .page {
+            width: 100%;
+            min-height: 100vh;
             padding: 60px 20px;
         }
 
         .container {
+            width: 100%;
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         /* HERO */
 
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 60px;
             align-items: center;
             margin-bottom: 100px;
+        }
+
+        .hero > img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .hero > div {
+            min-width: 0;
         }
 
         .image-placeholder {
@@ -51,11 +81,9 @@
             border-radius: 24px;
             background: #18112e;
             border: 1px solid rgba(255,255,255,.12);
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             color: rgba(255,255,255,.4);
             letter-spacing: 1px;
         }
@@ -71,6 +99,7 @@
             line-height: 1.08;
             font-weight: 500;
             margin-bottom: 25px;
+            overflow-wrap: anywhere;
         }
 
         h1 span {
@@ -91,15 +120,14 @@
 
         .button {
             display: inline-block;
+            max-width: 100%;
             padding: 14px 32px;
             border-radius: 50px;
-
             background: #ffffff;
             color: #0d0820;
-
             text-decoration: none;
             font-weight: 600;
-
+            text-align: center;
             transition: .3s ease;
         }
 
@@ -130,9 +158,11 @@
 
         .section-title {
             text-align: center;
-            font-size: 34px;
+            font-size: clamp(30px, 4vw, 34px);
             font-weight: 500;
             margin-bottom: 45px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
         }
 
         .section-title span {
@@ -151,14 +181,14 @@
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
 
         .card {
+            min-width: 0;
             padding: 30px;
             border-radius: 20px;
-
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -168,6 +198,7 @@
             font-size: 21px;
             font-weight: 500;
             margin-bottom: 15px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -178,14 +209,14 @@
 
         .moon-cycle {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 15px;
         }
 
         .moon-phase {
+            min-width: 0;
             padding: 30px 20px;
             text-align: center;
-
             border-radius: 20px;
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.1);
@@ -195,10 +226,8 @@
             width: 65px;
             height: 65px;
             margin: 0 auto 20px;
-
             border-radius: 50%;
             background: #f4f1ff;
-
             box-shadow: 0 0 30px rgba(205,181,255,.18);
         }
 
@@ -207,6 +236,7 @@
             font-size: 19px;
             font-weight: 500;
             margin-bottom: 10px;
+            overflow-wrap: anywhere;
         }
 
         .moon-phase p {
@@ -218,14 +248,14 @@
 
         .transformation {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
         }
 
         .transformation-card {
+            min-width: 0;
             padding: 35px 25px;
             text-align: center;
-
             border-radius: 20px;
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.1);
@@ -252,7 +282,6 @@
             text-align: center;
             padding: 70px 25px;
             border-radius: 25px;
-
             background: rgba(255,255,255,.04);
             border: 1px solid rgba(255,255,255,.1);
         }
@@ -260,7 +289,9 @@
         .final h2 {
             font-size: clamp(30px, 4vw, 45px);
             font-weight: 500;
+            line-height: 1.2;
             margin-bottom: 20px;
+            overflow-wrap: anywhere;
         }
 
         .final p {
@@ -269,7 +300,13 @@
             color: rgb(255, 255, 255);
         }
 
-        /* MOBILE */
+        /* TABLET / MOBILE */
+
+        @media (max-width: 900px) {
+            .moon-cycle {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
 
         @media (max-width: 768px) {
 
@@ -283,6 +320,11 @@
                 margin-bottom: 70px;
             }
 
+            .hero > img {
+                order: -1;
+                aspect-ratio: 4 / 3;
+            }
+
             .image-placeholder {
                 aspect-ratio: 4 / 3;
             }
@@ -291,14 +333,7 @@
                 font-size: 40px;
             }
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .moon-cycle {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
+            .cards,
             .transformation {
                 grid-template-columns: 1fr;
             }
@@ -318,6 +353,15 @@
                 padding: 25px 15px;
             }
 
+            .hero {
+                gap: 26px;
+                margin-bottom: 55px;
+            }
+
+            .hero > img {
+                border-radius: 18px;
+            }
+
             h1 {
                 font-size: 34px;
             }
@@ -326,17 +370,19 @@
                 font-size: 19px;
             }
 
-            .hero-text {
+            .hero-text,
+            .intro,
+            .final p {
                 font-size: 16px;
             }
 
             .button {
                 width: 100%;
-                text-align: center;
+                padding: 14px 20px;
             }
 
             .moon-cycle {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 10px;
             }
 
@@ -349,8 +395,31 @@
                 height: 55px;
             }
 
+            .quote {
+                margin-bottom: 55px;
+            }
+
             .quote p {
-                font-size: 25px;
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .transformation-card {
+                padding: 28px 20px;
+            }
+
+            .final {
+                padding: 50px 18px;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .moon-cycle {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -371,27 +440,31 @@
             <div>
 
                 <div class="eyebrow">
-                    Astro-Numerology
+                    {% trans "Astro-Numerology" %}
                 </div>
 
                 <h1>
-                    <span>Lunar</span> Horoscope
+                    <span>{% trans "Lunar" %}</span> {% trans "Horoscope" %}
                 </h1>
 
                 <p class="hero-subtitle">
+                    {% blocktrans %}
                     Follow the rhythm of the Moon.
                     Live in the right moment.
+                    {% endblocktrans %}
                 </p>
 
                 <p class="hero-text">
+                    {% blocktrans %}
                     The Astro-Numerological Lunar Horoscope guides you
                     through the phases of the Moon, from your birth
                     to the current transits, helping you understand
                     when to act, when to wait and when to transform.
+                    {% endblocktrans %}
                 </p>
 
                 <a href="#" class="button">
-                    Discover Your Lunar Cycle
+                    {% trans "Discover Your Lunar Cycle" %}
                 </a>
 
             </div>
@@ -404,8 +477,10 @@
         <section class="quote">
 
             <p>
+                {% blocktrans %}
                 “The Moon speaks…
                 when you learn to listen, everything changes.”
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -416,21 +491,25 @@
         <section class="section">
 
             <h2 class="section-title">
-                <span>Synchronize</span> With the Universe
+                <span>{% trans "Synchronize" %}</span> {% trans "With the Universe" %}
             </h2>
 
             <p class="intro">
+                {% blocktrans %}
                 This method goes beyond simply observing the Moon.
                 It helps you recognize its rhythm in relation to your
                 personal birth chart and the cycles unfolding around you.
+                {% endblocktrans %}
             </p>
 
             <br>
 
             <p class="intro">
+                {% blocktrans %}
                 Learn to recognize the moments for action, patience,
                 transformation and new beginnings — allowing you to
                 move with the rhythm rather than against it.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -441,48 +520,58 @@
         <section class="section">
 
             <h2 class="section-title">
-                What You <span>Discover</span>
+                {% trans "What You" %} <span>{% trans "Discover" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>🌙 Your Lunar Influence</h3>
+                    <h3>🌙 {% trans "Your Lunar Influence" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Explore the influence of the Moon on your
                         personality, emotions and natural rhythms.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>🌒 Key Lunar Phases</h3>
+                    <h3>🌒 {% trans "Key Lunar Phases" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Understand the lunar phases connected to
                         important moments throughout your life.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>❤️ Love & Relationships</h3>
+                    <h3>❤️ {% trans "Love & Relationships" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Recognize favorable periods for love,
                         relationships and new beginnings.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>✨ Growth & Prosperity</h3>
+                    <h3>✨ {% trans "Growth & Prosperity" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Identify opportunities connected to money,
                         personal growth and fulfillment.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>🔄 Transformation</h3>
+                    <h3>🔄 {% trans "Transformation" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Discover the ideal moments to release what
                         no longer serves you and begin a new cycle.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -496,7 +585,7 @@
         <section class="section">
 
             <h2 class="section-title">
-                The <span>Cycle of the Moon</span>
+                {% trans "The" %} <span>{% trans "Cycle of the Moon" %}</span>
             </h2>
 
             <div class="moon-cycle">
@@ -505,11 +594,13 @@
 
                     <div class="moon"></div>
 
-                    <h3>New Moon</h3>
+                    <h3>{% trans "New Moon" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Beginnings, intentions
                         and new projects.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -519,11 +610,13 @@
 
                     <div class="moon"></div>
 
-                    <h3>First Quarter</h3>
+                    <h3>{% trans "First Quarter" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Action, decisions
                         and growth.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -533,11 +626,13 @@
 
                     <div class="moon"></div>
 
-                    <h3>Full Moon</h3>
+                    <h3>{% trans "Full Moon" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Fulfillment, emotions
                         and results.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -547,11 +642,13 @@
 
                     <div class="moon"></div>
 
-                    <h3>Last Quarter</h3>
+                    <h3>{% trans "Last Quarter" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Release, transformation
                         and purification.
+                        {% endblocktrans %}
                     </p>
 
                 </div>
@@ -566,12 +663,14 @@
         <section class="section">
 
             <h2 class="section-title">
-                The <span>Power of This Method</span>
+                {% trans "The" %} <span>{% trans "Power of This Method" %}</span>
             </h2>
 
             <p class="intro">
+                {% blocktrans %}
                 Learn to recognize the moments when your energy is
                 aligned with the natural rhythm of your personal cycle.
+                {% endblocktrans %}
             </p>
 
             <br>
@@ -579,34 +678,42 @@
             <div class="cards">
 
                 <div class="card">
-                    <h3>When to Begin</h3>
+                    <h3>{% trans "When to Begin" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Recognize the periods that support new ideas,
                         intentions and beginnings.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>When to Act</h3>
+                    <h3>{% trans "When to Act" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Identify moments when taking action can move
                         your plans forward.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>When to Wait</h3>
+                    <h3>{% trans "When to Wait" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Understand when patience and observation
                         may be more beneficial than action.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>When to Close a Cycle</h3>
+                    <h3>{% trans "When to Close a Cycle" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Recognize when it is time to release,
                         complete and make space for something new.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -620,19 +727,19 @@
         <section class="section">
 
             <h2 class="section-title">
-                From Confusion to <span>Clarity</span>
+                {% trans "From Confusion to" %} <span>{% trans "Clarity" %}</span>
             </h2>
 
             <div class="transformation">
 
                 <div class="transformation-card">
 
-                    <strong>Confusion</strong>
+                    <strong>{% trans "Confusion" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Clarity
+                        {% trans "Clarity" %}
                     </p>
 
                 </div>
@@ -640,12 +747,12 @@
 
                 <div class="transformation-card">
 
-                    <strong>Forcing</strong>
+                    <strong>{% trans "Forcing" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Flow
+                        {% trans "Flow" %}
                     </p>
 
                 </div>
@@ -653,12 +760,12 @@
 
                 <div class="transformation-card">
 
-                    <strong>Doubt</strong>
+                    <strong>{% trans "Doubt" %}</strong>
 
                     <span class="arrow">↓</span>
 
                     <p>
-                        Direction
+                        {% trans "Direction" %}
                     </p>
 
                 </div>
@@ -673,17 +780,19 @@
         <section class="final">
 
             <h2>
-                Follow the Rhythm of the Moon
+                {% trans "Follow the Rhythm of the Moon" %}
             </h2>
 
             <p>
+                {% blocktrans %}
                 Discover your lunar cycles, understand the moments
                 for action and learn to move with the rhythm of
                 the universe.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="button">
-                Start Your Lunar Reading
+                {% trans "Start Your Lunar Reading" %}
             </a>
 
         </section>

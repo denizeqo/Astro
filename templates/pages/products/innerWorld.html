@@ -3,7 +3,7 @@
 
 
 {% block main %}
-
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,35 +14,65 @@
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         body {
+            width: 100%;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #0d0820;
             color: #ffffff;
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         .page {
-            padding: 70px 20px;
+            width: 100%;
+            min-height: 100vh;
+            padding: 60px 20px;
         }
 
         .container {
+            width: 100%;
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         /* HERO */
 
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 60px;
             align-items: center;
             min-height: 520px;
+        }
+
+        .hero > img {
+            width: 100%;
+            max-height: 560px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-content {
+            min-width: 0;
         }
 
         .image-placeholder {
@@ -59,9 +89,10 @@
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: clamp(38px, 5vw, 56px);
             line-height: 1.1;
             margin-bottom: 25px;
+            overflow-wrap: anywhere;
         }
 
         .hero h1 span {
@@ -76,12 +107,14 @@
 
         .button {
             display: inline-block;
+            max-width: 100%;
             background: #ffffff;
             color: #0d0820;
             text-decoration: none;
             padding: 14px 28px;
             border-radius: 30px;
             font-weight: bold;
+            text-align: center;
             transition: 0.25s ease;
         }
 
@@ -97,8 +130,10 @@
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: clamp(30px, 4vw, 36px);
             margin-bottom: 18px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
         }
 
         .section-title span {
@@ -116,8 +151,10 @@
         .quote {
             margin: 80px auto;
             max-width: 850px;
+            padding: 0 10px;
             text-align: center;
-            font-size: 27px;
+            font-size: clamp(22px, 4vw, 27px);
+            line-height: 1.5;
             font-style: italic;
             color: #ffffff;
         }
@@ -126,12 +163,13 @@
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
             margin-top: 35px;
         }
 
         .card {
+            min-width: 0;
             background: rgba(255,255,255,0.045);
             border: 1px solid rgba(255,255,255,0.09);
             border-radius: 18px;
@@ -142,6 +180,7 @@
             color: #cdb5ff;
             margin-bottom: 10px;
             font-size: 21px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -152,17 +191,19 @@
 
         .list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 15px;
             margin-top: 30px;
         }
 
         .list-item {
+            min-width: 0;
             padding: 18px 20px;
             background: rgba(255,255,255,0.04);
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.07);
             color: #ffffff;
+            overflow-wrap: anywhere;
         }
 
         .list-item::before {
@@ -181,8 +222,10 @@
         }
 
         .final h2 {
-            font-size: 42px;
+            font-size: clamp(32px, 5vw, 42px);
+            line-height: 1.2;
             margin-bottom: 20px;
+            overflow-wrap: anywhere;
         }
 
         .final p {
@@ -192,7 +235,7 @@
             font-size: 18px;
         }
 
-        /* MOBILE */
+        /* TABLET / MOBILE */
 
         @media (max-width: 768px) {
 
@@ -206,9 +249,17 @@
                 min-height: auto;
             }
 
+            .hero > img {
+                order: -1;
+                width: 100%;
+                max-height: none;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
             .image-placeholder {
                 height: 300px;
-                order: 2;
+                order: -1;
             }
 
             .hero-content {
@@ -216,7 +267,7 @@
             }
 
             .hero h1 {
-                font-size: 42px;
+                font-size: clamp(36px, 9vw, 42px);
             }
 
             .hero p {
@@ -227,12 +278,7 @@
                 margin-top: 70px;
             }
 
-            .section-title {
-                font-size: 30px;
-            }
-
             .quote {
-                font-size: 22px;
                 margin: 60px auto;
             }
 
@@ -245,24 +291,52 @@
                 margin-top: 70px;
                 padding: 70px 10px;
             }
-
-            .final h2 {
-                font-size: 32px;
-            }
         }
 
         @media (max-width: 480px) {
 
-            .hero h1 {
-                font-size: 36px;
+            .page {
+                padding: 30px 14px;
             }
 
-            .image-placeholder {
-                height: 240px;
+            .hero {
+                gap: 26px;
+            }
+
+            .hero > img {
+                border-radius: 18px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p,
+            .section-text,
+            .final p {
+                font-size: 16px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 14px 20px;
+            }
+
+            .quote {
+                margin: 50px auto;
+                font-size: 21px;
             }
 
             .card {
-                padding: 24px;
+                padding: 22px;
+            }
+
+            .list-item {
+                padding: 15px 17px;
+            }
+
+            .final {
+                padding: 55px 0;
             }
         }
     </style>
@@ -282,21 +356,25 @@
             <div class="hero-content">
 
                 <h1>
-                    Psyche <span>Magnetism</span>
+                    {% trans "Psyche" %} <span>{% trans "Magnetism" %}</span>
                 </h1>
 
                 <p>
+                    {% blocktrans %}
                     Within you exists an invisible universe.
                     Awareness transforms it into power.
+                    {% endblocktrans %}
                 </p>
 
                 <p>
+                    {% blocktrans %}
                     Explore your inner world through a symbolic journey
                     integrating astrology, numerology and subtle energies.
+                    {% endblocktrans %}
                 </p>
 
                 <a href="#" class="button">
-                    Discover Your Inner World
+                    {% trans "Discover Your Inner World" %}
                 </a>
 
             </div>
@@ -307,47 +385,57 @@
         <!-- INTRODUCTION -->
 
         <div class="quote">
+            {% blocktrans %}
             “The most important journey is not outside you.
             It is within you.”
+            {% endblocktrans %}
         </div>
 
 
         <section>
 
             <h2 class="section-title">
-                The <span>Teaching of Energy</span>
+                {% trans "The" %} <span>{% trans "Teaching of Energy" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 Every individual lives between the visible and the invisible.
                 Difficulties do not have to be seen only as obstacles —
                 they can also become doors to deeper awareness and
                 personal transformation.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Recognize Your Desires</h3>
+                    <h3>{% trans "Recognize Your Desires" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Learn to listen more deeply to what genuinely
                         motivates and inspires you.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Transform Your Limits</h3>
+                    <h3>{% trans "Transform Your Limits" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Explore limitations as opportunities to discover
                         new resources within yourself.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Develop Inner Presence</h3>
+                    <h3>{% trans "Develop Inner Presence" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Cultivate greater awareness of your thoughts,
                         emotions and inner experience.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -361,38 +449,42 @@
         <section>
 
             <h2 class="section-title">
-                The <span>Psychic Field</span>
+                {% trans "The" %} <span>{% trans "Psychic Field" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 Each person possesses a unique inner and energetic field —
                 a subtle dimension shaped by thoughts, emotions, memories
                 and potential.
+                {% endblocktrans %}
             </p>
 
             <div class="list">
 
                 <div class="list-item">
-                    Thoughts
+                    {% trans "Thoughts" %}
                 </div>
 
                 <div class="list-item">
-                    Emotions
+                    {% trans "Emotions" %}
                 </div>
 
                 <div class="list-item">
-                    Memories
+                    {% trans "Memories" %}
                 </div>
 
                 <div class="list-item">
-                    Potential
+                    {% trans "Potential" %}
                 </div>
 
             </div>
 
             <p class="section-text" style="margin-top:30px;">
+                {% blocktrans %}
                 This inner space is where your perception of yourself
                 and your experience of life begin to take shape.
+                {% endblocktrans %}
             </p>
 
         </section>
@@ -403,46 +495,56 @@
         <section>
 
             <h2 class="section-title">
-                The <span>Inner Journey</span>
+                {% trans "The" %} <span>{% trans "Inner Journey" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 Through reflective practices, you can create space for
                 deeper self-awareness and a stronger connection with
                 your inner world.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Deep Relaxation</h3>
+                    <h3>{% trans "Deep Relaxation" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Create moments of stillness and release from
                         everyday tension.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Guided Meditation</h3>
+                    <h3>{% trans "Guided Meditation" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Turn your attention inward and explore your
                         thoughts and emotions.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Visualization</h3>
+                    <h3>{% trans "Visualization" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Use imagination as a tool for reflection,
                         intention and personal exploration.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Inner Listening</h3>
+                    <h3>{% trans "Inner Listening" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Develop the ability to recognize your authentic
                         needs, feelings and aspirations.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -456,30 +558,32 @@
         <section>
 
             <h2 class="section-title">
-                What <span>Emerges</span>
+                {% trans "What" %} <span>{% trans "Emerges" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 As you create a deeper connection with your inner world,
                 new aspects of yourself may become clearer.
+                {% endblocktrans %}
             </p>
 
             <div class="list">
 
                 <div class="list-item">
-                    Hidden talents
+                    {% trans "Hidden talents" %}
                 </div>
 
                 <div class="list-item">
-                    Deeper vocations
+                    {% trans "Deeper vocations" %}
                 </div>
 
                 <div class="list-item">
-                    Authentic desires
+                    {% trans "Authentic desires" %}
                 </div>
 
                 <div class="list-item">
-                    New awareness
+                    {% trans "New awareness" %}
                 </div>
 
             </div>
@@ -492,39 +596,47 @@
         <section>
 
             <h2 class="section-title">
-                Harmonization of <span>Being</span>
+                {% trans "Harmonization of" %} <span>{% trans "Being" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 Psyche Magnetism brings together different dimensions
                 of your experience, creating a symbolic framework for
                 greater balance, clarity and connection with your
                 inner strength.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Physical Body</h3>
+                    <h3>{% trans "Physical Body" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Become more aware of your physical presence
                         and connection with yourself.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Mind</h3>
+                    <h3>{% trans "Mind" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Observe your thoughts and develop greater
                         clarity and conscious awareness.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Energetic Dimension</h3>
+                    <h3>{% trans "Energetic Dimension" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Explore the symbolic language of subtle energy
                         and your personal inner experience.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -538,38 +650,46 @@
         <section>
 
             <h2 class="section-title">
-                <span>Realization</span>
+                <span>{% trans "Realization" %}</span>
             </h2>
 
             <p class="section-text">
+                {% blocktrans %}
                 When you begin to connect with your inner world,
                 awareness can become a foundation for personal growth
                 and creative expression.
+                {% endblocktrans %}
             </p>
 
             <div class="cards">
 
                 <div class="card">
-                    <h3>Understand Who You Are</h3>
+                    <h3>{% trans "Understand Who You Are" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Develop a clearer relationship with your identity,
                         desires and inner direction.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Strengthen Your Center</h3>
+                    <h3>{% trans "Strengthen Your Center" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Build a stronger sense of presence and connection
                         with your inner self.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3>Awaken Your Creativity</h3>
+                    <h3>{% trans "Awaken Your Creativity" %}</h3>
                     <p>
+                        {% blocktrans %}
                         Give more space to your imagination, ideas and
                         personal creative potential.
+                        {% endblocktrans %}
                     </p>
                 </div>
 
@@ -583,17 +703,19 @@
         <div class="final">
 
             <h2>
-                Enter Your <span style="color:#cdb5ff;">Inner World</span>
+                {% trans "Enter Your" %} <span style="color:#cdb5ff;">{% trans "Inner World" %}</span>
             </h2>
 
             <p>
+                {% blocktrans %}
                 The most important journey is not outside you.
                 It is within you. There lives your truth.
                 There your power begins.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="button">
-                Awaken Your Awareness
+                {% trans "Awaken Your Awareness" %}
             </a>
 
         </div>

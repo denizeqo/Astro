@@ -3,6 +3,7 @@
 
 
 {% block main %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +19,26 @@
             box-sizing: border-box;
         }
 
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         body {
+            width: 100%;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #0d0820;
             color: #ffffff;
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
 
         .page {
@@ -38,13 +54,24 @@
         }
 
         /* HERO */
-
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 60px;
             align-items: center;
             margin-bottom: 90px;
+        }
+
+        .hero > img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-content {
+            min-width: 0;
         }
 
         .image-placeholder {
@@ -53,11 +80,9 @@
             border-radius: 20px;
             background: #18112e;
             border: 1px solid rgba(255, 255, 255, 0.15);
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             color: rgba(255, 255, 255, 0.45);
             font-size: 15px;
             letter-spacing: 1px;
@@ -68,6 +93,7 @@
             line-height: 1.1;
             font-weight: 500;
             margin-bottom: 25px;
+            overflow-wrap: anywhere;
         }
 
         .hero-content h1 span {
@@ -88,16 +114,15 @@
 
         .button {
             display: inline-block;
+            max-width: 100%;
             padding: 14px 30px;
             border-radius: 50px;
-
             background: #ffffff;
             color: #0d0820;
-
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
-
+            text-align: center;
             transition: 0.3s ease;
         }
 
@@ -107,7 +132,6 @@
         }
 
         /* QUOTE */
-
         .quote {
             text-align: center;
             max-width: 850px;
@@ -130,16 +154,17 @@
         }
 
         /* SECTIONS */
-
         .section {
             margin-bottom: 80px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: clamp(28px, 4vw, 32px);
             font-weight: 500;
             margin-bottom: 45px;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
         }
 
         .section-title span {
@@ -148,14 +173,14 @@
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
 
         .card {
+            min-width: 0;
             padding: 30px;
             border-radius: 18px;
-
             background: rgba(255, 255, 255, 0.045);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -165,6 +190,7 @@
             font-size: 20px;
             font-weight: 500;
             margin-bottom: 15px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -175,10 +201,12 @@
         .card ul {
             list-style: none;
             color: rgb(255, 255, 255);
+            padding-left: 0;
         }
 
         .card li {
             margin-bottom: 9px;
+            overflow-wrap: anywhere;
         }
 
         .card li::before {
@@ -188,12 +216,10 @@
         }
 
         /* FINAL CTA */
-
         .final-section {
             text-align: center;
             padding: 70px 30px;
             border-radius: 25px;
-
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -201,21 +227,20 @@
         .final-section h2 {
             font-size: clamp(30px, 4vw, 44px);
             font-weight: 500;
+            line-height: 1.2;
             margin-bottom: 20px;
+            overflow-wrap: anywhere;
         }
 
         .final-section p {
             max-width: 650px;
             margin: 0 auto 30px;
-
             color: rgb(255, 255, 255);
             font-size: 17px;
         }
 
-        /* MOBILE */
-
+        /* TABLET / MOBILE */
         @media (max-width: 768px) {
-
             .page {
                 padding: 35px 18px;
             }
@@ -226,13 +251,18 @@
                 margin-bottom: 70px;
             }
 
+            .hero > img {
+                order: -1;
+                aspect-ratio: 4 / 3;
+            }
+
             .image-placeholder {
                 order: -1;
                 aspect-ratio: 4 / 3;
             }
 
             .hero-content h1 {
-                font-size: 38px;
+                font-size: clamp(36px, 9vw, 38px);
             }
 
             .subtitle {
@@ -259,10 +289,6 @@
                 margin-bottom: 65px;
             }
 
-            .section-title {
-                font-size: 28px;
-            }
-
             .card {
                 padding: 25px;
             }
@@ -273,18 +299,61 @@
         }
 
         @media (max-width: 480px) {
-
             .page {
                 padding: 25px 15px;
+            }
+
+            .hero {
+                gap: 26px;
+                margin-bottom: 55px;
+            }
+
+            .hero > img {
+                border-radius: 16px;
             }
 
             .hero-content h1 {
                 font-size: 34px;
             }
 
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .hero-description,
+            .card p,
+            .final-section p {
+                font-size: 16px;
+            }
+
+            .quote {
+                margin-bottom: 55px;
+            }
+
+            .quote p {
+                font-size: 22px;
+            }
+
+            .quote span {
+                font-size: 14px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
             .button {
                 width: 100%;
-                text-align: center;
+                padding: 14px 20px;
+            }
+
+            .final-section {
+                padding: 40px 18px;
+                border-radius: 20px;
             }
         }
     </style>
@@ -307,24 +376,26 @@
             <div class="hero-content">
 
                 <p class="subtitle">
-                    The Destiny Written Among the Stars
+                    {% trans "The Destiny Written Among the Stars" %}
                 </p>
 
                 <h1>
-                    Astro-Numerological
-                    <span>Birth Chart</span>
-                    of the Fixed Stars
+                    {% trans "Astro-Numerological" %}
+                    <span>{% trans "Birth Chart" %}</span>
+                    {% trans "of the Fixed Stars" %}
                 </h1>
 
                 <p class="hero-description">
+                    {% blocktrans %}
                     Discover your personal map of destiny through the fixed stars
                     and your birth numbers. A profound guide to understanding
                     yourself, recognizing the right moment to act, and transforming
                     the direction of your life.
+                    {% endblocktrans %}
                 </p>
 
                 <a href="#" class="button">
-                    Discover Your Destiny
+                    {% trans "Discover Your Destiny" %}
                 </a>
 
             </div>
@@ -336,13 +407,17 @@
         <section class="quote">
 
             <p>
+                {% blocktrans %}
                 “We are children of the stars.
                 It is not poetry… it is reality.”
+                {% endblocktrans %}
             </p>
 
             <span>
+                {% blocktrans %}
                 The matter within us was born from the stars.
                 The sky is not far away — it lives within us.
+                {% endblocktrans %}
             </span>
 
         </section>
@@ -353,20 +428,24 @@
 
             <div class="card">
 
-                <h3>The Map of Destiny</h3>
+                <h3>{% trans "The Map of Destiny" %}</h3>
 
                 <p>
+                    {% blocktrans %}
                     The stars do not determine your destiny — they reveal
                     possibilities and point toward your direction.
                     It is up to you to recognize the path and choose how
                     you wish to walk it.
+                    {% endblocktrans %}
                 </p>
 
                 <br>
 
                 <p>
+                    {% blocktrans %}
                     When we learn to read the language of the sky,
                     uncertainty can become direction and awareness.
+                    {% endblocktrans %}
                 </p>
 
             </div>
@@ -378,19 +457,19 @@
         <section class="section">
 
             <h2 class="section-title">
-                What You <span>Receive</span>
+                {% trans "What You" %} <span>{% trans "Receive" %}</span>
             </h2>
 
             <div class="cards">
 
                 <div class="card">
 
-                    <h3>Reading of the Fixed Stars</h3>
+                    <h3>{% trans "Reading of the Fixed Stars" %}</h3>
 
                     <ul>
-                        <li>Analysis of the stars present at your birth</li>
-                        <li>The constant energy accompanying you throughout life</li>
-                        <li>Connections with planets, houses and numbers</li>
+                        <li>{% trans "Analysis of the stars present at your birth" %}</li>
+                        <li>{% trans "The constant energy accompanying you throughout life" %}</li>
+                        <li>{% trans "Connections with planets, houses and numbers" %}</li>
                     </ul>
 
                 </div>
@@ -398,13 +477,13 @@
 
                 <div class="card">
 
-                    <h3>The 12 Destiny Numbers</h3>
+                    <h3>{% trans "The 12 Destiny Numbers" %}</h3>
 
                     <ul>
-                        <li>Your personal birth numbers</li>
-                        <li>Your personal talisman</li>
-                        <li>Energetic keys for luck and fulfillment</li>
-                        <li>Guidance for personal growth</li>
+                        <li>{% trans "Your personal birth numbers" %}</li>
+                        <li>{% trans "Your personal talisman" %}</li>
+                        <li>{% trans "Energetic keys for luck and fulfillment" %}</li>
+                        <li>{% trans "Guidance for personal growth" %}</li>
                     </ul>
 
                 </div>
@@ -412,13 +491,13 @@
 
                 <div class="card">
 
-                    <h3>Practical Guide to Life</h3>
+                    <h3>{% trans "Practical Guide to Life" %}</h3>
 
                     <ul>
-                        <li>Career and personal fulfillment</li>
-                        <li>Relationships and love</li>
-                        <li>Important choices and decisive moments</li>
-                        <li>Energy flow and prosperity</li>
+                        <li>{% trans "Career and personal fulfillment" %}</li>
+                        <li>{% trans "Relationships and love" %}</li>
+                        <li>{% trans "Important choices and decisive moments" %}</li>
+                        <li>{% trans "Energy flow and prosperity" %}</li>
                     </ul>
 
                 </div>
@@ -426,20 +505,22 @@
 
                 <div class="card">
 
-                    <h3>The Right Moment</h3>
+                    <h3>{% trans "The Right Moment" %}</h3>
 
                     <p>
+                        {% blocktrans %}
                         Knowing what may happen is not enough.
                         You also need to understand when it is the right
                         time to act.
+                        {% endblocktrans %}
                     </p>
 
                     <br>
 
                     <ul>
-                        <li>Stellar cycles</li>
-                        <li>Transits and progressions</li>
-                        <li>Activation of the stars</li>
+                        <li>{% trans "Stellar cycles" %}</li>
+                        <li>{% trans "Transits and progressions" %}</li>
+                        <li>{% trans "Activation of the stars" %}</li>
                     </ul>
 
                 </div>
@@ -453,22 +534,26 @@
         <section class="section">
 
             <h2 class="section-title">
-                The <span>Energy</span> of the Stars
+                {% trans "The" %} <span>{% trans "Energy" %}</span> {% trans "of the Stars" %}
             </h2>
 
             <div class="card">
 
                 <p>
+                    {% blocktrans %}
                     Fixed stars are believed to radiate a constant and timeless
                     energy. They are present from the moment of your birth and
                     accompany you throughout your journey.
+                    {% endblocktrans %}
                 </p>
 
                 <br>
 
                 <p>
+                    {% blocktrans %}
                     When you learn to interpret them, uncertainty can become
                     direction, awareness and a deeper understanding of your path.
+                    {% endblocktrans %}
                 </p>
 
             </div>
@@ -480,17 +565,19 @@
         <section class="final-section">
 
             <h2>
-                Your Map Is Written in the Stars
+                {% trans "Your Map Is Written in the Stars" %}
             </h2>
 
             <p>
+                {% blocktrans %}
                 Explore your birth chart, discover the influence of the fixed
                 stars and uncover the energetic patterns connected to your
                 personal numbers.
+                {% endblocktrans %}
             </p>
 
             <a href="#" class="button">
-                Begin Your Reading
+                {% trans "Begin Your Reading" %}
             </a>
 
         </section>
