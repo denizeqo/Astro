@@ -5,7 +5,7 @@
 #
 #, fuzzy
 msgid ""
-msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-09-19 19:36+0200\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-09-26 12:06+0200\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\templates\components\aboutUs\birthCode.html:7
 msgid "The Birth Code"
@@ -316,6 +316,8 @@ msgstr "\n                    Les codes numériques contenus dans la date de nai
 #: .\templates\components\astroShop\products\magnetism.html:7
 #: .\templates\components\everythingAboutAstro\essence.html:37
 #: .\templates\components\everythingAboutAstro\nav.html:14
+#: .\templates\pages\products\innerWorld.html:359
+#: .\templates\pages\products\magnetism.html:431
 msgid "Magnetism"
 msgstr "Magnétisme"
 
@@ -476,6 +478,7 @@ msgid "Explore Your "
 msgstr "Explorez Votre "
 
 #: .\templates\components\astroShop\hero.html:9
+#: .\templates\pages\products\forecast.html:798
 msgid "Path"
 msgstr "Chemin"
 
@@ -542,6 +545,7 @@ msgid ""
 msgstr "\n            Découvrez comment les énergies du ciel se relient aux lieux sur Terre et explorez des environnements susceptibles de résonner avec vos objectifs et votre chemin.\n            "
 
 #: .\templates\components\astroShop\products\birthChart.html:7
+#: .\templates\pages\products\birthChart.html:384
 msgid "Birth Chart"
 msgstr "Thème de Naissance"
 
@@ -594,6 +598,7 @@ msgid ""
 msgstr "\n            Un mélange unique créé spécialement pour vous, conçu pour favoriser l'équilibre du corps, de l'esprit et de l'énergie grâce à la vibration naturelle des huiles essentielles.\n            "
 
 #: .\templates\components\astroShop\products\evolution.html:7
+#: .\templates\pages\products\evolution.html:956
 msgid "Evolution"
 msgstr "Évolution"
 
@@ -628,6 +633,7 @@ msgid ""
 msgstr "\n            Anticipez votre avenir grâce à une analyse astro-numérologique de votre naissance et recevez des indications pour les 12 prochains mois.\n            "
 
 #: .\templates\components\astroShop\products\horoscope.html:7
+#: .\templates\pages\products\lunar.html:447
 msgid "Horoscope"
 msgstr "Horoscope"
 
@@ -646,6 +652,7 @@ msgid ""
 msgstr "\n            Découvrez les énergies qui animent votre vie chaque jour et chaque mois. Explorez l'amour, le travail, les émotions et les nombres porte-bonheur avec des conseils pratiques pour vous aider à agir au bon moment.\n            "
 
 #: .\templates\components\astroShop\products\innerWorld.html:7
+#: .\templates\pages\products\innerWorld.html:706
 msgid "Inner World"
 msgstr "Monde Intérieur"
 
@@ -680,6 +687,7 @@ msgid ""
 msgstr "\n            Découvrez la structure invisible de votre destin grâce à une étude approfondie des étoiles et de la vibration des nombres.\n            "
 
 #: .\templates\components\astroShop\products\lunar.html:7
+#: .\templates\pages\products\lunar.html:447
 msgid "Lunar"
 msgstr "Lunaire"
 
@@ -728,6 +736,7 @@ msgstr "\n            Suivez les cycles de la Lune, les transits quotidiens et l
 
 #: .\templates\components\astroShop\products\relationships.html:7
 #: .\templates\components\everythingAboutAstro\essence.html:23
+#: .\templates\pages\products\ancientWisdom.html:458
 msgid "Relationships"
 msgstr "Relations"
 
@@ -744,6 +753,7 @@ msgid ""
 msgstr "\n            Explorez les codes énergétiques qui se cachent derrière l'amour, la famille, les amitiés, le travail et les liens d'âme plus profonds.\n            "
 
 #: .\templates\components\astroShop\products\soul.html:7
+#: .\templates\pages\products\soul.html:419
 msgid "Soul"
 msgstr "Âme"
 
@@ -762,6 +772,7 @@ msgstr "\n            Découvrez le code sacré de votre essence intérieure et 
 
 #: .\templates\components\astroShop\products\stars.html:7
 #: .\templates\components\everythingAboutAstro\essence.html:36
+#: .\templates\pages\products\stars.html:556
 msgid "Stars"
 msgstr "Étoiles"
 
@@ -816,8 +827,8 @@ msgid ""
 msgstr "Le symbole du Ciel, du Temps et de l'Évolution : tout naît, se meut, se transforme et revient."
 
 #: .\templates\components\everythingAboutAstro\aspects.html:21
-msgid "Alignment — 0°–2°5″"
-msgstr "Alignement — 0°–2°5″"
+msgid "Alignment — 0°–5°"
+msgstr "Alignement — 0°–5°"
 
 #: .\templates\components\everythingAboutAstro\aspects.html:21
 msgid ""
@@ -2167,6 +2178,7 @@ msgid "Life"
 msgstr "Vie"
 
 #: .\templates\components\everythingAboutAstro\essence.html:22
+#: .\templates\pages\products\soul.html:822
 msgid "Love"
 msgstr "Amour"
 
@@ -2753,6 +2765,30 @@ msgid "The 28 Lunar Mansions"
 msgstr "Les 28 Demeures Lunaires"
 
 #: .\templates\components\everythingAboutAstro\moon.html:13
+#: .\templates\pages\products\ancientWisdom.html:643
+#: .\templates\pages\products\astrography.html:612
+#: .\templates\pages\products\birthChart.html:537
+#: .\templates\pages\products\essentialOils.html:512
+#: .\templates\pages\products\essentialOils.html:713
+#: .\templates\pages\products\evolution.html:745
+#: .\templates\pages\products\innerWorld.html:398
+#: .\templates\pages\products\innerWorld.html:452
+#: .\templates\pages\products\innerWorld.html:498
+#: .\templates\pages\products\lunar.html:588
+#: .\templates\pages\products\lunar.html:666
+#: .\templates\pages\products\magnetism.html:463
+#: .\templates\pages\products\magnetism.html:492
+#: .\templates\pages\products\magnetism.html:510
+#: .\templates\pages\products\magnetism.html:559
+#: .\templates\pages\products\magnetism.html:614
+#: .\templates\pages\products\magnetism.html:659
+#: .\templates\pages\products\relationships.html:410
+#: .\templates\pages\products\relationships.html:631
+#: .\templates\pages\products\soul.html:446
+#: .\templates\pages\products\soul.html:527
+#: .\templates\pages\products\stars.html:503
+#: .\templates\pages\products\stars.html:605
+#: .\templates\pages\products\stars.html:676
 msgid "The"
 msgstr "Les"
 
@@ -2831,6 +2867,7 @@ msgid "Elements"
 msgstr "Éléments"
 
 #: .\templates\components\everythingAboutAstro\nav.html:10
+#: .\templates\pages\products\stars.html:566
 msgid "Planets"
 msgstr "Planètes"
 
@@ -3535,11 +3572,8 @@ msgid ""
 "held a central place in the study of the sky and were considered carriers of "
 "particular qualities, gifts, and challenges. The ancients saw the sky as a "
 "<span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;"
-"\">manifestation of the divine.</span> In the tradition of <span "
-"style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;"
-"\">Paracelsus, body, soul, and spirit were respectively connected with the "
-"elements, the stars, and God.</span>"
-msgstr "Pour les traditions anciennes, les étoiles n'étaient pas simplement des points de lumière dans le ciel : elles représentaient <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">des forces sacrées et archétypales,</span> reliées aux dieux, à l'âme et au destin. Pendant des siècles, <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">l'Astronomie et l'Astrologie furent profondément liées.</span> Les Étoiles Fixes occupaient une place centrale dans l'étude du ciel et étaient considérées comme porteuses de qualités, de dons et de défis particuliers. Les anciens voyaient le ciel comme une <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">manifestation du divin.</span> Dans la tradition de <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">Paracelse, le corps, l'âme et l'esprit étaient respectivement reliés aux éléments, aux étoiles et à Dieu.</span>"
+"\">manifestation of the divine.</span>"
+msgstr "Pour les traditions anciennes, les étoiles n'étaient pas simplement des points de lumière dans le ciel : elles représentaient <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">des forces sacrées et archétypales,</span> reliées aux dieux, à l'âme et au destin. Pendant des siècles, <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">l'Astronomie et l'Astrologie furent profondément liées.</span> Les Étoiles Fixes occupaient une place centrale dans l'étude du ciel et étaient considérées comme porteuses de qualités, de dons et de défis particuliers. Les anciens voyaient le ciel comme une <span style=\"color: #FFEA99; font-family:Poppins,Arial,Helvetica,sans-serif;\">manifestation du divin.</span>"
 
 #: .\templates\components\everythingAboutAstro\stars.html:44
 msgid "The Star and the Soul."
@@ -3788,7 +3822,7 @@ msgstr "\n            Le thème n'est pas le destin… c'est le pouvoir.\n      
 #: .\templates\components\home\chartDescription.html:29
 msgid ""
 "\n"
-"        Astro Magnetismo reads the face of humanity in the stars—and "
+"        Astro Magnetismo reads people’s faces in the stars—and "
 "discovers the star within the human being.\n"
 "        "
 msgstr "\n        Astro Magnetismo lit le visage de l'humanité dans les étoiles — et découvre l'étoile au sein de l'être humain.\n        "
@@ -4078,3 +4112,4719 @@ msgstr "Accueil"
 #: .\templates\components\nav.html:16
 msgid "Astro Shop"
 msgstr "Boutique Astro"
+
+#: .\templates\pages\products\ancientWisdom.html:369
+#| msgid "Ancient Wisdom"
+msgid "Ancient Egyptian"
+msgstr "Égyptien ancien"
+
+#: .\templates\pages\products\ancientWisdom.html:370
+#| msgid "Sidereal Astro-Numerology"
+msgid "Medical Astro-Numerology"
+msgstr "Astro-Numérologie médicale"
+
+#: .\templates\pages\products\ancientWisdom.html:374
+#| msgid ""
+#| "\n"
+#| "                An integrated system bringing together three\n"
+#| "                complementary dimensions of knowledge.\n"
+#| "                "
+msgid ""
+"\n"
+"                An ancient wisdom that brings together the Stars,\n"
+"                Numbers, and Life Energy.\n"
+"                "
+msgstr "\n                Une sagesse ancienne qui réunit les Étoiles,\nles Nombres et l’Énergie vitale.\n                "
+
+#: .\templates\pages\products\ancientWisdom.html:381
+msgid "Discover Your Reading"
+msgstr "Découvrez votre lecture"
+
+#: .\templates\pages\products\ancientWisdom.html:389
+msgid ""
+"\n"
+"        “Reconnect with your deepest essence and restore the balance\n"
+"        of your energy.”\n"
+"        "
+msgstr "\n        « Reconnectez-vous à votre essence la plus profonde et rétablissez l’équilibre\nde votre énergie. »\n        "
+
+#: .\templates\pages\products\ancientWisdom.html:397
+msgid "An"
+msgstr "Un"
+
+#: .\templates\pages\products\ancientWisdom.html:397
+#| msgid "Spiritual Knowledge"
+msgid "Ancient Knowledge"
+msgstr "Savoir ancien"
+
+#: .\templates\pages\products\ancientWisdom.html:401
+msgid ""
+"\n"
+"            There is an ancestral knowledge, preserved within the temples\n"
+"            of ancient Egypt, that combines the language of the stars with\n"
+"            the power of numbers and the harmony of the energetic body.\n"
+"            "
+msgstr "\n            Il existe un savoir ancestral, préservé dans les temples\nde l’Égypte ancienne, qui associe le langage des étoiles au\npouvoir des nombres et à l’harmonie du corps énergétique.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:411
+msgid ""
+"\n"
+"            This system begins with your origin — your date of birth —\n"
+"            and creates a unique map for exploring your inner nature,\n"
+"            potential, and energetic balance.\n"
+"            "
+msgstr "\n            Ce système part de votre origine — votre date de naissance —\net crée une carte unique pour explorer votre nature intérieure,\nvotre potentiel et votre équilibre énergétique.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:422
+msgid "Areas of"
+msgstr "Domaines d’"
+
+#: .\templates\pages\products\ancientWisdom.html:422
+#| msgid "Explore"
+msgid "Exploration"
+msgstr "Exploration"
+
+#: .\templates\pages\products\ancientWisdom.html:428
+msgid "Inner Balance"
+msgstr "Équilibre intérieur"
+
+#: .\templates\pages\products\ancientWisdom.html:430
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore the energies connected with your inner\n"
+"                    nature and seek greater harmony within yourself.\n"
+"                    "
+msgstr "\n                    Explorez les énergies liées à votre nature\nintérieure et recherchez une plus grande harmonie en vous-même.\n                    "
+
+#: .\templates\pages\products\ancientWisdom.html:438
+msgid "Self-Realization"
+msgstr "Réalisation de soi"
+
+#: .\templates\pages\products\ancientWisdom.html:440
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Discover your deeper qualities, talents, and\n"
+"                    personal potential.\n"
+"                    "
+msgstr "\n                    Découvrez vos qualités les plus profondes, vos talents et\nvotre potentiel personnel.\n                    "
+
+#: .\templates\pages\products\ancientWisdom.html:448
+msgid "Prosperity"
+msgstr "Prospérité"
+
+#: .\templates\pages\products\ancientWisdom.html:450
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore the symbolic energies associated with\n"
+"                    growth, opportunities, and abundance.\n"
+"                    "
+msgstr "\n                    Explorez les énergies symboliques associées à\nla croissance, aux opportunités et à l’abondance.\n                    "
+
+#: .\templates\pages\products\ancientWisdom.html:460
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                    Gain a deeper perspective on the energies that\n"
+"                    influence your connections with others.\n"
+"                    "
+msgstr "\n                    Approfondissez votre compréhension des énergies qui\ninfluencent vos liens avec les autres.\n                    "
+
+#: .\templates\pages\products\ancientWisdom.html:473
+#: .\templates\pages\products\stars.html:418
+msgid "A"
+msgstr "Un"
+
+#: .\templates\pages\products\ancientWisdom.html:473
+msgid "Unique Method"
+msgstr "Méthode unique"
+
+#: .\templates\pages\products\ancientWisdom.html:477
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"            This approach combines several symbolic systems to create\n"
+"            a deeper interpretation of your personal energetic profile.\n"
+"            "
+msgstr "\n            Cette approche associe plusieurs systèmes symboliques afin de créer\nune interprétation plus profonde de votre profil énergétique personnel.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:486
+#| msgid "The Colors of the Soul"
+msgid "The Influences of the Stars"
+msgstr "Les influences des étoiles"
+
+#: .\templates\pages\products\ancientWisdom.html:490
+#| msgid "The Seven Sacred Planets"
+msgid "The Seven Traditional Planets"
+msgstr "Les sept planètes traditionnelles"
+
+#: .\templates\pages\products\ancientWisdom.html:494
+msgid "The Arabic Parts"
+msgstr "Les Parts arabes"
+
+#: .\templates\pages\products\ancientWisdom.html:498
+#| msgid "The Stars in Your Astrological Chart."
+msgid "The Sacred Astrological Houses"
+msgstr "Les maisons astrologiques sacrées"
+
+#: .\templates\pages\products\ancientWisdom.html:502
+#| msgid "Composite Numbers"
+msgid "Your Birth Numbers"
+msgstr "Vos nombres de naissance"
+
+#: .\templates\pages\products\ancientWisdom.html:510
+msgid ""
+"\n"
+"            The purpose is to reveal your true essence from its deepest\n"
+"            roots — the first step toward greater balance.\n"
+"            "
+msgstr "\n            L’objectif est de révéler votre véritable essence jusque dans ses racines\nles plus profondes — la première étape vers un plus grand équilibre.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:520
+msgid "A Journey"
+msgstr "Un voyage"
+
+#: .\templates\pages\products\ancientWisdom.html:520
+#| msgid "Know Yourself"
+msgid "Within Yourself"
+msgstr "En vous-même"
+
+#: .\templates\pages\products\ancientWisdom.html:524
+msgid "Through symbols, numbers, and archetypes, you can explore:"
+msgstr "À travers les symboles, les nombres et les archétypes, vous pouvez explorer :"
+
+#: .\templates\pages\products\ancientWisdom.html:530
+msgid "Who you are at your deepest level"
+msgstr "Qui vous êtes au plus profond de vous-même"
+
+#: .\templates\pages\products\ancientWisdom.html:534
+msgid "Which energies guide your journey"
+msgstr "Quelles énergies guident votre parcours"
+
+#: .\templates\pages\products\ancientWisdom.html:538
+msgid "Which talents are waiting to be awakened"
+msgstr "Quels talents attendent d’être éveillés"
+
+#: .\templates\pages\products\ancientWisdom.html:542
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                How to cultivate greater harmony between body,\n"
+"                mind, and spirit\n"
+"                "
+msgstr "\n                Comment cultiver une plus grande harmonie entre le corps,\nl’esprit et l’âme\n                "
+
+#: .\templates\pages\products\ancientWisdom.html:553
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"            A bridge between the wisdom of the heavens and the inner\n"
+"            truth of the human being.\n"
+"            "
+msgstr "\n            Un pont entre la sagesse des cieux et la vérité\nintérieure de l’être humain.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:563
+msgid "Numbers, Symbols &"
+msgstr "Nombres, symboles &"
+
+#: .\templates\pages\products\ancientWisdom.html:564
+#| msgid "Energetic Connection"
+msgid "Energetic Healing"
+msgstr "Guérison énergétique"
+
+#: .\templates\pages\products\ancientWisdom.html:568
+msgid ""
+"\n"
+"            In the Egyptian tradition, a number was not simply a quantity,\n"
+"            but a living vibration. Every symbol represented energy.\n"
+"            Every number represented consciousness.\n"
+"            "
+msgstr "\n            Dans la tradition égyptienne, un nombre n’était pas simplement une quantité,\nmais une vibration vivante. Chaque symbole représentait une énergie.\nChaque nombre représentait une conscience.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:578
+msgid ""
+"\n"
+"            Through these principles, interpretive maps, readings of\n"
+"            destiny, and practices for energetic balance were developed.\n"
+"            "
+msgstr "\n            À partir de ces principes ont été développés des cartes d’interprétation, des lectures\ndu destin et des pratiques visant l’équilibre énergétique.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:588
+#| msgid "In ancient"
+msgid "Ancient"
+msgstr "Anciennes"
+
+#: .\templates\pages\products\ancientWisdom.html:588
+msgid "Harmonization Techniques"
+msgstr "Techniques d’harmonisation"
+
+#: .\templates\pages\products\ancientWisdom.html:592
+msgid ""
+"\n"
+"            Ancient Egyptian tradition used various practices intended\n"
+"            to restore balance and harmony.\n"
+"            "
+msgstr "\n            La tradition de l’Égypte ancienne utilisait diverses pratiques destinées\nà restaurer l’équilibre et l’harmonie.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:601
+msgid "Sacred rituals and symbolic formulas"
+msgstr "Rituels sacrés et formules symboliques"
+
+#: .\templates\pages\products\ancientWisdom.html:605
+msgid "Herbs and natural preparations"
+msgstr "Herbes et préparations naturelles"
+
+#: .\templates\pages\products\ancientWisdom.html:609
+#| msgid "Energetic Connection"
+msgid "Energetic concentration techniques"
+msgstr "Techniques de concentration énergétique"
+
+#: .\templates\pages\products\ancientWisdom.html:613
+msgid "Laying on of hands"
+msgstr "Imposition des mains"
+
+#: .\templates\pages\products\ancientWisdom.html:621
+msgid ""
+"\n"
+"            One particularly powerful practice was known as\n"
+"            “healing through sleep,” in which the priest used presence,\n"
+"            touch, and energy as part of a process intended to encourage\n"
+"            the individual's energetic rebalancing.\n"
+"            "
+msgstr "\n            Une pratique particulièrement puissante était connue sous le nom de\n« guérison par le sommeil », dans laquelle le prêtre utilisait la présence,\nle toucher et l’énergie dans le cadre d’un processus destiné à favoriser\nle rééquilibrage énergétique de la personne.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:632
+msgid ""
+"\n"
+"            These ancient traditions are presented as part of the\n"
+"            historical roots of what is now described as energetic\n"
+"            magnetism and bioenergetic practices.\n"
+"            "
+msgstr "\n            Ces traditions anciennes sont présentées comme faisant partie des\nracines historiques de ce que l’on décrit aujourd’hui comme le magnétisme\nénergétique et les pratiques bioénergétiques.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:643
+#| msgid "Your Essence"
+msgid "Call of Your Essence"
+msgstr "L’appel de votre essence"
+
+#: .\templates\pages\products\ancientWisdom.html:647
+msgid "This analysis is designed to guide you toward:"
+msgstr "Cette analyse est conçue pour vous guider vers :"
+
+#: .\templates\pages\products\ancientWisdom.html:653
+#| msgid "Understand Your Energy"
+msgid "Understanding your origins"
+msgstr "La compréhension de vos origines"
+
+#: .\templates\pages\products\ancientWisdom.html:657
+msgid "Restoring balance within your energy"
+msgstr "Le rétablissement de l’équilibre de votre énergie"
+
+#: .\templates\pages\products\ancientWisdom.html:661
+msgid "Activating your potential"
+msgstr "L’activation de votre potentiel"
+
+#: .\templates\pages\products\ancientWisdom.html:665
+msgid "Living in greater harmony with your path"
+msgstr "Une vie en plus grande harmonie avec votre chemin"
+
+#: .\templates\pages\products\ancientWisdom.html:675
+#: .\templates\pages\products\soul.html:692
+#: .\templates\pages\products\stars.html:730
+msgid "Discover Your"
+msgstr "Découvrez votre"
+
+#: .\templates\pages\products\ancientWisdom.html:675
+#| msgid "Your Essence"
+msgid "Inner Essence"
+msgstr "Essence intérieure"
+
+#: .\templates\pages\products\ancientWisdom.html:679
+#| msgid ""
+#| "\n"
+#| "            Explore the energetic codes behind love, family,\n"
+#| "            friendships, work and deeper soul connections.\n"
+#| "            "
+msgid ""
+"\n"
+"            Explore the ancient connection between stars, numbers,\n"
+"            symbols, and your personal journey.\n"
+"            "
+msgstr "\n            Explorez le lien ancien entre les étoiles, les nombres,\nles symboles et votre parcours personnel.\n            "
+
+#: .\templates\pages\products\ancientWisdom.html:686
+msgid "Start Your Reading"
+msgstr "Commencez votre lecture"
+
+#: .\templates\pages\products\astrography.html:387
+#| msgid "Astrography"
+msgid "Astrographic"
+msgstr "Astrographique"
+
+#: .\templates\pages\products\astrography.html:388
+#: .\templates\pages\products\evolution.html:13
+#: .\templates\pages\products\evolution.html:527
+#: .\templates\pages\products\forecast.html:13
+#: .\templates\pages\products\forecast.html:485
+#: .\templates\pages\products\lunar.html:13
+#: .\templates\pages\products\lunar.html:443
+#: .\templates\pages\products\soul.html:420
+#: .\templates\pages\products\stars.html:376
+#| msgid "Astro-Numerology Egizio"
+msgid "Astro-Numerology"
+msgstr "Astro-Numérologie"
+
+#: .\templates\pages\products\astrography.html:392
+#| msgid ""
+#| "\n"
+#| "                    The stars and planets and their symbolic\n"
+#| "                    relationship with our lives and cycles.\n"
+#| "                    "
+msgid ""
+"\n"
+"                Discover the places where your personal energy\n"
+"                can align with the world around you.\n"
+"                "
+msgstr "\n                Découvrez les lieux où votre énergie personnelle\npeut s’aligner avec le monde qui vous entoure.\n                "
+
+#: .\templates\pages\products\astrography.html:399
+msgid "Discover Your Map"
+msgstr "Découvrez votre carte"
+
+#: .\templates\pages\products\astrography.html:409
+msgid ""
+"\n"
+"        “Every place has a vibration. Every place responds\n"
+"        differently to your energy.”\n"
+"        "
+msgstr "\n        « Chaque lieu possède une vibration. Chaque lieu répond\ndifféremment à votre énergie. »\n        "
+
+#: .\templates\pages\products\astrography.html:420
+#: .\templates\pages\products\essentialOils.html:776
+#: .\templates\pages\products\soul.html:580
+#| msgid "Your Path"
+msgid "Your Personal"
+msgstr "Votre carte"
+
+#: .\templates\pages\products\astrography.html:420
+msgid "Map"
+msgstr "personnelle"
+
+#: .\templates\pages\products\astrography.html:424
+msgid ""
+"\n"
+"            Through your date of birth, the planets, numbers, and\n"
+"            their movements, a personal map is created that connects\n"
+"            the energies of the sky with places on Earth.\n"
+"            "
+msgstr "\n            À partir de votre date de naissance, des planètes, des nombres et\nde leurs mouvements, une carte personnelle est créée, reliant\nles énergies du ciel aux lieux sur Terre.\n            "
+
+#: .\templates\pages\products\astrography.html:434
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"            This symbolic map explores how different locations may\n"
+"            resonate with your personal energy and your goals.\n"
+"            "
+msgstr "\n            Cette carte symbolique explore la manière dont différents lieux peuvent\nrésonner avec votre énergie personnelle et vos objectifs.\n            "
+
+#: .\templates\pages\products\astrography.html:443
+msgid "Places that may support personal fulfillment"
+msgstr "Lieux pouvant favoriser l’épanouissement personnel"
+
+#: .\templates\pages\products\astrography.html:447
+msgid "Spaces aligned with your goals"
+msgstr "Espaces en accord avec vos objectifs"
+
+#: .\templates\pages\products\astrography.html:451
+msgid "Environments that may amplify opportunities"
+msgstr "Environnements pouvant amplifier les opportunités"
+
+#: .\templates\pages\products\astrography.html:455
+msgid "Areas that may present challenges or energetic blocks"
+msgstr "Zones pouvant présenter des défis ou des blocages énergétiques"
+
+#: .\templates\pages\products\astrography.html:467
+#| msgid "The 12 Gates of Life"
+msgid "Areas of Life"
+msgstr "Domaines de la vie"
+
+#: .\templates\pages\products\astrography.html:468
+#| msgid "Explore"
+msgid "Explored"
+msgstr "Explorés"
+
+#: .\templates\pages\products\astrography.html:474
+#: .\templates\pages\products\stars.html:452
+#| msgid "Well-Being"
+msgid "Health & Well-Being"
+msgstr "Santé & Bien-être"
+
+#: .\templates\pages\products\astrography.html:476
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore locations in relation to your personal\n"
+"                    sense of balance and well-being.\n"
+"                    "
+msgstr "\n                    Explorez les lieux en lien avec votre propre\nsentiment d’équilibre et de bien-être.\n                    "
+
+#: .\templates\pages\products\astrography.html:484
+msgid "Finances & Prosperity"
+msgstr "Finances & Prospérité"
+
+#: .\templates\pages\products\astrography.html:486
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Identify places symbolically associated with\n"
+"                    growth and opportunities.\n"
+"                    "
+msgstr "\n                    Identifiez les lieux symboliquement associés à\nla croissance et aux opportunités.\n                    "
+
+#: .\templates\pages\products\astrography.html:494
+#: .\templates\pages\products\stars.html:463
+msgid "Career & Fulfillment"
+msgstr "Carrière & Épanouissement"
+
+#: .\templates\pages\products\astrography.html:496
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore environments that may support your\n"
+"                    professional goals and ambitions.\n"
+"                    "
+msgstr "\n                    Explorez les environnements susceptibles de soutenir vos\nobjectifs et ambitions professionnels.\n                    "
+
+#: .\templates\pages\products\astrography.html:504
+#| msgid "Relationships"
+msgid "Relationships & Love"
+msgstr "Relations & Amour"
+
+#: .\templates\pages\products\astrography.html:506
+#| msgid ""
+#| "\n"
+#| "                    The stars and planets and their symbolic\n"
+#| "                    relationship with our lives and cycles.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Discover how different places may influence\n"
+"                    your relationship experiences.\n"
+"                    "
+msgstr "\n                    Découvrez comment différents lieux peuvent influencer\nvos expériences relationnelles.\n                    "
+
+#: .\templates\pages\products\astrography.html:514
+msgid "Family & Fertility"
+msgstr "Famille & Fertilité"
+
+#: .\templates\pages\products\astrography.html:516
+#| msgid ""
+#| "\n"
+#| "                    The stars and planets and their symbolic\n"
+#| "                    relationship with our lives and cycles.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore the symbolic relationship between\n"
+"                    locations and family-related themes.\n"
+"                    "
+msgstr "\n                    Explorez la relation symbolique entre\nles lieux et les thèmes liés à la famille.\n                    "
+
+#: .\templates\pages\products\astrography.html:524
+msgid "Business & Collaborations"
+msgstr "Affaires & Collaborations"
+
+#: .\templates\pages\products\astrography.html:526
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Consider locations in relation to partnerships,\n"
+"                    business, and professional connections.\n"
+"                    "
+msgstr "\n                    Considérez les lieux en lien avec les partenariats,\nles affaires et les relations professionnelles.\n                    "
+
+#: .\templates\pages\products\astrography.html:534
+msgid "Travel & New Beginnings"
+msgstr "Voyages & Nouveaux départs"
+
+#: .\templates\pages\products\astrography.html:536
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore places connected with change, travel,\n"
+"                    fresh starts, and new experiences.\n"
+"                    "
+msgstr "\n                    Explorez les lieux liés au changement, aux voyages,\naux nouveaux départs et aux nouvelles expériences.\n                    "
+
+#: .\templates\pages\products\astrography.html:552
+msgid "How It"
+msgstr "Comment cela"
+
+#: .\templates\pages\products\astrography.html:552
+#| msgid "Work"
+msgid "Works"
+msgstr "fonctionne"
+
+#: .\templates\pages\products\astrography.html:556
+msgid ""
+"\n"
+"            Your personal energetic compass is created through\n"
+"            a combination of astrological and numerological elements:\n"
+"            "
+msgstr "\n            Votre boussole énergétique personnelle est créée à partir\nd’une combinaison d’éléments astrologiques et numérologiques :\n            "
+
+#: .\templates\pages\products\astrography.html:565
+msgid "Your date of birth"
+msgstr "Votre date de naissance"
+
+#: .\templates\pages\products\astrography.html:569
+msgid "Your Ascendant and planets"
+msgstr "Votre Ascendant et vos planètes"
+
+#: .\templates\pages\products\astrography.html:573
+msgid "Astrological houses"
+msgstr "Maisons astrologiques"
+
+#: .\templates\pages\products\astrography.html:577
+msgid "Zodiac signs"
+msgstr "Signes du zodiaque"
+
+#: .\templates\pages\products\astrography.html:581
+#| msgid "Personal Magnetism"
+msgid "Personal numbers"
+msgstr "Nombres personnels"
+
+#: .\templates\pages\products\astrography.html:585
+#: .\templates\pages\products\birthChart.html:522
+#| msgid "Unity & Progression"
+msgid "Transits and progressions"
+msgstr "Transits et progressions"
+
+#: .\templates\pages\products\astrography.html:593
+#| msgid "Outer Energetic Body"
+msgid "Your Energetic Compass"
+msgstr "Votre boussole énergétique"
+
+#: .\templates\pages\products\astrography.html:597
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                A symbolic connection between the sky above you\n"
+"                and the places you encounter on Earth.\n"
+"                "
+msgstr "\n                Un lien symbolique entre le ciel au-dessus de vous\net les lieux que vous rencontrez sur Terre.\n                "
+
+#: .\templates\pages\products\astrography.html:612
+#: .\templates\pages\products\essentialOils.html:713
+#: .\templates\pages\products\innerWorld.html:398
+#: .\templates\pages\products\magnetism.html:510
+#: .\templates\pages\products\stars.html:676
+#| msgid "The Meaning of Zero"
+msgid "Teaching of Energy"
+msgstr "Enseignement de l’énergie"
+
+#: .\templates\pages\products\astrography.html:616
+msgid ""
+"\n"
+"            Not every place is right for you.\n"
+"            Some places help you grow.\n"
+"            "
+msgstr "\n            Tous les lieux ne vous conviennent pas.\nCertains lieux vous aident à grandir.\n            "
+
+#: .\templates\pages\products\astrography.html:625
+msgid ""
+"\n"
+"            Others may challenge you.\n"
+"            Awareness can guide you in making conscious choices\n"
+"            about where you live, work, travel, and begin again.\n"
+"            "
+msgstr "\n            D’autres peuvent vous mettre au défi.\nLa prise de conscience peut vous guider vers des choix réfléchis\nconcernant les lieux où vous vivez, travaillez, voyagez et recommencez.\n            "
+
+#: .\templates\pages\products\astrography.html:635
+msgid ""
+"\n"
+"            It is not simply chance that guides you.\n"
+"            It is the symbolic resonance between you and a place.\n"
+"            "
+msgstr "\n            Ce n’est pas simplement le hasard qui vous guide.\nC’est la résonance symbolique entre vous et un lieu.\n            "
+
+#: .\templates\pages\products\astrography.html:644
+msgid ""
+"\n"
+"            When you find a place that resonates with you,\n"
+"            your energy can feel more expansive and aligned.\n"
+"            "
+msgstr "\n            Lorsque vous trouvez un lieu qui résonne avec vous,\nvotre énergie peut sembler plus expansive et plus alignée.\n            "
+
+#: .\templates\pages\products\astrography.html:657
+msgid "Find the Place Where You Can"
+msgstr "Trouvez le lieu où vous pouvez"
+
+#: .\templates\pages\products\astrography.html:657
+msgid "Thrive"
+msgstr "Vous épanouir"
+
+#: .\templates\pages\products\astrography.html:661
+msgid "Discover where you may choose to:"
+msgstr "Découvrez où vous pourriez choisir de :"
+
+#: .\templates\pages\products\astrography.html:667
+msgid "Build your home"
+msgstr "Construire votre foyer"
+
+#: .\templates\pages\products\astrography.html:671
+#| msgid "Develop Your Personal Magnetism"
+msgid "Develop your projects"
+msgstr "Développer vos projets"
+
+#: .\templates\pages\products\astrography.html:675
+msgid "Encounter new opportunities"
+msgstr "Rencontrer de nouvelles opportunités"
+
+#: .\templates\pages\products\astrography.html:679
+msgid "Create a greater sense of harmony"
+msgstr "Créer un plus grand sentiment d’harmonie"
+
+#: .\templates\pages\products\astrography.html:691
+msgid "Find Your Place."
+msgstr "Trouvez votre lieu."
+
+#: .\templates\pages\products\astrography.html:692
+#| msgid "Understand Your Energy"
+msgid "Align Your Energy."
+msgstr "Alignez votre énergie."
+
+#: .\templates\pages\products\astrography.html:693
+#| msgid "Fulfill your destiny"
+msgid "Fulfill Your Path."
+msgstr "Accomplissez votre chemin."
+
+#: .\templates\pages\products\astrography.html:697
+#| msgid ""
+#| "\n"
+#| "            Discover the invisible structure of your destiny\n"
+#| "            through a profound study of the stars and the\n"
+#| "            vibration of numbers.\n"
+#| "            "
+msgid ""
+"\n"
+"            Explore the connection between your personal birth map,\n"
+"            the energies of different places, and the journey you\n"
+"            are creating for yourself.\n"
+"            "
+msgstr "\n            Explorez le lien entre votre carte de naissance personnelle,\nles énergies des différents lieux et le parcours que vous\nêtes en train de créer pour vous-même.\n            "
+
+#: .\templates\pages\products\astrography.html:705
+msgid "Discover Your Astrographic Map"
+msgstr "Découvrez votre carte astrographique"
+
+#: .\templates\pages\products\birthChart.html:379
+msgid "The Destiny Written Among the Stars"
+msgstr "Le destin écrit parmi les étoiles"
+
+#: .\templates\pages\products\birthChart.html:383
+#| msgid "Astro-Numerology Egizio"
+msgid "Astro-Numerological"
+msgstr "Astro-Numérologique"
+
+#: .\templates\pages\products\birthChart.html:385
+#| msgid "⭐ The Fixed Stars"
+msgid "of the Fixed Stars"
+msgstr "des Étoiles fixes"
+
+#: .\templates\pages\products\birthChart.html:389
+#| msgid ""
+#| "\n"
+#| "            Discover your destiny map through the fixed stars\n"
+#| "            and your birth numbers. A profound guide to\n"
+#| "            understanding yourself and recognizing the right\n"
+#| "            moments for transformation.\n"
+#| "            "
+msgid ""
+"\n"
+"                    Discover your personal map of destiny through the fixed "
+"stars\n"
+"                    and your birth numbers. A profound guide to "
+"understanding\n"
+"                    yourself, recognizing the right moment to act, and "
+"transforming\n"
+"                    the direction of your life.\n"
+"                    "
+msgstr "\n                    Découvrez votre carte personnelle du destin à travers les étoiles fixes\net vos nombres de naissance. Un guide profond pour vous comprendre,\nreconnaître le bon moment pour agir et transformer\nla direction de votre vie.\n                    "
+
+#: .\templates\pages\products\birthChart.html:398
+msgid "Discover Your Destiny"
+msgstr "Découvrez votre destin"
+
+#: .\templates\pages\products\birthChart.html:410
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                “We are children of the stars.\n"
+"                It is not poetry… it is reality.”\n"
+"                "
+msgstr "\n                « Nous sommes les enfants des étoiles.\nCe n’est pas de la poésie… c’est la réalité. »\n                "
+
+#: .\templates\pages\products\birthChart.html:417
+#| msgid ""
+#| "\n"
+#| "                    It is not enough to know your destiny. \n"
+#| "                    You must know how to live it.\n"
+#| "                    "
+msgid ""
+"\n"
+"                The matter within us was born from the stars.\n"
+"                The sky is not far away — it lives within us.\n"
+"                "
+msgstr "\n                La matière qui nous compose est née des étoiles.\nLe ciel n’est pas loin — il vit en nous.\n                "
+
+#: .\templates\pages\products\birthChart.html:431
+#| msgid "The Law of the Ternary"
+msgid "The Map of Destiny"
+msgstr "La carte du destin"
+
+#: .\templates\pages\products\birthChart.html:434
+msgid ""
+"\n"
+"                    The stars do not determine your destiny — they reveal\n"
+"                    possibilities and point toward your direction.\n"
+"                    It is up to you to recognize the path and choose how\n"
+"                    you wish to walk it.\n"
+"                    "
+msgstr "\n                    Les étoiles ne déterminent pas votre destin — elles révèlent\ndes possibilités et indiquent une direction.\nÀ vous de reconnaître le chemin et de choisir comment\nvous souhaitez le parcourir.\n                    "
+
+#: .\templates\pages\products\birthChart.html:445
+#| msgid ""
+#| "\n"
+#| "                    The stars and planets and their symbolic\n"
+#| "                    relationship with our lives and cycles.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    When we learn to read the language of the sky,\n"
+"                    uncertainty can become direction and awareness.\n"
+"                    "
+msgstr "\n                    Lorsque nous apprenons à lire le langage du ciel,\nl’incertitude peut devenir direction et conscience.\n                    "
+
+#: .\templates\pages\products\birthChart.html:460
+#: .\templates\pages\products\evolution.html:614
+#: .\templates\pages\products\evolution.html:877
+#: .\templates\pages\products\forecast.html:571
+#: .\templates\pages\products\lunar.html:523
+msgid "What You"
+msgstr "Ce que vous"
+
+#: .\templates\pages\products\birthChart.html:460
+#: .\templates\pages\products\forecast.html:571
+msgid "Receive"
+msgstr "Recevez"
+
+#: .\templates\pages\products\birthChart.html:467
+#| msgid "Aspects of the Fixed Stars."
+msgid "Reading of the Fixed Stars"
+msgstr "Lecture des Étoiles fixes"
+
+#: .\templates\pages\products\birthChart.html:470
+msgid "Analysis of the stars present at your birth"
+msgstr "Analyse des étoiles présentes au moment de votre naissance"
+
+#: .\templates\pages\products\birthChart.html:471
+msgid "The constant energy accompanying you throughout life"
+msgstr "L’énergie constante qui vous accompagne tout au long de la vie"
+
+#: .\templates\pages\products\birthChart.html:472
+msgid "Connections with planets, houses and numbers"
+msgstr "Connexions avec les planètes, les maisons et les nombres"
+
+#: .\templates\pages\products\birthChart.html:480
+#| msgid "The Powers of Numbers"
+msgid "The 12 Destiny Numbers"
+msgstr "Les 12 nombres du destin"
+
+#: .\templates\pages\products\birthChart.html:483
+#| msgid "your personal magnetism"
+msgid "Your personal birth numbers"
+msgstr "Vos nombres personnels de naissance"
+
+#: .\templates\pages\products\birthChart.html:484
+#| msgid "your personal magnetism"
+msgid "Your personal talisman"
+msgstr "Votre talisman personnel"
+
+#: .\templates\pages\products\birthChart.html:485
+msgid "Energetic keys for luck and fulfillment"
+msgstr "Clés énergétiques pour la chance et l’épanouissement"
+
+#: .\templates\pages\products\birthChart.html:486
+msgid "Guidance for personal growth"
+msgstr "Conseils pour la croissance personnelle"
+
+#: .\templates\pages\products\birthChart.html:494
+msgid "Practical Guide to Life"
+msgstr "Guide pratique de la vie"
+
+#: .\templates\pages\products\birthChart.html:497
+msgid "Career and personal fulfillment"
+msgstr "Carrière et épanouissement personnel"
+
+#: .\templates\pages\products\birthChart.html:498
+#| msgid "Relationships"
+msgid "Relationships and love"
+msgstr "Relations et amour"
+
+#: .\templates\pages\products\birthChart.html:499
+msgid "Important choices and decisive moments"
+msgstr "Choix importants et moments décisifs"
+
+#: .\templates\pages\products\birthChart.html:500
+msgid "Energy flow and prosperity"
+msgstr "Flux énergétique et prospérité"
+
+#: .\templates\pages\products\birthChart.html:508
+#| msgid "The Birth Code"
+msgid "The Right Moment"
+msgstr "Le bon moment"
+
+#: .\templates\pages\products\birthChart.html:511
+#| msgid ""
+#| "\n"
+#| "                    Light and shadow are two aspects of the same energy.\n"
+#| "                    Understanding this means transforming the way\n"
+#| "                    we experience our lives.\n"
+#| "                    "
+msgid ""
+"\n"
+"                        Knowing what may happen is not enough.\n"
+"                        You also need to understand when it is the right\n"
+"                        time to act.\n"
+"                        "
+msgstr "\n                        Savoir ce qui peut arriver ne suffit pas.\nIl faut également comprendre quand c’est le bon\nmoment pour agir.\n                        "
+
+#: .\templates\pages\products\birthChart.html:521
+msgid "Stellar cycles"
+msgstr "Cycles stellaires"
+
+#: .\templates\pages\products\birthChart.html:523
+#| msgid "Aspects of the Fixed Stars."
+msgid "Activation of the stars"
+msgstr "Activation des étoiles"
+
+#: .\templates\pages\products\birthChart.html:537
+#: .\templates\pages\products\stars.html:586
+msgid "Energy"
+msgstr "Énergie"
+
+#: .\templates\pages\products\birthChart.html:537
+#| msgid "Aspects of the Fixed Stars."
+msgid "of the Stars"
+msgstr "des Étoiles"
+
+#: .\templates\pages\products\birthChart.html:543
+#| msgid ""
+#| "\n"
+#| "                    Light and shadow are two aspects of the same energy.\n"
+#| "                    Understanding this means transforming the way\n"
+#| "                    we experience our lives.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Fixed stars are believed to radiate a constant and "
+"timeless\n"
+"                    energy. They are present from the moment of your birth "
+"and\n"
+"                    accompany you throughout your journey.\n"
+"                    "
+msgstr "\n                    On considère que les étoiles fixes rayonnent une énergie constante et intemporelle.\nElles sont présentes dès votre naissance et\nvous accompagnent tout au long de votre parcours.\n                    "
+
+#: .\templates\pages\products\birthChart.html:553
+#| msgid ""
+#| "\n"
+#| "                    Souls do not meet by chance.\n"
+#| "                    Every encounter is a mirror. Every connection is a "
+#| "door.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    When you learn to interpret them, uncertainty can "
+"become\n"
+"                    direction, awareness and a deeper understanding of your "
+"path.\n"
+"                    "
+msgstr "\n                    Lorsque vous apprenez à les interpréter, l’incertitude peut devenir\ndirection, conscience et compréhension plus profonde de votre chemin.\n                    "
+
+#: .\templates\pages\products\birthChart.html:568
+msgid "Your Map Is Written in the Stars"
+msgstr "Votre carte est écrite dans les étoiles"
+
+#: .\templates\pages\products\birthChart.html:572
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                Explore your birth chart, discover the influence of the "
+"fixed\n"
+"                stars and uncover the energetic patterns connected to your\n"
+"                personal numbers.\n"
+"                "
+msgstr "\n                Explorez votre thème natal, découvrez l’influence des étoiles\nfixes et révélez les schémas énergétiques liés à vos\nnombres personnels.\n                "
+
+#: .\templates\pages\products\birthChart.html:580
+#: .\templates\pages\products\evolution.html:1009
+msgid "Begin Your Reading"
+msgstr "Commencez votre lecture"
+
+#: .\templates\pages\products\essentialOils.html:382
+#: .\templates\pages\products\forecast.html:13
+#: .\templates\pages\products\forecast.html:489
+#| msgid "Personal Magnetism"
+msgid "Personalized"
+msgstr "Personnalisé"
+
+#: .\templates\pages\products\essentialOils.html:382
+#| msgid "Essential Oils"
+msgid "Essential Oil Elixir"
+msgstr "Élixir d’huiles essentielles"
+
+#: .\templates\pages\products\essentialOils.html:386
+#| msgid ""
+#| "\n"
+#| "            A unique blend created specifically for you,\n"
+#| "            designed to support balance of body, mind and\n"
+#| "            energy through the natural vibration of essential oils.\n"
+#| "            "
+msgid ""
+"\n"
+"                    A unique blend created especially for you,\n"
+"                    inspired by the natural properties and symbolic\n"
+"                    vibrations of essential oils.\n"
+"                    "
+msgstr "\n                    Un mélange unique créé spécialement pour vous,\ninspiré des propriétés naturelles et des vibrations\nsymboliques des huiles essentielles.\n                    "
+
+#: .\templates\pages\products\essentialOils.html:394
+#| msgid ""
+#| "\n"
+#| "                    Light and shadow are two aspects of the same energy.\n"
+#| "                    Understanding this means transforming the way\n"
+#| "                    we experience our lives.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    A personalized approach designed to connect\n"
+"                    body, mind and energy through a carefully selected\n"
+"                    aromatic blend.\n"
+"                    "
+msgstr "\n                    Une approche personnalisée conçue pour relier\nle corps, l’esprit et l’énergie grâce à un mélange\naromatique soigneusement sélectionné.\n                    "
+
+#: .\templates\pages\products\essentialOils.html:402
+msgid "Discover Your Elixir"
+msgstr "Découvrez votre élixir"
+
+#: .\templates\pages\products\essentialOils.html:413
+msgid "“Everything is energy. Everything vibrates.”"
+msgstr "« Tout est énergie. Tout vibre. »"
+
+#: .\templates\pages\products\essentialOils.html:422
+msgid "Origin &"
+msgstr "Origine &"
+
+#: .\templates\pages\products\essentialOils.html:422
+#| msgid "Principle:"
+msgid "Principle"
+msgstr "Principe"
+
+#: .\templates\pages\products\essentialOils.html:426
+msgid ""
+"\n"
+"                These personalized elixirs are inspired by the meeting\n"
+"                of ancient traditions, Egyptian Medical Astro-Numerology\n"
+"                and modern approaches to the human energetic field.\n"
+"                "
+msgstr "\n                Ces élixirs personnalisés s’inspirent de la rencontre\nentre les traditions anciennes, l’Astro-Numérologie médicale égyptienne\net les approches modernes du champ énergétique humain.\n                "
+
+#: .\templates\pages\products\essentialOils.html:436
+#| msgid "Ancient Egyptian Medical Astro-Numerology"
+msgid "Egyptian Medical Astro-Numerology"
+msgstr "Astro-Numérologie médicale égyptienne"
+
+#: .\templates\pages\products\essentialOils.html:438
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        A symbolic system connecting birth information,\n"
+"                        numbers and celestial correspondences.\n"
+"                        "
+msgstr "\n                        Un système symbolique reliant les informations de naissance,\nles nombres et les correspondances célestes.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:446
+#| msgid "Ancient Wisdom"
+msgid "Ancient Traditions"
+msgstr "Traditions anciennes"
+
+#: .\templates\pages\products\essentialOils.html:448
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Aromatic plants and essential oils have been part\n"
+"                        of traditional practices across cultures for "
+"centuries.\n"
+"                        "
+msgstr "\n                        Les plantes aromatiques et les huiles essentielles font partie\ndes pratiques traditionnelles de nombreuses cultures depuis des siècles.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:456
+#| msgid "Spiritual Knowledge"
+msgid "Energetic Knowledge"
+msgstr "Connaissance énergétique"
+
+#: .\templates\pages\products\essentialOils.html:458
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        A framework exploring the relationship between\n"
+"                        personal states, symbolic vibrations and energy.\n"
+"                        "
+msgstr "\n                        Un cadre explorant la relation entre\nles états personnels, les vibrations symboliques et l’énergie.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:475
+#| msgid "The Fundamental Principle."
+msgid "Two Fundamental"
+msgstr "Deux principes"
+
+#: .\templates\pages\products\essentialOils.html:475
+#| msgid "Principle:"
+msgid "Principles"
+msgstr "fondamentaux"
+
+#: .\templates\pages\products\essentialOils.html:481
+msgid "Law of Compatibility"
+msgstr "Loi de compatibilité"
+
+#: .\templates\pages\products\essentialOils.html:483
+#| msgid ""
+#| "\n"
+#| "                    Light and shadow are two aspects of the same energy.\n"
+#| "                    Understanding this means transforming the way\n"
+#| "                    we experience our lives.\n"
+#| "                    "
+msgid ""
+"\n"
+"                        The system proposes that each person may resonate\n"
+"                        differently with particular aromas, plants and\n"
+"                        symbolic energetic qualities.\n"
+"                        "
+msgstr "\n                        Le système propose que chaque personne puisse résonner\ndifféremment avec certains arômes, certaines plantes et\ncertaines qualités énergétiques symboliques.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:492
+msgid "Degree of Receptivity"
+msgstr "Degré de réceptivité"
+
+#: .\templates\pages\products\essentialOils.html:494
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Your experience of an aromatic blend can vary\n"
+"                        depending on your individual state, perception\n"
+"                        and receptivity.\n"
+"                        "
+msgstr "\n                        Votre expérience d’un mélange aromatique peut varier\nselon votre état individuel, votre perception\net votre réceptivité.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:512
+#| msgid "The Energetic Field"
+msgid "Energetic System"
+msgstr "Système énergétique"
+
+#: .\templates\pages\products\essentialOils.html:516
+msgid ""
+"\n"
+"                Within the energetic framework of this practice, the human\n"
+"                body is viewed as a complex vibrational field. Essential "
+"oils\n"
+"                are explored for their aromatic qualities and their "
+"symbolic\n"
+"                relationship with different dimensions of experience.\n"
+"                "
+msgstr "\n                Dans le cadre énergétique de cette pratique, le corps humain\nest considéré comme un champ vibratoire complexe. Les huiles essentielles\nsont explorées pour leurs qualités aromatiques et leur relation symbolique\navec différentes dimensions de l’expérience.\n                "
+
+#: .\templates\pages\products\essentialOils.html:527
+msgid "Physical body"
+msgstr "Corps physique"
+
+#: .\templates\pages\products\essentialOils.html:531
+#: .\templates\pages\products\innerWorld.html:624
+msgid "Mind"
+msgstr "Esprit"
+
+#: .\templates\pages\products\essentialOils.html:535
+#: .\templates\pages\products\essentialOils.html:628
+#: .\templates\pages\products\innerWorld.html:470
+#| msgid "Evolution"
+msgid "Emotions"
+msgstr "Émotions"
+
+#: .\templates\pages\products\essentialOils.html:539
+msgid "Subtle energy"
+msgstr "Énergie subtile"
+
+#: .\templates\pages\products\essentialOils.html:552
+#| msgid "The Energetic Field"
+msgid "Energetic"
+msgstr "Énergétiques"
+
+#: .\templates\pages\products\essentialOils.html:552
+msgid "Correspondences"
+msgstr "Correspondances"
+
+#: .\templates\pages\products\essentialOils.html:556
+msgid ""
+"\n"
+"                The elixir system associates the four elements with\n"
+"                different zodiac signs, aromatic notes and symbolic\n"
+"                qualities.\n"
+"                "
+msgstr "\n                Le système des élixirs associe les quatre éléments à\ndifférents signes du zodiaque, notes aromatiques et qualités\nsymboliques.\n                "
+
+#: .\templates\pages\products\essentialOils.html:569
+#| msgid "Air — Thought"
+msgid "Air — Top Notes"
+msgstr "Air — Notes de tête"
+
+#: .\templates\pages\products\essentialOils.html:572
+#: .\templates\pages\products\essentialOils.html:595
+#: .\templates\pages\products\essentialOils.html:618
+#: .\templates\pages\products\essentialOils.html:641
+msgid "Signs:"
+msgstr "Signes :"
+
+#: .\templates\pages\products\essentialOils.html:573
+msgid "Gemini • Libra • Aquarius"
+msgstr "Gémeaux • Balance • Verseau"
+
+#: .\templates\pages\products\essentialOils.html:577
+#: .\templates\pages\products\essentialOils.html:600
+#: .\templates\pages\products\essentialOils.html:623
+#: .\templates\pages\products\essentialOils.html:646
+msgid "Oils:"
+msgstr "Huiles :"
+
+#: .\templates\pages\products\essentialOils.html:578
+msgid "Bergamot, Lavender, Mint"
+msgstr "Bergamote, Lavande, Menthe"
+
+#: .\templates\pages\products\essentialOils.html:582
+msgid "Mental clarity • Concentration • Lightness"
+msgstr "Clarté mentale • Concentration • Légèreté"
+
+#: .\templates\pages\products\essentialOils.html:592
+msgid "Fire — Spicy Notes"
+msgstr "Feu — Notes épicées"
+
+#: .\templates\pages\products\essentialOils.html:596
+msgid "Aries • Leo • Sagittarius"
+msgstr "Bélier • Lion • Sagittaire"
+
+#: .\templates\pages\products\essentialOils.html:601
+msgid "Cinnamon, Ginger, Rosemary"
+msgstr "Cannelle, Gingembre, Romarin"
+
+#: .\templates\pages\products\essentialOils.html:605
+msgid "Energy • Strength • Activation"
+msgstr "Énergie • Force • Activation"
+
+#: .\templates\pages\products\essentialOils.html:615
+#| msgid "Water — Emotion"
+msgid "Water — Heart Notes"
+msgstr "Eau — Notes de cœur"
+
+#: .\templates\pages\products\essentialOils.html:619
+msgid "Cancer • Scorpio • Pisces"
+msgstr "Cancer • Scorpion • Poissons"
+
+#: .\templates\pages\products\essentialOils.html:624
+msgid "Jasmine, Chamomile, Lemon Balm"
+msgstr "Jasmin, Camomille, Mélisse"
+
+#: .\templates\pages\products\essentialOils.html:638
+#| msgid "Earth — Sensation"
+msgid "Earth — Base Notes"
+msgstr "Terre — Notes de fond"
+
+#: .\templates\pages\products\essentialOils.html:642
+msgid "Taurus • Virgo • Capricorn"
+msgstr "Taureau • Vierge • Capricorne"
+
+#: .\templates\pages\products\essentialOils.html:647
+msgid "Patchouli, Vetiver, Myrrh"
+msgstr "Patchouli, Vétiver, Myrrhe"
+
+#: .\templates\pages\products\essentialOils.html:651
+msgid "Stability • Grounding • Security"
+msgstr "Stabilité • Ancrage • Sécurité"
+
+#: .\templates\pages\products\essentialOils.html:666
+#| msgid "Essential Oils"
+msgid "How Essential Oils"
+msgstr "Comment les huiles essentielles"
+
+#: .\templates\pages\products\essentialOils.html:666
+msgid "Are Used"
+msgstr "sont utilisées"
+
+#: .\templates\pages\products\essentialOils.html:670
+msgid ""
+"\n"
+"                Essential oils are highly concentrated aromatic substances.\n"
+"                In this approach, they are used as part of an intentional\n"
+"                sensory and energetic practice.\n"
+"                "
+msgstr "\n                Les huiles essentielles sont des substances aromatiques très concentrées.\nDans cette approche, elles sont utilisées dans le cadre d’une pratique\nsensorielle et énergétique intentionnelle.\n                "
+
+#: .\templates\pages\products\essentialOils.html:680
+msgid "Inhalation"
+msgstr "Inhalation"
+
+#: .\templates\pages\products\essentialOils.html:684
+msgid "Diffusion"
+msgstr "Diffusion"
+
+#: .\templates\pages\products\essentialOils.html:688
+msgid "Topical application when appropriate"
+msgstr "Application cutanée lorsque cela est approprié"
+
+#: .\templates\pages\products\essentialOils.html:692
+msgid "Blending oils together for a personalized aroma"
+msgstr "Mélange d’huiles pour créer un parfum personnalisé"
+
+#: .\templates\pages\products\essentialOils.html:698
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                The combination of different oils creates a unique aromatic\n"
+"                profile, allowing the elixir to become a personalized part\n"
+"                of your daily ritual.\n"
+"                "
+msgstr "\n                La combinaison de différentes huiles crée un profil aromatique unique,\npermettant à l’élixir de devenir une partie personnalisée\nde votre rituel quotidien.\n                "
+
+#: .\templates\pages\products\essentialOils.html:717
+msgid ""
+"\n"
+"                True balance begins with learning to listen to yourself.\n"
+"                The elixirs are not presented simply as fragrances, but as\n"
+"                tools for intention, reflection and awareness.\n"
+"                "
+msgstr "\n                Le véritable équilibre commence par l’apprentissage de l’écoute de soi.\nLes élixirs ne sont pas présentés simplement comme des parfums, mais comme\ndes outils d’intention, de réflexion et de conscience.\n                "
+
+#: .\templates\pages\products\essentialOils.html:727
+msgid "Listen"
+msgstr "Écouter"
+
+#: .\templates\pages\products\essentialOils.html:729
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Become more aware of your sensations, emotions\n"
+"                        and personal needs.\n"
+"                        "
+msgstr "\n                        Prenez davantage conscience de vos sensations, de vos émotions\net de vos besoins personnels.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:737
+msgid "Connect"
+msgstr "Se connecter"
+
+#: .\templates\pages\products\essentialOils.html:739
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Create a more conscious relationship with your\n"
+"                        body, mind and inner experience.\n"
+"                        "
+msgstr "\n                        Créez une relation plus consciente avec votre\ncorps, votre esprit et votre expérience intérieure.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:747
+msgid "Transform"
+msgstr "Transformer"
+
+#: .\templates\pages\products\essentialOils.html:749
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Turn your aromatic ritual into a moment of\n"
+"                        reflection and personal awareness.\n"
+"                        "
+msgstr "\n                        Transformez votre rituel aromatique en un moment de\nréflexion et de conscience personnelle.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:757
+msgid "Harmonize"
+msgstr "Harmoniser"
+
+#: .\templates\pages\products\essentialOils.html:759
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Create a daily practice centered around balance,\n"
+"                        presence and inner connection.\n"
+"                        "
+msgstr "\n                        Créez une pratique quotidienne centrée sur l’équilibre,\nla présence et la connexion intérieure.\n                        "
+
+#: .\templates\pages\products\essentialOils.html:776
+msgid "Elixir"
+msgstr "Élixir"
+
+#: .\templates\pages\products\essentialOils.html:780
+#| msgid ""
+#| "\n"
+#| "                    In ancient traditions, these codes were regarded\n"
+#| "                    as a personal talisman. Today, they become a tool\n"
+#| "                    for self-awareness and orientation.\n"
+#| "                    "
+msgid ""
+"\n"
+"                Discover an aromatic blend created around your personal\n"
+"                energetic profile and turn your daily ritual into a moment\n"
+"                of connection, awareness and intention.\n"
+"                "
+msgstr "\n                Découvrez un mélange aromatique créé autour de votre profil\nénergétique personnel et transformez votre rituel quotidien en un moment\nde connexion, de conscience et d’intention.\n                "
+
+#: .\templates\pages\products\essentialOils.html:788
+msgid "Create Your Elixir"
+msgstr "Créez votre élixir"
+
+#: .\templates\pages\products\evolution.html:13
+#: .\templates\pages\products\evolution.html:531
+msgid "Long-Term"
+msgstr "À long terme"
+
+#: .\templates\pages\products\evolution.html:532
+msgid "Progressive Reading"
+msgstr "Lecture progressive"
+
+#: .\templates\pages\products\evolution.html:536
+#| msgid ""
+#| "\n"
+#| "                    Light and shadow are two aspects of the same energy.\n"
+#| "                    Understanding this means transforming the way\n"
+#| "                    we experience our lives.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Understand your Karma.\n"
+"                    Activate your Dharma.\n"
+"                    Live your time.\n"
+"                    "
+msgstr "\n                    Comprenez votre Karma.\nActivez votre Dharma.\nVivez votre temps.\n                    "
+
+#: .\templates\pages\products\evolution.html:544
+#| msgid ""
+#| "\n"
+#| "                    Understand your Karma. Activate your Dharma. Live "
+#| "your time. \n"
+#| "                    An advanced evolutionary analysis that, through "
+#| "transits and progressions, allows you to understand your path over time "
+#| "and act at the most favorable time. \n"
+#| "                    It's not just prediction... it is conscious "
+#| "evolution.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    An advanced evolutionary analysis that uses\n"
+"                    astrological transits and progressions to help\n"
+"                    you understand your path through time and act\n"
+"                    during the most favorable moments.\n"
+"                    "
+msgstr "\n                    Une analyse évolutive avancée qui utilise\nles transits et progressions astrologiques pour vous aider\nà comprendre votre chemin dans le temps et à agir\npendant les moments les plus favorables.\n                    "
+
+#: .\templates\pages\products\evolution.html:553
+#| msgid "Your Path"
+msgid "Discover Your Path"
+msgstr "Découvrez votre chemin"
+
+#: .\templates\pages\products\evolution.html:566
+#| msgid ""
+#| "\n"
+#| "                    When you recognize it… you truly begin to live.\n"
+#| "                    "
+msgid ""
+"\n"
+"                “Every soul has its own timing.\n"
+"                When you recognize it… you begin to truly live.”\n"
+"                "
+msgstr "\n                « Chaque âme a son propre rythme.\nLorsque vous le reconnaissez… vous commencez vraiment à vivre. »\n                "
+
+#: .\templates\pages\products\evolution.html:573
+#: .\templates\pages\products\forecast.html:530
+msgid "— AM"
+msgstr "— AM"
+
+#: .\templates\pages\products\evolution.html:584
+#: .\templates\pages\products\forecast.html:541
+msgid "More Than a"
+msgstr "Plus qu’une"
+
+#: .\templates\pages\products\evolution.html:584
+#: .\templates\pages\products\forecast.html:541
+msgid "Prediction"
+msgstr "Prédiction"
+
+#: .\templates\pages\products\evolution.html:588
+msgid ""
+"\n"
+"                This is an advanced evolutionary reading designed to\n"
+"                help you understand how your life develops over time.\n"
+"                Rather than simply predicting events, it explores\n"
+"                the timing and evolution of the energies shaping your "
+"journey.\n"
+"                "
+msgstr "\n                Il s’agit d’une lecture évolutive avancée conçue pour\nvous aider à comprendre comment votre vie se développe au fil du temps.\nPlutôt que de simplement prédire des événements, elle explore\nle rythme et l’évolution des énergies qui façonnent votre parcours.\n                "
+
+#: .\templates\pages\products\evolution.html:599
+msgid ""
+"\n"
+"                Through transits, progressions and your natal chart,\n"
+"                you can recognize when different aspects of your potential\n"
+"                are ready to emerge and how to work with them consciously.\n"
+"                "
+msgstr "\n                À travers les transits, les progressions et votre thème natal,\nvous pouvez reconnaître quand différents aspects de votre potentiel\nsont prêts à émerger et comment travailler avec eux consciemment.\n                "
+
+#: .\templates\pages\products\evolution.html:614
+#: .\templates\pages\products\lunar.html:523
+msgid "Discover"
+msgstr "Découvrez"
+
+#: .\templates\pages\products\evolution.html:621
+msgid "Your Karmic Roots"
+msgstr "Vos racines karmiques"
+
+#: .\templates\pages\products\evolution.html:624
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Explore the patterns and experiences from the past\n"
+"                        that continue to influence your present journey.\n"
+"                        "
+msgstr "\n                        Explorez les schémas et les expériences du passé\nqui continuent d’influencer votre parcours actuel.\n                        "
+
+#: .\templates\pages\products\evolution.html:634
+#| msgid "Your chart"
+msgid "Your Dharma"
+msgstr "Votre Dharma"
+
+#: .\templates\pages\products\evolution.html:637
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Discover the direction of your evolution and\n"
+"                        the qualities you are being called to develop.\n"
+"                        "
+msgstr "\n                        Découvrez la direction de votre évolution et\nles qualités que vous êtes appelé à développer.\n                        "
+
+#: .\templates\pages\products\evolution.html:647
+msgid "Your Present Evolution"
+msgstr "Votre évolution actuelle"
+
+#: .\templates\pages\products\evolution.html:650
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Understand the transformation taking place within\n"
+"                        you and the energies currently becoming active.\n"
+"                        "
+msgstr "\n                        Comprenez la transformation qui s’opère en vous\net les énergies qui deviennent actuellement actives.\n                        "
+
+#: .\templates\pages\products\evolution.html:660
+msgid "Future Opportunities"
+msgstr "Opportunités futures"
+
+#: .\templates\pages\products\evolution.html:663
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize potential periods of growth,\n"
+"                        change and new experiences.\n"
+"                        "
+msgstr "\n                        Reconnaissez les périodes potentielles de croissance,\nde changement et de nouvelles expériences.\n                        "
+
+#: .\templates\pages\products\evolution.html:681
+#: .\templates\pages\products\forecast.html:726
+msgid "The Method Is Based"
+msgstr "La méthode est fondée"
+
+#: .\templates\pages\products\evolution.html:681
+#: .\templates\pages\products\forecast.html:726
+msgid "On"
+msgstr "sur"
+
+#: .\templates\pages\products\evolution.html:688
+#: .\templates\pages\products\forecast.html:735
+msgid "Astrological Transits"
+msgstr "Les transits astrologiques"
+
+#: .\templates\pages\products\evolution.html:691
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Planetary movements that reveal when specific\n"
+"                        energies become active in your life.\n"
+"                        "
+msgstr "\n                        Des mouvements planétaires qui révèlent quand certaines\nénergies deviennent actives dans votre vie.\n                        "
+
+#: .\templates\pages\products\evolution.html:701
+#: .\templates\pages\products\forecast.html:751
+#| msgid "Unity & Progression"
+msgid "Evolutionary Progressions"
+msgstr "Progressions évolutives"
+
+#: .\templates\pages\products\evolution.html:704
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        A deeper look at your inner development and\n"
+"                        the gradual unfolding of your potential.\n"
+"                        "
+msgstr "\n                        Un regard plus approfondi sur votre développement intérieur et\nle déploiement progressif de votre potentiel.\n                        "
+
+#: .\templates\pages\products\evolution.html:714
+#| msgid "Your chart"
+msgid "Your Natal Chart"
+msgstr "Votre thème natal"
+
+#: .\templates\pages\products\evolution.html:717
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Your birth chart provides the foundation for\n"
+"                        understanding the unique patterns of your journey.\n"
+"                        "
+msgstr "\n                        Votre thème de naissance constitue la base pour\ncomprendre les schémas uniques de votre parcours.\n                        "
+
+#: .\templates\pages\products\evolution.html:730
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                Together, these elements help reveal\n"
+"                <strong>when and how different energies become active</"
+"strong>\n"
+"                in your life.\n"
+"                "
+msgstr "\n                Ensemble, ces éléments permettent de révéler\n<strong>quand et comment différentes énergies deviennent actives</strong>\ndans votre vie.\n                "
+
+#: .\templates\pages\products\evolution.html:745
+msgid "Key"
+msgstr "Clé"
+
+#: .\templates\pages\products\evolution.html:745
+msgid "of the System"
+msgstr "du système"
+
+#: .\templates\pages\products\evolution.html:752
+msgid "Dragon's Tail"
+msgstr "Queue du Dragon"
+
+#: .\templates\pages\products\evolution.html:755
+#: .\templates\pages\products\evolution.html:977
+msgid "Karma"
+msgstr "Karma"
+
+#: .\templates\pages\products\evolution.html:761
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        The experiences, patterns and lessons from\n"
+"                        the past that you carry with you.\n"
+"                        "
+msgstr "\n                        Les expériences, les schémas et les leçons du\npassé que vous portez avec vous.\n                        "
+
+#: .\templates\pages\products\evolution.html:772
+msgid "Dragon's Head"
+msgstr "Tête du Dragon"
+
+#: .\templates\pages\products\evolution.html:775
+#: .\templates\pages\products\evolution.html:982
+msgid "Dharma"
+msgstr "Dharma"
+
+#: .\templates\pages\products\evolution.html:781
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        The direction of your evolution and the path\n"
+"                        toward what you are becoming.\n"
+"                        "
+msgstr "\n                        La direction de votre évolution et le chemin\nvers ce que vous êtes en train de devenir.\n                        "
+
+#: .\templates\pages\products\evolution.html:794
+#| msgid ""
+#| "\n"
+#| "                    The sky sets the rhythm. The Earth offers the path.\n"
+#| "                    You choose where to let your destiny bloom.\n"
+#| "                    "
+msgid ""
+"\n"
+"                Your task is not to remain attached to what you have "
+"already\n"
+"                experienced, but to move toward what you are destined to "
+"become.\n"
+"                "
+msgstr "\n                Votre tâche n’est pas de rester attaché à ce que vous avez déjà\nvécu, mais d’avancer vers ce que vous êtes destiné à devenir.\n                "
+
+#: .\templates\pages\products\evolution.html:808
+#| msgid "The Meaning of Zero"
+msgid "The True Meaning of"
+msgstr "Le véritable sens du"
+
+#: .\templates\pages\products\evolution.html:808
+msgid "Progress"
+msgstr "Progrès"
+
+#: .\templates\pages\products\evolution.html:812
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                Not everything happens immediately.\n"
+"                Within you exists a potential that develops over time.\n"
+"                "
+msgstr "\n                Tout ne se produit pas immédiatement.\nEn vous existe un potentiel qui se développe avec le temps.\n                "
+
+#: .\templates\pages\products\evolution.html:824
+msgid "What Will Emerge"
+msgstr "Ce qui émergera"
+
+#: .\templates\pages\products\evolution.html:827
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Discover which aspects of yourself are\n"
+"                        ready to emerge and develop.\n"
+"                        "
+msgstr "\n                        Découvrez quels aspects de vous-même sont\nprêts à émerger et à se développer.\n                        "
+
+#: .\templates\pages\products\evolution.html:840
+msgid "When It Activates"
+msgstr "Quand cela s’active"
+
+#: .\templates\pages\products\evolution.html:843
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize the periods when these energies\n"
+"                        become active in your life.\n"
+"                        "
+msgstr "\n                        Reconnaissez les périodes où ces énergies\ndeviennent actives dans votre vie.\n                        "
+
+#: .\templates\pages\products\evolution.html:856
+msgid "How to Transform It"
+msgstr "Comment le transformer"
+
+#: .\templates\pages\products\evolution.html:859
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Learn how to turn emerging potential into\n"
+"                        conscious strength and personal growth.\n"
+"                        "
+msgstr "\n                        Apprenez à transformer le potentiel émergent en\nforce consciente et en croissance personnelle.\n                        "
+
+#: .\templates\pages\products\evolution.html:877
+msgid "Gain"
+msgstr "Acquérez"
+
+#: .\templates\pages\products\evolution.html:884
+#| msgid "Understand Your Energy"
+msgid "Deep Understanding"
+msgstr "Une compréhension profonde"
+
+#: .\templates\pages\products\evolution.html:887
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Develop a deeper understanding of your personal\n"
+"                        journey and its evolutionary direction.\n"
+"                        "
+msgstr "\n                        Développez une compréhension plus profonde de votre parcours\npersonnel et de sa direction évolutive.\n                        "
+
+#: .\templates\pages\products\evolution.html:897
+msgid "Clarity in Important Choices"
+msgstr "Clarté dans les choix importants"
+
+#: .\templates\pages\products\evolution.html:900
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Gain greater awareness when approaching\n"
+"                        important decisions and turning points.\n"
+"                        "
+msgstr "\n                        Acquérez une plus grande conscience lorsque vous abordez\ndes décisions importantes et des tournants décisifs.\n                        "
+
+#: .\templates\pages\products\evolution.html:910
+msgid "Recognize the Right Moment"
+msgstr "Reconnaissez le bon moment"
+
+#: .\templates\pages\products\evolution.html:913
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Become more aware of the periods when it may\n"
+"                        be appropriate to act, change or move forward.\n"
+"                        "
+msgstr "\n                        Prenez davantage conscience des périodes où il peut être\napproprié d’agir, de changer ou d’avancer.\n                        "
+
+#: .\templates\pages\products\evolution.html:923
+msgid "Move Beyond Inner Blocks"
+msgstr "Dépassez les blocages intérieurs"
+
+#: .\templates\pages\products\evolution.html:926
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize recurring patterns and transform them\n"
+"                        into opportunities for personal development.\n"
+"                        "
+msgstr "\n                        Reconnaissez les schémas récurrents et transformez-les\nen opportunités de développement personnel.\n                        "
+
+#: .\templates\pages\products\evolution.html:944
+#: .\templates\pages\products\forecast.html:850
+#: .\templates\pages\products\lunar.html:569
+msgid "Transformation"
+msgstr "Transformation"
+
+#: .\templates\pages\products\evolution.html:951
+msgid "Repetition"
+msgstr "Répétition"
+
+#: .\templates\pages\products\evolution.html:964
+#: .\templates\pages\products\forecast.html:883
+#: .\templates\pages\products\lunar.html:737
+msgid "Confusion"
+msgstr "Confusion"
+
+#: .\templates\pages\products\evolution.html:969
+#: .\templates\pages\products\lunar.html:768
+msgid "Direction"
+msgstr "Direction"
+
+#: .\templates\pages\products\evolution.html:997
+#| msgid "Understand Your Energy"
+msgid "Understand Your Time"
+msgstr "Comprenez votre temps"
+
+#: .\templates\pages\products\evolution.html:1001
+msgid ""
+"\n"
+"                Explore your long-term evolutionary path, recognize\n"
+"                the energies that are becoming active and discover\n"
+"                how to move consciously toward your future.\n"
+"                "
+msgstr "\n                Explorez votre chemin évolutif à long terme, reconnaissez\nles énergies qui deviennent actives et découvrez\ncomment avancer consciemment vers votre avenir.\n                "
+
+#: .\templates\pages\products\forecast.html:490
+#| msgid "Forecast"
+msgid "12-Month Forecast"
+msgstr "Prévisions sur 12 mois"
+
+#: .\templates\pages\products\forecast.html:494
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Anticipate your future.\n"
+"                    Act at the right moment.\n"
+"                    "
+msgstr "\n                    Anticipez votre avenir.\nAgissez au bon moment.\n                    "
+
+#: .\templates\pages\products\forecast.html:501
+#| msgid ""
+#| "\n"
+#| "                    Anticipate your future. Act at the right time. \n"
+#| "                    Through the astro-numerological analysis of your "
+#| "birth, a complete forecast of the next 12 months is elaborated, to guide "
+#| "you clearly in the most important choices of your life. \n"
+#| "                    It's not just prediction... it is awareness of time.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Through an astro-numerological analysis of your birth,\n"
+"                    a complete forecast of the next 12 months is created\n"
+"                    to guide you with greater clarity through the most\n"
+"                    important choices in your life.\n"
+"                    "
+msgstr "\n                    Grâce à une analyse astro-numérologique de votre naissance,\nune prévision complète des 12 prochains mois est créée\npour vous guider avec plus de clarté dans les choix\nles plus importants de votre vie.\n                    "
+
+#: .\templates\pages\products\forecast.html:510
+msgid "Discover Your Forecast"
+msgstr "Découvrez vos prévisions"
+
+#: .\templates\pages\products\forecast.html:523
+#| msgid ""
+#| "\n"
+#| "                    The future is not awaited. It is recognized.\n"
+#| "                    "
+msgid ""
+"\n"
+"                “The future is not something you wait for…\n"
+"                it is something you recognize.”\n"
+"                "
+msgstr "\n                « L’avenir n’est pas quelque chose que l’on attend…\nc’est quelque chose que l’on reconnaît. »\n                "
+
+#: .\templates\pages\products\forecast.html:545
+msgid ""
+"\n"
+"                This personalized 12-month forecast is not simply about\n"
+"                predicting what may happen. It is about developing an\n"
+"                awareness of time — understanding the energies surrounding\n"
+"                each period and recognizing when to act.\n"
+"                "
+msgstr "\n                Cette prévision personnalisée sur 12 mois ne consiste pas simplement à\nprédire ce qui peut arriver. Il s’agit de développer une\nconscience du temps — comprendre les énergies qui entourent\nchaque période et reconnaître quand agir.\n                "
+
+#: .\templates\pages\products\forecast.html:556
+msgid ""
+"\n"
+"                By combining your birth information with astrological\n"
+"                and numerological cycles, the forecast provides a\n"
+"                month-by-month perspective on the year ahead.\n"
+"                "
+msgstr "\n                En combinant vos informations de naissance avec les cycles\nastrologiques et numérologiques, la prévision offre une\nperspective mois par mois sur l’année à venir.\n                "
+
+#: .\templates\pages\products\forecast.html:578
+msgid "Month-by-Month Forecast"
+msgstr "Prévisions mois par mois"
+
+#: .\templates\pages\products\forecast.html:581
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        A complete overview of the energy and themes\n"
+"                        unfolding throughout each month.\n"
+"                        "
+msgstr "\n                        Un aperçu complet de l’énergie et des thèmes\nqui se déploient tout au long de chaque mois.\n                        "
+
+#: .\templates\pages\products\forecast.html:591
+msgid "Dominant Energy"
+msgstr "Énergie dominante"
+
+#: .\templates\pages\products\forecast.html:594
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Discover the main energetic influence shaping\n"
+"                        each period of your year.\n"
+"                        "
+msgstr "\n                        Découvrez l’influence énergétique principale qui façonne\nchaque période de votre année.\n                        "
+
+#: .\templates\pages\products\forecast.html:604
+#| msgid "Your Challenges"
+msgid "Opportunities & Challenges"
+msgstr "Opportunités & Défis"
+
+#: .\templates\pages\products\forecast.html:607
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize favorable moments and understand\n"
+"                        the challenges that may require greater awareness.\n"
+"                        "
+msgstr "\n                        Reconnaissez les moments favorables et comprenez\nles défis qui peuvent nécessiter une plus grande conscience.\n                        "
+
+#: .\templates\pages\products\forecast.html:617
+msgid "Love, Work & Money"
+msgstr "Amour, Travail & Argent"
+
+#: .\templates\pages\products\forecast.html:620
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Insights into relationships, career,\n"
+"                        finances and personal development.\n"
+"                        "
+msgstr "\n                        Aperçus sur les relations, la carrière,\nles finances et le développement personnel.\n                        "
+
+#: .\templates\pages\products\forecast.html:630
+msgid "Practical Guidance"
+msgstr "Conseils pratiques"
+
+#: .\templates\pages\products\forecast.html:633
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Clear guidance to help you approach important\n"
+"                        decisions throughout the year.\n"
+"                        "
+msgstr "\n                        Des conseils clairs pour vous aider à aborder les décisions\nimportantes tout au long de l’année.\n                        "
+
+#: .\templates\pages\products\forecast.html:651
+#| msgid "Your Path"
+msgid "Your Next"
+msgstr "Vos prochains"
+
+#: .\templates\pages\products\forecast.html:651
+msgid "12 Months"
+msgstr "12 mois"
+
+#: .\templates\pages\products\forecast.html:658
+msgid "Month One"
+msgstr "Premier mois"
+
+#: .\templates\pages\products\forecast.html:663
+msgid "Month Two"
+msgstr "Deuxième mois"
+
+#: .\templates\pages\products\forecast.html:668
+msgid "Month Three"
+msgstr "Troisième mois"
+
+#: .\templates\pages\products\forecast.html:673
+#| msgid "The Four"
+msgid "Month Four"
+msgstr "Quatrième mois"
+
+#: .\templates\pages\products\forecast.html:678
+msgid "Month Five"
+msgstr "Cinquième mois"
+
+#: .\templates\pages\products\forecast.html:683
+msgid "Month Six"
+msgstr "Sixième mois"
+
+#: .\templates\pages\products\forecast.html:688
+msgid "Month Seven"
+msgstr "Septième mois"
+
+#: .\templates\pages\products\forecast.html:693
+msgid "Month Eight"
+msgstr "Huitième mois"
+
+#: .\templates\pages\products\forecast.html:698
+msgid "Month Nine"
+msgstr "Neuvième mois"
+
+#: .\templates\pages\products\forecast.html:703
+msgid "Month Ten"
+msgstr "Dixième mois"
+
+#: .\templates\pages\products\forecast.html:708
+msgid "Month Eleven"
+msgstr "Onzième mois"
+
+#: .\templates\pages\products\forecast.html:713
+#| msgid "The Twelve"
+msgid "Month Twelve"
+msgstr "Douzième mois"
+
+#: .\templates\pages\products\forecast.html:738
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Planetary movements that reveal the changing\n"
+"                        energies influencing your path.\n"
+"                        "
+msgstr "\n                        Les mouvements planétaires qui révèlent les énergies changeantes\ninfluençant votre chemin.\n                        "
+
+#: .\templates\pages\products\forecast.html:754
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Cycles that reflect your inner development\n"
+"                        and personal evolution.\n"
+"                        "
+msgstr "\n                        Des cycles qui reflètent votre développement intérieur\net votre évolution personnelle.\n                        "
+
+#: .\templates\pages\products\forecast.html:767
+#| msgid "The Powers of Numbers"
+msgid "Personal Birth Numbers"
+msgstr "Nombres personnels de naissance"
+
+#: .\templates\pages\products\forecast.html:770
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Your unique numerological patterns derived\n"
+"                        from your birth date.\n"
+"                        "
+msgstr "\n                        Vos schémas numérologiques uniques dérivés\nde votre date de naissance.\n                        "
+
+#: .\templates\pages\products\forecast.html:783
+msgid ""
+"\n"
+"                Together, these elements help reveal not only\n"
+"                <strong>what may happen</strong> — but\n"
+"                <strong>when it may happen.</strong>\n"
+"                "
+msgstr "\n                Ensemble, ces éléments permettent de révéler non seulement\n<strong>ce qui peut arriver</strong> — mais aussi\n<strong>quand cela peut arriver.</strong>\n                "
+
+#: .\templates\pages\products\forecast.html:798
+#| msgid "Your Path"
+msgid "Your"
+msgstr "Votre"
+
+#: .\templates\pages\products\forecast.html:805
+msgid "The Numbers Reveal"
+msgstr "Les nombres révèlent"
+
+#: .\templates\pages\products\forecast.html:808
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Your personal numbers reveal patterns of\n"
+"                        inner development and the stages of your\n"
+"                        personal evolution.\n"
+"                        "
+msgstr "\n                        Vos nombres personnels révèlent des schémas de\ndéveloppement intérieur et les étapes de votre\névolution personnelle.\n                        "
+
+#: .\templates\pages\products\forecast.html:819
+#| msgid "The Star Code."
+msgid "The Stars Indicate"
+msgstr "Les étoiles indiquent"
+
+#: .\templates\pages\products\forecast.html:822
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        The stars and planetary cycles help identify\n"
+"                        the moments when a particular energy becomes\n"
+"                        ready to emerge.\n"
+"                        "
+msgstr "\n                        Les étoiles et les cycles planétaires aident à identifier\nles moments où une énergie particulière devient\nprête à émerger.\n                        "
+
+#: .\templates\pages\products\forecast.html:836
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                When an energy is ready, it can open the way toward\n"
+"                new experiences, choices and directions.\n"
+"                "
+msgstr "\n                Lorsqu’une énergie est prête, elle peut ouvrir la voie à\nde nouvelles expériences, de nouveaux choix et de nouvelles directions.\n                "
+
+#: .\templates\pages\products\forecast.html:857
+msgid "Uncertainty"
+msgstr "Incertitude"
+
+#: .\templates\pages\products\forecast.html:862
+msgid "Vision"
+msgstr "Vision"
+
+#: .\templates\pages\products\forecast.html:870
+msgid "Waiting"
+msgstr "Attente"
+
+#: .\templates\pages\products\forecast.html:875
+msgid "Conscious Action"
+msgstr "Action consciente"
+
+#: .\templates\pages\products\forecast.html:888
+msgid "Clear Direction"
+msgstr "Direction claire"
+
+#: .\templates\pages\products\forecast.html:903
+msgid "See the Year Ahead"
+msgstr "Voyez l’année à venir"
+
+#: .\templates\pages\products\forecast.html:907
+#| msgid ""
+#| "\n"
+#| "            Discover how the energies of the sky connect\n"
+#| "            with places on Earth and explore environments\n"
+#| "            that may resonate with your goals and path.\n"
+#| "            "
+msgid ""
+"\n"
+"                Discover the energies, opportunities and turning points\n"
+"                that may shape your next 12 months — and learn to\n"
+"                recognize the right moment to act.\n"
+"                "
+msgstr "\n                Découvrez les énergies, les opportunités et les tournants\nqui peuvent façonner vos 12 prochains mois — et apprenez à\nreconnaître le bon moment pour agir.\n                "
+
+#: .\templates\pages\products\forecast.html:915
+msgid "Get Your 12-Month Forecast"
+msgstr "Obtenez vos prévisions sur 12 mois"
+
+#: .\templates\pages\products\innerWorld.html:359
+msgid "Psyche"
+msgstr "Psyché"
+
+#: .\templates\pages\products\innerWorld.html:363
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                    Within you exists an invisible universe.\n"
+"                    Awareness transforms it into power.\n"
+"                    "
+msgstr "\n                    En vous existe un univers invisible.\nLa conscience le transforme en pouvoir.\n                    "
+
+#: .\templates\pages\products\innerWorld.html:370
+#| msgid ""
+#| "\n"
+#| "                    The stars and planets and their symbolic\n"
+#| "                    relationship with our lives and cycles.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore your inner world through a symbolic journey\n"
+"                    integrating astrology, numerology and subtle energies.\n"
+"                    "
+msgstr "\n                    Explorez votre monde intérieur à travers un voyage symbolique\nintégrant l’astrologie, la numérologie et les énergies subtiles.\n                    "
+
+#: .\templates\pages\products\innerWorld.html:377
+#| msgid "Inner World"
+msgid "Discover Your Inner World"
+msgstr "Découvrez votre monde intérieur"
+
+#: .\templates\pages\products\innerWorld.html:388
+msgid ""
+"\n"
+"            “The most important journey is not outside you.\n"
+"            It is within you.”\n"
+"            "
+msgstr "\n            « Le voyage le plus important n’est pas à l’extérieur de vous.\nIl est en vous. »\n            "
+
+#: .\templates\pages\products\innerWorld.html:402
+msgid ""
+"\n"
+"                Every individual lives between the visible and the "
+"invisible.\n"
+"                Difficulties do not have to be seen only as obstacles —\n"
+"                they can also become doors to deeper awareness and\n"
+"                personal transformation.\n"
+"                "
+msgstr "\n                Chaque individu vit entre le visible et l’invisible.\nLes difficultés ne doivent pas être considérées uniquement comme des obstacles —\nelles peuvent aussi devenir des portes vers une conscience plus profonde et\nune transformation personnelle.\n                "
+
+#: .\templates\pages\products\innerWorld.html:413
+#| msgid "Recognize Your Talents"
+msgid "Recognize Your Desires"
+msgstr "Reconnaissez vos désirs"
+
+#: .\templates\pages\products\innerWorld.html:415
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Learn to listen more deeply to what genuinely\n"
+"                        motivates and inspires you.\n"
+"                        "
+msgstr "\n                        Apprenez à écouter plus profondément ce qui vous\nmotive et vous inspire véritablement.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:423
+msgid "Transform Your Limits"
+msgstr "Transformez vos limites"
+
+#: .\templates\pages\products\innerWorld.html:425
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Explore limitations as opportunities to discover\n"
+"                        new resources within yourself.\n"
+"                        "
+msgstr "\n                        Explorez les limites comme des occasions de découvrir\nde nouvelles ressources en vous-même.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:433
+msgid "Develop Inner Presence"
+msgstr "Développez votre présence intérieure"
+
+#: .\templates\pages\products\innerWorld.html:435
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Cultivate greater awareness of your thoughts,\n"
+"                        emotions and inner experience.\n"
+"                        "
+msgstr "\n                        Cultivez une plus grande conscience de vos pensées,\nde vos émotions et de votre expérience intérieure.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:452
+#| msgid "Psychic Magnetism"
+msgid "Psychic Field"
+msgstr "Champ psychique"
+
+#: .\templates\pages\products\innerWorld.html:456
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                Each person possesses a unique inner and energetic field —\n"
+"                a subtle dimension shaped by thoughts, emotions, memories\n"
+"                and potential.\n"
+"                "
+msgstr "\n                Chaque personne possède un champ intérieur et énergétique unique —\nune dimension subtile façonnée par les pensées, les émotions, les souvenirs\net le potentiel.\n                "
+
+#: .\templates\pages\products\innerWorld.html:466
+#| msgid "Air — Thought"
+msgid "Thoughts"
+msgstr "Pensées"
+
+#: .\templates\pages\products\innerWorld.html:474
+#| msgid "Aries"
+msgid "Memories"
+msgstr "Souvenirs"
+
+#: .\templates\pages\products\innerWorld.html:478
+msgid "Potential"
+msgstr "Potentiel"
+
+#: .\templates\pages\products\innerWorld.html:484
+#| msgid ""
+#| "\n"
+#| "                An integrated system bringing together three\n"
+#| "                complementary dimensions of knowledge.\n"
+#| "                "
+msgid ""
+"\n"
+"                This inner space is where your perception of yourself\n"
+"                and your experience of life begin to take shape.\n"
+"                "
+msgstr "\n                Cet espace intérieur est le lieu où votre perception de vous-même\net votre expérience de la vie commencent à prendre forme.\n                "
+
+#: .\templates\pages\products\innerWorld.html:498
+#| msgid "Inner World"
+msgid "Inner Journey"
+msgstr "Voyage intérieur"
+
+#: .\templates\pages\products\innerWorld.html:502
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"                Through reflective practices, you can create space for\n"
+"                deeper self-awareness and a stronger connection with\n"
+"                your inner world.\n"
+"                "
+msgstr "\n                Grâce à des pratiques réflexives, vous pouvez créer un espace pour\nune connaissance de soi plus profonde et une connexion plus forte avec\nvotre monde intérieur.\n                "
+
+#: .\templates\pages\products\innerWorld.html:512
+#| msgid "Deep Red"
+msgid "Deep Relaxation"
+msgstr "Relaxation profonde"
+
+#: .\templates\pages\products\innerWorld.html:514
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Create moments of stillness and release from\n"
+"                        everyday tension.\n"
+"                        "
+msgstr "\n                        Créez des moments de calme et de libération des\ntensions quotidiennes.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:522
+msgid "Guided Meditation"
+msgstr "Méditation guidée"
+
+#: .\templates\pages\products\innerWorld.html:524
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Turn your attention inward and explore your\n"
+"                        thoughts and emotions.\n"
+"                        "
+msgstr "\n                        Tournez votre attention vers l’intérieur et explorez vos\npensées et vos émotions.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:532
+msgid "Visualization"
+msgstr "Visualisation"
+
+#: .\templates\pages\products\innerWorld.html:534
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Use imagination as a tool for reflection,\n"
+"                        intention and personal exploration.\n"
+"                        "
+msgstr "\n                        Utilisez l’imagination comme un outil de réflexion,\nd’intention et d’exploration personnelle.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:542
+msgid "Inner Listening"
+msgstr "Écoute intérieure"
+
+#: .\templates\pages\products\innerWorld.html:544
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Develop the ability to recognize your authentic\n"
+"                        needs, feelings and aspirations.\n"
+"                        "
+msgstr "\n                        Développez la capacité à reconnaître vos véritables\nbesoins, sentiments et aspirations.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:561
+msgid "What"
+msgstr "Ce qui"
+
+#: .\templates\pages\products\innerWorld.html:561
+msgid "Emerges"
+msgstr "Émerge"
+
+#: .\templates\pages\products\innerWorld.html:565
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                As you create a deeper connection with your inner world,\n"
+"                new aspects of yourself may become clearer.\n"
+"                "
+msgstr "\n                À mesure que vous créez une connexion plus profonde avec votre monde intérieur,\nde nouveaux aspects de vous-même peuvent devenir plus clairs.\n                "
+
+#: .\templates\pages\products\innerWorld.html:574
+msgid "Hidden talents"
+msgstr "Talents cachés"
+
+#: .\templates\pages\products\innerWorld.html:578
+msgid "Deeper vocations"
+msgstr "Vocations profondes"
+
+#: .\templates\pages\products\innerWorld.html:582
+msgid "Authentic desires"
+msgstr "Désirs authentiques"
+
+#: .\templates\pages\products\innerWorld.html:586
+msgid "New awareness"
+msgstr "Nouvelle conscience"
+
+#: .\templates\pages\products\innerWorld.html:599
+msgid "Harmonization of"
+msgstr "Harmonisation de"
+
+#: .\templates\pages\products\innerWorld.html:599
+#| msgid "Well-Being"
+msgid "Being"
+msgstr "l’Être"
+
+#: .\templates\pages\products\innerWorld.html:603
+msgid ""
+"\n"
+"                Psyche Magnetism brings together different dimensions\n"
+"                of your experience, creating a symbolic framework for\n"
+"                greater balance, clarity and connection with your\n"
+"                inner strength.\n"
+"                "
+msgstr "\n                Le Magnétisme de la Psyché réunit différentes dimensions\nde votre expérience, créant un cadre symbolique pour\nun plus grand équilibre, plus de clarté et une connexion avec votre\nforce intérieure.\n                "
+
+#: .\templates\pages\products\innerWorld.html:614
+msgid "Physical Body"
+msgstr "Corps physique"
+
+#: .\templates\pages\products\innerWorld.html:616
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Become more aware of your physical presence\n"
+"                        and connection with yourself.\n"
+"                        "
+msgstr "\n                        Prenez davantage conscience de votre présence physique\net de votre connexion avec vous-même.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:626
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Observe your thoughts and develop greater\n"
+"                        clarity and conscious awareness.\n"
+"                        "
+msgstr "\n                        Observez vos pensées et développez davantage\nde clarté et de conscience.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:634
+#| msgid "Energetic Connection"
+msgid "Energetic Dimension"
+msgstr "Dimension énergétique"
+
+#: .\templates\pages\products\innerWorld.html:636
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Explore the symbolic language of subtle energy\n"
+"                        and your personal inner experience.\n"
+"                        "
+msgstr "\n                        Explorez le langage symbolique de l’énergie subtile\net votre expérience intérieure personnelle.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:653
+#: .\templates\pages\products\magnetism.html:714
+#| msgid "Relationships"
+msgid "Realization"
+msgstr "Réalisation"
+
+#: .\templates\pages\products\innerWorld.html:657
+msgid ""
+"\n"
+"                When you begin to connect with your inner world,\n"
+"                awareness can become a foundation for personal growth\n"
+"                and creative expression.\n"
+"                "
+msgstr "\n                Lorsque vous commencez à vous connecter à votre monde intérieur,\nla conscience peut devenir une base pour la croissance personnelle\net l’expression créative.\n                "
+
+#: .\templates\pages\products\innerWorld.html:667
+#| msgid "Understand Your Energy"
+msgid "Understand Who You Are"
+msgstr "Comprenez qui vous êtes"
+
+#: .\templates\pages\products\innerWorld.html:669
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Develop a clearer relationship with your identity,\n"
+"                        desires and inner direction.\n"
+"                        "
+msgstr "\n                        Développez une relation plus claire avec votre identité,\nvos désirs et votre direction intérieure.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:677
+msgid "Strengthen Your Center"
+msgstr "Renforcez votre centre"
+
+#: .\templates\pages\products\innerWorld.html:679
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Build a stronger sense of presence and connection\n"
+"                        with your inner self.\n"
+"                        "
+msgstr "\n                        Construisez un sentiment plus fort de présence et de connexion\navec votre moi intérieur.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:687
+msgid "Awaken Your Creativity"
+msgstr "Éveillez votre créativité"
+
+#: .\templates\pages\products\innerWorld.html:689
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                        Give more space to your imagination, ideas and\n"
+"                        personal creative potential.\n"
+"                        "
+msgstr "\n                        Accordez plus d’espace à votre imagination, à vos idées et à\nvotre potentiel créatif personnel.\n                        "
+
+#: .\templates\pages\products\innerWorld.html:706
+#| msgid "Explore Your "
+msgid "Enter Your"
+msgstr "Entrez dans votre"
+
+#: .\templates\pages\products\innerWorld.html:710
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                The most important journey is not outside you.\n"
+"                It is within you. There lives your truth.\n"
+"                There your power begins.\n"
+"                "
+msgstr "\n                Le voyage le plus important n’est pas à l’extérieur de vous.\nIl est en vous. Là vit votre vérité.\nLà commence votre pouvoir.\n                "
+
+#: .\templates\pages\products\innerWorld.html:718
+msgid "Awaken Your Awareness"
+msgstr "Éveillez votre conscience"
+
+#: .\templates\pages\products\lunar.html:451
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Follow the rhythm of the Moon.\n"
+"                    Live in the right moment.\n"
+"                    "
+msgstr "\n                    Suivez le rythme de la Lune.\nVivez au bon moment.\n                    "
+
+#: .\templates\pages\products\lunar.html:458
+msgid ""
+"\n"
+"                    The Astro-Numerological Lunar Horoscope guides you\n"
+"                    through the phases of the Moon, from your birth\n"
+"                    to the current transits, helping you understand\n"
+"                    when to act, when to wait and when to transform.\n"
+"                    "
+msgstr "\n                    L’Horoscope Lunaire Astro-Numérologique vous guide\nà travers les phases de la Lune, depuis votre naissance\njusqu’aux transits actuels, en vous aidant à comprendre\nquand agir, quand attendre et quand vous transformer.\n                    "
+
+#: .\templates\pages\products\lunar.html:467
+msgid "Discover Your Lunar Cycle"
+msgstr "Découvrez votre cycle lunaire"
+
+#: .\templates\pages\products\lunar.html:480
+#| msgid ""
+#| "\n"
+#| "                Astro Magnetismo is based on a clear vision:\n"
+#| "                no energy is ever simply positive or negative.\n"
+#| "                "
+msgid ""
+"\n"
+"                “The Moon speaks…\n"
+"                when you learn to listen, everything changes.”\n"
+"                "
+msgstr "\n                « La Lune parle…\nquand vous apprenez à l’écouter, tout change. »\n                "
+
+#: .\templates\pages\products\lunar.html:494
+msgid "Synchronize"
+msgstr "Synchronisez-vous"
+
+#: .\templates\pages\products\lunar.html:494
+#| msgid "order of the Universe"
+msgid "With the Universe"
+msgstr "Avec l’Univers"
+
+#: .\templates\pages\products\lunar.html:498
+msgid ""
+"\n"
+"                This method goes beyond simply observing the Moon.\n"
+"                It helps you recognize its rhythm in relation to your\n"
+"                personal birth chart and the cycles unfolding around you.\n"
+"                "
+msgstr "\n                Cette méthode va au-delà de la simple observation de la Lune.\nElle vous aide à reconnaître son rythme par rapport à votre\nthème natal personnel et aux cycles qui se déploient autour de vous.\n                "
+
+#: .\templates\pages\products\lunar.html:508
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                Learn to recognize the moments for action, patience,\n"
+"                transformation and new beginnings — allowing you to\n"
+"                move with the rhythm rather than against it.\n"
+"                "
+msgstr "\n                Apprenez à reconnaître les moments propices à l’action, à la patience,\nà la transformation et aux nouveaux départs — afin de pouvoir\navancer avec le rythme plutôt que contre lui.\n                "
+
+#: .\templates\pages\products\lunar.html:529
+msgid "Your Lunar Influence"
+msgstr "Votre influence lunaire"
+
+#: .\templates\pages\products\lunar.html:531
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Explore the influence of the Moon on your\n"
+"                        personality, emotions and natural rhythms.\n"
+"                        "
+msgstr "\n                        Explorez l’influence de la Lune sur votre\npersonnalité, vos émotions et vos rythmes naturels.\n                        "
+
+#: .\templates\pages\products\lunar.html:539
+#| msgid "Lunar Mansions"
+msgid "Key Lunar Phases"
+msgstr "Phases lunaires clés"
+
+#: .\templates\pages\products\lunar.html:541
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Understand the lunar phases connected to\n"
+"                        important moments throughout your life.\n"
+"                        "
+msgstr "\n                        Comprenez les phases lunaires liées aux\nmoments importants de votre vie.\n                        "
+
+#: .\templates\pages\products\lunar.html:549
+#| msgid "Relationships"
+msgid "Love & Relationships"
+msgstr "Amour & Relations"
+
+#: .\templates\pages\products\lunar.html:551
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize favorable periods for love,\n"
+"                        relationships and new beginnings.\n"
+"                        "
+msgstr "\n                        Reconnaissez les périodes favorables à l’amour,\naux relations et aux nouveaux départs.\n                        "
+
+#: .\templates\pages\products\lunar.html:559
+msgid "Growth & Prosperity"
+msgstr "Croissance & Prospérité"
+
+#: .\templates\pages\products\lunar.html:561
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Identify opportunities connected to money,\n"
+"                        personal growth and fulfillment.\n"
+"                        "
+msgstr "\n                        Identifiez les opportunités liées à l’argent,\nà la croissance personnelle et à l’épanouissement.\n                        "
+
+#: .\templates\pages\products\lunar.html:571
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Discover the ideal moments to release what\n"
+"                        no longer serves you and begin a new cycle.\n"
+"                        "
+msgstr "\n                        Découvrez les moments idéaux pour vous libérer de ce qui\nne vous sert plus et commencer un nouveau cycle.\n                        "
+
+#: .\templates\pages\products\lunar.html:588
+msgid "Cycle of the Moon"
+msgstr "Cycle de la Lune"
+
+#: .\templates\pages\products\lunar.html:597
+#| msgid "Moon"
+msgid "New Moon"
+msgstr "Nouvelle Lune"
+
+#: .\templates\pages\products\lunar.html:600
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Beginnings, intentions\n"
+"                        and new projects.\n"
+"                        "
+msgstr "\n                        Commencements, intentions\net nouveaux projets.\n                        "
+
+#: .\templates\pages\products\lunar.html:613
+msgid "First Quarter"
+msgstr "Premier Quartier"
+
+#: .\templates\pages\products\lunar.html:616
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Action, decisions\n"
+"                        and growth.\n"
+"                        "
+msgstr "\n                        Action, décisions\net croissance.\n                        "
+
+#: .\templates\pages\products\lunar.html:629
+#| msgid "Moon"
+msgid "Full Moon"
+msgstr "Pleine Lune"
+
+#: .\templates\pages\products\lunar.html:632
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Fulfillment, emotions\n"
+"                        and results.\n"
+"                        "
+msgstr "\n                        Épanouissement, émotions\net résultats.\n                        "
+
+#: .\templates\pages\products\lunar.html:645
+msgid "Last Quarter"
+msgstr "Dernier Quartier"
+
+#: .\templates\pages\products\lunar.html:648
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Release, transformation\n"
+"                        and purification.\n"
+"                        "
+msgstr "\n                        Libération, transformation\net purification.\n                        "
+
+#: .\templates\pages\products\lunar.html:666
+msgid "Power of This Method"
+msgstr "Pouvoir de cette méthode"
+
+#: .\templates\pages\products\lunar.html:670
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"                Learn to recognize the moments when your energy is\n"
+"                aligned with the natural rhythm of your personal cycle.\n"
+"                "
+msgstr "\n                Apprenez à reconnaître les moments où votre énergie est\nalignée avec le rythme naturel de votre cycle personnel.\n                "
+
+#: .\templates\pages\products\lunar.html:681
+msgid "When to Begin"
+msgstr "Quand commencer"
+
+#: .\templates\pages\products\lunar.html:683
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize the periods that support new ideas,\n"
+"                        intentions and beginnings.\n"
+"                        "
+msgstr "\n                        Reconnaissez les périodes favorables aux nouvelles idées,\naux intentions et aux nouveaux départs.\n                        "
+
+#: .\templates\pages\products\lunar.html:691
+msgid "When to Act"
+msgstr "Quand agir"
+
+#: .\templates\pages\products\lunar.html:693
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Identify moments when taking action can move\n"
+"                        your plans forward.\n"
+"                        "
+msgstr "\n                        Identifiez les moments où passer à l’action peut faire\navancer vos projets.\n                        "
+
+#: .\templates\pages\products\lunar.html:701
+msgid "When to Wait"
+msgstr "Quand attendre"
+
+#: .\templates\pages\products\lunar.html:703
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Understand when patience and observation\n"
+"                        may be more beneficial than action.\n"
+"                        "
+msgstr "\n                        Comprenez quand la patience et l’observation\npeuvent être plus bénéfiques que l’action.\n                        "
+
+#: .\templates\pages\products\lunar.html:711
+msgid "When to Close a Cycle"
+msgstr "Quand clôturer un cycle"
+
+#: .\templates\pages\products\lunar.html:713
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Recognize when it is time to release,\n"
+"                        complete and make space for something new.\n"
+"                        "
+msgstr "\n                        Reconnaissez quand il est temps de lâcher prise,\nde conclure et de faire de la place à quelque chose de nouveau.\n                        "
+
+#: .\templates\pages\products\lunar.html:730
+msgid "From Confusion to"
+msgstr "De la confusion à la"
+
+#: .\templates\pages\products\lunar.html:730
+#: .\templates\pages\products\lunar.html:742
+msgid "Clarity"
+msgstr "Clarté"
+
+#: .\templates\pages\products\lunar.html:750
+msgid "Forcing"
+msgstr "Forcer"
+
+#: .\templates\pages\products\lunar.html:755
+msgid "Flow"
+msgstr "Fluidité"
+
+#: .\templates\pages\products\lunar.html:763
+msgid "Doubt"
+msgstr "Doute"
+
+#: .\templates\pages\products\lunar.html:783
+msgid "Follow the Rhythm of the Moon"
+msgstr "Suivez le rythme de la Lune"
+
+#: .\templates\pages\products\lunar.html:787
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                Discover your lunar cycles, understand the moments\n"
+"                for action and learn to move with the rhythm of\n"
+"                the universe.\n"
+"                "
+msgstr "\n                Découvrez vos cycles lunaires, comprenez les moments\npropices à l’action et apprenez à avancer au rythme de\nl’univers.\n                "
+
+#: .\templates\pages\products\lunar.html:795
+msgid "Start Your Lunar Reading"
+msgstr "Commencez votre lecture lunaire"
+
+#: .\templates\pages\products\magnetism.html:431
+#| msgid "Astro "
+msgid "Astro"
+msgstr "Astro"
+
+#: .\templates\pages\products\magnetism.html:435
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                Discover the language of subtle energies\n"
+"                between the Sky and the Soul.\n"
+"                "
+msgstr "\n                Découvrez le langage des énergies subtiles\nentre le Ciel et l’Âme.\n                "
+
+#: .\templates\pages\products\magnetism.html:442
+#: .\templates\pages\products\magnetism.html:789
+#| msgid "Understand Your Energy"
+msgid "Discover Your Energy"
+msgstr "Découvrez votre énergie"
+
+#: .\templates\pages\products\magnetism.html:452
+msgid ""
+"\n"
+"        “Your energy tells your story.\n"
+"        Your awareness transforms your path.”\n"
+"        "
+msgstr "\n        « Votre énergie raconte votre histoire.\nVotre conscience transforme votre chemin. »\n        "
+
+#: .\templates\pages\products\magnetism.html:463
+#| msgid "Understand Your Energy"
+msgid "Field of Your Energy"
+msgstr "Champ de votre énergie"
+
+#: .\templates\pages\products\magnetism.html:467
+#| msgid ""
+#| "\n"
+#| "            An integrated study of astrology, numerology\n"
+#| "            and subtle energy designed to explore your\n"
+#| "            talents, vocation and evolutionary direction.\n"
+#| "            "
+msgid ""
+"\n"
+"            Astro-Magnetism is an advanced symbolic study that brings\n"
+"            together astrology, numerology, and subtle energy to explore\n"
+"            the energetic field of an individual.\n"
+"            "
+msgstr "\n            L’Astro-Magnétisme est une étude symbolique avancée qui réunit\nl’astrologie, la numérologie et l’énergie subtile afin d’explorer\nle champ énergétique d’un individu.\n            "
+
+#: .\templates\pages\products\magnetism.html:477
+msgid ""
+"\n"
+"            Through your date of birth, it explores vocations, talents,\n"
+"            and directions for personal development, offering a framework\n"
+"            for reflection on your personal, professional, and spiritual\n"
+"            fulfillment.\n"
+"            "
+msgstr "\n            À partir de votre date de naissance, il explore les vocations, les talents\net les directions de développement personnel, offrant un cadre\nde réflexion sur votre épanouissement personnel, professionnel et spirituel.\n            "
+
+#: .\templates\pages\products\magnetism.html:492
+msgid "Guardian of the Energy Field"
+msgstr "Gardien du champ énergétique"
+
+#: .\templates\pages\products\magnetism.html:496
+msgid ""
+"\n"
+"            Every individual carries a unique energetic signature.\n"
+"            Learning to recognize it can become a powerful tool for\n"
+"            self-awareness and personal transformation.\n"
+"            "
+msgstr "\n            Chaque individu porte une signature énergétique unique.\nApprendre à la reconnaître peut devenir un outil puissant de\nconnaissance de soi et de transformation personnelle.\n            "
+
+#: .\templates\pages\products\magnetism.html:514
+msgid ""
+"\n"
+"            Energy is never simply light or shadow.\n"
+"            Within every individual coexist both potential and resistance.\n"
+"            "
+msgstr "\n            L’énergie n’est jamais simplement lumière ou ombre.\nEn chaque individu coexistent à la fois potentiel et résistance.\n            "
+
+#: .\templates\pages\products\magnetism.html:523
+msgid "Understanding your personal magnetism means learning to:"
+msgstr "Comprendre votre magnétisme personnel signifie apprendre à :"
+
+#: .\templates\pages\products\magnetism.html:529
+#| msgid "Recognize Your Talents"
+msgid "Recognize your talents"
+msgstr "Reconnaître vos talents"
+
+#: .\templates\pages\products\magnetism.html:533
+msgid "Transform resistance"
+msgstr "Transformer la résistance"
+
+#: .\templates\pages\products\magnetism.html:537
+msgid "Harmonize your energies"
+msgstr "Harmoniser vos énergies"
+
+#: .\templates\pages\products\magnetism.html:541
+msgid "Develop greater self-awareness"
+msgstr "Développer une plus grande connaissance de soi"
+
+#: .\templates\pages\products\magnetism.html:549
+msgid "Awareness becomes the key to transformation."
+msgstr "La conscience devient la clé de la transformation."
+
+#: .\templates\pages\products\magnetism.html:559
+#| msgid "Energetic Connection"
+msgid "Energetic Code of Being"
+msgstr "Code énergétique de l’être"
+
+#: .\templates\pages\products\magnetism.html:563
+msgid ""
+"\n"
+"            Within every human being exists a unique energetic field —\n"
+"            an invisible signature made of vibrations, memories,\n"
+"            and emotions.\n"
+"            "
+msgstr "\n            En chaque être humain existe un champ énergétique unique —\nune signature invisible faite de vibrations, de souvenirs\net d’émotions.\n            "
+
+#: .\templates\pages\products\magnetism.html:573
+msgid "This field symbolically reflects:"
+msgstr "Ce champ reflète symboliquement :"
+
+#: .\templates\pages\products\magnetism.html:579
+#| msgid "Your Path"
+msgid "Your Past"
+msgstr "Votre passé"
+
+#: .\templates\pages\products\magnetism.html:581
+msgid "The experiences and memories that have shaped you."
+msgstr "Les expériences et les souvenirs qui vous ont façonné."
+
+#: .\templates\pages\products\magnetism.html:586
+#| msgid "Your Path"
+msgid "Your Present"
+msgstr "Votre présent"
+
+#: .\templates\pages\products\magnetism.html:588
+#| msgid ""
+#| "\n"
+#| "                    The stars and planets and their symbolic\n"
+#| "                    relationship with our lives and cycles.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    The energies and patterns that characterize\n"
+"                    your current experience.\n"
+"                    "
+msgstr "\n                    Les énergies et les schémas qui caractérisent\nvotre expérience actuelle.\n                    "
+
+#: .\templates\pages\products\magnetism.html:596
+#| msgid "Your Abilities"
+msgid "Your Future Possibilities"
+msgstr "Vos possibilités futures"
+
+#: .\templates\pages\products\magnetism.html:598
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    The directions and potential paths that may\n"
+"                    emerge as you evolve.\n"
+"                    "
+msgstr "\n                    Les directions et les chemins potentiels qui peuvent\némerger au fil de votre évolution.\n                    "
+
+#: .\templates\pages\products\magnetism.html:614
+#| msgid "Magnetism"
+msgid "Map of Magnetism"
+msgstr "Carte du magnétisme"
+
+#: .\templates\pages\products\magnetism.html:618
+msgid ""
+"\n"
+"            Through a combination of symbolic elements, a deeper reading\n"
+"            of your energetic system is created using:\n"
+"            "
+msgstr "\n            Grâce à une combinaison d’éléments symboliques, une lecture plus profonde\nde votre système énergétique est créée à partir de :\n            "
+
+#: .\templates\pages\products\magnetism.html:630
+msgid "Date of Birth"
+msgstr "Date de naissance"
+
+#: .\templates\pages\products\magnetism.html:635
+#: .\templates\pages\products\stars.html:636
+#| msgid "Celestial Position."
+msgid "Celestial Symbols"
+msgstr "Symboles célestes"
+
+#: .\templates\pages\products\magnetism.html:640
+#| msgid "Aura Colors"
+msgid "Energy Colors"
+msgstr "Couleurs énergétiques"
+
+#: .\templates\pages\products\magnetism.html:645
+msgid "Planetary Correspondences"
+msgstr "Correspondances planétaires"
+
+#: .\templates\pages\products\magnetism.html:659
+#| msgid "Principle:"
+msgid "7 Energy Principles"
+msgstr "7 principes énergétiques"
+
+#: .\templates\pages\products\magnetism.html:663
+#| msgid ""
+#| "\n"
+#| "            Discover how the energies of the sky connect\n"
+#| "            with places on Earth and explore environments\n"
+#| "            that may resonate with your goals and path.\n"
+#| "            "
+msgid ""
+"\n"
+"            The seven planets of the symbolic tradition are connected\n"
+"            with seven energetic centers, or chakras, and different\n"
+"            levels of the aura.\n"
+"            "
+msgstr "\n            Les sept planètes de la tradition symbolique sont reliées\nà sept centres énergétiques, ou chakras, et à différents\nniveaux de l’aura.\n            "
+
+#: .\templates\pages\products\magnetism.html:674
+msgid "Energy Balance"
+msgstr "Équilibre énergétique"
+
+#: .\templates\pages\products\magnetism.html:676
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore the symbolic balance within your energetic\n"
+"                    system.\n"
+"                    "
+msgstr "\n                    Explorez l’équilibre symbolique au sein de votre système\nénergétique.\n                    "
+
+#: .\templates\pages\products\magnetism.html:685
+msgid "Energy Blocks"
+msgstr "Blocages énergétiques"
+
+#: .\templates\pages\products\magnetism.html:687
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                    Recognize patterns that may represent resistance\n"
+"                    or stagnation.\n"
+"                    "
+msgstr "\n                    Reconnaissez les schémas pouvant représenter une résistance\nou une stagnation.\n                    "
+
+#: .\templates\pages\products\magnetism.html:696
+msgid "Expansion"
+msgstr "Expansion"
+
+#: .\templates\pages\products\magnetism.html:698
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore your potential for growth, awareness,\n"
+"                    and personal expansion.\n"
+"                    "
+msgstr "\n                    Explorez votre potentiel de croissance, de conscience\net d’expansion personnelle.\n                    "
+
+#: .\templates\pages\products\magnetism.html:714
+msgid "of Your Being"
+msgstr "de votre être"
+
+#: .\templates\pages\products\magnetism.html:718
+#| msgid ""
+#| "\n"
+#| "            Discover the invisible structure of your destiny\n"
+#| "            through a profound study of the stars and the\n"
+#| "            vibration of numbers.\n"
+#| "            "
+msgid ""
+"\n"
+"            Every individual carries a unique inner design.\n"
+"            Some may feel called to create, lead, communicate,\n"
+"            nurture, or innovate.\n"
+"            "
+msgstr "\n            Chaque individu porte en lui une configuration intérieure unique.\nCertains peuvent se sentir appelés à créer, diriger, communiquer,\nprendre soin ou innover.\n            "
+
+#: .\templates\pages\products\magnetism.html:728
+msgid "Create"
+msgstr "Créer"
+
+#: .\templates\pages\products\magnetism.html:732
+msgid "Lead"
+msgstr "Diriger"
+
+#: .\templates\pages\products\magnetism.html:736
+msgid "Communicate"
+msgstr "Communiquer"
+
+#: .\templates\pages\products\magnetism.html:740
+msgid "Nurture"
+msgstr "Prendre soin"
+
+#: .\templates\pages\products\magnetism.html:744
+msgid "Innovate"
+msgstr "Innover"
+
+#: .\templates\pages\products\magnetism.html:752
+msgid ""
+"\n"
+"            True fulfillment begins with bringing your energies\n"
+"            into greater balance and awareness.\n"
+"            "
+msgstr "\n            Le véritable épanouissement commence lorsque vous amenez vos énergies\nvers un plus grand équilibre et une plus grande conscience.\n            "
+
+#: .\templates\pages\products\magnetism.html:763
+msgid ""
+"\n"
+"        “Your destiny is not only written in the stars.\n"
+"        It lives within your energy.\n"
+"        When you understand your magnetic field,\n"
+"        you begin to choose with awareness.”\n"
+"        "
+msgstr "\n        « Votre destin n’est pas seulement écrit dans les étoiles.\nIl vit dans votre énergie.\nLorsque vous comprenez votre champ magnétique,\nvous commencez à choisir en conscience. »\n        "
+
+#: .\templates\pages\products\magnetism.html:776
+msgid "Awaken Your"
+msgstr "Éveillez votre"
+
+#: .\templates\pages\products\magnetism.html:776
+msgid "Energy."
+msgstr "Énergie."
+
+#: .\templates\pages\products\magnetism.html:777
+#| msgid "Recognize Your Talents"
+msgid "Recognize Your Code."
+msgstr "Reconnaissez votre code."
+
+#: .\templates\pages\products\magnetism.html:781
+#| msgid ""
+#| "\n"
+#| "            Activate your destiny and explore the areas of\n"
+#| "            personality, health, relationships, career,\n"
+#| "            vocation, prosperity and money.\n"
+#| "            "
+msgid ""
+"\n"
+"            Explore your symbolic energetic signature and discover\n"
+"            the qualities, talents, and directions that form part\n"
+"            of your personal journey.\n"
+"            "
+msgstr "\n            Explorez votre signature énergétique symbolique et découvrez\nles qualités, les talents et les directions qui font partie\nde votre parcours personnel.\n            "
+
+#: .\templates\pages\products\relationships.html:384
+#| msgid "Relationships"
+msgid "Relationship &"
+msgstr "Relation &"
+
+#: .\templates\pages\products\relationships.html:385
+#| msgid "Traditional Ancient Astro-Numerology"
+msgid "Compatibility Astro-Numerology"
+msgstr "Compatibilité Astro-Numérologique"
+
+#: .\templates\pages\products\relationships.html:389
+#| msgid ""
+#| "\n"
+#| "            Explore the energetic codes behind love, family,\n"
+#| "            friendships, work and deeper soul connections.\n"
+#| "            "
+msgid ""
+"\n"
+"                The energetic code behind encounters,\n"
+"                relationships, and soul connections.\n"
+"                "
+msgstr "\n                Le code énergétique derrière les rencontres,\nles relations et les connexions d’âme.\n                "
+
+#: .\templates\pages\products\relationships.html:396
+msgid "Discover Your Compatibility"
+msgstr "Découvrez votre compatibilité"
+
+#: .\templates\pages\products\relationships.html:404
+msgid "“Every encounter is a mirror. Every connection is a doorway.”"
+msgstr "« Chaque rencontre est un miroir. Chaque connexion est une porte. »"
+
+#: .\templates\pages\products\relationships.html:410
+#| msgid "Energetic Connection"
+msgid "Code of Connection"
+msgstr "Code de la connexion"
+
+#: .\templates\pages\products\relationships.html:414
+msgid ""
+"\n"
+"            Every relationship begins with an energetic encounter.\n"
+"            Every connection carries its own unique code, written within\n"
+"            the universe.\n"
+"            "
+msgstr "\n            Chaque relation commence par une rencontre énergétique.\nChaque connexion porte son propre code unique, inscrit dans\nl’univers.\n            "
+
+#: .\templates\pages\products\relationships.html:424
+msgid ""
+"\n"
+"            Nothing happens by chance. Every soul meets another soul\n"
+"            to evolve, understand, and transform.\n"
+"            "
+msgstr "\n            Rien n’arrive par hasard. Chaque âme rencontre une autre âme\npour évoluer, comprendre et se transformer.\n            "
+
+#: .\templates\pages\products\relationships.html:434
+#| msgid "The Essence."
+msgid "The Secret"
+msgstr "Le langage"
+
+#: .\templates\pages\products\relationships.html:434
+#| msgid "Relationships"
+msgid "Language of Relationships"
+msgstr "secret des relations"
+
+#: .\templates\pages\products\relationships.html:438
+msgid ""
+"\n"
+"            Through your date of birth, Relationship Astro-Numerology\n"
+"            explores the deeper dynamics between two people and reveals:\n"
+"            "
+msgstr "\n            À partir de votre date de naissance, l’Astro-Numérologie relationnelle\nexplore les dynamiques profondes entre deux personnes et révèle :\n            "
+
+#: .\templates\pages\products\relationships.html:447
+msgid "Deep affinities and natural compatibility"
+msgstr "Les affinités profondes et la compatibilité naturelle"
+
+#: .\templates\pages\products\relationships.html:451
+#| msgid "The Energetic Field"
+msgid "Energetic differences"
+msgstr "Les différences énergétiques"
+
+#: .\templates\pages\products\relationships.html:455
+msgid "The strengths within the connection"
+msgstr "Les forces au sein de la connexion"
+
+#: .\templates\pages\products\relationships.html:459
+#| msgid "Your Challenges"
+msgid "Evolutionary challenges"
+msgstr "Les défis évolutifs"
+
+#: .\templates\pages\products\relationships.html:463
+msgid "The lessons you may bring to one another"
+msgstr "Les leçons que vous pouvez vous apporter mutuellement"
+
+#: .\templates\pages\products\relationships.html:471
+msgid ""
+"\n"
+"            A method designed to translate the invisible language of\n"
+"            numbers into greater clarity and understanding.\n"
+"            "
+msgstr "\n            Une méthode conçue pour traduire le langage invisible des\nnombres en davantage de clarté et de compréhension.\n            "
+
+#: .\templates\pages\products\relationships.html:481
+#| msgid "Explore Your "
+msgid "Explore Your"
+msgstr "Explorez vos"
+
+#: .\templates\pages\products\relationships.html:481
+#: .\templates\pages\products\relationships.html:665
+#| msgid "Energetic Connection"
+msgid "Connections"
+msgstr "Connexions"
+
+#: .\templates\pages\products\relationships.html:488
+msgid "Love & Marriage"
+msgstr "Amour & Mariage"
+
+#: .\templates\pages\products\relationships.html:490
+#| msgid "Understand Your Energy"
+msgid "Understand:"
+msgstr "Comprenez :"
+
+#: .\templates\pages\products\relationships.html:493
+msgid "The attraction between two people"
+msgstr "L’attraction entre deux personnes"
+
+#: .\templates\pages\products\relationships.html:494
+msgid "The harmony within the relationship"
+msgstr "L’harmonie au sein de la relation"
+
+#: .\templates\pages\products\relationships.html:495
+#| msgid "The Challenge"
+msgid "The challenges to transform"
+msgstr "Les défis à transformer"
+
+#: .\templates\pages\products\relationships.html:496
+msgid "The evolutionary potential of the connection"
+msgstr "Le potentiel évolutif de la connexion"
+
+#: .\templates\pages\products\relationships.html:502
+msgid "Every relationship can become a journey of growth."
+msgstr "Chaque relation peut devenir un parcours de croissance."
+
+#: .\templates\pages\products\relationships.html:508
+#| msgid "Children"
+msgid "Parents & Children"
+msgstr "Parents & Enfants"
+
+#: .\templates\pages\products\relationships.html:510
+msgid "Discover:"
+msgstr "Découvrez :"
+
+#: .\templates\pages\products\relationships.html:513
+msgid "Family soul connections"
+msgstr "Les connexions d’âme familiales"
+
+#: .\templates\pages\products\relationships.html:514
+msgid "Connections between generations"
+msgstr "Les liens entre les générations"
+
+#: .\templates\pages\products\relationships.html:515
+msgid "The meaning behind significant encounters"
+msgstr "Le sens des rencontres significatives"
+
+#: .\templates\pages\products\relationships.html:516
+msgid "Ancestral patterns and DNA symbolism"
+msgstr "Les schémas ancestraux et la symbolique de l’ADN"
+
+#: .\templates\pages\products\relationships.html:522
+msgid "Every family can become a field of evolution."
+msgstr "Chaque famille peut devenir un espace d’évolution."
+
+#: .\templates\pages\products\relationships.html:528
+msgid "Partners & Collaborations"
+msgstr "Partenaires & Collaborations"
+
+#: .\templates\pages\products\relationships.html:530
+#| msgid "Explore"
+msgid "Explore:"
+msgstr "Explorez :"
+
+#: .\templates\pages\products\relationships.html:533
+msgid "Compatibility in the workplace"
+msgstr "La compatibilité dans le milieu professionnel"
+
+#: .\templates\pages\products\relationships.html:534
+msgid "Dynamics between business partners"
+msgstr "Les dynamiques entre partenaires commerciaux"
+
+#: .\templates\pages\products\relationships.html:535
+msgid "The balance between giving and receiving"
+msgstr "L’équilibre entre donner et recevoir"
+
+#: .\templates\pages\products\relationships.html:541
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Build more conscious and resilient professional\n"
+"                    relationships.\n"
+"                    "
+msgstr "\n                    Construisez des relations professionnelles plus conscientes\net plus solides.\n                    "
+
+#: .\templates\pages\products\relationships.html:550
+msgid "Friendships & Social Bonds"
+msgstr "Amitiés & Liens sociaux"
+
+#: .\templates\pages\products\relationships.html:552
+msgid "Recognize:"
+msgstr "Reconnaissez :"
+
+#: .\templates\pages\products\relationships.html:555
+msgid "Natural affinities"
+msgstr "Les affinités naturelles"
+
+#: .\templates\pages\products\relationships.html:556
+msgid "Connections that encourage growth"
+msgstr "Les connexions qui favorisent la croissance"
+
+#: .\templates\pages\products\relationships.html:557
+msgid "The role people play in your journey"
+msgstr "Le rôle que les personnes jouent dans votre parcours"
+
+#: .\templates\pages\products\relationships.html:563
+msgid "Not everyone stays. But everyone teaches us something."
+msgstr "Tout le monde ne reste pas. Mais chacun nous apprend quelque chose."
+
+#: .\templates\pages\products\relationships.html:573
+#| msgid "Energetic Connection"
+msgid "Special Connections"
+msgstr "Connexions particulières"
+
+#: .\templates\pages\products\relationships.html:577
+msgid ""
+"\n"
+"            Even our bonds with animals and other meaningful presences\n"
+"            can hold a special place in our emotional and energetic\n"
+"            experience.\n"
+"            "
+msgstr "\n            Même nos liens avec les animaux et d’autres présences significatives\npeuvent occuper une place particulière dans notre expérience émotionnelle\net énergétique.\n            "
+
+#: .\templates\pages\products\relationships.html:587
+msgid ""
+"\n"
+"            These connections may be subtle, yet deeply meaningful,\n"
+"            becoming part of the journey we share with those around us.\n"
+"            "
+msgstr "\n            Ces connexions peuvent être subtiles, mais profondément significatives,\net faire partie du chemin que nous partageons avec ceux qui nous entourent.\n            "
+
+#: .\templates\pages\products\relationships.html:597
+#| msgid "The Lesson"
+msgid "The Key to"
+msgstr "La clé de la"
+
+#: .\templates\pages\products\relationships.html:597
+msgid "Compatibility"
+msgstr "Compatibilité"
+
+#: .\templates\pages\products\relationships.html:601
+msgid ""
+"\n"
+"            Astro-Numerology offers a symbolic perspective through which\n"
+"            you can explore:\n"
+"            "
+msgstr "\n            L’Astro-Numérologie offre une perspective symbolique à travers laquelle\nvous pouvez explorer :\n            "
+
+#: .\templates\pages\products\relationships.html:610
+msgid "The invisible thread connecting two people"
+msgstr "Le fil invisible qui relie deux personnes"
+
+#: .\templates\pages\products\relationships.html:614
+msgid "The harmonies worth nurturing"
+msgstr "Les harmonies qui méritent d’être nourries"
+
+#: .\templates\pages\products\relationships.html:618
+msgid "The challenges that can become opportunities for growth"
+msgstr "Les défis qui peuvent devenir des opportunités de croissance"
+
+#: .\templates\pages\products\relationships.html:622
+msgid "The deeper purpose you may discover within an encounter"
+msgstr "Le sens profond que vous pouvez découvrir dans une rencontre"
+
+#: .\templates\pages\products\relationships.html:631
+msgid "True Power"
+msgstr "Véritable pouvoir"
+
+#: .\templates\pages\products\relationships.html:635
+#| msgid ""
+#| "\n"
+#| "                        A deeper understanding that can emerge through "
+#| "experience and transform the challenge into awareness.\n"
+#| "                        "
+msgid ""
+"\n"
+"            Understanding a relationship can change the way you experience\n"
+"            it.\n"
+"            "
+msgstr "\n            Comprendre une relation peut changer la manière dont vous la vivez.\n            "
+
+#: .\templates\pages\products\relationships.html:644
+#| msgid ""
+#| "\n"
+#| "            Explore an ancient system connecting stars,\n"
+#| "            numbers and vital energy to help restore balance\n"
+#| "            and reconnect with your deeper essence.\n"
+#| "            "
+msgid ""
+"\n"
+"            When you understand the symbolic code of a connection,\n"
+"            you can move from simply reacting to the relationship\n"
+"            toward creating it with greater awareness.\n"
+"            "
+msgstr "\n            Lorsque vous comprenez le code symbolique d’une connexion,\nvous pouvez passer d’une simple réaction à la relation\nà sa création avec davantage de conscience.\n            "
+
+#: .\templates\pages\products\relationships.html:654
+msgid ""
+"\n"
+"        “The souls we meet do not cross our path by chance.\n"
+"        They meet us to recognize, heal, and grow.”\n"
+"        "
+msgstr "\n        « Les âmes que nous rencontrons ne croisent pas notre chemin par hasard.\nElles nous rencontrent pour reconnaître, guérir et grandir. »\n        "
+
+#: .\templates\pages\products\relationships.html:664
+#| msgid "Understand Your Energy"
+msgid "Understand Your"
+msgstr "Comprenez vos"
+
+#: .\templates\pages\products\relationships.html:669
+#| msgid ""
+#| "\n"
+#| "            Explore the energetic codes behind love, family,\n"
+#| "            friendships, work and deeper soul connections.\n"
+#| "            "
+msgid ""
+"\n"
+"            Explore the symbolic energies, affinities, challenges,\n"
+"            and deeper meaning behind the relationships in your life.\n"
+"            "
+msgstr "\n            Explorez les énergies symboliques, les affinités, les défis\net le sens profond des relations dans votre vie.\n            "
+
+#: .\templates\pages\products\relationships.html:676
+#| msgid "Explore Your "
+msgid "Explore Your Compatibility"
+msgstr "Explorez votre compatibilité"
+
+#: .\templates\pages\products\soul.html:424
+msgid "The sacred code of your inner essence."
+msgstr "Le code sacré de votre essence intérieure."
+
+#: .\templates\pages\products\soul.html:428
+#: .\templates\pages\products\soul.html:873
+msgid "Discover Your Soul Code"
+msgstr "Découvrez le code de votre âme"
+
+#: .\templates\pages\products\soul.html:438
+msgid "“The Soul Talisman and the 12 Gates of Life.”"
+msgstr "« Le Talisman de l’Âme et les 12 Portes de la Vie. »"
+
+#: .\templates\pages\products\soul.html:446
+#: .\templates\pages\products\soul.html:720
+#| msgid "The 12 Gates of Life"
+msgid "12 Gates of Life"
+msgstr "12 Portes de la Vie"
+
+#: .\templates\pages\products\soul.html:450
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"            The Soul Talisman explores twelve symbolic dimensions of\n"
+"            your life and the energies that shape your journey.\n"
+"            "
+msgstr "\n            Le Talisman de l’Âme explore douze dimensions symboliques de\nvotre vie et les énergies qui façonnent votre parcours.\n            "
+
+#: .\templates\pages\products\soul.html:459
+#| msgid "Inner Energetic Body"
+msgid "Health & Energetic Harmony"
+msgstr "Santé & Harmonie énergétique"
+
+#: .\templates\pages\products\soul.html:461
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore the symbolic energies connected with\n"
+"                    balance and inner harmony.\n"
+"                    "
+msgstr "\n                    Explorez les énergies symboliques liées à\nl’équilibre et à l’harmonie intérieure.\n                    "
+
+#: .\templates\pages\products\soul.html:469
+msgid "Wealth & Prosperity"
+msgstr "Richesse & Prospérité"
+
+#: .\templates\pages\products\soul.html:471
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Discover the numerical patterns associated with\n"
+"                    material potential and abundance.\n"
+"                    "
+msgstr "\n                    Découvrez les schémas numériques associés au\npotentiel matériel et à l’abondance.\n                    "
+
+#: .\templates\pages\products\soul.html:479
+msgid "Career & Personal Fulfillment"
+msgstr "Carrière & Épanouissement personnel"
+
+#: .\templates\pages\products\soul.html:481
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore your potential, direction, and personal\n"
+"                    path toward fulfillment.\n"
+"                    "
+msgstr "\n                    Explorez votre potentiel, votre direction et votre chemin\npersonnel vers l’épanouissement.\n                    "
+
+#: .\templates\pages\products\soul.html:489
+msgid "Relationships & Soul Connections"
+msgstr "Relations & Connexions d’âme"
+
+#: .\templates\pages\products\soul.html:491
+#| msgid ""
+#| "\n"
+#| "                    The dimension of energy, attraction and\n"
+#| "                    personal magnetism.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Gain a deeper perspective on relationships and\n"
+"                    meaningful connections.\n"
+"                    "
+msgstr "\n                    Approfondissez votre compréhension des relations et\ndes connexions significatives.\n                    "
+
+#: .\templates\pages\products\soul.html:499
+msgid "Business & Material Opportunities"
+msgstr "Affaires & Opportunités matérielles"
+
+#: .\templates\pages\products\soul.html:501
+#| msgid ""
+#| "\n"
+#| "                    The numerical codes contained within\n"
+#| "                    the date of birth.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Explore symbolic patterns connected with\n"
+"                    opportunities and practical ambitions.\n"
+"                    "
+msgstr "\n                    Explorez les schémas symboliques liés aux\nopportunités et aux ambitions concrètes.\n                    "
+
+#: .\templates\pages\products\soul.html:509
+msgid "Inner Balance & Spiritual Growth"
+msgstr "Équilibre intérieur & Croissance spirituelle"
+
+#: .\templates\pages\products\soul.html:511
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                    Reflect on your inner development, awareness,\n"
+"                    and personal growth.\n"
+"                    "
+msgstr "\n                    Réfléchissez à votre développement intérieur, à votre conscience\net à votre croissance personnelle.\n                    "
+
+#: .\templates\pages\products\soul.html:527
+msgid "12-Number Talisman"
+msgstr "Talisman à 12 nombres"
+
+#: .\templates\pages\products\soul.html:531
+msgid ""
+"\n"
+"            The twelve numbers are symbolic keys used to interpret\n"
+"            your earthly experience. They represent the memory of\n"
+"            the soul and the journey of destiny.\n"
+"            "
+msgstr "\n            Les douze nombres sont des clés symboliques utilisées pour interpréter\nvotre expérience terrestre. Ils représentent la mémoire de\nl’âme et le voyage du destin.\n            "
+
+#: .\templates\pages\products\soul.html:544
+#| msgid "The Life of Numbers"
+msgid "The Number"
+msgstr "Le Nombre"
+
+#: .\templates\pages\products\soul.html:547
+#| msgid ""
+#| "\n"
+#| "                    Light and shadow are two aspects of the same energy.\n"
+#| "                    Understanding this means transforming the way\n"
+#| "                    we experience our lives.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    The number is the code — a symbolic language\n"
+"                    through which different aspects of your journey\n"
+"                    can be explored.\n"
+"                    "
+msgstr "\n                    Le nombre est le code — un langage symbolique\nà travers lequel différents aspects de votre parcours\npeuvent être explorés.\n                    "
+
+#: .\templates\pages\products\soul.html:560
+#| msgid "The Four"
+msgid "The Soul"
+msgstr "L’Âme"
+
+#: .\templates\pages\products\soul.html:563
+#| msgid ""
+#| "\n"
+#| "                    It is not enough to know your destiny. \n"
+#| "                    You must know how to live it.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    The soul is the key, while your destiny is the\n"
+"                    journey that reveals itself step by step.\n"
+"                    "
+msgstr "\n                    L’âme est la clé, tandis que votre destin est le\nvoyage qui se révèle étape par étape.\n                    "
+
+#: .\templates\pages\products\soul.html:580
+msgid "Energy Talisman"
+msgstr "Talisman énergétique"
+
+#: .\templates\pages\products\soul.html:584
+msgid ""
+"\n"
+"            Through your date of birth, a structure composed of\n"
+"            twelve sacred numbers is revealed — a personal energetic\n"
+"            talisman represented by a magic square containing the\n"
+"            fundamental vibrations of your existence.\n"
+"            "
+msgstr "\n            À travers votre date de naissance, une structure composée de\ndouze nombres sacrés se révèle — un talisman énergétique personnel\nreprésenté par un carré magique contenant les\nvibrations fondamentales de votre existence.\n            "
+
+#: .\templates\pages\products\soul.html:595
+msgid ""
+"\n"
+"            Within you exists an invisible guide: a deep memory that\n"
+"            holds talents, experiences, potential, and directions\n"
+"            for your journey.\n"
+"            "
+msgstr "\n            En vous existe un guide invisible : une mémoire profonde qui\nrenferme talents, expériences, potentiel et directions\npour votre parcours.\n            "
+
+#: .\templates\pages\products\soul.html:609
+msgid "The Language of"
+msgstr "Le langage des"
+
+#: .\templates\pages\products\soul.html:609
+#| msgid "Number, Letter & Archetype"
+msgid "Numbers & Archetypes"
+msgstr "Nombres & Archétypes"
+
+#: .\templates\pages\products\soul.html:613
+msgid ""
+"\n"
+"            Soul Astro-Numerology is a study of your inner code,\n"
+"            creating a symbolic bridge between your past, present,\n"
+"            and future through the language of numbers and celestial\n"
+"            archetypes.\n"
+"            "
+msgstr "\n            L’Astro-Numérologie de l’Âme est une étude de votre code intérieur,\ncréant un pont symbolique entre votre passé, votre présent\net votre avenir à travers le langage des nombres et des archétypes\ncélestes.\n            "
+
+#: .\templates\pages\products\soul.html:624
+msgid "Every number carries a meaning"
+msgstr "Chaque nombre porte une signification"
+
+#: .\templates\pages\products\soul.html:628
+msgid "Every number represents a frequency"
+msgstr "Chaque nombre représente une fréquence"
+
+#: .\templates\pages\products\soul.html:632
+msgid "Every number offers a lesson"
+msgstr "Chaque nombre offre un enseignement"
+
+#: .\templates\pages\products\soul.html:640
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"            Each becomes a doorway through which you can explore\n"
+"            your deeper roots, innate abilities, and the energies\n"
+"            you may develop throughout your life.\n"
+"            "
+msgstr "\n            Chacun devient une porte à travers laquelle vous pouvez explorer\nvos racines profondes, vos capacités innées et les énergies\nque vous pouvez développer tout au long de votre vie.\n            "
+
+#: .\templates\pages\products\soul.html:654
+msgid "A Symbolic"
+msgstr "Une carte"
+
+#: .\templates\pages\products\soul.html:654
+msgid "Map of Your Journey"
+msgstr "symbolique de votre parcours"
+
+#: .\templates\pages\products\soul.html:658
+msgid ""
+"\n"
+"            The magic square becomes a symbolic map of your journey —\n"
+"            a bridge between who you were, who you are, and who you\n"
+"            can become.\n"
+"            "
+msgstr "\n            Le carré magique devient une carte symbolique de votre parcours —\nun pont entre qui vous étiez, qui vous êtes et qui vous\npouvez devenir.\n            "
+
+#: .\templates\pages\products\soul.html:668
+msgid "What is the meaning of my life?"
+msgstr "Quel est le sens de ma vie ?"
+
+#: .\templates\pages\products\soul.html:672
+msgid "What talents do I carry within me?"
+msgstr "Quels talents est-ce que je porte en moi ?"
+
+#: .\templates\pages\products\soul.html:676
+msgid "Which energies do I need to bring into harmony?"
+msgstr "Quelles énergies dois-je harmoniser ?"
+
+#: .\templates\pages\products\soul.html:680
+msgid "Which direction can lead me toward fulfillment?"
+msgstr "Quelle direction peut me conduire vers l’épanouissement ?"
+
+#: .\templates\pages\products\soul.html:692
+msgid "Deeper Direction"
+msgstr "Direction profonde"
+
+#: .\templates\pages\products\soul.html:696
+msgid ""
+"\n"
+"            Through your birth chart, numbers, and stars, this reading\n"
+"            invites you to connect with your most authentic essence\n"
+"            and recognize the invisible thread linking every phase\n"
+"            of your life.\n"
+"            "
+msgstr "\n            À travers votre thème natal, vos nombres et vos étoiles, cette lecture\nvous invite à vous connecter à votre essence la plus authentique\net à reconnaître le fil invisible reliant chaque phase\nde votre vie.\n            "
+
+#: .\templates\pages\products\soul.html:707
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"            Discover your path and explore the deeper purpose revealed\n"
+"            through your personal symbolic map.\n"
+"            "
+msgstr "\n            Découvrez votre chemin et explorez le sens profond révélé\npar votre carte symbolique personnelle.\n            "
+
+#: .\templates\pages\products\soul.html:720
+msgid "Open the"
+msgstr "Ouvrez les"
+
+#: .\templates\pages\products\soul.html:724
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"            Through your date of birth, your numbers, and your stars,\n"
+"            twelve symbolic Gates of Life open before you.\n"
+"            "
+msgstr "\n            À travers votre date de naissance, vos nombres et vos étoiles,\ndouze Portes symboliques de la Vie s’ouvrent devant vous.\n            "
+
+#: .\templates\pages\products\soul.html:735
+msgid "Gates of your evolutionary journey"
+msgstr "Portes de votre parcours évolutif"
+
+#: .\templates\pages\products\soul.html:742
+msgid "Each gate contains further doors"
+msgstr "Chaque porte contient d’autres portes"
+
+#: .\templates\pages\products\soul.html:749
+msgid "An ongoing path of growth and awareness"
+msgstr "Un chemin continu de croissance et de conscience"
+
+#: .\templates\pages\products\soul.html:758
+#| msgid ""
+#| "\n"
+#| "            Explore the invisible dimensions of your inner\n"
+#| "            world through astrology, numerology and subtle\n"
+#| "            energies to support personal growth and balance.\n"
+#| "            "
+msgid ""
+"\n"
+"            Each gate represents a stage of your evolution and\n"
+"            contains further symbolic doors, creating an infinite\n"
+"            journey of growth and awareness.\n"
+"            "
+msgstr "\n            Chaque porte représente une étape de votre évolution et\ncontient d’autres portes symboliques, créant un voyage infini\nde croissance et de conscience.\n            "
+
+#: .\templates\pages\products\soul.html:772
+#| msgid "What Is Magnetism?"
+msgid "What It Means to"
+msgstr "Ce que signifie"
+
+#: .\templates\pages\products\soul.html:772
+msgid "Walk Through Them"
+msgstr "Les franchir"
+
+#: .\templates\pages\products\soul.html:778
+msgid "Live fully in the present"
+msgstr "Vivre pleinement dans le présent"
+
+#: .\templates\pages\products\soul.html:782
+msgid "Align yourself with your path"
+msgstr "Vous aligner sur votre chemin"
+
+#: .\templates\pages\products\soul.html:786
+msgid "Activate your potential"
+msgstr "Activer votre potentiel"
+
+#: .\templates\pages\products\soul.html:798
+#| msgid "Know Yourself"
+msgid "Know Yourself."
+msgstr "Connaissez-vous."
+
+#: .\templates\pages\products\soul.html:799
+msgid "Transform Your Life."
+msgstr "Transformez votre vie."
+
+#: .\templates\pages\products\soul.html:803
+#| msgid ""
+#| "\n"
+#| "            Understand your Karma, activate your Dharma and\n"
+#| "            explore your path over time through transits\n"
+#| "            and progressions.\n"
+#| "            "
+msgid ""
+"\n"
+"            Understanding who you truly are can help you give meaning\n"
+"            to your experiences, recognize inner blocks, and approach\n"
+"            important decisions with greater awareness.\n"
+"            "
+msgstr "\n            Comprendre qui vous êtes vraiment peut vous aider à donner du sens\nà vos expériences, à reconnaître les blocages intérieurs et à aborder\nles décisions importantes avec davantage de conscience.\n            "
+
+#: .\templates\pages\products\soul.html:813
+#| msgid ""
+#| "\n"
+#| "                    When you recognize it… you truly begin to live.\n"
+#| "                    "
+msgid ""
+"\n"
+"            When you explore your inner essence, your perspective\n"
+"            can begin to change.\n"
+"            "
+msgstr "\n            Lorsque vous explorez votre essence intérieure, votre perspective\npeut commencer à changer.\n            "
+
+#: .\templates\pages\products\soul.html:826
+msgid "Balance"
+msgstr "Équilibre"
+
+#: .\templates\pages\products\soul.html:830
+#| msgid "Fire — Intuition"
+msgid "Intuition"
+msgstr "Intuition"
+
+#: .\templates\pages\products\soul.html:834
+msgid "Guidance"
+msgstr "Guidance"
+
+#: .\templates\pages\products\soul.html:838
+msgid "Growth"
+msgstr "Croissance"
+
+#: .\templates\pages\products\soul.html:842
+msgid "Fulfillment"
+msgstr "Épanouissement"
+
+#: .\templates\pages\products\soul.html:846
+msgid "Freedom"
+msgstr "Liberté"
+
+#: .\templates\pages\products\soul.html:858
+#| msgid "Soul"
+msgid "Your Soul"
+msgstr "Votre âme"
+
+#: .\templates\pages\products\soul.html:858
+msgid "Knows the Way."
+msgstr "Connaît le chemin."
+
+#: .\templates\pages\products\soul.html:862
+msgid ""
+"\n"
+"            Explore your personal numbers, your symbolic soul code,\n"
+"            and the deeper path revealed through your birth date.\n"
+"            "
+msgstr "\n            Explorez vos nombres personnels, votre code symbolique de l’âme\net le chemin profond révélé par votre date de naissance.\n            "
+
+#: .\templates\pages\products\soul.html:869
+msgid "You only need to remember."
+msgstr "Il vous suffit de vous souvenir."
+
+#: .\templates\pages\products\stars.html:376
+msgid "Sidereal"
+msgstr "Sidéral"
+
+#: .\templates\pages\products\stars.html:380
+#| msgid ""
+#| "\n"
+#| "                Through our method, you can explore and develop\n"
+#| "                different dimensions of your personal journey.\n"
+#| "                "
+msgid ""
+"\n"
+"                    The language of the stars that reveals the deeper\n"
+"                    dimensions of your personal journey.\n"
+"                    "
+msgstr "\n                    Le langage des étoiles qui révèle les dimensions les plus profondes\nde votre parcours personnel.\n                    "
+
+#: .\templates\pages\products\stars.html:387
+#| msgid ""
+#| "\n"
+#| "                    In ancient traditions, these codes were regarded\n"
+#| "                    as a personal talisman. Today, they become a tool\n"
+#| "                    for self-awareness and orientation.\n"
+#| "                    "
+msgid ""
+"\n"
+"                    Reconstruct your birth chart through a sidereal\n"
+"                    approach to explore your roots, your present,\n"
+"                    and the possible directions of your path.\n"
+"                    "
+msgstr "\n                    Reconstituez votre thème natal à travers une approche sidérale\npour explorer vos racines, votre présent et\nles directions possibles de votre chemin.\n                    "
+
+#: .\templates\pages\products\stars.html:395
+#| msgid "Birth Chart"
+msgid "Discover Your Birth Chart"
+msgstr "Découvrez votre thème natal"
+
+#: .\templates\pages\products\stars.html:406
+msgid ""
+"\n"
+"            “The stars do not determine who you are.\n"
+"            They illuminate the path toward who you can become.”\n"
+"            "
+msgstr "\n            « Les étoiles ne déterminent pas qui vous êtes.\nElles éclairent le chemin vers ce que vous pouvez devenir. »\n            "
+
+#: .\templates\pages\products\stars.html:418
+msgid "Sidereal Perspective"
+msgstr "Perspective sidérale"
+
+#: .\templates\pages\products\stars.html:422
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                Sidereal Astro-Numerology is rooted in a tradition that\n"
+"                looks to the stars and their symbolic meaning as part of\n"
+"                a deeper interpretation of the individual birth chart.\n"
+"                "
+msgstr "\n                L’Astro-Numérologie sidérale s’enracine dans une tradition qui\nobserve les étoiles et leur signification symbolique dans le cadre\nd’une interprétation plus profonde du thème natal individuel.\n                "
+
+#: .\templates\pages\products\stars.html:430
+msgid ""
+"\n"
+"                By combining celestial symbols with numbers and energetic\n"
+"                correspondences, the method creates a symbolic framework\n"
+"                for exploring your personal identity, potential and\n"
+"                evolutionary direction.\n"
+"                "
+msgstr "\n                En combinant les symboles célestes avec les nombres et les correspondances\nénergétiques, la méthode crée un cadre symbolique\npour explorer votre identité personnelle, votre potentiel et\nvotre direction évolutive.\n                "
+
+#: .\templates\pages\products\stars.html:446
+msgid "A Guide Through the"
+msgstr "Un guide à travers les"
+
+#: .\templates\pages\products\stars.html:446
+msgid "Major Areas of Life"
+msgstr "Grands domaines de la vie"
+
+#: .\templates\pages\products\stars.html:454
+#| msgid ""
+#| "\n"
+#| "                    In ancient traditions, these codes were regarded\n"
+#| "                    as a personal talisman. Today, they become a tool\n"
+#| "                    for self-awareness and orientation.\n"
+#| "                    "
+msgid ""
+"\n"
+"                        Explore symbolic connections between your chart,\n"
+"                        personal balance and the relationship between\n"
+"                        body and mind.\n"
+"                        "
+msgstr "\n                        Explorez les liens symboliques entre votre thème,\nvotre équilibre personnel et la relation entre\nle corps et l’esprit.\n                        "
+
+#: .\templates\pages\products\stars.html:465
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Discover potential vocations, personal strengths\n"
+"                        and directions for developing your abilities.\n"
+"                        "
+msgstr "\n                        Découvrez les vocations potentielles, les forces personnelles\net les directions permettant de développer vos capacités.\n                        "
+
+#: .\templates\pages\products\stars.html:473
+msgid "Prosperity & Opportunities"
+msgstr "Prospérité & Opportunités"
+
+#: .\templates\pages\products\stars.html:475
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Explore your relationship with opportunities,\n"
+"                        abundance and the possibilities available along\n"
+"                        your path.\n"
+"                        "
+msgstr "\n                        Explorez votre relation aux opportunités,\nà l’abondance et aux possibilités qui se présentent\nsur votre chemin.\n                        "
+
+#: .\templates\pages\products\stars.html:484
+#| msgid "Relationships"
+msgid "Relationships & Emotional Life"
+msgstr "Relations & Vie émotionnelle"
+
+#: .\templates\pages\products\stars.html:486
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Gain insight into deeper connections, emotional\n"
+"                        patterns and meaningful relationships.\n"
+"                        "
+msgstr "\n                        Approfondissez votre compréhension des connexions, des schémas\némotionnels et des relations significatives.\n                        "
+
+#: .\templates\pages\products\stars.html:503
+msgid "Sidereal Tradition"
+msgstr "Tradition sidérale"
+
+#: .\templates\pages\products\stars.html:507
+msgid ""
+"\n"
+"                Unlike approaches that primarily focus on conventional\n"
+"                zodiac positions, the sidereal tradition places particular\n"
+"                emphasis on the relationship between the zodiac and the\n"
+"                actual stellar background.\n"
+"                "
+msgstr "\n                Contrairement aux approches qui se concentrent principalement sur les\npositions conventionnelles du zodiaque, la tradition sidérale accorde une\nattention particulière à la relation entre le zodiaque et\nle fond stellaire réel.\n                "
+
+#: .\templates\pages\products\stars.html:518
+msgid "The actual position of the sky"
+msgstr "La position réelle du ciel"
+
+#: .\templates\pages\products\stars.html:522
+#| msgid "Celestial Position."
+msgid "Celestial cycles"
+msgstr "Cycles célestes"
+
+#: .\templates\pages\products\stars.html:526
+msgid "The symbolic influence of fixed stars"
+msgstr "L’influence symbolique des étoiles fixes"
+
+#: .\templates\pages\products\stars.html:530
+msgid "The relationship between stars, planets and numbers"
+msgstr "La relation entre les étoiles, les planètes et les nombres"
+
+#: .\templates\pages\products\stars.html:543
+#| msgid "Orange"
+msgid "One"
+msgstr "Une"
+
+#: .\templates\pages\products\stars.html:543
+msgid "Unified Vision"
+msgstr "Vision unifiée"
+
+#: .\templates\pages\products\stars.html:547
+#| msgid ""
+#| "\n"
+#| "                A reading that does not stop at appearances,\n"
+#| "                but moves deeper into the inner structure of\n"
+#| "                the individual.\n"
+#| "                "
+msgid ""
+"\n"
+"                The method brings several symbolic languages together\n"
+"                to create a broader picture of the individual.\n"
+"                "
+msgstr "\n                La méthode réunit plusieurs langages symboliques\nafin de créer une vision plus large de l’individu.\n                "
+
+#: .\templates\pages\products\stars.html:558
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Fixed stars and celestial symbolism provide\n"
+"                        another layer of interpretation.\n"
+"                        "
+msgstr "\n                        Les étoiles fixes et la symbolique céleste apportent\nune autre couche d’interprétation.\n                        "
+
+#: .\templates\pages\products\stars.html:568
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Planetary symbolism helps explore different\n"
+"                        aspects of personality and experience.\n"
+"                        "
+msgstr "\n                        La symbolique planétaire aide à explorer différents\naspects de la personnalité et de l’expérience.\n                        "
+
+#: .\templates\pages\products\stars.html:576
+msgid "Numbers"
+msgstr "Nombres"
+
+#: .\templates\pages\products\stars.html:578
+#| msgid ""
+#| "\n"
+#| "                        The talents, capacities and potential\n"
+#| "                        that you can develop throughout life.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Birth numbers and numerical patterns add another\n"
+"                        symbolic dimension to the reading.\n"
+"                        "
+msgstr "\n                        Les nombres de naissance et les schémas numériques ajoutent une autre\ndimension symbolique à la lecture.\n                        "
+
+#: .\templates\pages\products\stars.html:588
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Energetic correspondences connect the different\n"
+"                        elements into one personal framework.\n"
+"                        "
+msgstr "\n                        Les correspondances énergétiques relient les différents\nélements dans un cadre personnel unique.\n                        "
+
+#: .\templates\pages\products\stars.html:605
+msgid "Method"
+msgstr "Méthode"
+
+#: .\templates\pages\products\stars.html:609
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                Your date of birth becomes the starting point for\n"
+"                constructing a symbolic map of your individual path.\n"
+"                "
+msgstr "\n                Votre date de naissance devient le point de départ de\nla construction d’une carte symbolique de votre chemin individuel.\n                "
+
+#: .\templates\pages\products\stars.html:621
+#| msgid "Birth Chart"
+msgid "Birth Data"
+msgstr "Données de naissance"
+
+#: .\templates\pages\products\stars.html:624
+#| msgid ""
+#| "\n"
+#| "                        A quality or potential that can be expressed\n"
+#| "                        and developed.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Your date of birth provides the foundation\n"
+"                        for the reading.\n"
+"                        "
+msgstr "\n                        Votre date de naissance constitue la base\nde la lecture.\n                        "
+
+#: .\templates\pages\products\stars.html:639
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Planets, stars, signs and houses are brought\n"
+"                        together in the interpretation.\n"
+"                        "
+msgstr "\n                        Les planètes, les étoiles, les signes et les maisons sont réunis\ndans l’interprétation.\n                        "
+
+#: .\templates\pages\products\stars.html:651
+msgid "Numerical Codes"
+msgstr "Codes numériques"
+
+#: .\templates\pages\products\stars.html:654
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Natal numbers and energetic codes add another\n"
+"                        layer to the personal reading.\n"
+"                        "
+msgstr "\n                        Les nombres de naissance et les codes énergétiques ajoutent une autre\ncouche à la lecture personnelle.\n                        "
+
+#: .\templates\pages\products\stars.html:665
+msgid "Your essence. Your potential. Your evolutionary path."
+msgstr "Votre essence. Votre potentiel. Votre chemin évolutif."
+
+#: .\templates\pages\products\stars.html:680
+msgid ""
+"\n"
+"                This is not simply a form of knowledge.\n"
+"                It is presented as a process of transformation —\n"
+"                a journey toward greater awareness of yourself and\n"
+"                your inner direction.\n"
+"                "
+msgstr "\n                Il ne s’agit pas simplement d’une forme de connaissance.\nElle est présentée comme un processus de transformation —\nun voyage vers une plus grande conscience de vous-même et\nde votre direction intérieure.\n                "
+
+#: .\templates\pages\products\stars.html:691
+#| msgid "Understand Your Energy"
+msgid "Understand Yourself"
+msgstr "Comprenez-vous"
+
+#: .\templates\pages\products\stars.html:693
+#| msgid ""
+#| "\n"
+#| "                        The fundamental qualities and inner nature\n"
+#| "                        that define your personal structure.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Explore the symbolic patterns that make up\n"
+"                        your personal story.\n"
+"                        "
+msgstr "\n                        Explorez les schémas symboliques qui composent\nvotre histoire personnelle.\n                        "
+
+#: .\templates\pages\products\stars.html:701
+#| msgid "Understand Your Energy"
+msgid "Harmonize Your Energy"
+msgstr "Harmonisez votre énergie"
+
+#: .\templates\pages\products\stars.html:703
+#| msgid ""
+#| "\n"
+#| "                        An experience that invites awareness,\n"
+#| "                        transformation and growth.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Become more aware of your inner balance,\n"
+"                        strengths and areas for growth.\n"
+"                        "
+msgstr "\n                        Prenez davantage conscience de votre équilibre intérieur,\nde vos forces et des domaines à développer.\n                        "
+
+#: .\templates\pages\products\stars.html:711
+#| msgid "Your Path"
+msgid "Realize Your Path"
+msgstr "Réalisez votre chemin"
+
+#: .\templates\pages\products\stars.html:713
+#| msgid ""
+#| "\n"
+#| "                        The experiences and lessons that can\n"
+#| "                        contribute to your evolutionary path.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Use greater awareness to make more conscious\n"
+"                        choices along your personal journey.\n"
+"                        "
+msgstr "\n                        Utilisez une plus grande conscience pour faire des choix plus conscients\ntout au long de votre parcours personnel.\n                        "
+
+#: .\templates\pages\products\stars.html:731
+msgid "Stellar Path"
+msgstr "Chemin stellaire"
+
+#: .\templates\pages\products\stars.html:736
+msgid ""
+"\n"
+"                Explore the symbolic language of stars, planets and\n"
+"                numbers and discover a deeper perspective on your\n"
+"                origins, your potential and the direction of your journey.\n"
+"                "
+msgstr "\n                Explorez le langage symbolique des étoiles, des planètes et\ndes nombres et découvrez une perspective plus profonde sur vos\norigines, votre potentiel et la direction de votre parcours.\n                "
+
+#: .\templates\pages\products\stars.html:744
+#| msgid "Explore Your "
+msgid "Explore Your Chart"
+msgstr "Explorez votre thème"
+
+#~ msgid "Shop"
+#~ msgstr "Negozio"
