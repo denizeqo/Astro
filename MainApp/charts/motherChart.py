@@ -49,8 +49,20 @@ class Num:
         return colorMap[self.numValue % 3]
     
 
+    @property
+    def arketip(self):
+        with open(MotherChart.ephePath + "\\arketipet.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+            if self.numSup == '':
+                return data['B'].get(str(self.numValue))
+            else:
+                return data['A'].get(str(self.numValue))
+
+    
+
     def to_dict(self):
-        return {'value':self.numValue, 'color':self.numColor, 'sup':self.numSup, 'supColor':self.numSupColor}
+        return {'value':self.numValue, 'color':self.numColor, 'sup':self.numSup, 'supColor':self.numSupColor, 'arketip':self.arketip}
 
     
      
@@ -277,7 +289,7 @@ class MotherChart:
                                     'activeColor': self.objectsColorMap[asp.active.id],
                                     'passive': asp.passive.id,
                                     'passiveColor': self.objectsColorMap[asp.passive.id],
-                                    'orb':asp.orb,
+                                    'orb': self.degMin(asp.orb),
                                     'type':self.aspectsTypeMap[asp.type] + ' ' + str(asp.type) + '°',
                                     'movement':asp.active.movement})
         return aspects
@@ -365,7 +377,7 @@ class MotherChart:
         dt = datetime.strptime(dateTime, fmt)
 
         tz = pytz.timezone(tz_name)
-        local_dt = tz.localize(dt, is_dst=None)
+        local_dt = tz.localize(dt, is_dst=True)
 
         utcDateTime = str(local_dt.astimezone(pytz.UTC)).split('+')[0]
 

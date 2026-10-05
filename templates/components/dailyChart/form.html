@@ -1,0 +1,194 @@
+<section>
+    <h1 class="title">Advanced Astrological Chart System</h1>
+    <h3 class="subtitle">Four-Ring Wheel • 144 Démification Parts • Real Astronomical Calculations <br>Multiple House Systems • Fixed Stars • Progressive Analysis</h3>
+
+    <div class="chartForm__container">
+        <form id="chartForm" class="chartForm glassBg ">
+            {% csrf_token %}
+            <div class="form__row">  
+                <div class="row__group">
+                    <div class="formInput">
+                        <h2>First Name</h2>
+                        <input name="firstName" type="text" class="glassBg">
+                    </div>
+                    <div class="formInput">
+                        <h2>Last Name</h2>
+                        <input name="lastName" type="text" class="glassBg">
+                    </div>
+                </div>
+                <div class="row__group">
+                    <div class="formInput">
+                        <h2>Date of Birth</h2>
+                        <input name="dateOfBirth" type="date" class="glassBg">
+                    </div>
+                    <div class="formInput">
+                        <h2>Time of Birth</h2>
+                        <input name="timeOfBirth" type="time" class="glassBg">
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="font-family: 'Poppins', sans-serif; color: #ede1ffec; font-size: clamp(1rem, 3.5vw, 1.1rem);">Place of Birth</h2>
+            <div id="map" class="form__map"></div>
+
+            <div class="form__row">
+                <div class="row__group">
+                    <div class="formInput">
+                        <h2>Country</h2>
+                        <input name="country" type="text" id="country" class="glassBg">
+                    </div>
+                    <div class="formInput">
+                        <h2>City</h2>
+                        <input name="city" type="text" id="city" class="glassBg">
+                    </div>
+                </div>
+                <div class="row__group">
+                    <div class="formInput">
+                        <h2>Latitude</h2>
+                        <input name="latitude" type="text" id="latitude" class="glassBg">
+                    </div>
+                    <div class="formInput">
+                        <h2>Longitude</h2>
+                        <input name="longitude" type="text" id="longitude" class="glassBg">
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="primarButton" value="Calculate Chart" style="color: #0d0820;">
+        </form>
+    </div>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+<script>
+    const MAPTILER_KEY = "DkAArtADxsbcK4fs9EJT";
+
+    var map = L.map('map').setView([41.3275, 19.8187], 5);
+
+    L.tileLayer(
+        `https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`,
+        {
+            maxZoom: 19,
+            attribution: '&copy; MapTiler &copy; OpenStreetMap contributors'
+        }
+    ).addTo(map);
+
+    var marker;
+
+    map.on('click', async function (e) {
+        const lat = e.latlng.lat;
+        const lon = e.latlng.lng;
+
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        marker = L.marker([lat, lon]).addTo(map);
+
+        await getLocationData(lat, lon);
+    });
+
+
+    async function getLocationData(lat, lon) {
+        try {
+
+            const response = await fetch(
+                `https://api.maptiler.com/geocoding/${lon},${lat}.json?key=${MAPTILER_KEY}`
+            );
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            console.log("MapTiler response:", data);
+
+            let city = "Unknown";
+            let country = "Unknown";
+
+            for (const feature of data.features) {
+
+                const type =
+                    feature.place_type?.[0] ||
+                    feature.type ||
+                    "";
+
+                // CITY / TOWN / LOCALITY
+                if (
+                    city === "Unknown" &&
+                    [
+                        "place",
+                        "locality",
+                        "municipality",
+                        "municipal_district",
+                        "subregion"
+                    ].includes(type)
+                ) {
+                    city =
+                        feature.text ||
+                        feature.place_name ||
+                        "Unknown";
+                }
+
+                // COUNTRY
+                if (type === "country") {
+                    country =
+                        feature.text ||
+                        feature.place_name ||
+                        "Unknown";
+                }
+            }
+
+
+            // Fallback: check context of first result
+            if (data.features.length > 0) {
+
+                const context = data.features[0].context || [];
+
+                for (const item of context) {
+
+                    const id = item.id || "";
+
+                    if (
+                        city === "Unknown" &&
+                        (
+                            id.startsWith("place") ||
+                            id.startsWith("locality") ||
+                            id.startsWith("municipality")
+                        )
+                    ) {
+                        city =
+                            item.text ||
+                            item.place_name ||
+                            "Unknown";
+                    }
+
+                    if (
+                        country === "Unknown" &&
+                        id.startsWith("country")
+                    ) {
+                        country =
+                            item.text ||
+                            item.place_name ||
+                            "Unknown";
+                    }
+                }
+            }
+
+
+            document.getElementById("country").value = country;
+            document.getElementById("city").value = city;
+            document.getElementById("latitude").value = lat.toFixed(4);
+            document.getElementById("longitude").value = lon.toFixed(4);
+
+        } catch (error) {
+
+            console.error(
+                "MapTiler geocoding error:",
+                error
+            );
+        }
+    }
+</script>

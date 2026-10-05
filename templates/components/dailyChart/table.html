@@ -1,17 +1,9 @@
-<section id="AspectTable" class="widget glassBg hiddenWidget">
-    <h2 class="tableTitle">Aspects in real time</h2>
-    <table id="test4" class="transparent-table">
-        <thead>
-            <tr>
-            <th>Planet</th>
-            <th>Aspect</th>
-            <th>Planet</th>
-            <th>Orb</th>
-            <th>Move</th>         
-            </tr>
-        </thead>
-        <tbody id="AspectTbody">
-            
-        </tbody>
-    </table>
-</section>
+<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 50px;">Aspects in real time</h1>
+
+{% for i in aspects %}
+<div class="glassBg widget" style="font-size: 1.1rem; color: #ede1ff; padding-bottom: unset; padding-left: 20px; padding-right: 20px; position: relative; padding-top: 30px;">
+
+    <p  style="font-family: 'Poppins', sans-serif; text-align: center;">The <span style="color: {{i.activeColor}}; font-family: 'Poppins', sans-serif;">{{i.active}}</span> forms a {{i.type}} with <span style="color: {{i.passiveColor}}; font-family: 'Poppins', sans-serif;">{{i.passive}}</span> with an orb {{i.orb}}, and the aspect is {{i.movement}} </p>
+
+</div>
+{% endfor %}
