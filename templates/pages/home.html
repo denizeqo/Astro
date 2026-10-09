@@ -30,10 +30,6 @@
 
 {{ stars|json_script:"stars" }}
 
-{{ aspects|json_script:"aspects" }}
-
-{{ planetStars|json_script:"planetStars" }}
-
 
 {% load static %}
 
@@ -128,13 +124,6 @@ const Stars = JSON.parse(
     document.getElementById("stars").textContent
 );
 
-const Aspects = JSON.parse(
-    document.getElementById("aspects").textContent
-);
-
-    const PlanetStars = JSON.parse(
-    document.getElementById("planetStars").textContent
-);
 
 drawEmptyChart(document.getElementById('Chart'))
 dynamicChart(FourAngles[0]['position']);

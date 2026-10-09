@@ -1,6 +1,5 @@
+{% load i18n %}
 <section>
-    <h1 class="title">Advanced Astrological Chart System</h1>
-    <h3 class="subtitle">Four-Ring Wheel • 144 Démification Parts • Real Astronomical Calculations <br>Multiple House Systems • Fixed Stars • Progressive Analysis</h3>
 
     <div class="chartForm__container">
         <form id="chartForm" class="chartForm glassBg ">
@@ -8,52 +7,52 @@
             <div class="form__row">  
                 <div class="row__group">
                     <div class="formInput">
-                        <h2>First Name</h2>
+                        <h2>{% trans "First Name" %}</h2>
                         <input name="firstName" type="text" class="glassBg">
                     </div>
                     <div class="formInput">
-                        <h2>Last Name</h2>
+                        <h2>{% trans "Last Name" %}</h2>
                         <input name="lastName" type="text" class="glassBg">
                     </div>
                 </div>
                 <div class="row__group">
                     <div class="formInput">
-                        <h2>Date of Birth</h2>
+                        <h2>{% trans "Date of Birth" %}</h2>
                         <input name="dateOfBirth" type="date" class="glassBg">
                     </div>
                     <div class="formInput">
-                        <h2>Time of Birth</h2>
+                        <h2>{% trans "Time of Birth" %}</h2>
                         <input name="timeOfBirth" type="time" class="glassBg">
                     </div>
                 </div>
             </div>
 
-            <h2 style="font-family: 'Poppins', sans-serif; color: #ede1ffec; font-size: clamp(1rem, 3.5vw, 1.1rem);">Place of Birth</h2>
+            <h2 style="font-family: 'Poppins', sans-serif; color: #ede1ffec; font-size: clamp(1rem, 3.5vw, 1.1rem);">{% trans "Place of Birth" %}</h2>
             <div id="map" class="form__map"></div>
 
             <div class="form__row">
                 <div class="row__group">
                     <div class="formInput">
-                        <h2>Country</h2>
+                        <h2>{% trans "Country" %}</h2>
                         <input name="country" type="text" id="country" class="glassBg">
                     </div>
                     <div class="formInput">
-                        <h2>City</h2>
+                        <h2>{% trans "City" %}</h2>
                         <input name="city" type="text" id="city" class="glassBg">
                     </div>
                 </div>
                 <div class="row__group">
                     <div class="formInput">
-                        <h2>Latitude</h2>
+                        <h2>{% trans "Latitude" %}</h2>
                         <input name="latitude" type="text" id="latitude" class="glassBg">
                     </div>
                     <div class="formInput">
-                        <h2>Longitude</h2>
+                        <h2>{% trans "Longitude" %}</h2>
                         <input name="longitude" type="text" id="longitude" class="glassBg">
                     </div>
                 </div>
             </div>
-            <input type="submit" class="primarButton" value="Calculate Chart" style="color: #0d0820;">
+            <input type="submit" class="primarButton" value="{% trans 'Calculate Chart' %}" style="color: #0d0820;">
         </form>
     </div>
 </section>

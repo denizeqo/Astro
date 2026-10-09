@@ -2,7 +2,7 @@
 const svg = document.getElementById('Chart');
 
 
-let viewBoxSize = 960;
+let viewBoxSize = 1000; //960
 let viewBoxX = 0;
 let viewBoxY = 0;
 
@@ -96,35 +96,93 @@ const decans = {
     12:['jupiter', 'moon', 'mars']
   };
 
-const termsPlaceList = {
-  1:[6, 12, 20, 25],
-  2:[8, 14, 22, 27],
-  3:[6, 12, 17, 24],
-  4:[7, 13, 19, 26],
-  5:[6, 11, 18, 24],
-  6:[7, 17, 21, 28],
-  7:[6, 14, 21, 28],
-  8:[7, 11, 19, 24],
-  9:[12, 17, 21, 26],
-  10:[7, 14, 22, 26],
-  11:[7, 13, 20, 25],
-  12:[12, 16, 19, 28]
-}
 
-const termsSymbolsList = {
-    1:['Jupiter', 'Venus', 'Mercury', 'Mars', 'Saturn'],
-    2:['Venus', 'Mercury', 'Jupiter', 'Saturn', 'Mars'],
-    3:['Mercury', 'Jupiter', 'Venus', 'Mars', 'Saturn'],
-    4:['Mars', 'Venus', 'Mercury', 'Jupiter', 'Saturn'],
-    5:['Jupiter', 'Venus', 'Saturn', 'Mercury', 'Mars'],
-    6:['Mercury', 'Venus', 'Jupiter', 'Mars', 'Saturn'],
-    7:['Saturn', 'Mercury', 'Jupiter', 'Venus', 'Mars'],
-    8:['Mars', 'Venus', 'Mercury', 'Jupiter', 'Saturn'],
-    9:['Jupiter', 'Venus', 'Mercury', 'Saturn', 'Mars'],
-    10:['Mercury', 'Jupiter', 'Venus', 'Saturn', 'Mars'],
-    11:['Mercury', 'Venus', 'Jupiter', 'Mars', 'Saturn'],
-    12:['Venus', 'Jupiter', 'Mercury', 'Mars', 'Saturn']
-  };
+const termsList = {
+    1: [
+        { name: 'Jupiter', position: 6, color: '#FFAF3D' },
+        { name: 'Venus', position: 12, color: '#a8e4a0' },
+        { name: 'Mercury', position: 20, color: '#cdb891' },
+        { name: 'Mars', position: 25, color: '#E3242B' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ],
+    2: [
+        { name: 'Venus', position: 8, color: '#a8e4a0' },
+        { name: 'Mercury', position: 14, color: '#cdb891' },
+        { name: 'Jupiter', position: 22, color: '#FFAF3D' },
+        { name: 'Saturn', position: 27, color: '#808080' },
+        { name: 'Mars', position: null, color: '#E3242B' }
+    ],
+    3: [
+        { name: 'Mercury', position: 6, color: '#cdb891' },
+        { name: 'Jupiter', position: 12, color: '#FFAF3D' },
+        { name: 'Venus', position: 17, color: '#a8e4a0' },
+        { name: 'Mars', position: 24, color: '#E3242B' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ],
+    4: [
+        { name: 'Mars', position: 7, color: '#E3242B' },
+        { name: 'Venus', position: 13, color: '#a8e4a0' },
+        { name: 'Mercury', position: 19, color: '#cdb891' },
+        { name: 'Jupiter', position: 26, color: '#FFAF3D' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ],
+    5: [
+        { name: 'Jupiter', position: 6, color: '#FFAF3D' },
+        { name: 'Venus', position: 11, color: '#a8e4a0' },
+        { name: 'Saturn', position: 18, color: '#808080' },
+        { name: 'Mercury', position: 24, color: '#cdb891' },
+        { name: 'Mars', position: null, color: '#E3242B' }
+    ],
+    6: [
+        { name: 'Mercury', position: 7, color: '#cdb891' },
+        { name: 'Venus', position: 17, color: '#a8e4a0' },
+        { name: 'Jupiter', position: 21, color: '#FFAF3D' },
+        { name: 'Mars', position: 28, color: '#E3242B' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ],
+    7: [
+        { name: 'Saturn', position: 6, color: '#808080' },
+        { name: 'Mercury', position: 14, color: '#cdb891' },
+        { name: 'Jupiter', position: 21, color: '#FFAF3D' },
+        { name: 'Venus', position: 28, color: '#a8e4a0' },
+        { name: 'Mars', position: null, color: '#E3242B' }
+    ],
+    8: [
+        { name: 'Mars', position: 7, color: '#E3242B' },
+        { name: 'Venus', position: 11, color: '#a8e4a0' },
+        { name: 'Mercury', position: 19, color: '#cdb891' },
+        { name: 'Jupiter', position: 24, color: '#FFAF3D' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ],
+    9: [
+        { name: 'Jupiter', position: 12, color: '#FFAF3D' },
+        { name: 'Venus', position: 17, color: '#a8e4a0' },
+        { name: 'Mercury', position: 21, color: '#cdb891' },
+        { name: 'Saturn', position: 26, color: '#808080' },
+        { name: 'Mars', position: null, color: '#E3242B' }
+    ],
+    10: [
+        { name: 'Mercury', position: 7, color: '#cdb891' },
+        { name: 'Jupiter', position: 14, color: '#FFAF3D' },
+        { name: 'Venus', position: 22, color: '#a8e4a0' },
+        { name: 'Saturn', position: 26, color: '#808080' },
+        { name: 'Mars', position: null, color: '#E3242B' }
+    ],
+    11: [
+        { name: 'Mercury', position: 7, color: '#cdb891' },
+        { name: 'Venus', position: 13, color: '#a8e4a0' },
+        { name: 'Jupiter', position: 20, color: '#FFAF3D' },
+        { name: 'Mars', position: 25, color: '#E3242B' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ],
+    12: [
+        { name: 'Venus', position: 12, color: '#a8e4a0' },
+        { name: 'Jupiter', position: 16, color: '#FFAF3D' },
+        { name: 'Mercury', position: 19, color: '#cdb891' },
+        { name: 'Mars', position: 28, color: '#E3242B' },
+        { name: 'Saturn', position: null, color: '#808080' }
+    ]
+};
 
 
 const planetsOrbite = {
@@ -221,18 +279,17 @@ function dynamicChart(ascDeg){
     if(deg % 30 == 0){
       addText(houseNum, startdeg + deg + 15, rDynamicHouseText);
 
-      let termsLine = termsPlaceList[houseNum];
-      drawLine(startdeg + deg + 30 - termsLine[0], rDynamicTermsCircle, rDynamicSymbolCircle, false);
-      drawLine(startdeg + deg + 30 - termsLine[1], rDynamicTermsCircle, rDynamicSymbolCircle, false);
-      drawLine(startdeg + deg + 30 - termsLine[2], rDynamicTermsCircle, rDynamicSymbolCircle, false);
-      drawLine(startdeg + deg + 30 - termsLine[3], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsList[houseNum][0]['position'], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsList[houseNum][1]['position'], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsList[houseNum][2]['position'], rDynamicTermsCircle, rDynamicSymbolCircle, false);
+      drawLine(startdeg + deg + 30 - termsList[houseNum][3]['position'], rDynamicTermsCircle, rDynamicSymbolCircle, false);
 
-      let termsSymbols1 = termsSymbolsList[houseNum];
-      addSymbol(termsSymbols1[0], 10, startdeg + deg + 30 - termsLine[0] / 2, rDynamicTermsSymbol);
-      addSymbol(termsSymbols1[1], 10, startdeg + deg + 30 - ((termsLine[1] - termsLine[0])  / 2) - termsLine[0], rDynamicTermsSymbol);
-      addSymbol(termsSymbols1[2], 10, startdeg + deg + 30 - ((termsLine[2] - termsLine[1])  / 2) - termsLine[1], rDynamicTermsSymbol);
-      addSymbol(termsSymbols1[3], 10, startdeg + deg + 30 - ((termsLine[3] - termsLine[2])  / 2) - termsLine[2], rDynamicTermsSymbol);
-      addSymbol(termsSymbols1[4], 10, startdeg + deg + 30 - ((30 - termsLine[3])  / 2) - termsLine[3], rDynamicTermsSymbol);
+
+      addSymbol(termsList[houseNum][0]['name'], 10, startdeg + deg + 30 - termsList[houseNum][0]['position'] / 2, rDynamicTermsSymbol, color=termsList[houseNum][0]['color']);
+      addSymbol(termsList[houseNum][1]['name'], 10, startdeg + deg + 30 - ((termsList[houseNum][1]['position'] - termsList[houseNum][0]['position'])  / 2) - termsList[houseNum][0]['position'], rDynamicTermsSymbol, color=termsList[houseNum][1]['color']);
+      addSymbol(termsList[houseNum][2]['name'], 10, startdeg + deg + 30 - ((termsList[houseNum][2]['position'] - termsList[houseNum][1]['position'])  / 2) - termsList[houseNum][1]['position'], rDynamicTermsSymbol, color=termsList[houseNum][2]['color']);
+      addSymbol(termsList[houseNum][3]['name'], 10, startdeg + deg + 30 - ((termsList[houseNum][3]['position'] - termsList[houseNum][2]['position'])  / 2) - termsList[houseNum][2]['position'], rDynamicTermsSymbol, color=termsList[houseNum][3]['color']);
+      addSymbol(termsList[houseNum][4]['name'], 10, startdeg + deg + 30 - ((30 - termsList[houseNum][3]['position'])  / 2) - termsList[houseNum][3]['position'], rDynamicTermsSymbol, color=termsList[houseNum][4]['color']);
 
       houseNum--;
     }
@@ -292,7 +349,7 @@ function addPlanetSymbols(planets){
     let planetNumSup = planets[index]['num']['sup']
     let planetNumSupColor = planets[index]['num']['supColor']
 
-    addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName]);
+    addSymbol(planetName, 20, planetSymbolPosition, planetsOrbite[planetName], color=planetColor);
     //drawLine(planetPosition, rDynamicSymbolCircle - 20, rDynamicSymbolCircle - 27, true, color=planetColor);
     //drawLine(planetPosition, , rDynamicSymbolCircle + 27, true, color=planetColor);
     //drawLine(planetPosition, rStaticSymbolCircle, rStaticSymbolCircle - 7, true, color=planetColor);
@@ -486,23 +543,14 @@ function aspectTable(aspects, tbody, table){
 
 function addUserData(userData, section, table){
 
-  let firstName = document.getElementById('firstName')
-  let lastName = document.getElementById('lastName')
-  let country =  document.getElementById('country1')
-  let city = document.getElementById('city1')
-  let lat = document.getElementById('lat')
-  let lng = document.getElementById('lng')
-  let utcBirthTime = document.getElementById('utcBirthTime')
-  let birthTime = document.getElementById('birthTime')
-
-  firstName.innerText = userData['First Name']
-  lastName.innerText = userData['Last Name']
-  country.innerText = userData['Country']
-  city.innerText = userData['City']
-  lat.innerText = userData['Latitude']
-  lng.innerText = userData['Longitude']
-  utcBirthTime.innerText = userData['UTC Time']
-  birthTime.innerText = userData['Local Time']
+  document.getElementById('firstName').innerText = userData['FirstName']
+  document.getElementById('lastName').innerText = userData['LastName']
+  document.getElementById('country1').innerText = userData['Country']
+  document.getElementById('city1').innerText = userData['City']
+  document.getElementById('lat').innerText = userData['Latitude']
+  document.getElementById('lng').innerText = userData['Longitude']
+  document.getElementById('utcBirthTime').innerText = userData['UTCTime']
+  document.getElementById('birthTime').innerText = userData['LocalTime']
 
   let talisman = userData['talisman']
   let index = 0
@@ -511,21 +559,21 @@ function addUserData(userData, section, table){
 
     for (let j = 0; j<3; j++){
 
-      let talsimanNumValue = talisman[index]['value']
-      let talismanNumColor = talisman[index]['color']
-      let talismanNumSup = talisman[index]['sup']
-
       let td = document.createElement("td");
-      td.innerHTML = `${talsimanNumValue}<sup>${talismanNumSup}</sup>`;
-      td.style.color = talismanNumColor
+      td.innerHTML = `${talisman[index]['value']}<sup style="color: ${talisman[index]['supColor']}">${talisman[index]['sup']}</sup> <br> ${talisman[index]['arketip']}`;
+      td.style.color = talisman[index]['color']
       tr.appendChild(td);
 
       index ++;
+
     }
+
     table.appendChild(tr);
+
   }
 
   section.classList.remove('hiddenWidget')
+
 }
 
 
@@ -605,7 +653,12 @@ function addSymbol(symbolId, symbolSize, deg, radius, color='', star=''){
   use.setAttribute('height', size);
 
   if (color){
-    use.setAttribute('fill', color);
+
+    if (symbolId == 'Mars' || symbolId == 'Venus')
+      use.setAttribute('stroke', color);
+    else{
+      use.setAttribute('fill', color);
+    }
   }
 
   if (symbolId == 'star'){
@@ -713,23 +766,23 @@ function drawEmptyChart(svg){
   svg.innerHTML= `<defs>
             <svg id="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.245 4.174C11.4765 3.50808 11.5922 3.17513 11.7634 3.08285C11.9115 3.00298 12.0898 3.00298 12.238 3.08285C12.4091 3.17513 12.5248 3.50808 12.7563 4.174L14.2866 8.57639C14.3525 8.76592 14.3854 8.86068 14.4448 8.93125C14.4972 8.99359 14.5641 9.04218 14.6396 9.07278C14.725 9.10743 14.8253 9.10947 15.0259 9.11356L19.6857 9.20852C20.3906 9.22288 20.743 9.23007 20.8837 9.36432C21.0054 9.48051 21.0605 9.65014 21.0303 9.81569C20.9955 10.007 20.7146 10.2199 20.1528 10.6459L16.4387 13.4616C16.2788 13.5829 16.1989 13.6435 16.1501 13.7217C16.107 13.7909 16.0815 13.8695 16.0757 13.9507C16.0692 14.0427 16.0982 14.1387 16.1563 14.3308L17.506 18.7919C17.7101 19.4667 17.8122 19.8041 17.728 19.9793C17.6551 20.131 17.5108 20.2358 17.344 20.2583C17.1513 20.2842 16.862 20.0829 16.2833 19.6802L12.4576 17.0181C12.2929 16.9035 12.2106 16.8462 12.1211 16.8239C12.042 16.8043 11.9593 16.8043 11.8803 16.8239C11.7908 16.8462 11.7084 16.9035 11.5437 17.0181L7.71805 19.6802C7.13937 20.0829 6.85003 20.2842 6.65733 20.2583C6.49056 20.2358 6.34626 20.131 6.27337 19.9793C6.18915 19.8041 6.29123 19.4667 6.49538 18.7919L7.84503 14.3308C7.90313 14.1387 7.93218 14.0427 7.92564 13.9507C7.91986 13.8695 7.89432 13.7909 7.85123 13.7217C7.80246 13.6435 7.72251 13.5829 7.56262 13.4616L3.84858 10.6459C3.28678 10.2199 3.00588 10.007 2.97101 9.81569C2.94082 9.65014 2.99594 9.48051 3.11767 9.36432C3.25831 9.23007 3.61074 9.22289 4.31559 9.20852L8.9754 9.11356C9.176 9.10947 9.27631 9.10743 9.36177 9.07278C9.43726 9.04218 9.50414 8.99359 9.55657 8.93125C9.61593 8.86068 9.64887 8.76592 9.71475 8.57639L11.245 4.174Z" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             <svg id="star2" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" style="filter: blur(0.5px);"/></svg>
-            <svg id="Chiron" viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
-            <svg id="Pluto"  viewBox="0 0 32 32" fill="#ffffff"><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
-            <svg id="Neptune" viewBox="0 0 32 32" fill="#8968CD"><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
-            <svg id="Uranus" viewBox="0 0 32 32" fill="#4E9FE5"><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
-            <svg id="Jupiter" viewBox="0 0 32 32" fill="#FFAF3D"><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
-            <svg id="Saturn" viewBox="0 0 32 32" fill="#808080"><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
-            <svg id="Mars" viewBox="0 0 32 32" fill="none" stroke="#E3242B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
-            <svg id="Venus" viewBox="0 0 32 32" fill="" stroke="#a8e4a0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="6"/><line x1="16" y1="17" x2="16" y2="26"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
-            <svg id="Mercury" viewBox="0 0 32 32" fill="#cdb891"><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
-            <svg id="Sun" viewBox="0 0 32 32" fill="#FFEA99"><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
-            <svg id="Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Rising Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="Falling Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
-            <svg id="New Moon" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="22" text-anchor="middle" font-size="25">◯</text></svg>
-            <svg id="Full Moon" viewBox="0 0 32 32" fill="#d3003f"><text x="16" y="22" text-anchor="middle" font-size="30">◉</text></svg>
-            <svg id="North Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
-            <svg id="South Node" viewBox="0 0 32 32" fill="#AAD5DB"><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
+            <svg id="Chiron" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">⚷</text></svg>
+            <svg id="Pluto"  viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">♇</text></svg>
+            <svg id="Neptune" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">♆</text></svg>
+            <svg id="Uranus" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">♅</text></svg>
+            <svg id="Jupiter" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">♃</text></svg>
+            <svg id="Saturn" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">♄</text></svg>
+            <svg id="Mars" viewBox="0 0 32 32" fill="#ffffff00" stroke="" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="6"/><line x1="17.5" y1="14.5" x2="24" y2="8"/><line x1="20.5" y1="8" x2="24" y2="8"/><line x1="24" y1="8" x2="24" y2="11.5"/></svg>
+            <svg id="Venus" viewBox="0 0 32 32" fill="#ffffff00" stroke="" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="11" r="6"/><line x1="16" y1="17" x2="16" y2="26"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
+            <svg id="Mercury" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="30">☿</text></svg>
+            <svg id="Sun" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="30">☉</text></svg>
+            <svg id="Moon" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="Rising Moon" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="Falling Moon" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="30">☽</text></svg>
+            <svg id="New Moon" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="25">◯</text></svg>
+            <svg id="Full Moon" viewBox="0 0 32 32" fill=""><text x="16" y="22" text-anchor="middle" font-size="30">◉</text></svg>
+            <svg id="North Node" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">☊</text></svg>
+            <svg id="South Node" viewBox="0 0 32 32" fill=""><text x="16" y="24" text-anchor="middle" font-size="30">☋</text></svg>
             <svg id="gemini" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#EEDEC5" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> <g id="Horoscope"> <path d="M33,34.1V11.9A26.5,26.5,0,0,0,43.4,5.4a1.9,1.9,0,0,0,0-2.8,1.9,1.9,0,0,0-2.8,0,23.6,23.6,0,0,1-33.2,0,1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8A26.5,26.5,0,0,0,15,11.9V34.1A26.5,26.5,0,0,0,4.6,40.6a1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,23.6,23.6,0,0,1,33.2,0,1.9,1.9,0,0,0,2.8,0,1.9,1.9,0,0,0,0-2.8A26.5,26.5,0,0,0,33,34.1ZM19,33V13a27.3,27.3,0,0,0,5,.5,27.3,27.3,0,0,0,5-.5V33a27.3,27.3,0,0,0-5-.5A27.3,27.3,0,0,0,19,33Z" fill=""></path> </g> </g> </g></svg>
             <svg id="aries" viewBox="0 0 16 16" fill="#E3242B" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 4.19056C0 2.42846 1.42846 1 3.19056 1C4.72033 1 6.03482 2.08579 6.32371 3.58803L8 12.3047L9.67629 3.58803C9.96518 2.08579 11.2797 1 12.8094 1C14.5715 1 16 2.42846 16 4.19056V6H14V4.19056C14 3.53303 13.467 3 12.8094 3C12.2386 3 11.7481 3.40516 11.6403 3.96573L9.32602 16H6.67398L4.3597 3.96573C4.2519 3.40516 3.7614 3 3.19056 3C2.53303 3 2 3.53303 2 4.19056V6H0V4.19056Z" fill=""></path> </g></svg>
             <svg id="taurus" viewBox="0 0 16 16" fill="#7BB369" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 2.20914 4 0H2C2 2.08697 3.06551 3.92508 4.68221 5C3.06551 6.07492 2 7.91303 2 10C2 13.3137 4.68629 16 8 16C11.3137 16 14 13.3137 14 10C14 7.91303 12.9345 6.07492 11.3178 5C12.9345 3.92508 14 2.08697 14 0H12C12 2.20914 10.2091 4 8 4ZM8 6C5.79086 6 4 7.79086 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 7.79086 10.2091 6 8 6Z" fill=""></path> </g></svg>
@@ -763,7 +816,7 @@ function drawEmptyChart(svg){
         <circle cx="${cx}" cy="${cy}" r="260" fill="none" stroke="#FFAF3D50" stroke-width="1" />
         <circle cx="${cx}" cy="${cy}" r="280" fill="none" stroke="#80808050" stroke-width="1" />
 
-        <image href="static/image/astorlogo2.png" x="${(viewBoxSize - 120)/2}" y="${(viewBoxSize - 120)/2}" width="120" height="120" preserveAspectRatio="xMidYMid slice"/>
+        <image href="static/image/222222.png" x="${(viewBoxSize - 155)/2}" y="${(viewBoxSize - 158)/2}" width="155" height="155" preserveAspectRatio="xMidYMid slice"/>
 
 
         `

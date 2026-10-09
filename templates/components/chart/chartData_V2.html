@@ -1,0 +1,52 @@
+{% load i18n %}
+<h1 class="tableTitle" style="margin-top: 50px; margin-bottom: 10px;">{% trans "Zodiaco stars and planets in real time" %}</h1>
+
+<br><br>
+
+<section class="widget glassBg">
+    <div class="userDataContainer">
+        <div class="userDataData">
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "Country: " %}<span>{{chartData.Country}}</span></p>
+                <p class="userDataCol">{% trans "City: " %} <span>{{chartData.City}}</span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "Latitude: " %}<span>{{chartData.Latitude}}</span></p>
+                <p class="userDataCol">{% trans "Longitude: " %}<span>{{chartData.Longitude}}</span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "UTC Time: " %}<span>{{chartData.UTCTime}}</span></p>
+                <p class="userDataCol">{% trans "Local Time: " %}<span>{{chartData.LocalTime}}</span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "Chart System: " %} <span>{% trans "Astro-Numerology Egizio" %}</span></p>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
+            <p class="tableTitle" style="margin-bottom: 10px;">{% trans "Magic Square" %}</p>
+            <table id="Talisman" class="transparent-table-userData">
+                <tr>
+                    <td style="color: {{chartData.talisman.0.color}};">{{chartData.talisman.0.value}}<sup style="color: {{chartData.talisman.0.supColor}};">{{chartData.talisman.0.sup}}</sup> <br> {{chartData.talisman.0.arketip}}</td>
+                    <td style="color: {{chartData.talisman.1.color}};">{{chartData.talisman.1.value}} <sup style="color: {{chartData.talisman.1.supColor}};">{{chartData.talisman.1.sup}}</sup> <br> {{chartData.talisman.1.arketip}}</td>
+                    <td style="color: {{chartData.talisman.2.color}};">{{chartData.talisman.2.value}} <sup style="color: {{chartData.talisman.2.supColor}};">{{chartData.talisman.2.sup}}</sup> <br> {{chartData.talisman.2.arketip}}</td>
+                </tr>
+                <tr>
+                    <td style="color: {{chartData.talisman.3.color}};">{{chartData.talisman.3.value}} <sup style="color: {{chartData.talisman.3.supColor}};">{{chartData.talisman.3.sup}}</sup> <br> {{chartData.talisman.3.arketip}}</td>
+                    <td style="color: {{chartData.talisman.4.color}};">{{chartData.talisman.4.value}} <sup style="color: {{chartData.talisman.4.supColor}};">{{chartData.talisman.4.sup}}</sup> <br> {{chartData.talisman.4.arketip}}</td>
+                    <td style="color: {{chartData.talisman.5.color}};">{{chartData.talisman.5.value}} <sup style="color: {{chartData.talisman.5.supColor}};">{{chartData.talisman.5.sup}}</sup> <br> {{chartData.talisman.5.arketip}}</td>
+                </tr>
+                <tr>
+                    <td style="color: {{chartData.talisman.6.color}};">{{chartData.talisman.6.value}} <sup style="color: {{chartData.talisman.6.supColor}};">{{chartData.talisman.6.sup}}</sup> <br> {{chartData.talisman.6.arketip}}</td>
+                    <td style="color: {{chartData.talisman.7.color}};">{{chartData.talisman.7.value}} <sup style="color: {{chartData.talisman.7.supColor}};">{{chartData.talisman.7.sup}}</sup> <br> {{chartData.talisman.7.arketip}}</td>
+                    <td style="color: {{chartData.talisman.8.color}};">{{chartData.talisman.8.value}} <sup style="color: {{chartData.talisman.8.supColor}};">{{chartData.talisman.8.sup}}</sup> <br> {{chartData.talisman.8.arketip}}</td>
+                </tr>
+                <tr>
+                    <td style="color: {{chartData.talisman.9.color}};">{{chartData.talisman.9.value}} <sup style="color: {{chartData.talisman.9.supColor}};">{{chartData.talisman.9.sup}}</sup> <br> {{chartData.talisman.9.arketip}}</td>
+                    <td style="color: {{chartData.talisman.10.color}};">{{chartData.talisman.10.value}} <sup style="color: {{chartData.talisman.10.supColor}};">{{chartData.talisman.10.sup}}</sup> <br> {{chartData.talisman.10.arketip}}</td>
+                    <td style="color: {{chartData.talisman.11.color}};">{{chartData.talisman.11.value}} <sup style="color: {{chartData.talisman.11.supColor}};">{{chartData.talisman.11.sup}}</sup> <br> {{chartData.talisman.11.arketip}}</td>
+                </tr>
+            </table>
+            <p class="tableTitle" style="margin-top: 10px; text-align: center;">{% trans "Lucky numbers for today" %}</p>
+        </div>
+    </div>
+</section>

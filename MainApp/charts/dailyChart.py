@@ -1,205 +1,122 @@
 from .motherChart import MotherChart
 from ..models import DailyCalendar, MonthlyCalendar
 import json
+from django.utils import timezone
 
 from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
 
 
-class DailyChart(MotherChart):
+class DailyChart():
 
     def __init__(self, lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country):
-        super().__init__(lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+        self.birthChart = MotherChart(lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+
+        self.currentDate = timezone.now().strftime("%Y-%m-%d")
+        self.currentTime = timezone.now().strftime("%H:%M")
+
+        self.todayChart = MotherChart(lat, lng, self.currentDate, self.currentTime, firstName, lastName, city, country)
+
+        self.lastOrbiteObjects = self.todayChart.lastOrbiteObjects
+        self.firstOrbiteObjects = self.todayChart.firstOrbiteObjects + ["New Moon", "First Quarter Moon", "Full Moon", "Last Quarter Moon", "Falling Moon", "Rising Moon"]
+        self.objectList = self.todayChart.objects
+
+        self.birthChartStars = self.birthChart.stars
+        self.birthChartFourAngles = self.birthChart.fourAngles
+        self.birthChartUserData = self.birthChart.userData
+        self.birthChartTalisman = self.birthChart.talisman
+
+
+        self.todayChartPlanets = self.todayChart.planets
+        self.todayChartStars = self.todayChart.stars
+        self.todayChartFourAngles = self.todayChart.fourAngles
+        self.todayChartUserData = self.todayChart.userData
+        self.todayChartTalisman = self.todayChart.talisman
 
     @property
-    def planets(self):
+    def birthChartPlanets(self):
 
-        super().setOrbiteMinDistance(15, 10)
-        planets = super().planets
+        planetsToRemove = ['Pluto', 'Chiron']
+        planets = []
 
-        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
-            planetsNum = json.load(file)
-
-        for planet in planets:
-            planetName = planet['name']
-
-            if planetName == "New Moon" or planetName == "Full Moon":
-                if planet['num']['sup'] != '':
-                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
-
-                continue
-
-
-            if planetsNum.get(planetName, -1) == -1:
-                planet['num']['value'] = str(int(planet['position'])) + '° '
-                planet['num']['sup'] = ''
-                planet['num']['color'] = '#ffffff'
-                continue
-
-            if planet['num']['sup'] == '':
-
-                if planet['num']['value'] not in planetsNum[planetName]["B"]:
-                    planet['num']['value'] = str(int(planet['position'])) + '° '
-                    planet['num']['color'] = '#ffffff'
+        for planet in self.birthChart.planets:
+            #if planet['name'] in planetsToRemove:
+             #   continue
             
-            else:
-                if planet['num']['value'] not in planetsNum[planetName]["A"]:
-                    planet['num']['value'] = str(int(planet['position'])) + '° '
-                    planet['num']['sup'] = ''
-                    planet['num']['color'] = '#ffffff'
-
-                else:    
-                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
-            
+            planet['color'] = planet['color'] + '70'
+            planets.append(planet)
         
         return planets
     
-    
-    
-    @property
-    def stars(self):
-        stars = super().stars
-        for star in stars:
-            star['num']['value'] = ''
-            star['num']['sup'] = ''
-            star['num']['color'] = '#ffffff'
-        
-        return stars
-    
 
     @property
-    def fourAngles(self):
+    def combinePlanets(self):
 
-        fourAngles = super().fourAngles
+        planets = []
 
-        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
-            planetsNum = json.load(file)
-            
+        todayLastOrbiteObjects = [i for i in self.todayChartPlanets if i['name'] in self.lastOrbiteObjects]
+        birthLastOrbiteObjects = [i for i in self.birthChartPlanets if i['name'] in self.lastOrbiteObjects]
 
-        for angle in fourAngles:
+        allLastOrbiteObjects = todayLastOrbiteObjects + birthLastOrbiteObjects
 
-            angleName = angle['name']
+        todayFirstOrbiteObjects = [i for i in self.todayChartPlanets if i['name'] in self.firstOrbiteObjects]
+        birthFirstOrbiteObjects = [i for i in self.birthChartPlanets if i['name'] in self.firstOrbiteObjects]
+        
+        allFirstOrbiteObjects = todayFirstOrbiteObjects + birthFirstOrbiteObjects
 
-            if angleName== 'IC' or angleName == 'Desc':
-                angle['num']['value'] = ''
-                angle['num']['sup'] = ''
+        planets += self._getPlanetSymbolPosition(allFirstOrbiteObjects, 15)
+        planets += self._getPlanetSymbolPosition(allLastOrbiteObjects, 6)
+
+        allObjects = self.todayChartPlanets + self.birthChartPlanets
+
+        dis = 13
+        for object in self.objectList:
+
+            if object in self.lastOrbiteObjects or object in self.firstOrbiteObjects:
                 continue
 
-            if planetsNum.get(angleName, -1) == -1:
-                angle['num']['value'] = str(int(angle['position'])) + '° '
-                angle['num']['sup'] = ''
-                angle['num']['color'] = '#ffffff'
-                continue
+            obj = []
+
+            for i in self.birthChartPlanets:
+                if i['name'] == object:
+                    obj.append(i)
+
+            for j in self.todayChartPlanets:
+                if j['name'] == object:
+                    obj.append(j)
             
-            if angle['num']['sup'] == '':
+            planets += self._getPlanetSymbolPosition(obj, dis)
 
-                if angle['num']['value'] not in planetsNum[angleName]["B"]:
-                    angle['num']['value'] = str(int(angle['position'])) + '° '
-                    angle['num']['color'] = '#ffffff'
-            
-            else:
-                if angle['num']['value'] not in planetsNum[angleName]["A"]:
-                    angle['num']['value'] = str(int(angle['position'])) + '° '
-                    angle['num']['sup'] = ''
-                    angle['num']['color'] = '#ffffff'
+            dis-=1
 
-                else:    
-                    angle['num']['value'] = DailyChart.numAbove(angle['num']['value'])
-            
-        return fourAngles
-
-
-
-    def getStarsForPlanet(self):
-        stars = super().stars
-        planets = super().planets
-
-        starsForPlanet = []
-        addedPlanets = set()
-        starsForPlanetIndex = -1
-
-        for planet in planets:
-            planetIndex = int(planet.get('position') // 2.5)
-            planetName = planet.get('name')
-            planetColor = planet.get('color')
-            planetHouseNum = int(planet.get('house').get('num'))
-            planetHouseSymbol = planet.get('house').get('symbol')
-            planetPosition = MotherChart.degMin(planet.get('position'))
-            planetMovement = planet.get('movement')
-
-            if 'Moon' in planetName:
-                planetDailyCalendar = DailyCalendar.objects.get(name='Moon')
-            else:
-                planetDailyCalendar = DailyCalendar.objects.get(name=planetName)
-
-            
-            if planetDailyCalendar.numIndex == planetIndex:
-                planetDailyDescription = planetDailyCalendar.description
-            else:
-                planetDailyDescription = ''
-                planetDailyCalendar.description = ''
-                planetDailyCalendar.numIndex = planetIndex
-                planetDailyCalendar.save()
+        return planets
     
-    
-            planetData = {'planetName':planetName, 
-                          'planetColor':planetColor, 
-                          'planetPosition':planetPosition, 
-                          'planetHouseNum':planetHouseNum, 
-                          'planetHouseSymbol':planetHouseSymbol, 
-                          'planetDailyDescription':planetDailyDescription,
-                          'planetMovement' : planetMovement,
-                          'stars':[]}
+
+
+    @property
+    def combineStars(self):
+
+        return self.birthChartStars + self.todayChartStars
+
+
+
+    def _getPlanetSymbolPosition(self, objects:list, minDistance:int):
+
+            objects = sorted(objects, key=lambda item: item['symbolPosition'])
+
+            lastPosition = -1
+            for object in objects:
+
+                if lastPosition == -1:
+                    lastPosition = object['symbolPosition']
+                    continue
+                
+                diffDistance = object['symbolPosition'] - lastPosition
+
+                if diffDistance <= minDistance:
+                    object['symbolPosition'] += minDistance - diffDistance
+                
+                lastPosition = object['symbolPosition']
             
-            starsForPlanet.append(planetData)
-            starsForPlanetIndex += 1
-
-            for star in stars:
-                starIndex = int(star.get('position') // 2.5)
-                starName = star.get('name')
-                starColor = star.get('color')
-
-                if planetIndex == starIndex:
-                    starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})    
-        
-        return starsForPlanet
-    
-    def getMonthlyCalendar(self):
-
-        startDate = datetime.now(ZoneInfo("Europe/Rome"))
-        endDate = startDate + timedelta(hours=700)
-
-        objects = MonthlyCalendar.objects.filter(timestamp__range=(startDate, endDate))
-        colorMap = self.objectsColorMap
-
-        results = []
-
-        for object in objects:
-            results.append({
-                'id':object.id,
-                'date': object.timestamp.strftime("%Y-%m-%d"),
-                'time': object.timestamp.strftime("%H:%M"),
-                'name': object.name,
-                'house': object.houseNum,
-                'houseSymbol': object.houseSymbol,
-                'position': object.position,
-                'description': object.description,
-                'color': colorMap[object.name]
-            })
-
-        return results
-
-
-    
-    @staticmethod
-    def numAbove(num:int):
-
-        if num in [20, 30, 40, 50, 60, 70, 80, 90]:
-            return num
-        
-        num = int(str(num)[::-1])
-
-        return num
-
-
+            return objects

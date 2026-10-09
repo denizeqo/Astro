@@ -41,44 +41,43 @@ def Home(request):
     latitude = 45.4643
     longitude = 9.1895
 
-    dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+    dailyChart = MotherChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
     planets = dailyChart.planets
     fourAngles = dailyChart.fourAngles
     stars = dailyChart.stars
-    aspects = dailyChart.aspects
     chartData = dailyChart.userData
-    starsForPlanet = dailyChart.getStarsForPlanet()
-    monthlyCalendar = dailyChart.getMonthlyCalendar()
 
-
-    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
+    return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects})
 
 
 def DailyChartPage(request):
 
-    firstName = ""
-    lastName = ""
-    city = "Milan"
-    country = "Italy"
-    currentDate = datetime.now(ZoneInfo("Europe/Rome"))
-    dateOfBirth = currentDate.strftime("%Y-%m-%d")
-    timeOfBirth = currentDate.strftime("%H:%M")
-    latitude = 45.4643
-    longitude = 9.1895
+    if request.method == 'POST':
+        
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        dateOfBirth = request.POST.get('dateOfBirth')
+        timeOfBirth = request.POST.get('timeOfBirth')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        latitude = float(request.POST.get('latitude'))
+        longitude = float(request.POST.get('longitude'))
 
-    dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+        dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
-    planets = dailyChart.planets
-    fourAngles = dailyChart.fourAngles
-    stars = dailyChart.stars
-    aspects = dailyChart.aspects
-    chartData = dailyChart.userData
-    starsForPlanet = dailyChart.getStarsForPlanet()
-    monthlyCalendar = dailyChart.getMonthlyCalendar()
+        todayChartFourAngles = dailyChart.todayChartFourAngles
+
+        birthChartUserData = dailyChart.birthChartUserData
+
+        planets= dailyChart.combinePlanets
+
+        stars = dailyChart.combineStars
 
 
-    return render(request, 'pages/dailyChart.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
+        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData})
+    return render(request, 'pages/dailyChart.html')
+
 
 @staff_member_required
 @require_POST

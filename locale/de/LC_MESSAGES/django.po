@@ -8828,3 +8828,457 @@ msgstr "Erforsche dein Horoskop"
 
 #~ msgid "Shop"
 #~ msgstr "Negozio"
+
+
+msgid "The Commander of Life"
+msgstr "Der Kommandant des Lebens"
+
+msgid "The Architect of Prosperity"
+msgstr "Der Architekt des Wohlstands"
+
+msgid "The Heart and Mind of Relationships"
+msgstr "Das Herz und der Verstand der Beziehungen"
+
+msgid "The Magnetic Star"
+msgstr "Der Magnetische Stern"
+
+msgid "The Visionary Judge"
+msgstr "Der Visionäre Richter"
+
+msgid "The Master of the Word"
+msgstr "Der Meister des Wortes"
+
+msgid "The Architect of Relationships"
+msgstr "Der Architekt der Beziehungen"
+
+msgid "The Builder of Resources"
+msgstr "Der Schöpfer von Ressourcen"
+
+msgid "The Master of Wisdom"
+msgstr "Der Meister der Weisheit"
+
+msgid "The Strategist of Strength and Authority"
+msgstr "Der Stratege der Stärke und Autorität"
+
+msgid "The Genius of Freedom and Relationships"
+msgstr "Das Genie der Freiheit und Beziehungen"
+
+msgid "The Keeper of Wealth and Love"
+msgstr "Der Hüter des Reichtums und der Liebe"
+
+msgid "The King of Prosperity"
+msgstr "Der König des Wohlstands"
+
+msgid "The Governor of Prosperity"
+msgstr "Der Lenker des Wohlstands"
+
+msgid "The Compassionate Visionary"
+msgstr "Der Mitfühlende Visionär"
+
+msgid "The Sovereign of Roots"
+msgstr "Der Herrscher der Wurzeln"
+
+msgid "The Master of Precision and Service"
+msgstr "Der Meister der Präzision und des Dienstes"
+
+msgid "The Strategist of Balance"
+msgstr "Der Stratege des Gleichgewichts"
+
+msgid "Love and Inheritance"
+msgstr "Liebe und Erbe"
+
+msgid "Knowledge and Prosperity"
+msgstr "Wissen und Wohlstand"
+
+msgid "Knowledge and Service."
+msgstr "Wissen und Dienst."
+
+msgid "The Visionary Sovereign"
+msgstr "Der Visionäre Herrscher"
+
+msgid "The Sovereign of Matter"
+msgstr "Der Herrscher der Materie"
+
+msgid "The Instinctive Commander"
+msgstr "Der Instinktive Kommandant"
+
+msgid "The Genius of Communication"
+msgstr "Das Genie der Kommunikation"
+
+msgid "The Sovereign of Wisdom"
+msgstr "Der Herrscher der Weisheit"
+
+msgid "The Visionary Poet"
+msgstr "Der Visionäre Dichter"
+
+msgid "The Heir to Power"
+msgstr "Der Erbe der Macht"
+
+msgid "Knowledge and Harmony"
+msgstr "Wissen und Harmonie"
+
+msgid "The Traveler of Power and Harmony."
+msgstr "Der Reisende der Macht und Harmonie."
+
+msgid "Wisdom and Benevolence"
+msgstr "Weisheit und Wohlwollen"
+
+msgid "Prosperity and Integrity"
+msgstr "Wohlstand und Integrität"
+
+msgid "The Genius of Knowledge"
+msgstr "Das Genie des Wissens"
+
+msgid "The Explorer Spirit"
+msgstr "Der Entdeckergeist"
+
+msgid "The Messenger of Wisdom"
+msgstr "Der Bote der Weisheit"
+
+msgid "Legacy and Guidance"
+msgstr "Vermächtnis und Führung"
+
+msgid "The Sovereign of Passion and Charisma"
+msgstr "Der Herrscher der Leidenschaft und des Charismas"
+
+msgid "Wisdom and Prosperity"
+msgstr "Weisheit und Wohlstand"
+
+msgid "Brothers and Wealth"
+msgstr "Brüder und Reichtum"
+
+msgid "The Harmonious Mind."
+msgstr "Der Harmonische Geist."
+
+msgid "The Visionary Heart"
+msgstr "Das Visionäre Herz"
+
+msgid "The Protector of Justice"
+msgstr "Der Beschützer der Gerechtigkeit"
+
+msgid "Expansion and Integrity"
+msgstr "Expansion und Integrität"
+
+msgid "Knowledge and Power"
+msgstr "Wissen und Macht"
+
+msgid "The Empathic Mind"
+msgstr "Der Empathische Geist"
+
+msgid "Victory and Power"
+msgstr "Sieg und Macht"
+
+msgid "Friendships and Prosperity"
+msgstr "Freundschaften und Wohlstand"
+
+msgid "Beauty and Intelligence"
+msgstr "Schönheit und Intelligenz"
+
+msgid "The Creator of Love"
+msgstr "Der Schöpfer der Liebe"
+
+msgid "Strategy and Prosperity."
+msgstr "Strategie und Wohlstand."
+
+msgid "The Sovereign of Knowledge and Connections"
+msgstr "Der Herrscher des Wissens und der Verbindungen"
+
+msgid "The Power of Roots"
+msgstr "Die Kraft der Wurzeln"
+
+msgid "Transcendent Love"
+msgstr "Transzendente Liebe"
+
+msgid "Leadership and Integrity"
+msgstr "Führung und Integrität"
+
+msgid "A Marriage of Reason and Freedom"
+msgstr "Eine Verbindung von Vernunft und Freiheit"
+
+msgid "Vision and Power"
+msgstr "Vision und Macht"
+
+msgid "Wisdom and Adventure"
+msgstr "Weisheit und Abenteuer"
+
+msgid "Power and Prophecy"
+msgstr "Macht und Prophezeiung"
+
+msgid "Alliances and Wisdom"
+msgstr "Allianzen und Weisheit"
+
+msgid "Mind, Strength and Service"
+msgstr "Geist, Stärke und Dienst"
+
+msgid "Service and Devotion"
+msgstr "Dienst und Hingabe"
+
+msgid "Eminence and Psychic Powers"
+msgstr "Erhabenheit und Übersinnliche Kräfte"
+
+msgid "Knowledge and Foresight"
+msgstr "Wissen und Weitsicht"
+
+msgid "The Navigator of Knowledge"
+msgstr "Der Navigator des Wissens"
+
+msgid "Love and Prosperity"
+msgstr "Liebe und Wohlstand"
+
+msgid "The Mentor of Freedom and Knowledge"
+msgstr "Der Mentor der Freiheit und des Wissens"
+
+msgid "Vocation and Love"
+msgstr "Berufung und Liebe"
+
+msgid "The Strategist of Resources and Power"
+msgstr "Der Stratege der Ressourcen und der Macht"
+
+msgid "Leadership and Knowledge"
+msgstr "Führung und Wissen"
+
+msgid "Vision and Wisdom"
+msgstr "Vision und Weisheit"
+
+msgid "Friendships and Psychic Power"
+msgstr "Freundschaften und Übersinnliche Kraft"
+
+msgid "Knowledge and Talent"
+msgstr "Wissen und Talent"
+
+msgid "The Commander of Love and Balance"
+msgstr "Der Kommandant der Liebe und des Gleichgewichts"
+
+msgid "Wisdom, Prosperity and Transformation"
+msgstr "Weisheit, Wohlstand und Transformation"
+
+msgid "Relationships, Wisdom and Creativity"
+msgstr "Beziehungen, Weisheit und Kreativität"
+
+msgid "The Family Steward."
+msgstr "Der Verwalter der Familie."
+
+msgid "Faith, Wisdom and Freedom"
+msgstr "Glaube, Weisheit und Freiheit"
+
+msgid "Knowledge, Love and Magnetism"
+msgstr "Wissen, Liebe und Magnetismus"
+
+msgid "The Maiden of Flowers"
+msgstr "Die Blumenjungfrau"
+
+msgid "Spirituality, Strength and Consciousness"
+msgstr "Spiritualität, Stärke und Bewusstsein"
+
+msgid "The Creative Leader"
+msgstr "Der Kreative Anführer"
+
+msgid "Wisdom, Creativity and Justice"
+msgstr "Weisheit, Kreativität und Gerechtigkeit"
+
+msgid "Knowledge, Devotion and Prosperity"
+msgstr "Wissen, Hingabe und Wohlstand"
+
+msgid "Determination, Knowledge and Transformation"
+msgstr "Entschlossenheit, Wissen und Transformation"
+
+msgid "Strength, Prosperity and Knowledge"
+msgstr "Stärke, Wohlstand und Wissen"
+
+msgid "Knowledge, Spirit and Service"
+msgstr "Wissen, Geist und Dienst"
+
+msgid "Authority, Freedom and Spirit"
+msgstr "Autorität, Freiheit und Geist"
+
+msgid "Love and Spirit"
+msgstr "Liebe und Geist"
+
+msgid "Will and Action"
+msgstr "Wille und Tat"
+
+msgid "Goodness and Spirit"
+msgstr "Güte und Geist"
+
+msgid "The Messenger of Communication"
+msgstr "Der Bote der Kommunikation"
+
+msgid "Wisdom and Compassion."
+msgstr "Weisheit und Mitgefühl."
+
+msgid "Leadership and Responsibility"
+msgstr "Führung und Verantwortung"
+
+msgid "Strategy and Service"
+msgstr "Strategie und Dienst"
+
+msgid "Faith and Knowledge"
+msgstr "Glaube und Wissen"
+
+msgid "Will and Benevolence"
+msgstr "Wille und Wohlwollen"
+
+msgid "Intuition and Research"
+msgstr "Intuition und Forschung"
+
+msgid "Freedom and Alliances"
+msgstr "Freiheit und Allianzen"
+
+msgid "Spirit and Research"
+msgstr "Geist und Forschung"
+
+msgid "The Promoter of Research"
+msgstr "Der Förderer der Forschung"
+
+msgid "Protection and Stability"
+msgstr "Schutz und Stabilität"
+
+msgid "Communication and Relationships"
+msgstr "Kommunikation und Beziehungen"
+
+msgid "Truth and Love"
+msgstr "Wahrheit und Liebe"
+
+msgid "Vision and Diplomacy"
+msgstr "Vision und Diplomatie"
+
+msgid "Justice and Responsibility"
+msgstr "Gerechtigkeit und Verantwortung"
+
+msgid "The Innovative Visionary"
+msgstr "Der Innovative Visionär"
+
+msgid "Deep Knowledge"
+msgstr "Tiefes Wissen"
+
+msgid "Power and Fulfillment"
+msgstr "Macht und Erfüllung"
+
+msgid "Freedom and Authority"
+msgstr "Freiheit und Autorität"
+
+msgid "The Visionary of Knowledge and Communication"
+msgstr "Der Visionär des Wissens und der Kommunikation"
+
+msgid "Charisma and Service"
+msgstr "Charisma und Dienst"
+
+msgid "Heart, Vision and Authority"
+msgstr "Herz, Vision und Autorität"
+
+msgid "Fulfillment and Freedom"
+msgstr "Erfüllung und Freiheit"
+
+msgid "Union and Love"
+msgstr "Vereinigung und Liebe"
+
+msgid "Harmony and Creativity"
+msgstr "Harmonie und Kreativität"
+
+msgid "Elevation and Service"
+msgstr "Erhebung und Dienst"
+
+msgid "Balance and Diplomacy"
+msgstr "Gleichgewicht und Diplomatie"
+
+msgid "Strength and Protection"
+msgstr "Stärke und Schutz"
+
+msgid "Love and Maturation"
+msgstr "Liebe und Reifung"
+
+msgid "The Creator of Friendships"
+msgstr "Der Schöpfer von Freundschaften"
+
+msgid "Power and Wisdom"
+msgstr "Macht und Weisheit"
+
+msgid "Knowledge and Courage"
+msgstr "Wissen und Mut"
+
+msgid "Beauty and Resources"
+msgstr "Schönheit und Ressourcen"
+
+msgid "Fortune and Communication"
+msgstr "Glück und Kommunikation"
+
+msgid "Intelligence and Care"
+msgstr "Intelligenz und Fürsorge"
+
+msgid "Love and Vision"
+msgstr "Liebe und Vision"
+
+msgid "The Keeper of Intelligence and Wealth"
+msgstr "Der Hüter der Intelligenz und des Reichtums"
+
+msgid "Knowledge and Innovation"
+msgstr "Wissen und Innovation"
+
+msgid "Discernment and Integrity"
+msgstr "Urteilsvermögen und Integrität"
+
+msgid "Innovation and Spirituality"
+msgstr "Innovation und Spiritualität"
+
+msgid "Humanity and Integrity"
+msgstr "Menschlichkeit und Integrität"
+
+msgid "Knowledge and Healing"
+msgstr "Wissen und Heilung"
+
+msgid "Resources and Transformation"
+msgstr "Ressourcen und Transformation"
+
+msgid "Wisdom and Elevation"
+msgstr "Weisheit und Erhebung"
+
+msgid "Creativity and Spirituality"
+msgstr "Kreativität und Spiritualität"
+
+msgid "Ingenuity and Protection"
+msgstr "Einfallsreichtum und Schutz"
+
+msgid "Service and Illumination"
+msgstr "Dienst und Erleuchtung"
+
+msgid "Legacy and Transmission"
+msgstr "Vermächtnis und Weitergabe"
+
+msgid "Freedom and Strategy"
+msgstr "Freiheit und Strategie"
+
+msgid "Will and Autonomy"
+msgstr "Wille und Selbstständigkeit"
+
+msgid "Integrity and Alliance"
+msgstr "Integrität und Allianz"
+
+msgid "Intuition and Creativity"
+msgstr "Intuition und Kreativität"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Time of Birth"
+msgstr "Geburtszeit"
+
+msgid "Place of Birth"
+msgstr "Geburtsort"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "Latitude"
+msgstr "Breitengrad"
+
+msgid "Longitude"
+msgstr "Längengrad"
+
+msgid "Calculate Chart"
+msgstr "Horoskop berechnen"

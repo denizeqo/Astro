@@ -1,0 +1,30 @@
+{% load i18n %}
+<section id="UserData" class="widget glassBg hiddenWidget">
+    <h2 class="tableTitle">The Chart Data of Your Birth</h2>
+    <div class="userDataContainer">
+        <div class="userDataData">
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "First Name" %}: <span id="firstName"></span> </p>
+                <p class="userDataCol">{% trans "Last Name" %}: <span id="lastName"></span> </p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "Country: " %} <span id="country1"></span></p>
+                <p class="userDataCol">{% trans "City: " %} <span id="city1"></span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "Latitude: " %} <span id="lat"></span></p>
+                <p class="userDataCol">{% trans "Longitude: " %} <span id="lng"></span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "UTC Time: " %} <span id="utcBirthTime"></span></p>
+                <p class="userDataCol">{% trans "Local Time: " %} <span id="birthTime"></span></p>
+            </div>
+            <div class="userDataRow">
+                <p class="userDataCol">{% trans "Chart System: " %} <span id="chartSystem">{% trans "Astro-Numerology Egizio" %}</span></p>
+            </div>
+        </div>
+
+        {% include 'components\chart\talisman.html' %}
+
+    </div>
+</section>

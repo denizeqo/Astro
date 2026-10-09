@@ -11,6 +11,8 @@ from flatlib.aspects import getAspect
 import flatlib.aspects as aspects
 import swisseph as swe
 
+from django.utils.translation import gettext
+
 
 
 class Num:
@@ -55,9 +57,9 @@ class Num:
             data = json.load(f)
 
             if self.numSup == '':
-                return data['B'].get(str(self.numValue))
+                return gettext(data['B'].get(str(self.numValue), ''))
             else:
-                return data['A'].get(str(self.numValue))
+                return gettext(data['A'].get(str(self.numValue), ''))
 
     
 
@@ -70,7 +72,7 @@ class Num:
 class MotherChart:
 
     tf = TimezoneFinder()
-    ephePath = "C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe"
+    ephePath = "sweph/ephe"
     
 
     def __init__(self, lat:float, lng:float, dateOfBirth:str, timeOfBirth:str, firstName:str, lastName:str, city:str, country:str):
@@ -88,12 +90,12 @@ class MotherChart:
         self.pos = GeoPos(self.lat, self.lng)
 
         self.objects = [
-            const.SUN,
-            const.MOON,
             const.MERCURY,
             const.VENUS,
+            const.SUN,
             const.MARS,
             const.JUPITER,
+            const.MOON,
             const.SATURN,
             const.URANUS,
             const.NEPTUNE,
@@ -247,7 +249,7 @@ class MotherChart:
         starOrbite = 0
         stars = []
 
-        with open(MotherChart.ephePath + "\\stars2.json", "r", encoding="utf-8") as f:
+        with open(MotherChart.ephePath + "/stars2.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
         for index in range(len(data)):
@@ -308,15 +310,16 @@ class MotherChart:
 
     @property
     def userData(self):
-        return {'First Name': self.firstName, 
-                'Last Name': self.lastName, 
+        return {'FirstName': self.firstName, 
+                'LastName': self.lastName, 
                 'City': self.city,
                 'Country': self.country,
                 'Latitude': self.lat,
                 'Longitude': self.lng,
                 'LocalTime': self.dateOfBirth + ' ' + self.timeOfBirth,
                 'UTCTime': self.utcDateOfBirth.replace('/', '-') + ' ' + self.utcTimeOfBirth[:5],
-                'Talisman': self.talisman}
+                'talisman': self.talisman}
+    
         
 
 
@@ -356,12 +359,12 @@ class MotherChart:
 
         latDeg = int(lat)
         latMin =int((lat - latDeg) * 60)
-        direction = 'n' if latDeg >= 0 else 's'
+        direction = 'n' if lat >= 0 else 's'
         latStr = str(abs(latDeg)) + direction + str(latMin)
 
         lonDeg = int(lon)
         lonMin = int((lon - lonDeg) * 60)
-        direction = 'e' if lonDeg >= 0 else 'w'
+        direction = 'e' if lon >= 0 else 'w'
         lonStr = str(abs(lonDeg)) + direction + str(lonMin)
 
         return latStr, lonStr
