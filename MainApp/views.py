@@ -63,8 +63,10 @@ def DailyChartPage(request):
         city = request.POST.get('city')
         latitude = float(request.POST.get('latitude'))
         longitude = float(request.POST.get('longitude'))
+        date = request.POST.get('date')
+        time = request.POST.get('time')
 
-        dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+        dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country, date, time)
 
         todayChartFourAngles = dailyChart.todayChartFourAngles
 

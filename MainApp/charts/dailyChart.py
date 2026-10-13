@@ -10,13 +10,13 @@ from zoneinfo import ZoneInfo
 
 class DailyChart():
 
-    def __init__(self, lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country):
+    def __init__(self, lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country, date, time):
         self.birthChart = MotherChart(lat, lng, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
 
         self.currentDate = timezone.now().strftime("%Y-%m-%d")
         self.currentTime = timezone.now().strftime("%H:%M")
 
-        self.todayChart = MotherChart(lat, lng, self.currentDate, self.currentTime, firstName, lastName, city, country)
+        self.todayChart = MotherChart(lat, lng, date, time, firstName, lastName, city, country)
 
         self.lastOrbiteObjects = self.todayChart.lastOrbiteObjects
         self.firstOrbiteObjects = self.todayChart.firstOrbiteObjects + ["New Moon", "First Quarter Moon", "Full Moon", "Last Quarter Moon", "Falling Moon", "Rising Moon"]
@@ -44,7 +44,7 @@ class DailyChart():
             #if planet['name'] in planetsToRemove:
              #   continue
             
-            planet['color'] = planet['color'] + '70'
+            planet['color'] = "#c9c5c580"
             planets.append(planet)
         
         return planets
@@ -90,6 +90,42 @@ class DailyChart():
 
             dis-=1
 
+
+        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
+            planetsNum = json.load(file)
+
+
+        for planet in planets:
+            planetName = planet['name']
+
+            if planetName == "New Moon" or planetName == "Full Moon":
+                if planet['num']['sup'] != '':
+                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
+
+                continue
+
+
+            if planetsNum.get(planetName, -1) == -1:
+                planet['num']['value'] = str(int(planet['position'])) + '° '
+                planet['num']['sup'] = ''
+                planet['num']['color'] = '#ffffff'
+                continue
+
+            if planet['num']['sup'] == '':
+
+                if planet['num']['value'] not in planetsNum[planetName]["B"]:
+                    planet['num']['value'] = str(int(planet['position'])) + '° '
+                    planet['num']['color'] = '#ffffff'
+            
+            else:
+                if planet['num']['value'] not in planetsNum[planetName]["A"]:
+                    planet['num']['value'] = str(int(planet['position'])) + '° '
+                    planet['num']['sup'] = ''
+                    planet['num']['color'] = '#ffffff'
+
+                else:    
+                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
+
         return planets
     
 
@@ -120,3 +156,14 @@ class DailyChart():
                 lastPosition = object['symbolPosition']
             
             return objects
+    
+
+    @staticmethod
+    def numAbove(num:int):
+
+        if num in [20, 30, 40, 50, 60, 70, 80, 90]:
+            return num
+        
+        num = int(str(num)[::-1])
+
+        return num
