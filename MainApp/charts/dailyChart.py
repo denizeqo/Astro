@@ -27,12 +27,56 @@ class DailyChart():
         self.birthChartUserData = self.birthChart.userData
         self.birthChartTalisman = self.birthChart.talisman
 
-
-        self.todayChartPlanets = self.todayChart.planets
         self.todayChartStars = self.todayChart.stars
         self.todayChartFourAngles = self.todayChart.fourAngles
         self.todayChartUserData = self.todayChart.userData
         self.todayChartTalisman = self.todayChart.talisman
+
+
+
+    @property
+    def todayChartPlanets(self):
+        
+        planets = self.todayChart.planets
+
+        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
+            planetsNum = json.load(file)
+
+        
+        for planet in planets:
+            planetName = planet['name']
+
+            if planetName == "New Moon" or planetName == "Full Moon":
+                if planet['num']['sup'] != '':
+                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
+
+                continue
+
+
+            if planetsNum.get(planetName, -1) == -1:
+                planet['num']['value'] = str(int(planet['position'])) + '° '
+                planet['num']['sup'] = ''
+                planet['num']['color'] = '#ffffff'
+                continue
+
+            if planet['num']['sup'] == '':
+
+                if planet['num']['value'] not in planetsNum[planetName]["B"]:
+                    planet['num']['value'] = str(int(planet['position'])) + '° '
+                    planet['num']['color'] = '#ffffff'
+            
+            else:
+                if planet['num']['value'] not in planetsNum[planetName]["A"]:
+                    planet['num']['value'] = str(int(planet['position'])) + '° '
+                    planet['num']['sup'] = ''
+                    planet['num']['color'] = '#ffffff'
+
+                else:    
+                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
+
+        return planets
+
+
 
     @property
     def birthChartPlanets(self):
@@ -43,7 +87,8 @@ class DailyChart():
         for planet in self.birthChart.planets:
             #if planet['name'] in planetsToRemove:
              #   continue
-            
+            planet['num']['value'] = ''
+            planet['num']['sup'] = ''
             planet['color'] = "#c9c5c580"
             planets.append(planet)
         
@@ -90,42 +135,6 @@ class DailyChart():
 
             dis-=1
 
-
-        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
-            planetsNum = json.load(file)
-
-
-        for planet in planets:
-            planetName = planet['name']
-
-            if planetName == "New Moon" or planetName == "Full Moon":
-                if planet['num']['sup'] != '':
-                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
-
-                continue
-
-
-            if planetsNum.get(planetName, -1) == -1:
-                planet['num']['value'] = str(int(planet['position'])) + '° '
-                planet['num']['sup'] = ''
-                planet['num']['color'] = '#ffffff'
-                continue
-
-            if planet['num']['sup'] == '':
-
-                if planet['num']['value'] not in planetsNum[planetName]["B"]:
-                    planet['num']['value'] = str(int(planet['position'])) + '° '
-                    planet['num']['color'] = '#ffffff'
-            
-            else:
-                if planet['num']['value'] not in planetsNum[planetName]["A"]:
-                    planet['num']['value'] = str(int(planet['position'])) + '° '
-                    planet['num']['sup'] = ''
-                    planet['num']['color'] = '#ffffff'
-
-                else:    
-                    planet['num']['value'] = DailyChart.numAbove(planet['num']['value'])
-
         return planets
     
 
@@ -133,7 +142,15 @@ class DailyChart():
     @property
     def combineStars(self):
 
-        return self.birthChartStars + self.todayChartStars
+        stars = self.birthChartStars + self.todayChartStars
+        
+        for star in stars:
+
+            star['num']['value'] = ''
+            star['num']['sup'] = ''
+
+        return stars
+
 
 
 

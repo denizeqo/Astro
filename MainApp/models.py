@@ -18,3 +18,11 @@ class MonthlyCalendar(models.Model):
     description = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField()
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class Transit(models.Model):
+    planetName = models.CharField(max_length=100)
+    houseNum = models.IntegerField(default=-1)
+    startAt = models.DateTimeField(null=True)
+    endAt = models.DateTimeField()
+    retrograde = models.BooleanField(null=True)

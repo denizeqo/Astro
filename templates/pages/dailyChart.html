@@ -12,6 +12,8 @@
 
     {% include 'components/chart/chartData_V1.html' %}
 
+    {% include 'components/dailyChart/monthlyCalendar.html' %}
+
 {% load static %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -36,6 +38,8 @@
         .then(response => response.json())  // or .json()
         .then(data =>  {
             
+            console.log(data['transit'])
+            renderPlanets(data['transit'])
             dynamicChart(data['asc']);
             dynamicAscMcIcDsc(data['fourAngles']);
             addPlanetSymbols(data['planets'])

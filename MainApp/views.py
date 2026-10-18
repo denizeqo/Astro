@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from .charts.motherChart import MotherChart
 from .charts.dailyChart import DailyChart
-from .models import DailyCalendar, MonthlyCalendar
+from .models import DailyCalendar, MonthlyCalendar, Transit
 
 
 # Create your views here.
@@ -69,15 +69,35 @@ def DailyChartPage(request):
         dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country, date, time)
 
         todayChartFourAngles = dailyChart.todayChartFourAngles
-
-        birthChartUserData = dailyChart.birthChartUserData
-
+        birthChartUserData = dailyChart.todayChartUserData
         planets= dailyChart.combinePlanets
-
         stars = dailyChart.combineStars
+        todayPlanets = dailyChart.todayChartPlanets
+
+        with open(MotherChart.ephePath + "\\astro_planet_translations_complete.json","r",encoding="utf-8") as file:
+            planetsTransit = json.load(file)
+
+        rr = []
+        for p in todayPlanets:
+            pName = p['name']
+            pHouseNum = p['house']['num']
+
+            if 'Moon' in pName:
+                pName = 'moon'
+
+            for i in planetsTransit['planet_houses']:
+
+                if i['planet'] == pName.lower() and i['house'] == pHouseNum:
+                    rr.append({'planet':p['name'], 
+                               'planetColor':p['color'], 
+                               'planetPosition':p['position'], 
+                               'planetHouse':p['house'], 
+                               'title':i['translations'][request.LANGUAGE_CODE]['title'], 
+                               'description':i['translations'][request.LANGUAGE_CODE]['description'], 
+                               'warning':i['translations'][request.LANGUAGE_CODE]['warning']})
 
 
-        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData})
+        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData, 'transit':rr})
     return render(request, 'pages/dailyChart.html')
 
 
@@ -115,16 +135,14 @@ def MonthlyCalendarDescription(request):
     
 
 
-@staff_member_required
-@require_POST
 def MonthlyCalendarCreated(request):
 
-    latesDate = MonthlyCalendar.objects.order_by('-timestamp')
+    latesDate = Transit.objects.order_by('-endAt')
 
     if len(latesDate) == 0:
         currentDate = datetime.now(ZoneInfo("Europe/Rome"))
     else:
-        currentDate = latesDate[0].timestamp
+        currentDate = latesDate[0].endAt
 
 
     firstName = ""
@@ -145,13 +163,14 @@ def MonthlyCalendarCreated(request):
     for planet in planets:
 
         if 'Moon' in planet['name']:
-            currentHouses['Moon'] = planet['house']['num']
+            currentHouses['Moon'] = {'startAt':None, 'houseNum':planet['house']['num'], 'R':False}
         else:
-             currentHouses[planet['name']] = planet['house']['num']
+             currentHouses[planet['name']] = {'startAt':None, 'houseNum':planet['house']['num'], 'R':False}
 
 
+    h = 1
     for i in range(800):
-        newDate =  currentDate + timedelta(hours=i)
+        newDate =  currentDate + timedelta(hours=h)
         dateOfBirth = newDate.strftime("%Y-%m-%d")
         timeOfBirth = newDate.strftime("%H:%M")
 
@@ -160,29 +179,41 @@ def MonthlyCalendarCreated(request):
 
         for planet in newPlanets:
             newHouse = planet['house']['num']
+            
+            
+
 
             if 'Moon' in planet['name']:
-                if currentHouses['Moon'] != newHouse:
-                    MonthlyCalendar.objects.create(name=planet['name'], 
-                                                   houseNum=planet['house']['num'], 
-                                                   houseSymbol=planet['house']['symbol'], 
-                                                   position=newChart.degMin(planet['position']),
-                                                   timestamp=newDate,
-                                                   description='')
+                if planet['movement'] == 'Retrograde':
+                    currentHouses['Moon']['R'] = True
+
+                if currentHouses['Moon']['houseNum'] != newHouse:
+                    Transit.objects.create(planetName=planet['name'], 
+                                                   houseNum=currentHouses['Moon']['houseNum'], 
+                                                   endAt=newDate,
+                                                   startAt=currentHouses['Moon']['startAt'],
+                                                   retrograde=currentHouses['Moon']['R'])
                     
-                    currentHouses['Moon'] = planet['house']['num']
+                    currentHouses['Moon']['houseNum'] = planet['house']['num']
+                    currentHouses['Moon']['startAt'] = newDate
+                    currentHouses['Moon']['R'] = False
 
             else:
-                if currentHouses[planet['name']] != newHouse:
-                    MonthlyCalendar.objects.create(name=planet['name'], 
-                                                   houseNum=planet['house']['num'], 
-                                                   houseSymbol=planet['house']['symbol'], 
-                                                   position=newChart.degMin(planet['position']),
-                                                   timestamp=newDate,
-                                                   description='')
-                    
-                    currentHouses[planet['name']] = planet['house']['num']
+                if planet['movement'] == 'Retrograde':
+                    currentHouses[planet['name']]['R'] = True
 
+                if currentHouses[planet['name']]['houseNum'] != newHouse:
+                    Transit.objects.create(planetName=planet['name'], 
+                                                   houseNum=currentHouses[planet['name']]['houseNum'],  
+                                                   endAt=newDate,
+                                                   startAt=currentHouses[planet['name']]['startAt'],
+                                                   retrograde=currentHouses[planet['name']]['R'])
+                    
+                    currentHouses[planet['name']]['houseNum'] = planet['house']['num']
+                    currentHouses[planet['name']]['startAt'] = newDate
+                    currentHouses[planet['name']]['R'] = False
+
+        h += 5
 
     #pList = ['Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto', 'Chiron']
 
