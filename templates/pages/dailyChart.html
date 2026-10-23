@@ -12,6 +12,8 @@
 
     {% include 'components/chart/chartData_V1.html' %}
 
+    {% include 'components/dailyChart/dailyChart.html' %}
+
     {% include 'components/dailyChart/monthlyCalendar.html' %}
 
 {% load static %}
@@ -38,7 +40,7 @@
         .then(response => response.json())  // or .json()
         .then(data =>  {
             
-            console.log(data['transit'])
+            Arketipet(data['arketipet'])
             renderPlanets(data['transit'])
             dynamicChart(data['asc']);
             dynamicAscMcIcDsc(data['fourAngles']);
@@ -46,6 +48,7 @@
             addStarsSymbol(data['stars']);
             addUserData(data['userData'], document.getElementById('UserData'), document.getElementById('Talisman'));
 
+            console.log(data['arketipet'])
 
         })
         .catch(error => console.log("Error:", error));

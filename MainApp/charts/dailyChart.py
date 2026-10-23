@@ -89,7 +89,7 @@ class DailyChart():
              #   continue
             planet['num']['value'] = ''
             planet['num']['sup'] = ''
-            planet['color'] = "#c9c5c580"
+            planet['color'] = "#c9c5c5a6"
             planets.append(planet)
         
         return planets
@@ -152,8 +152,6 @@ class DailyChart():
         return stars
 
 
-
-
     def _getPlanetSymbolPosition(self, objects:list, minDistance:int):
 
             objects = sorted(objects, key=lambda item: item['symbolPosition'])
@@ -184,3 +182,43 @@ class DailyChart():
         num = int(str(num)[::-1])
 
         return num
+    
+    def getStarsForPlanet(self):
+        stars =  self.todayChart.stars
+        planets =  self.todayChart.planets
+
+        starsForPlanet = []
+        addedPlanets = set()
+        starsForPlanetIndex = -1
+
+        for planet in planets:
+            planetIndex = int(planet.get('position') // 2.5)
+            planetName = planet.get('name')
+            planetColor = planet.get('color')
+            planetHouseNum = int(planet.get('house').get('num'))
+            planetHouseSymbol = planet.get('house').get('symbol')
+            planetPosition = MotherChart.degMin(planet.get('position'))
+            planetMovement = planet.get('movement')
+
+
+            planetData = {'planetName':planetName, 
+                            'planetColor':planetColor, 
+                            'planetPosition':planetPosition, 
+                            'planetHouseNum':planetHouseNum, 
+                            'planetHouseSymbol':planetHouseSymbol,
+                            'planetMovement' : planetMovement,
+                            'num':planet['num'],
+                            'stars':[]}
+            
+            starsForPlanet.append(planetData)
+            starsForPlanetIndex += 1
+
+            for star in stars:
+                starIndex = int(star.get('position') // 2.5)
+                starName = star.get('name')
+                starColor = star.get('color')
+
+                if planetIndex == starIndex:
+                    starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})    
+        
+        return starsForPlanet

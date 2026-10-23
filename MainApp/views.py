@@ -95,9 +95,24 @@ def DailyChartPage(request):
                                'title':i['translations'][request.LANGUAGE_CODE]['title'], 
                                'description':i['translations'][request.LANGUAGE_CODE]['description'], 
                                'warning':i['translations'][request.LANGUAGE_CODE]['warning']})
+                    
 
+        with open(MotherChart.ephePath + "\\astro_archetypes_multilingual.json","r",encoding="utf-8") as file:
+            arketipDescription = json.load(file)
 
-        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData, 'transit':rr})
+        ss = dailyChart.getStarsForPlanet()
+        for p in ss:
+            
+            if p['num']['sup'] == '':
+                p['description'] = arketipDescription['B'].get(str(p['num']['value']))[request.LANGUAGE_CODE]
+                p['title'] = p['num']['arketip']
+            else:
+                p['description'] = arketipDescription['A'].get(str(p['num']['value']))[request.LANGUAGE_CODE]
+                p['title'] = p['num']['arketip']
+                
+                
+
+        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData, 'transit':rr, 'arketipet':ss})
     return render(request, 'pages/dailyChart.html')
 
 
