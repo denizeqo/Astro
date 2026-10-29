@@ -10506,3 +10506,87 @@ msgstr "Longitudine"
 
 msgid "Calculate Chart"
 msgstr "Calcola il Grafico"
+
+msgid "Zodiac stars and planets in real time"
+msgstr "Stelle e pianeti dello Zodiaco in tempo reale"
+
+msgid "Aspects in real time"
+msgstr "Aspetti in tempo reale"
+
+msgid "Monthly transits"
+msgstr "Transiti mensili"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Time"
+msgstr "Ora"
+
+msgid "{planet} is at House {house} ({sign}) {movement}"
+msgstr "{planet} si trova nella Casa {house} ({sign}) {movement}"
+
+msgid "It is at {position} aligned with stars {stars}"
+msgstr "Si trova a {position} allineato con le stelle {stars}"
+
+msgid "It is at {position}"
+msgstr "Si trova a {position}"
+
+msgid "Sun"
+msgstr "Sole"
+
+msgid "Mercury"
+msgstr "Mercurio"
+
+msgid "Venus"
+msgstr "Venere"
+
+msgid "Mars"
+msgstr "Marte"
+
+msgid "Jupiter"
+msgstr "Giove"
+
+msgid "Saturn"
+msgstr "Saturno"
+
+msgid "Uranus"
+msgstr "Urano"
+
+msgid "Neptune"
+msgstr "Nettuno"
+
+msgid "Pluto"
+msgstr "Plutone"
+
+msgid "Direct"
+msgstr "Diretto"
+
+msgid "Retrograde"
+msgstr "Retrogrado"
+
+msgid "Gemini"
+msgstr "Gemelli"
+
+msgid "Cancer"
+msgstr "Cancro"
+
+msgid "Leo"
+msgstr "Leone"
+
+msgid "Virgo"
+msgstr "Vergine"
+
+msgid "Libra"
+msgstr "Bilancia"
+
+msgid "Scorpio"
+msgstr "Scorpione"
+
+msgid "Sagittarius"
+msgstr "Sagittario"
+
+msgid "Capricorn"
+msgstr "Capricorno"
+
+msgid "Transit {planet} in House {house} ({sign})"
+msgstr "Transito di {planet} nella Casa {house} ({sign})"

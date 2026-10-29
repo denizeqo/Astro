@@ -9283,3 +9283,87 @@ msgstr "Longitude"
 
 msgid "Calculate Chart"
 msgstr "Calculer le Thème Astral"
+
+msgid "Zodiac stars and planets in real time"
+msgstr "Étoiles et planètes du Zodiaque en temps réel"
+
+msgid "Aspects in real time"
+msgstr "Aspects en temps réel"
+
+msgid "Monthly transits"
+msgstr "Transits mensuels"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Time"
+msgstr "Heure"
+
+msgid "{planet} is at House {house} ({sign}) {movement}"
+msgstr "{planet} se trouve dans la Maison {house} ({sign}) {movement}"
+
+msgid "It is at {position} aligned with stars {stars}"
+msgstr "Il se trouve à {position} aligné avec les étoiles {stars}"
+
+msgid "It is at {position}"
+msgstr "Il se trouve à {position}"
+
+msgid "Sun"
+msgstr "Soleil"
+
+msgid "Mercury"
+msgstr "Mercure"
+
+msgid "Venus"
+msgstr "Vénus"
+
+msgid "Mars"
+msgstr "Mars"
+
+msgid "Jupiter"
+msgstr "Jupiter"
+
+msgid "Saturn"
+msgstr "Saturne"
+
+msgid "Uranus"
+msgstr "Uranus"
+
+msgid "Neptune"
+msgstr "Neptune"
+
+msgid "Pluto"
+msgstr "Pluton"
+
+msgid "Direct"
+msgstr "Direct"
+
+msgid "Retrograde"
+msgstr "Rétrograde"
+
+msgid "Gemini"
+msgstr "Gémeaux"
+
+msgid "Cancer"
+msgstr "Cancer"
+
+msgid "Leo"
+msgstr "Lion"
+
+msgid "Virgo"
+msgstr "Vierge"
+
+msgid "Libra"
+msgstr "Balance"
+
+msgid "Scorpio"
+msgstr "Scorpion"
+
+msgid "Sagittarius"
+msgstr "Sagittaire"
+
+msgid "Capricorn"
+msgstr "Capricorne"
+
+msgid "Transit {planet} in House {house} ({sign})"
+msgstr "Transit de {planet} en Maison {house} ({sign})"

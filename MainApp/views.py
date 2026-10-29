@@ -92,7 +92,8 @@ def DailyChartPage(request):
                                'planetColor':p['color'], 
                                'planetPosition':p['position'], 
                                'planetHouse':p['house'], 
-                               'title':i['translations'][request.LANGUAGE_CODE]['title'], 
+                               #'title':i['translations'][request.LANGUAGE_CODE]['title'],
+                               'title':dailyChart.getTransitTitle(p)['titleHtml'],
                                'description':i['translations'][request.LANGUAGE_CODE]['description'], 
                                'warning':i['translations'][request.LANGUAGE_CODE]['warning']})
                     
@@ -105,14 +106,29 @@ def DailyChartPage(request):
             
             if p['num']['sup'] == '':
                 p['description'] = arketipDescription['B'].get(str(p['num']['value']))[request.LANGUAGE_CODE]
-                p['title'] = p['num']['arketip']
+                p['subtitle'] = p['num']['arketip']
+                p['title'] = dailyChart.getPlanetTitle(p)['titleHtml']
             else:
                 p['description'] = arketipDescription['A'].get(str(p['num']['value']))[request.LANGUAGE_CODE]
-                p['title'] = p['num']['arketip']
+                p['subtitle'] = p['num']['arketip']
+                p['title'] = dailyChart.getPlanetTitle(p)['titleHtml']
                 
-                
+        
+        with open(MotherChart.ephePath + "\\aspects.json","r",encoding="utf-8") as file:
+            aspectsDescription = json.load(file)
 
-        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData, 'transit':rr, 'arketipet':ss})
+        aspectList = []
+        for aspect in dailyChart.todayChart.aspects:
+
+            des = aspectsDescription.get(aspect['active'],{}).get(aspect['passive'],{}).get(aspect['deg'],{}).get(request.LANGUAGE_CODE,None)
+
+            if des:
+                title = f"<span style=\"color: {aspect['activeColor']}; font-family: 'Poppins', sans-serif; text-align: center;\">{aspect['active']}</span> {aspect['type']} <span style=\"color: {aspect['passiveColor']}; font-family: 'Poppins', sans-serif; text-align: center;\">{aspect['passive']}</span> — {aspect['orb']}° {aspect['movement']}"
+                aspectList.append({'description':des, 'title':title})
+
+
+
+        return JsonResponse({'asc':todayChartFourAngles[0]['position'], 'fourAngles': todayChartFourAngles, 'planets':planets, 'stars':stars, 'userData':birthChartUserData, 'transit':rr, 'arketipet':ss, 'aspects':aspectList})
     return render(request, 'pages/dailyChart.html')
 
 

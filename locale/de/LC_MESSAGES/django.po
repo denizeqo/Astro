@@ -9282,3 +9282,87 @@ msgstr "Längengrad"
 
 msgid "Calculate Chart"
 msgstr "Horoskop berechnen"
+
+msgid "Zodiac stars and planets in real time"
+msgstr "Sterne und Planeten des Tierkreises in Echtzeit"
+
+msgid "Aspects in real time"
+msgstr "Aspekte in Echtzeit"
+
+msgid "Monthly transits"
+msgstr "Monatliche Transite"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Time"
+msgstr "Uhrzeit"
+
+msgid "{planet} is at House {house} ({sign}) {movement}"
+msgstr "{planet} befindet sich im Haus {house} ({sign}) {movement}"
+
+msgid "It is at {position} aligned with stars {stars}"
+msgstr "Es befindet sich bei {position} in Ausrichtung mit den Sternen {stars}"
+
+msgid "It is at {position}"
+msgstr "Es befindet sich bei {position}"
+
+msgid "Sun"
+msgstr "Sonne"
+
+msgid "Mercury"
+msgstr "Merkur"
+
+msgid "Venus"
+msgstr "Venus"
+
+msgid "Mars"
+msgstr "Mars"
+
+msgid "Jupiter"
+msgstr "Jupiter"
+
+msgid "Saturn"
+msgstr "Saturn"
+
+msgid "Uranus"
+msgstr "Uranus"
+
+msgid "Neptune"
+msgstr "Neptun"
+
+msgid "Pluto"
+msgstr "Pluto"
+
+msgid "Direct"
+msgstr "Direkt"
+
+msgid "Retrograde"
+msgstr "Rückläufig"
+
+msgid "Gemini"
+msgstr "Zwillinge"
+
+msgid "Cancer"
+msgstr "Krebs"
+
+msgid "Leo"
+msgstr "Löwe"
+
+msgid "Virgo"
+msgstr "Jungfrau"
+
+msgid "Libra"
+msgstr "Waage"
+
+msgid "Scorpio"
+msgstr "Skorpion"
+
+msgid "Sagittarius"
+msgstr "Schütze"
+
+msgid "Capricorn"
+msgstr "Steinbock"
+
+msgid "Transit {planet} in House {house} ({sign})"
+msgstr "Transit von {planet} im Haus {house} ({sign})"

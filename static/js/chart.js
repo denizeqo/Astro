@@ -356,20 +356,8 @@ function renderPlanets(planets) {
 
         const subtitle = document.createElement("p");
         subtitle.className = "no-select";
-        subtitle.style.cssText = "font-family: 'Poppins', sans-serif; text-align: center;";
-
-        const planetName = document.createElement("span");
-        planetName.style.color = planet.planetColor;
-        planetName.style.fontFamily = 'Poppins';
-        planetName.textContent = planet.planet;
-
-        subtitle.append(
-            document.createTextNode(`Transit `),
-            planetName,
-            document.createTextNode(
-                ` in House ${planet.planetHouse.num} (${planet.planetHouse.symbol})`
-            )
-        );
+        subtitle.style.cssText = "font-family: 'Poppins', sans-serif; text-align: left;";
+        subtitle.innerHTML = planet.title;
 
         const description = document.createElement("p");
         description.className = "no-select";
@@ -455,25 +443,69 @@ function Arketipet(planets) {
         }
         
 
-        
+        const title = document.createElement("p");
+        title.className = "no-select";
+        title.style.cssText = "font-family: 'Poppins', sans-serif; text-align: center;";
+        title.innerHTML = planet.title
 
 
         const subtitle2 = document.createElement("p");
         subtitle2.className = "no-select";
         subtitle2.style.cssText = "font-family: 'Poppins', sans-serif; text-align: center;";
         subtitle2.style.color = planet.num.color
-        subtitle2.textContent = planet.title
+        subtitle2.textContent = planet.subtitle
 
         const description = document.createElement("p");
         description.className = "no-select";
         description.style.cssText = "font-family: 'Poppins', sans-serif; text-align: left;";
         description.textContent = planet.description;
 
-        widget.append(subtitle, subtitle2, description);
+        widget.append(title, subtitle2, description);
         container.appendChild(widget);
     });
 
     document.getElementById("DailyCalendar").classList.remove('hiddenWidget');
+}
+
+
+
+function Aspects(planets) {
+    const container = document.getElementById("aspectsDes");
+
+    if (!container) return;
+
+    container.replaceChildren();
+
+    planets.forEach(planet => {
+        const widget = document.createElement("div");
+        widget.className = "glassBg widget";
+
+        Object.assign(widget.style, {
+            fontSize: "1.1rem",
+            color: "#ede1ff",
+            paddingBottom: "0",
+            paddingLeft: "20px",
+            paddingRight: "20px",
+            position: "relative",
+            paddingTop: "30px"
+        });
+
+        const subtitle = document.createElement("p");
+        subtitle.className = "no-select";
+        subtitle.style.cssText = "font-family: 'Poppins', sans-serif; text-align: center;";
+        subtitle.innerHTML = planet.title
+
+
+        const description = document.createElement("p");
+        description.className = "no-select";
+        description.style.cssText = "font-family: 'Poppins', sans-serif; text-align: left;";
+        description.textContent = planet.description;
+
+        widget.append(subtitle, description);
+        container.appendChild(widget);
+    });
+
+    document.getElementById("Aspects").classList.remove('hiddenWidget');
 }
 
 

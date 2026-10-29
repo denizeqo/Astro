@@ -6,7 +6,8 @@ from django.utils import timezone
 from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
-
+from django.utils.translation import gettext as _
+from django.utils.html import format_html, format_html_join
 
 class DailyChart():
 
@@ -89,7 +90,7 @@ class DailyChart():
              #   continue
             planet['num']['value'] = ''
             planet['num']['sup'] = ''
-            planet['color'] = "#c9c5c5a6"
+            planet['color'] = "#dddcdcff"
             planets.append(planet)
         
         return planets
@@ -222,3 +223,156 @@ class DailyChart():
                     starsForPlanet[starsForPlanetIndex]['stars'].append({'starName':starName, 'starColor':starColor})    
         
         return starsForPlanet
+
+
+
+    @staticmethod
+    def getPlanetTitle(planet: dict) -> dict:
+        planetName = _(planet["planetName"])
+        planetColor = planet["planetColor"]
+        houseNum = planet["planetHouseNum"]
+        houseSymbol = _(planet["planetHouseSymbol"])
+        movement = _(planet["planetMovement"])
+        position = planet["planetPosition"]
+
+        stars = planet.get("stars", [])
+
+        # ----------------------------
+        # Plain star names
+        # ----------------------------
+
+        starNames = [
+            star["starName"]
+            for star in stars
+        ]
+
+        starsText = ", ".join(starNames)
+
+        # ----------------------------
+        # Colored star names for HTML
+        # ----------------------------
+
+        starsHtml = format_html_join(
+            ", ",
+            '<span style="color:{}; font-family: \'Poppins\', sans-serif; text-align: center;">{}</span>',
+            (
+                (
+                    star["starColor"],
+                    star["starName"]
+                )
+                for star in stars
+            )
+        )
+
+        # ----------------------------
+        # First row
+        # ----------------------------
+
+        firstLine = _(
+            "%(planet)s is at House %(house)s (%(sign)s) %(movement)s"
+        ) % {
+            "planet": planetName,
+            "house": houseNum,
+            "sign": houseSymbol,
+            "movement": movement,
+        }
+
+        firstLineHtml = format_html(
+            _(
+                "{planet} is at House {house} ({sign}) {movement}"
+            ),
+            planet=format_html(
+                '<span style="color:{}; font-family: \'Poppins\', sans-serif; text-align: center;">{}</span>',
+                planetColor,
+                planetName
+            ),
+            house=houseNum,
+            sign=houseSymbol,
+            movement=movement,
+        )
+
+        # ----------------------------
+        # Second row
+        # ----------------------------
+
+        if stars:
+
+            secondLine = _(
+                "It is at %(position)s aligned with stars %(stars)s"
+            ) % {
+                "position": position,
+                "stars": starsText,
+            }
+
+            secondLineHtml = format_html(
+                _(
+                    "It is at {position} aligned with stars {stars}"
+                ),
+                position=position,
+                stars=starsHtml,
+            )
+
+        else:
+
+            secondLine = _(
+                "It is at %(position)s"
+            ) % {
+                "position": position,
+            }
+
+            secondLineHtml = format_html(
+                _("It is at {position}"),
+                position=position,
+            )
+
+        # ----------------------------
+        # Final result
+        # ----------------------------
+
+        return {
+            "title": firstLine + "\n" + secondLine,
+            "titleHtml": str(
+                format_html(
+                    "{}<br>{}",
+                    firstLineHtml,
+                    secondLineHtml
+                )
+            )
+        }
+    
+    @staticmethod
+    def getTransitTitle(planet: dict) -> dict:
+
+        planetName = _(planet["name"])
+        planetColor = planet["color"]
+
+        houseNum = planet["house"]["num"]
+        houseSymbol = _(planet["house"]["symbol"])
+
+        titleTemplate = _(
+            "Transit {planet} in House {house} ({sign})"
+        )
+
+        # Plain text
+        title = titleTemplate.format(
+            planet=planetName,
+            house=houseNum,
+            sign=houseSymbol
+        )
+
+        # HTML version with colored planet name
+        titleHtml = format_html(
+            titleTemplate,
+            planet=format_html(
+                '<span style="color:{}; font-family: \'Poppins\', sans-serif; text-align: left;">{}</span>',
+                planetColor,
+                planetName
+            ),
+            house=houseNum,
+            sign=houseSymbol
+        )
+
+        return {
+            "title": title,
+            "titleHtml": str(titleHtml)
+        }

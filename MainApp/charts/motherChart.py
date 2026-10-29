@@ -90,12 +90,12 @@ class MotherChart:
         self.pos = GeoPos(self.lat, self.lng)
 
         self.objects = [
+            const.SUN,
+            const.MOON,
             const.MERCURY,
             const.VENUS,
-            const.SUN,
             const.MARS,
             const.JUPITER,
-            const.MOON,
             const.SATURN,
             const.URANUS,
             const.NEPTUNE,
@@ -106,9 +106,10 @@ class MotherChart:
         ]
 
         self.fourAnglesNames = [const.ASC, const.MC, const.IC, const.DESC]
-        self.aspectsList = [0, 60, 90, 120, 150, 180] 
+        self.aspectsList = [0, 30, 60, 90, 120, 150, 180] 
         self.aspectsTypeMap = {
             0: 'Alignment',
+            30:'Semi-Sextile',
             60: 'Sextile',
             90: 'Square',
             120: 'Trine',
@@ -293,6 +294,7 @@ class MotherChart:
                                     'passiveColor': self.objectsColorMap[asp.passive.id],
                                     'orb': self.degMin(asp.orb),
                                     'type':self.aspectsTypeMap[asp.type] + ' ' + str(asp.type) + '°',
+                                    'deg':str(asp.type),
                                     'movement':asp.active.movement})
         return aspects
 
