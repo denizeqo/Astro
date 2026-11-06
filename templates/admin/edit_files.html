@@ -1,0 +1,50 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<h1>{% if is_edit %}Editing: {{ filename }}{% else %}Edit Text Files{% endif %}</h1>
+
+{% if messages %}
+<ul class="messagelist">
+{% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if not is_edit %}
+  <p>
+    Choose a file to edit. Changes are saved immediately and a
+    <code>.bak</code> backup is created automatically before each save.
+    Binary Swiss Ephemeris files (<code>.se1</code>) are not listed — they
+    cannot be edited safely.
+  </p>
+  <table>
+    <thead>
+      <tr><th>File</th><th>Size</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+    {% for f in files %}
+      <tr>
+        <td>{{ f.name }}</td>
+        <td>{{ f.size }} bytes</td>
+        <td><a href="{% url 'admin:ephe_edit_file' f.name %}">Edit</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <form method="post" action="{% url 'admin:ephe_edit_file' filename %}">
+    {% csrf_token %}
+    <p><strong>{{ filename }}</strong></p>
+    <textarea
+      name="content"
+      rows="30"
+      style="width: 100%; font-family: monospace; font-size: 13px;"
+      >{{ content }}</textarea>
+    <br><br>
+    <button type="submit">Save changes</button>
+    &nbsp;
+    <a href="{% url 'admin:ephe_edit_list' %}">Back to file list</a>
+  </form>
+{% endif %}
+{% endblock %}
