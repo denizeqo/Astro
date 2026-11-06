@@ -1,0 +1,10 @@
+Django==5.2.8
+flatlib==0.2.3
+# NOTE: flatlib pins pyswisseph 2.8.0 which is broken on Python >= 3.11.
+# After installing this file, run:
+#   pip install --force-reinstall --no-deps "pyswisseph>=2.10.3"
+pyswisseph==2.8.0.post1
+timezonefinder>=6.5
+pytz>=2024.1
+python-docx>=1.1
+docxtpl>=0.20

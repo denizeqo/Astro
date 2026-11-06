@@ -3,6 +3,8 @@ from datetime import datetime
 import pytz
 import json
 
+from django.conf import settings
+from pathlib import Path
 from flatlib.chart import Chart
 from flatlib.datetime import Datetime
 from flatlib.geopos import GeoPos
@@ -53,7 +55,7 @@ class Num:
 
     @property
     def arketip(self):
-        with open(MotherChart.ephePath + "\\arketipet.json", "r", encoding="utf-8") as f:
+        with open(Path(MotherChart.ephePath) / "arketipet.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
             if self.numSup == '':
@@ -72,7 +74,7 @@ class Num:
 class MotherChart:
 
     tf = TimezoneFinder()
-    ephePath = "sweph/ephe"
+    ephePath = str(Path(settings.BASE_DIR) / "sweph" / "ephe")
     
 
     def __init__(self, lat:float, lng:float, dateOfBirth:str, timeOfBirth:str, firstName:str, lastName:str, city:str, country:str):
@@ -250,7 +252,7 @@ class MotherChart:
         starOrbite = 0
         stars = []
 
-        with open(MotherChart.ephePath + "/stars2.json", "r", encoding="utf-8") as f:
+        with open(Path(MotherChart.ephePath) / "stars2.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
         for index in range(len(data)):

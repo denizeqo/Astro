@@ -5,6 +5,7 @@ from django.views.decorators.http import require_POST
 from django.contrib.admin.views.decorators import staff_member_required
 
 import json
+from pathlib import Path
 
 from docx import Document
 from docx.shared import Cm
@@ -46,6 +47,7 @@ def Home(request):
     planets = dailyChart.planets
     fourAngles = dailyChart.fourAngles
     stars = dailyChart.stars
+    aspects = dailyChart.aspects
     chartData = dailyChart.userData
 
     return render(request, 'pages/home.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects})
@@ -74,7 +76,7 @@ def DailyChartPage(request):
         stars = dailyChart.combineStars
         todayPlanets = dailyChart.todayChartPlanets
 
-        with open(MotherChart.ephePath + "\\astro_planet_translations_complete.json","r",encoding="utf-8") as file:
+        with open(Path(MotherChart.ephePath) / "astro_planet_translations_complete.json","r",encoding="utf-8") as file:
             planetsTransit = json.load(file)
 
         rr = []
@@ -98,7 +100,7 @@ def DailyChartPage(request):
                                'warning':i['translations'][request.LANGUAGE_CODE]['warning']})
                     
 
-        with open(MotherChart.ephePath + "\\astro_archetypes_multilingual.json","r",encoding="utf-8") as file:
+        with open(Path(MotherChart.ephePath) / "astro_archetypes_multilingual.json","r",encoding="utf-8") as file:
             arketipDescription = json.load(file)
 
         ss = dailyChart.getStarsForPlanet()
@@ -114,7 +116,7 @@ def DailyChartPage(request):
                 p['title'] = dailyChart.getPlanetTitle(p)['titleHtml']
                 
         
-        with open(MotherChart.ephePath + "\\aspects.json","r",encoding="utf-8") as file:
+        with open(Path(MotherChart.ephePath) / "aspects.json","r",encoding="utf-8") as file:
             aspectsDescription = json.load(file)
 
         aspectList = []
@@ -400,18 +402,17 @@ def EverythingAbout(request):
     latitude = 45.4643
     longitude = 9.1895
 
-    dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country)
+    dailyChart = DailyChart(latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country, dateOfBirth, timeOfBirth)
 
-    planets = dailyChart.planets
-    fourAngles = dailyChart.fourAngles
-    stars = dailyChart.stars
-    aspects = dailyChart.aspects
-    chartData = dailyChart.userData
+    planets = dailyChart.birthChartPlanets
+    fourAngles = dailyChart.birthChartFourAngles
+    stars = dailyChart.birthChartStars
+    aspects = dailyChart.birthChart.aspects
+    chartData = dailyChart.birthChartUserData
     starsForPlanet = dailyChart.getStarsForPlanet()
-    monthlyCalendar = dailyChart.getMonthlyCalendar()
 
 
-    return render(request, 'pages/everythingAboutAstro.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet, 'monthlyCalendar':monthlyCalendar})
+    return render(request, 'pages/everythingAboutAstro.html', {'asc':fourAngles[0]['position'],'currentDate':dateOfBirth, 'chartData':chartData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'aspects':aspects, 'starsForPlanet':starsForPlanet})
 
 
 def prBirthChart(request):

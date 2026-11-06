@@ -3,6 +3,8 @@ from datetime import datetime
 import pytz
 import json
 
+from django.conf import settings
+from pathlib import Path
 from flatlib.chart import Chart
 from flatlib.datetime import Datetime
 from flatlib.geopos import GeoPos
@@ -63,7 +65,7 @@ def getStars(planets, fourAngles):
     starOrbite = 0
     stars = []
 
-    with open("C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe\\stars2.json", "r", encoding="utf-8") as f:
+    with open(Path(settings.BASE_DIR) / "sweph" / "ephe" / "stars2.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     for index in range(len(data)):
@@ -107,7 +109,7 @@ def createChart(latitude, longitude, dateOfBirth, timeOfBirth):
     lat, lon = getLonLat(latitude, longitude)
     dateOfBirth, timeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
 
-    swe.set_ephe_path(r"C:\\Users\\User\\OneDrive\\Desktop\\Dei\\Project\\Eureka\\Astro\\Astro\\sweph\\ephe")
+    swe.set_ephe_path(str(Path(settings.BASE_DIR) / "sweph" / "ephe"))
 
     date = Datetime(dateOfBirth, timeOfBirth, '+00:00')
     pos = GeoPos(lat, lon)

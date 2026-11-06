@@ -1,6 +1,7 @@
 from .motherChart import MotherChart
 from ..models import DailyCalendar, MonthlyCalendar
 import json
+from pathlib import Path
 from django.utils import timezone
 
 from datetime import date, datetime, timedelta
@@ -40,7 +41,7 @@ class DailyChart():
         
         planets = self.todayChart.planets
 
-        with open(MotherChart.ephePath + "\\planetNum.json","r") as file:
+        with open(Path(MotherChart.ephePath) / "planetNum.json","r") as file:
             planetsNum = json.load(file)
 
         
