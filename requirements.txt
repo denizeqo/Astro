@@ -1,5 +1,6 @@
 Django==5.2.8
-djongo==2.0.3
+django-mongodb-backend==5.2.4
+pymongo>=4.0,<5.0
 
 # NOTE: flatlib pins pyswisseph 2.8.0 which is broken on Python >= 3.11.
 # After installing this file, run:

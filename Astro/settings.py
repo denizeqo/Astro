@@ -79,11 +79,9 @@ WSGI_APPLICATION = 'Astro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django_mongodb_backend',
         'NAME': 'astro_db',
-        'CLIENT': {
-            'host': os.environ.get('MONGODB_URI'),
-        }
+        'HOST': os.environ.get('MONGODB_URI'),
     }
 }
 
