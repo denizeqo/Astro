@@ -86,7 +86,9 @@ DATABASES = {
 }
 
 
-# Password validation
+AUTHENTICATION_BACKENDS = [
+    'MainApp.auth_backends.MongoDBAuthBackend',
+]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
