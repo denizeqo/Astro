@@ -1,0 +1,213 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Testi degli Aspetti — Astro{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+<a href="{% url 'admin:texts_dashboard' %}">Testi del Sito</a> &rsaquo;
+Testi degli Aspetti
+</div>
+{% endblock %}
+
+{% block content %}
+<style>
+.aspects-page { max-width: 1100px; margin: 24px auto; }
+.aspects-page h1 { margin-bottom: 6px; color: #202124; }
+.aspects-page .sub { color: #5f6368; margin-bottom: 16px; font-size: 0.95rem; }
+.back-link { margin-bottom: 12px; color: #1a73e8; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.back-link:hover { text-decoration: underline; }
+.count { margin-bottom: 16px; font-size: 0.95rem; color: #5f6368; }
+.pick-row { background: #fff; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin-bottom: 16px; display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.pick-row label { font-size: 0.85rem; color: #5f6368; display: block; margin-bottom: 4px; font-weight: 500; min-width: 110px; }
+.pick-row select { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 6px; min-width: 170px; background: #fff; }
+.pick-row select:disabled { background: #f1f3f4; color: #9aa0a6; cursor: not-allowed; }
+.pick-row button.pick-btn { padding: 8px 18px; font-size: 0.95rem; background: #1a73e8; color: #fff; border: none; border-radius: 6px; cursor: pointer; min-width: 110px; }
+.pick-row button.pick-btn:hover { background: #1557b0; }
+.pick-row button.pick-btn:disabled { background: #9aa0a6; cursor: not-allowed; }
+.msg-info { background: #e8f0fe; color: #1a73e8; padding: 10px 14px; border-radius: 6px; font-size: 0.9rem; margin-bottom: 16px; border: 1px solid #bbdefb; }
+.search-row { margin-top: 10px; display: flex; gap: 8px; align-items: center; }
+.search-row input[type="text"] { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 6px; flex: 1; min-width: 220px; }
+button.pick-btn.search-btn { padding: 8px 16px; min-width: auto; }
+.table-wrap { background: #fff; border: 1px solid #dadce0; border-radius: 8px; overflow-x: auto; }
+table.aspects { width: 100%; border-collapse: collapse; }
+table.aspects th { text-align: left; padding: 12px 16px; background: #f8f9fa; border-bottom: 1px solid #dadce0; font-size: 0.9rem; color: #5f6368; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+table.aspects td { padding: 12px 16px; border-bottom: 1px solid #dadce0; font-size: 0.95rem; }
+table.aspects tr:last-child td { border-bottom: none; }
+table.aspects tr:hover { background: #f1f7ff; }
+.no-pick { padding: 24px; color: #5f6368; background: #f8f9fa; border-radius: 8px; }
+.results-title { margin-top: 24px; font-size: 0.9rem; color: #5f6368; text-transform: uppercase; letter-spacing: 0.5px; }
+.edit-link { color: #1a73e8; text-decoration: none; font-weight: 600; }
+.edit-link:hover { text-decoration: underline; }
+</style>
+
+<div class="aspects-page">
+<a class="back-link" href="{% url 'admin:texts_dashboard' %}">← Torna ai Testi del Sito</a>
+
+<h1>Testi degli Aspetti</h1>
+<p class="sub">Descrizioni per gli angoli tra pianeti. {{ total }} voci totali.</p>
+<div class="msg-info"><strong>Come funziona:</strong> scegli Pianeta 1, poi Pianeta 2, poi l’angolo — il link Modifica appare una volta scelti tutti e tre.</div>
+
+<div class="pick-row">
+<form id="aspects-pick-form" method="get" style="display: contents;">
+<label>Pianeta 1</label>
+<select name="p1" id="sel-p1">
+<option value="">Scegli pianeta 1…</option>
+{% for p in planets %}<option value="{{ p }}" {% if selected_p1 == p %}selected{% endif %}>{{ p }}</option>{% endfor %}
+</select>
+
+<label>Pianeta 2</label>
+<select name="p2" id="sel-p2" disabled>
+<option value="">Scegli prima pianeta 2…</option>
+{% for p2 in pairs %}<option value="{{ p2 }}" {% if selected_p2 == p2 %}selected{% endif %}>{{ p2 }}</option>{% endfor %}
+</select>
+
+<label>Angolo</label>
+<select name="deg" id="sel-deg" disabled>
+<option value="">Scegli angolo…</option>
+{% for a in angles %}<option value="{{ a.deg }}" {% if selected_deg == a.deg %}selected{% endif %}>{{ a.deg }}° — {{ a.angle_name }}</option>{% endfor %}
+</select>
+
+<button type="button" class="pick-btn" id="btn-edit-aspect" disabled>Modifica aspetto</button>
+</form>
+</div>
+
+<div class="search-row">
+<form method="get" style="display: contents;">
+<input type="text" name="q" value="{{ q }}" placeholder="Cerca in tutti i testi aspetti…">
+<button type="submit" class="pick-btn search-btn">Cerca</button>
+<a href="{% url 'admin:texts_aspects' %}" style="margin-left:6px;color:#1a73e8;text-decoration:none;">Reimposta</a>
+</form>
+</div>
+
+{% if matches %}
+<div class="results-title">Risultati ricerca (fino a 50)</div>
+<div class="table-wrap">
+<table class="aspects">
+<thead><tr><th>Pianeta 1</th><th>Pianeta 2</th><th>Angolo</th><th>Anteprima inglese</th><th></th></tr></thead>
+<tbody>
+{% for m in matches %}
+<tr>
+<td>{{ m.p1 }}</td>
+<td>{{ m.p2 }}</td>
+<td>{{ m.deg }}° — {{ m.angle_name }}</td>
+<td class="snippet">{{ m.snippet }}</td>
+<td><a href="{% url 'admin:texts_aspect_edit' p1=m.p1 p2=m.p2 deg=m.deg %}" class="edit-link">Modifica</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% elif q %}
+<div class="no-pick">Nessun testo aspetto corrisponde alla ricerca.</div>
+{% elif not selected_p1 %}
+<div class="no-pick">Inizia scegliendo Pianeta 1 qui sopra.</div>
+{% elif not selected_p2 %}
+<div class="no-pick">Pianeta 1 selezionato — ora scegli Pianeta 2.</div>
+{% elif not selected_deg %}
+<div class="no-pick">Pianeta 2 selezionato — ora scegli un angolo.</div>
+{% endif %}
+</div>
+
+<script id="aspects-data" type="application/json">{{ aspects_json|safe }}</script>
+<script id="angle-names-data" type="application/json">{{ angle_names_json|safe }}</script>
+<script>
+(function() {
+  const dataEl = document.getElementById('aspects-data');
+  if (!dataEl) return;
+  const data = JSON.parse(dataEl.textContent);
+  const angleNames = JSON.parse(document.getElementById('angle-names-data').textContent);
+
+  const selP1 = document.getElementById('sel-p1');
+  const selP2 = document.getElementById('sel-p2');
+  const selDeg = document.getElementById('sel-deg');
+  const btnEdit = document.getElementById('btn-edit-aspect');
+
+  function fillSelect(select, options, placeholder, selectedValue) {
+    select.innerHTML = `<option value="">${placeholder}</option>`;
+    for (const opt of options) {
+      const o = document.createElement('option');
+      o.value = opt;
+      o.textContent = opt;
+      if (opt === selectedValue) o.selected = true;
+      select.appendChild(o);
+    }
+  }
+
+  function fillDegrees(options, selectedValue) {
+    selDeg.innerHTML = `<option value="">Scegli angolo…</option>`;
+    for (const deg of options) {
+      const o = document.createElement('option');
+      o.value = deg;
+      o.textContent = `${deg}° — ${angleNames[deg] || deg + '°'}`;
+      if (deg === selectedValue) o.selected = true;
+      selDeg.appendChild(o);
+    }
+  }
+
+  function updateEditButton() {
+    const p1 = selP1.value;
+    const p2 = selP2.value;
+    const deg = selDeg.value;
+    btnEdit.disabled = !(p1 && p2 && deg);
+    if (btnEdit.disabled) {
+      btnEdit.textContent = 'Modifica aspetto';
+    } else {
+      btnEdit.textContent = 'Modifica aspetto →';
+      btnEdit.onclick = () => {
+        window.location.href = `{% url 'admin:texts_aspect_edit' p1='__P1__' p2='__P2__' deg='__DEG__' %}`
+          .replace('__P1__', encodeURIComponent(p1))
+          .replace('__P2__', encodeURIComponent(p2))
+          .replace('__DEG__', encodeURIComponent(deg));
+      };
+    }
+  }
+
+  selP1.addEventListener('change', function() {
+    const p1 = this.value;
+    selP2.disabled = !p1;
+    selDeg.disabled = true;
+    selP2.innerHTML = '<option value="">Scegli prima pianeta 2…</option>';
+    selDeg.innerHTML = '<option value="">Scegli angolo…</option>';
+    btnEdit.disabled = true;
+    btnEdit.textContent = 'Modifica aspetto';
+
+    if (p1 && data[p1]) {
+      const p2s = Object.keys(data[p1]).sort((a, b) => a - b);
+      fillSelect(selP2, p2s, 'Scegli prima pianeta 2…', '');
+    }
+    updateEditButton();
+  });
+
+  selP2.addEventListener('change', function() {
+    const p1 = selP1.value;
+    const p2 = this.value;
+    selDeg.disabled = !p2;
+    selDeg.innerHTML = '<option value="">Scegli angolo…</option>';
+    btnEdit.disabled = true;
+    btnEdit.textContent = 'Modifica aspetto';
+
+    if (p1 && p2 && data[p1][p2]) {
+      const degs = Object.keys(data[p1][p2]).sort((a, b) => parseInt(a) - parseInt(b));
+      fillDegrees(degs, '');
+    }
+    updateEditButton();
+  });
+
+  selDeg.addEventListener('change', updateEditButton);
+
+  {% if selected_p1 %}
+  selP1.value = '{{ selected_p1 }}';
+  selP1.dispatchEvent(new Event('change'));
+  {% endif %}
+  {% if selected_p2 %}
+  selP2.value = '{{ selected_p2 }}';
+  selP2.dispatchEvent(new Event('change'));
+  {% endif %}
+  {% if selected_deg %}
+  selDeg.value = '{{ selected_deg }}';
+  selDeg.dispatchEvent(new Event('change'));
+  {% endif %}
+})();
+</script>
+{% endblock %}

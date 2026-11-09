@@ -90,14 +90,15 @@ def DailyChartPage(request):
             for i in planetsTransit['planet_houses']:
 
                 if i['planet'] == pName.lower() and i['house'] == pHouseNum:
-                    rr.append({'planet':p['name'], 
-                               'planetColor':p['color'], 
-                               'planetPosition':p['position'], 
-                               'planetHouse':p['house'], 
+                    translation = i['translations'].get(request.LANGUAGE_CODE) or i['translations'].get('en', {})
+                    rr.append({'planet':p['name'],
+                               'planetColor':p['color'],
+                               'planetPosition':p['position'],
+                               'planetHouse':p['house'],
                                #'title':i['translations'][request.LANGUAGE_CODE]['title'],
                                'title':dailyChart.getTransitTitle(p)['titleHtml'],
-                               'description':i['translations'][request.LANGUAGE_CODE]['description'], 
-                               'warning':i['translations'][request.LANGUAGE_CODE]['warning']})
+                               'description':translation.get('description', ''),
+                               'warning':translation.get('warning', '')})
                     
 
         with open(Path(MotherChart.ephePath) / "astro_archetypes_multilingual.json","r",encoding="utf-8") as file:
@@ -107,11 +108,13 @@ def DailyChartPage(request):
         for p in ss:
             
             if p['num']['sup'] == '':
-                p['description'] = arketipDescription['B'].get(str(p['num']['value']))[request.LANGUAGE_CODE]
+                entryB = arketipDescription['B'].get(str(p['num']['value'])) or {}
+                p['description'] = entryB.get(request.LANGUAGE_CODE) or entryB.get('en', '')
                 p['subtitle'] = p['num']['arketip']
                 p['title'] = dailyChart.getPlanetTitle(p)['titleHtml']
             else:
-                p['description'] = arketipDescription['A'].get(str(p['num']['value']))[request.LANGUAGE_CODE]
+                entryA = arketipDescription['A'].get(str(p['num']['value'])) or {}
+                p['description'] = entryA.get(request.LANGUAGE_CODE) or entryA.get('en', '')
                 p['subtitle'] = p['num']['arketip']
                 p['title'] = dailyChart.getPlanetTitle(p)['titleHtml']
                 

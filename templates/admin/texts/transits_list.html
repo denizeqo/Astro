@@ -1,0 +1,81 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Testi Transiti — Astro{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+<a href="{% url 'admin:texts_dashboard' %}">Testi del Sito</a> &rsaquo;
+Testi Pianeta &amp; Casa
+</div>
+{% endblock %}
+
+{% block content %}
+<style>
+.transits-page { max-width: 1100px; margin: 24px auto; }
+.filter-row { background: #fff; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin-bottom: 16px; display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.filter-row label { font-size: 0.85rem; color: #5f6368; display: block; margin-bottom: 4px; font-weight: 500; }
+.filter-row select, .filter-row input[type="text"] { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 6px; min-width: 140px; }
+.filter-row button { padding: 8px 16px; font-size: 0.95rem; background: #1a73e8; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+.filter-row button:hover { background: #1557b0; }
+.filter-row a.reset { margin-left: auto; color: #1a73e8; text-decoration: none; font-size: 0.9rem; }
+.count { margin-bottom: 16px; font-size: 0.95rem; color: #5f6368; }
+table.transits { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #dadce0; border-radius: 8px; }
+table.transits th { text-align: left; padding: 12px 16px; background: #f8f9fa; border-bottom: 1px solid #dadce0; font-size: 0.9rem; color: #5f6368; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+table.transits td { padding: 12px 16px; border-bottom: 1px solid #dadce0; font-size: 0.95rem; }
+table.transits tr:last-child td { border-bottom: none; }
+table.transits tr:hover { background: #f1f7ff; }
+.snippet { color: #5f6368; }
+.no-results { padding: 40px; text-align: center; color: #5f6368; background: #fff; border: 1px solid #dadce0; border-radius: 8px; }
+.back { margin-bottom: 12px; color: #1a73e8; text-decoration: none; font-weight: 500; }
+.back:hover { text-decoration: underline; }
+</style>
+
+<div class="transits-page">
+<a class="back" href="{% url 'admin:texts_dashboard' %}">← Torna ai Testi del Sito</a>
+
+<h1>Testi Pianeta &amp; Casa</h1>
+<p class="count">{{ total }} voci transito totali · visualizzate {{ rows|length }}</p>
+
+<div class="filter-row">
+<form method="get" style="display: contents;">
+<label>Cerca testo</label>
+<input type="text" name="q" value="{{ q }}" placeholder="scrivi una parola…">
+
+<label>Pianeta</label>
+<select name="planet">
+<option value="">Tutti i pianeti</option>
+{% for p in planets %}<option value="{{ p }}" {% if selected_planet == p %}selected{% endif %}>{{ p|title }}</option>{% endfor %}
+</select>
+
+<label>Casa</label>
+<select name="house">
+<option value="">Tutte le case</option>
+{% for h in houses %}<option value="{{ h }}" {% if selected_house|stringformat:"s" == h|stringformat:"s" %}selected{% endif %}>Casa {{ h }}</option>{% endfor %}
+</select>
+
+<button type="submit">Filtra</button>
+<a href="{% url 'admin:texts_transits' %}" class="reset">Reimposta</a>
+</form>
+</div>
+
+{% if rows %}
+<table class="transits">
+<thead><tr><th>Pianeta</th><th>Casa</th><th>Titolo (Inglese)</th><th>Anteprima descrizione</th><th></th></tr></thead>
+<tbody>
+{% for row in rows %}
+<tr>
+<td style="font-weight:600;">{{ row.planet|title }}</td>
+<td>Casa {{ row.house }}</td>
+<td>{{ row.title }}</td>
+<td class="snippet">{{ row.snippet }}</td>
+<td><a href="{% url 'admin:texts_transit_edit' planet=row.planet house=row.house %}" style="color:#1a73e8;text-decoration:none;font-weight:600;">Modifica</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<div class="no-results">Nessuna voce corrisponde ai filtri.</div>
+{% endif %}
+</div>
+{% endblock %}

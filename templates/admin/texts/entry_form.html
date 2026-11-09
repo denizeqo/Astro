@@ -1,0 +1,175 @@
+{% extends "admin/base_site.html" %}
+
+{% load texts_filters %}
+
+{% block title %}{{ heading }} — Astro{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+<a href="{% url 'admin:texts_dashboard' %}">Site Texts</a> &rsaquo;
+{{ heading }}
+</div>
+{% endblock %}
+
+{% block content %}
+<style>
+.edit-page { max-width: 1000px; margin: 24px auto; }
+.edit-page h1 { margin-bottom: 4px; color: #202124; }
+.edit-page .sub { color: #5f6368; margin-bottom: 20px; font-size: 0.95rem; }
+.back-link { margin-bottom: 16px; color: #1a73e8; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.back-link:hover { text-decoration: underline; }
+
+.card { background: #fff; border: 1px solid #dadce0; border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+.field-row { margin-bottom: 18px; }
+.field-row label { display: block; font-size: 0.9rem; color: #5f6368; margin-bottom: 6px; font-weight: 500; }
+textarea { width: 100%; min-height: 140px; padding: 10px 12px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 8px; font-family: inherit; resize: vertical; box-sizing: border-box; }
+textarea:focus { border-color: #1a73e8; outline: 2px solid rgba(26,115,232,0.2); }
+input[type="text"] { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 6px; width: 100%; max-width: 420px; box-sizing: border-box; }
+.save-btn { margin-top: 10px; padding: 10px 24px; font-size: 1rem; background: #1a73e8; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.save-btn:hover { background: #1557b0; }
+.save-btn:disabled { background: #9aa0a6; cursor: not-allowed; }
+
+.lang-tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid #dadce0; }
+.lang-tabs button { background: none; border: none; border-bottom: 3px solid transparent; padding: 10px 18px; font-size: 0.9rem; font-weight: 600; color: #5f6368; cursor: pointer; }
+.lang-tabs button.active { color: #1a73e8; border-bottom-color: #1a73e8; }
+.lang-tabs button:hover { color: #1557b0; }
+.lang-pane { display: none; }
+.lang-pane.active { display: block; }
+.lang-pane label.lang-name { font-size: 0.8rem; color: #1a73e8; font-weight: 700; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.translate-row { margin: 16px 0; padding: 14px; background: #e8f0fe; border-radius: 8px; border: 1px solid #bbdefb; }
+.translate-row label { font-size: 0.85rem; color: #5f6368; margin-bottom: 8px; display: block; }
+.translate-row select { padding: 8px 10px; font-size: 0.9rem; border: 1px solid #dadce0; border-radius: 6px; }
+.translate-row button { padding: 8px 16px; font-size: 0.9rem; background: #1a73e8; color: #fff; border: none; border-radius: 6px; cursor: pointer; margin-left: 8px; }
+.translate-row button:hover { background: #1557b0; }
+.translate-row button:disabled, .save-btn:disabled { background: #9aa0a6; cursor: not-allowed; }
+#translate-status { margin-top: 8px; font-size: 0.85rem; min-height: 1.2em; }
+
+.extra-row { margin-bottom: 14px; }
+.extra-row label { display: block; font-size: 0.9rem; color: #5f6368; margin-bottom: 6px; font-weight: 500; }
+.msg-success { color: #1e8e3e; font-weight: 600; margin-bottom: 12px; }
+.msg-error { color: #d93025; font-weight: 600; margin-bottom: 12px; }
+</style>
+
+<div class="edit-page">
+<a class="back-link" href="{{ back_url }}">← {{ back_label }}</a>
+
+<h1>{{ heading }}</h1>
+<p class="sub">{{ sub_heading }}</p>
+
+<div class="card">
+<form method="post">
+{% csrf_token %}
+
+{% if messages %}
+{% for m in messages %}
+<div class="{% if m.tags == 'success' %}msg-success{% else %}msg-error{% endif %}">{{ m }}</div>
+{% endfor %}
+{% endif %}
+
+{% for extra in extras %}
+<div class="extra-row">
+<label>{{ extra.label }}</label>
+{% if extra.textarea %}
+<textarea name="{{ extra.name }}">{{ extra.value }}</textarea>
+{% else %}
+<input type="text" name="{{ extra.name }}" value="{{ extra.value }}">
+{% endif %}
+</div>
+{% endfor %}
+
+<div class="lang-tabs">
+{% for lang in languages %}
+<button type="button" class="lang-tab{% if forloop.first %} active{% endif %}" data-lang="{{ lang.code }}" onclick="showLang('{{ lang.code }}')">{{ lang.name }}</button>
+{% endfor %}
+</div>
+
+{% for lang in languages %}
+<div class="lang-pane{% if forloop.first %} active{% endif %}" id="lang-{{ lang.code }}">
+<label class="lang-name">{{ lang.name }}</label>
+{% for field in fields %}
+<div class="field-row">
+<label>{{ field.label }}</label>
+{% if field.textarea %}
+<textarea name="{{ lang.code }}___{{ field.key }}" data-lang="{{ lang.code }}" data-field="{{ field.key }}">{{ lang.values|get_item:field.key }}</textarea>
+{% else %}
+<input type="text" name="{{ lang.code }}___{{ field.key }}" data-lang="{{ lang.code }}" data-field="{{ field.key }}" value="{{ lang.values|get_item:field.key }}">
+{% endif %}
+</div>
+{% endfor %}
+</div>
+{% endfor %}
+
+<div class="translate-row">
+<label>Auto-fill other languages from <strong id="src-lang-name">English</strong>
+<select id="translate-source" style="margin-left:6px;">
+{% for lang in languages %}
+<option value="{{ lang.code }}" {% if forloop.first %}selected{% endif %}>{{ lang.name }}</option>
+{% endfor %}
+</select></label>
+<button type="button" id="btn-translate" onclick="doTranslate()">🌐 Fill other languages</button>
+<div id="translate-status"></div>
+</div>
+
+<button type="submit" class="save-btn" id="btn-save">Save changes</button>
+</form>
+</div>
+
+<script>
+function showLang(code) {
+  document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.lang-pane').forEach(p => p.classList.remove('active'));
+  document.querySelector('[data-lang="'+code+'"]').classList.add('active');
+  document.getElementById('lang-'+code).classList.add('active');
+}
+
+async function doTranslate() {
+  const source = document.getElementById('translate-source').value;
+  const btn = document.getElementById('btn-translate');
+  const status = document.getElementById('translate-status');
+
+  const sourcePane = document.getElementById('lang-'+source);
+  const texts = {};
+  sourcePane.querySelectorAll('textarea, input[type="text"]').forEach(el => {
+    texts[el.dataset.field] = el.value;
+  });
+
+  btn.disabled = true;
+  btn.textContent = 'Translating…';
+  status.textContent = '';
+
+  try {
+    const res = await fetch('{% url 'admin:texts_translate' %}', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value},
+      body: JSON.stringify({source: source, texts: texts})
+    });
+    const data = await res.json();
+    if (!res.ok) { status.textContent = 'Error: ' + (data.error || 'translation failed'); status.style.color = '#d93025'; btn.disabled = false; btn.textContent = '🌐 Fill other languages'; return; }
+
+    document.querySelectorAll('.lang-tab').forEach(b => {
+      const code = b.dataset.lang;
+      if (code === source) return;
+      const t = data.translations[code];
+      if (!t) return;
+      const pane = document.getElementById('lang-'+code);
+      Object.entries(t).forEach(([field, value]) => {
+        const el = pane.querySelector('[data-field="'+field+'"]');
+        if (el) el.value = value;
+      });
+    });
+    status.textContent = 'Filled other languages — review them, then Save.';
+    status.style.color = '#1e8e3e';
+  } catch (e) {
+    status.textContent = 'Error: ' + e.message;
+    status.style.color = '#d93025';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🌐 Fill other languages';
+  }
+}
+</script>
+</div>
+{% endblock %}
+

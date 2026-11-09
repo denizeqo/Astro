@@ -19,16 +19,14 @@ from pathlib import Path
 
 EPHE_DIR = Path(settings.BASE_DIR) / "sweph" / "ephe"
 
-# Files the client may edit. Binary .se1 files are excluded.
+# Files editable as raw text ("Advanced" mode). Only text-content JSON files
+# are listed — fixed astronomical data (stars.json, stars2.json, planetNum.json,
+# sefstars.txt) and binary .se1 files must never be edited by hand.
 EDITABLE_FILES = [
     "arketipet.json",
-    "planetNum.json",
     "aspects.json",
     "astro_planet_translations_complete.json",
     "astro_archetypes_multilingual.json",
-    "stars.json",
-    "stars2.json",
-    "sefstars.txt",
 ]
 
 

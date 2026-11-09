@@ -8,3 +8,4 @@ timezonefinder>=6.5
 pytz>=2024.1
 python-docx>=1.1
 docxtpl>=0.20
+deep-translator==1.11.4

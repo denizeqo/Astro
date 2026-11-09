@@ -1,0 +1,79 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Numeri Archetipici — Astro{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+<a href="{% url 'admin:texts_dashboard' %}">Testi del Sito</a> &rsaquo;
+Numeri Archetipici
+</div>
+{% endblock %}
+
+{% block content %}
+<style>
+.archetypes-page { max-width: 1000px; margin: 24px auto; }
+.archetypes-page h1 { margin-bottom: 6px; color: #202124; }
+.archetypes-page .sub { color: #5f6368; margin-bottom: 16px; font-size: 0.95rem; }
+.back-link { margin-bottom: 12px; color: #1a73e8; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.back-link:hover { text-decoration: underline; }
+.count { margin-bottom: 16px; font-size: 0.95rem; color: #5f6368; }
+.filter-row { background: #fff; border: 1px solid #dadce0; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.filter-row label { font-size: 0.85rem; color: #5f6368; display: block; margin-bottom: 4px; font-weight: 500; }
+.filter-row select { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 6px; min-width: 150px; }
+.filter-row input[type="text"] { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #dadce0; border-radius: 6px; min-width: 200px; }
+.filter-row button { padding: 8px 16px; font-size: 0.95rem; background: #1a73e8; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+table.archetypes { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #dadce0; border-radius: 8px; }
+table.archetypes th { text-align: left; padding: 12px 16px; background: #f8f9fa; border-bottom: 1px solid #dadce0; font-size: 0.9rem; color: #5f6368; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+table.archetypes td { padding: 12px 16px; border-bottom: 1px solid #dadce0; font-size: 0.95rem; }
+table.archetypes tr:last-child td { border-bottom: none; }
+table.archetypes tr:hover { background: #f1f7ff; }
+.kind-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.78rem; font-weight: 700; }
+.kind-B { background: #e1f5fe; color: #01579b; }
+.kind-A { background: #fff3e0; color: #e65100; }
+.snippet { color: #5f6368; }
+.no-results { padding: 40px; text-align: center; color: #5f6368; background: #fff; border: 1px solid #dadce0; border-radius: 8px; }
+</style>
+
+<div class="archetypes-page">
+<a class="back-link" href="{% url 'admin:texts_dashboard' %}">← Torna ai Testi del Sito</a>
+
+<h1>Numeri Archetipici</h1>
+<p class="sub">I testi archetipici numerati (tipi A e B) mostrati nel tema giornaliero.</p>
+<p class="count">{{ total }} voci totali · visualizzate {{ rows|length }}</p>
+
+<div class="filter-row">
+<form method="get" style="display: contents;">
+<label>Tipo</label>
+<select name="kind">
+<option value="">Entrambi A e B</option>
+<option value="A" {% if selected_kind == 'A' %}selected{% endif %}>Tipo A (28–72)</option>
+<option value="B" {% if selected_kind == 'B' %}selected{% endif %}>Tipo B (1–99)</option>
+</select>
+<label>Cerca testo</label>
+<input type="text" name="q" value="{{ q }}" placeholder="scrivi una parola…">
+<button type="submit">Filtra</button>
+<a href="{% url 'admin:texts_archetypes' %}" style="margin-left:8px;color:#1a73e8;text-decoration:none;">Reimposta</a>
+</form>
+</div>
+
+{% if rows %}
+<table class="archetypes">
+<thead><tr><th>Tipo</th><th>Numero</th><th>Titolo</th><th>Anteprima inglese</th><th></th></tr></thead>
+<tbody>
+{% for row in rows %}
+<tr>
+<td><span class="kind-badge kind-{{ row.kind }}">{{ row.kind }}</span></td>
+<td style="font-weight:600;">{{ row.num }}</td>
+<td>{{ row.title }}</td>
+<td class="snippet">{{ row.snippet }}</td>
+<td><a href="{% url 'admin:texts_archetype_edit' kind=row.kind num=row.num %}" style="color:#1a73e8;text-decoration:none;font-weight:600;">Modifica</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<div class="no-results">Nessuna voce corrisponde ai filtri.</div>
+{% endif %}
+</div>
+{% endblock %}
