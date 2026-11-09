@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_backend',
         'NAME': 'astro_db',
-        'HOST': os.environ.get('MONGODB_URI'),
+        'HOST': os.environ.get('DB_ASTRO_MONGODB_URI'),
     }
 }
 
