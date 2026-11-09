@@ -495,3 +495,9 @@ def create_admin(request):
         User.objects.create_superuser('admin', 'admin@astro.com', 'ChangeMe123!')
         return HttpResponse('Superuser created: username=admin, password=ChangeMe123!')
     return HttpResponse('Superuser already exists')
+
+
+def run_migrations(request):
+    from django.core.management import call_command
+    call_command('migrate', verbosity=0)
+    return HttpResponse('Migrations complete!')
