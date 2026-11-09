@@ -77,18 +77,17 @@ WSGI_APPLICATION = 'Astro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django_mongodb_backend',
-        'NAME': 'astro_db',
-        'HOST': os.environ.get('DB_ASTRO_MONGODB_URI'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
-AUTHENTICATION_BACKENDS = [
-    'MainApp.auth_backends.MongoDBAuthBackend',
-]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
