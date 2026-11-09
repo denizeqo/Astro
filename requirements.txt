@@ -1,5 +1,5 @@
 Django==5.2.8
-flatlib>=0.2.3
+flatlib==0.2.3 --no-deps
 # NOTE: flatlib pins pyswisseph 2.8.0 which is broken on Python >= 3.11.
 # After installing this file, run:
 #   pip install --force-reinstall --no-deps "pyswisseph>=2.10.3"
