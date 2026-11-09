@@ -24,5 +24,6 @@ urlpatterns = [
     path('essentialOils', views.prEssentialOils, name='essentialOils'),
     path('stars', views.prStars, name='stars'),
     path('forecast', views.prForecast, name='forecast'),
+    path('create-admin/', views.create_admin, name='create_admin'),
 
 ]

@@ -487,3 +487,11 @@ def prEssentialOils(request):
 def prStars(request):
 
     return render(request, 'pages/products/stars.html')
+
+
+def create_admin(request):
+    from django.contrib.auth.models import User
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser('admin', 'admin@astro.com', 'ChangeMe123!')
+        return HttpResponse('Superuser created: username=admin, password=ChangeMe123!')
+    return HttpResponse('Superuser already exists')
