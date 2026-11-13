@@ -33,10 +33,10 @@ from django.views.decorators.http import require_POST
 EPHE_DIR = Path(settings.BASE_DIR) / "sweph" / "ephe"
 
 LANGUAGES = [
+    ("it", "Italiano"),
     ("en", "Inglese"),
     ("de", "Tedesco"),
     ("fr", "Francese"),
-    ("it", "Italiano"),
 ]
 LANG_CODES = [code for code, _name in LANGUAGES]
 
@@ -151,7 +151,7 @@ def texts_translate(request):
     except (ValueError, UnicodeDecodeError):
         return JsonResponse({"error": "Invalid request body."}, status=400)
 
-    source = payload.get("source", "en")
+    source = payload.get("source", "it")
     texts = payload.get("texts", {})
     if source not in LANG_CODES or not isinstance(texts, dict):
         return JsonResponse({"error": "Invalid source language or texts."}, status=400)

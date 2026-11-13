@@ -88,23 +88,28 @@ def getStars(planets, fourAngles):
     
     return stars 
 
-def createChart(latitude, longitude, dateOfBirth, timeOfBirth):
+DEFAULT_OBJECTS = [
+    const.SUN,
+    const.MOON,
+    const.MERCURY,
+    const.VENUS,
+    const.MARS,
+    const.JUPITER,
+    const.SATURN,
+    const.URANUS,
+    const.NEPTUNE,
+    const.PLUTO,
+    const.CHIRON,
+    const.NORTH_NODE,
+    const.SOUTH_NODE,
+]
 
-    objects = [
-                    const.SUN,
-                    const.MOON,
-                    const.MERCURY,
-                    const.VENUS,
-                    const.MARS,
-                    const.JUPITER,
-                    const.SATURN,
-                    const.URANUS,
-                    const.NEPTUNE,
-                    const.PLUTO,
-                    const.CHIRON,
-                    const.NORTH_NODE,
-                    const.SOUTH_NODE,
-                ]
+DEFAULT_ANGLES = [const.ASC, const.MC, const.IC, const.DESC]
+
+def createChart(latitude, longitude, dateOfBirth, timeOfBirth, objects=None):
+
+    if objects is None:
+        objects = DEFAULT_OBJECTS
 
     lat, lon = getLonLat(latitude, longitude)
     dateOfBirth, timeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
@@ -118,19 +123,36 @@ def createChart(latitude, longitude, dateOfBirth, timeOfBirth):
     return chart
 
 
-def getFourAngles(chart):
+def getFourAngles(chart, names=None):
 
-    fourAngles = [
-        {'name':'ASC', 'position':chart.get(const.ASC).lon, 'color':'#E3242B', 'num':getChartNum(chart.get(const.ASC).lon), 'house':getHouse(chart.get(const.ASC).lon)},
-        {'name':'MC', 'position':chart.get(const.MC).lon, 'color':'#808080', 'num':getChartNum(chart.get(const.MC).lon), 'house':getHouse(chart.get(const.MC).lon)},
-        {'name':'IC', 'position':chart.get(const.IC).lon, 'color':'#4E9FE5', 'num':getChartNum(chart.get(const.IC).lon), 'house':getHouse(chart.get(const.IC).lon)},
-        {'name':'DSC', 'position':chart.get(const.DESC).lon, 'color':'#a8e4a0', 'num':getChartNum(chart.get(const.DESC).lon), 'house':getHouse(chart.get(const.DESC).lon)}
-    ]
+    if names is None:
+        names = DEFAULT_ANGLES
+
+    angle_color_map = {
+        const.ASC: '#E3242B',
+        const.MC: '#808080',
+        const.IC: '#4E9FE5',
+        const.DESC: '#a8e4a0',
+    }
+
+    fourAngles = []
+    for name in names:
+        obj = chart.get(name)
+        fourAngles.append({
+            'name': name,
+            'position': obj.lon,
+            'color': angle_color_map.get(name, '#ffffff'),
+            'num': getChartNum(obj.lon),
+            'house': getHouse(obj.lon),
+        })
 
     return fourAngles
 
 
-def getPlanets(chart):
+def getPlanets(chart, objects=None):
+
+    if objects is None:
+        objects = DEFAULT_OBJECTS
 
     planetsColorMap = {
         const.SUN: '#FFEA99',
@@ -151,15 +173,19 @@ def getPlanets(chart):
     lastOrbitePlanets = [const.SATURN, const.URANUS, const.NEPTUNE, const.PLUTO, const.CHIRON]
     firstOrbitePlanets = [const.MOON, const.NORTH_NODE, const.SOUTH_NODE]
 
-    lastOrbitePlanetsPositions = _getPlanetSymbolPosition(chart, lastOrbitePlanets, False)
-    firstOrbitePlanetsPositions =  _getPlanetSymbolPosition(chart, firstOrbitePlanets, True)
+    # Only compute symbol positions for orbite groups that are actually charted
+    lastOrbiteRequested = [p for p in lastOrbitePlanets if p in objects]
+    firstOrbiteRequested = [p for p in firstOrbitePlanets if p in objects]
+
+    lastOrbitePlanetsPositions = _getPlanetSymbolPosition(chart, lastOrbiteRequested, False) if lastOrbiteRequested else {}
+    firstOrbitePlanetsPositions = _getPlanetSymbolPosition(chart, firstOrbiteRequested, True) if firstOrbiteRequested else {}
 
     planets = []
-    for planet in planetsColorMap:
+    for planet in objects:
 
-        if planet in lastOrbitePlanets:
+        if planet in lastOrbitePlanetsPositions:
             symbolPosition = lastOrbitePlanetsPositions[planet]
-        elif planet in firstOrbitePlanets:
+        elif planet in firstOrbitePlanetsPositions:
             symbolPosition = firstOrbitePlanetsPositions[planet]
         else:
             symbolPosition = chart.get(planet).lon
@@ -201,11 +227,11 @@ def getChartSymbols(asc):
     return results
 
 
-def getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country):
+def getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country, objects=None):
 
     lat, lng = getLonLat(latitude, longitude)
     utcDateOfBirth, utcTimeOfBirth = getUTCDateTime(dateOfBirth, timeOfBirth, latitude, longitude)
-    talismanNum = _getTalismanNum(chart)
+    talismanNum = _getTalismanNum(chart, objects)
     userData = {'First Name':firstName, 'Last Name':lastName, 'City':city, 'Country':country, 'Latitude':lat, 'Longitude':lng, 'Local Time':dateOfBirth + ' ' + timeOfBirth, 'UTC Time':utcDateOfBirth.replace('/', '-') + ' ' + utcTimeOfBirth[:5], 'talisman':talismanNum}
 
     return userData
@@ -219,27 +245,28 @@ def getChartNum(position):
 
     return {'value': num, 'sup': sup, 'color':color, 'supColor':supColor}
 
-def _getTalismanNum(chart):
+def _getTalismanNum(chart, objects=None):
 
-    objectList = [
-        const.ASC,
-        const.MC,
-        const.SUN,
-        const.MOON,
-        const.MERCURY,
-        const.VENUS,
-        const.MARS,
-        const.JUPITER,
-        const.SATURN,
-        const.URANUS,
-        const.NEPTUNE,
-        const.NORTH_NODE,
-        const.SOUTH_NODE
-    ]
+    if objects is None:
+        objects = [
+            const.ASC,
+            const.MC,
+            const.SUN,
+            const.MOON,
+            const.MERCURY,
+            const.VENUS,
+            const.MARS,
+            const.JUPITER,
+            const.SATURN,
+            const.URANUS,
+            const.NEPTUNE,
+            const.NORTH_NODE,
+            const.SOUTH_NODE,
+        ]
 
     results = []
 
-    for object in objectList:
+    for object in objects:
         results.append(getChartNum(chart.get(object).lon))
 
     return results
@@ -319,7 +346,7 @@ def getHouse(position):
     return {'num': houseNum, 'symbol':houseSymbol}
 
 
-def get_all_aspects(chart):
+def get_all_aspects(chart, objects=None):
     
     result = []
 
@@ -343,7 +370,10 @@ def get_all_aspects(chart):
         const.SOUTH_NODE: '#AAD5DB'
     }   
 
-    objs = [chart.get(i) for i in planetsColorMap.keys()]
+    if objects is None:
+        objects = list(planetsColorMap.keys())
+
+    objs = [chart.get(i) for i in objects]
 
     aspList = [0, 60, 90, 120, 150, 180]
 

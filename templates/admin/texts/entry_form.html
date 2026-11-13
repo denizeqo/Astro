@@ -92,9 +92,9 @@ input[type="text"] { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #d
 <div class="field-row">
 <label>{{ field.label }}</label>
 {% if field.textarea %}
-<textarea name="{{ lang.code }}___{{ field.key }}" data-lang="{{ lang.code }}" data-field="{{ field.key }}">{{ lang.values|get_item:field.key }}</textarea>
+<textarea name="{{ lang.code }}__{{ field.key }}" data-lang="{{ lang.code }}" data-field="{{ field.key }}">{{ lang.values|get_item:field.key }}</textarea>
 {% else %}
-<input type="text" name="{{ lang.code }}___{{ field.key }}" data-lang="{{ lang.code }}" data-field="{{ field.key }}" value="{{ lang.values|get_item:field.key }}">
+<input type="text" name="{{ lang.code }}__{{ field.key }}" data-lang="{{ lang.code }}" data-field="{{ field.key }}" value="{{ lang.values|get_item:field.key }}">
 {% endif %}
 </div>
 {% endfor %}
@@ -102,7 +102,7 @@ input[type="text"] { padding: 8px 10px; font-size: 0.95rem; border: 1px solid #d
 {% endfor %}
 
 <div class="translate-row">
-<label>Auto-fill other languages from <strong id="src-lang-name">English</strong>
+<label>Auto-fill other languages from <strong id="src-lang-name">Italiano</strong>
 <select id="translate-source" style="margin-left:6px;">
 {% for lang in languages %}
 <option value="{{ lang.code }}" {% if forloop.first %}selected{% endif %}>{{ lang.name }}</option>
@@ -123,6 +123,13 @@ function showLang(code) {
   document.querySelector('[data-lang="'+code+'"]').classList.add('active');
   document.getElementById('lang-'+code).classList.add('active');
 }
+
+  const sourceSelect = document.getElementById('translate-source');
+  const srcLabel = document.getElementById('src-lang-name');
+  sourceSelect.addEventListener('change', function() {
+    const opt = sourceSelect.options[sourceSelect.selectedIndex];
+    srcLabel.textContent = opt.text;
+  });
 
 async function doTranslate() {
   const source = document.getElementById('translate-source').value;

@@ -1,0 +1,135 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block main %}
+
+<section>
+    <h1 class="title">{% trans "Lunar Horoscope" %}</h1>
+    <h3 class="subtitle">
+        28 {% trans "Lunar Mansions" %} • 8 {% trans "Lunar Phases" %} • {% trans "Solar & Lunar Eclipses" %}
+        <br>
+        {% trans "Moon • Ascendant • Sun • Saturn • Lunar Nodes" %}
+    </h3>
+</section>
+
+{% include 'components/wheelOfDestiny/form.html' %}
+
+<section style="max-width: 1070px; width: 90%; margin: 0 auto 20px auto;">
+    <div class="glassBg" style="padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end;">
+        <div class="formInput" style="min-width: 180px; margin-bottom: 0;">
+            <h2>{% trans "Moment Date" %}</h2>
+            <input id="momentDate" type="date" class="glassBg">
+        </div>
+        <div class="formInput" style="min-width: 180px; margin-bottom: 0;">
+            <h2>{% trans "Moment Time" %}</h2>
+            <input id="momentTime" type="time" class="glassBg">
+        </div>
+        <p style="color: #BFAEDC; font-family: 'Poppins', sans-serif; margin: 0;">
+            {% trans "Leave empty for the current moment (Daily Lunar Horoscope)." %}
+        </p>
+    </div>
+</section>
+
+<div id="LunarModeToggle" style="display: none; justify-content: center; gap: 15px; margin-bottom: 20px;">
+    <button id="showMoment" class="primarButton">{% trans "Daily Lunar Horoscope" %}</button>
+    <button id="showBirth" class="primarButton">{% trans "Lunar Birth Horoscope" %}</button>
+</div>
+
+<section id="LunarChartWidget" class="widget glassBg hiddenWidget">
+    <svg id="LunarChart" viewBox="0 0 1000 1000" style="width: 100%;"></svg>
+</section>
+
+<section id="LunarPanels" class="widget hiddenWidget" style="width: 90%; max-width: 1070px;">
+    <div id="EclipseBanner" style="width: 100%; margin-bottom: 20px;"></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; justify-content: center;">
+        <div id="MansionCard" class="glassBg" style="flex: 1 1 320px; padding: 25px; text-align: center;"></div>
+        <div id="PhaseCard" class="glassBg" style="flex: 1 1 320px; padding: 25px; text-align: center;"></div>
+    </div>
+</section>
+
+<section id="LunarTables" class="widget hiddenWidget" style="width: 90%; max-width: 1070px;">
+    <h2 class="tableTitle">{% trans "Reference Points" %}</h2>
+    <table id="RefTable" class="table table-dark" style="font-family: 'Poppins', sans-serif;">
+        <thead>
+            <tr>
+                <th>{% trans "Point" %}</th>
+                <th>{% trans "Position" %}</th>
+                <th>{% trans "Mansion" %}</th>
+                <th>{% trans "House" %}</th>
+                <th>{% trans "Archetype" %}</th>
+            </tr>
+        </thead>
+        <tbody id="RefTbody"></tbody>
+    </table>
+
+    <h2 class="tableTitle">{% trans "Lunar Aspects" %}</h2>
+    <table id="AspectTable" class="table table-dark" style="font-family: 'Poppins', sans-serif;">
+        <thead>
+            <tr>
+                <th>{% trans "Point" %}</th>
+                <th>{% trans "Aspect" %}</th>
+                <th>{% trans "Point" %}</th>
+                <th>{% trans "Orb" %}</th>
+                <th>{% trans "Type" %}</th>
+            </tr>
+        </thead>
+        <tbody id="AspectTbody"></tbody>
+    </table>
+</section>
+
+
+<script src="{% static 'js/lunarChart.js' %}"></script>
+
+<script>
+    const STATIC_URL = "{% static '' %}";
+    let lunarData = null;
+    let lunarMode = 'moment';
+
+    function renderLunar() {
+        if (!lunarData) return;
+        drawLunarChart(lunarData, lunarMode, STATIC_URL);
+        fillLunarPanels(lunarData, lunarMode, STATIC_URL);
+        fillRefTable(lunarData[lunarMode]);
+        fillAspectTable(lunarData[lunarMode]);
+    }
+
+    document.getElementById("chartForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        let formData = new FormData(this);
+        formData.append('date', document.getElementById('momentDate').value);
+        formData.append('time', document.getElementById('momentTime').value);
+
+        fetch("", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            lunarData = data;
+            lunarMode = 'moment';
+
+            document.getElementById('LunarChartWidget').classList.remove('hiddenWidget');
+            document.getElementById('LunarPanels').classList.remove('hiddenWidget');
+            document.getElementById('LunarTables').classList.remove('hiddenWidget');
+            document.getElementById('LunarModeToggle').style.display = 'flex';
+
+            renderLunar();
+        })
+        .catch(error => console.log("Error:", error));
+    });
+
+    document.getElementById("showMoment").addEventListener("click", function (e) {
+        e.preventDefault();
+        lunarMode = 'moment';
+        renderLunar();
+    });
+
+    document.getElementById("showBirth").addEventListener("click", function (e) {
+        e.preventDefault();
+        lunarMode = 'birth';
+        renderLunar();
+    });
+</script>
+
+{% endblock %}

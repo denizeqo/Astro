@@ -24,6 +24,7 @@ from zoneinfo import ZoneInfo
 
 from .charts.motherChart import MotherChart
 from .charts.dailyChart import DailyChart
+from .charts.lunarChart import LunarChart
 from .models import DailyCalendar, MonthlyCalendar, Transit
 
 
@@ -303,9 +304,14 @@ def getReport(request):
     firstTable = doc.tables[0]
 
     index = 0
+    total_talisman = len(userData.get('talisman', []))
     for i in range(4):
+        if index >= total_talisman:
+            break
         for j in range(3):
-            
+            if index >= total_talisman:
+                break
+
             talismanNum = userData['talisman'][index]['value']
             talismanNumColor = userData['talisman'][index]['color'][1:]
 
@@ -382,6 +388,38 @@ def Weel(request):
     return render(request, 'pages/wheelOfDestiny.html')
 
 
+def CoreChart(request):
+
+    if request.method == 'POST':
+
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        dateOfBirth = request.POST.get('dateOfBirth')
+        timeOfBirth = request.POST.get('timeOfBirth')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        latitude = float(request.POST.get('latitude'))
+        longitude = float(request.POST.get('longitude'))
+
+        # Big 4 core chart: Sun, Moon + ASC, MC angles
+        chart = createChart(latitude, longitude, dateOfBirth, timeOfBirth,
+                            objects=[const.SUN, const.MOON])
+
+        planets = getPlanets(chart, objects=[const.SUN, const.MOON])
+        fourAngles = getFourAngles(chart, names=[const.ASC, const.MC])
+        stars = getStars(planets, fourAngles)
+
+        staticChartSybols = getChartSymbols(0)
+        dynamicChartSymbols = getChartSymbols(fourAngles[0]['position'])
+
+        aspects = get_all_aspects(chart, objects=[const.SUN, const.MOON, const.ASC, const.MC])
+        userData = getUserData(chart, latitude, longitude, dateOfBirth, timeOfBirth, firstName, lastName, city, country, objects=[const.SUN, const.MOON, const.ASC, const.MC])
+
+        return JsonResponse({'userData':userData, 'fourAngles': fourAngles, 'planets':planets, 'stars':stars, 'staticChartSymbols': staticChartSybols, 'dynamicChartSymbols':dynamicChartSymbols, 'aspects':aspects})
+
+    return render(request, 'pages/coreChart.html')
+
+
 
 def AboutUs(request):
 
@@ -426,6 +464,30 @@ def prBirthChart(request):
 def prLunar(request):
 
     return render(request, 'pages/products/lunar.html')
+
+
+def LunarChartPage(request):
+
+    if request.method == 'POST':
+
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        dateOfBirth = request.POST.get('dateOfBirth')
+        timeOfBirth = request.POST.get('timeOfBirth')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
+        latitude = float(request.POST.get('latitude'))
+        longitude = float(request.POST.get('longitude'))
+        date = request.POST.get('date') or None
+        time = request.POST.get('time') or None
+
+        lunarChart = LunarChart(latitude, longitude, dateOfBirth, timeOfBirth,
+                                firstName, lastName, city, country,
+                                date=date, time=time, lang=request.LANGUAGE_CODE)
+
+        return JsonResponse(lunarChart.to_dict())
+
+    return render(request, 'pages/lunarChart.html')
 
 
 def prForecast(request):

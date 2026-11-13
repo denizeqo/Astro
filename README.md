@@ -37,6 +37,8 @@ python manage.py runserver   # http://localhost:8000
 | `/weel` | `Weel` | Wheel of Destiny (POST → chart JSON) |
 | `/getReport` | `getReport` | POST chart data + image → DOCX |
 | `/dailyChart` | `DailyChartPage` | Daily/transit chart |
+| `/coreChart` | `CoreChart` | Big 4 core chart (Sun, Moon, ASC, MC) |
+| `/lunarChart` | `LunarChartPage` | 28 Lunar Mansions chart — daily + birth (POST → chart JSON) |
 | `/aboutUs` | `AboutUs` | About page |
 | `/astroShop` | `AstroShop` | Shop page |
 | `/everythingAbout` | `EverythingAbout` | Astrology encyclopedia |

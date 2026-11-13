@@ -1,0 +1,225 @@
+{
+  "mansionSizeDeg": 12.857142857142858,
+  "mansionSizeLabel": "12°51'26\"",
+  "rulers": {
+    "Sun":     {"glyph": "☉", "color": "#FFEA99"},
+    "Moon":    {"glyph": "☽", "color": "#AAD5DB"},
+    "Mercury": {"glyph": "☿", "color": "#cdb891"},
+    "Venus":   {"glyph": "♀", "color": "#a8e4a0"},
+    "Mars":    {"glyph": "♂", "color": "#E3242B"},
+    "Jupiter": {"glyph": "♃", "color": "#FFAF3D"},
+    "Saturn":  {"glyph": "♄", "color": "#808080"}
+  },
+  "phases": [
+    {"key": "new",             "glyph": "🌑", "translations": {"en": "New Moon",        "de": "Neumond",              "fr": "Nouvelle Lune",       "it": "Luna Nuova"}},
+    {"key": "waxingCrescent",  "glyph": "🌒", "translations": {"en": "Waxing Crescent", "de": "Zunehmende Sichel",    "fr": "Premier Croissant",   "it": "Luna Crescente"}},
+    {"key": "firstQuarter",    "glyph": "🌓", "translations": {"en": "First Quarter",   "de": "Erstes Viertel",       "fr": "Premier Quartier",    "it": "Primo Quarto"}},
+    {"key": "waxingGibbous",   "glyph": "🌔", "translations": {"en": "Waxing Gibbous",  "de": "Zunehmender Mond",     "fr": "Gibbeuse Croissante", "it": "Gibbosa Crescente"}},
+    {"key": "full",            "glyph": "🌕", "translations": {"en": "Full Moon",       "de": "Vollmond",             "fr": "Pleine Lune",         "it": "Luna Piena"}},
+    {"key": "waningGibbous",   "glyph": "🌖", "translations": {"en": "Waning Gibbous",  "de": "Abnehmender Mond",     "fr": "Gibbeuse Décroissante", "it": "Gibbosa Calante"}},
+    {"key": "lastQuarter",     "glyph": "🌗", "translations": {"en": "Last Quarter",    "de": "Letztes Viertel",      "fr": "Dernier Quartier",    "it": "Ultimo Quarto"}},
+    {"key": "waningCrescent",  "glyph": "🌘", "translations": {"en": "Waning Crescent", "de": "Abnehmende Sichel",    "fr": "Dernier Croissant",   "it": "Luna Calante"}}
+  ],
+  "eclipses": {
+    "solar": {"glyph": "🌚", "translations": {"en": "Solar Eclipse", "de": "Sonnenfinsternis", "fr": "Éclipse Solaire", "it": "Eclissi Solare"}},
+    "lunar": {"glyph": "🌝", "translations": {"en": "Lunar Eclipse", "de": "Mondfinsternis",   "fr": "Éclipse Lunaire", "it": "Eclissi Lunare"}}
+  },
+  "mansions": [
+    {"number": 1, "name": "Al-Sharatain", "ruler": "Sun", "image": "image/lunarMansions/mansion_01.svg",
+     "translations": {
+       "en": {"title": "The Two Tokens", "description": "The mansion of beginnings and vital fire. It favors courageous initiatives, new enterprises and the healing of body and spirit."},
+       "de": {"title": "Die Zwei Zeichen", "description": "Die Dimension der Anfänge und des Lebensfeuers. Sie begünstigt mutige Initiativen, neue Unternehmungen und die Heilung von Körper und Geist."},
+       "fr": {"title": "Les Deux Insignes", "description": "La demeure des commencements et du feu vital. Elle favorise les initiatives courageuses, les nouvelles entreprises et la guérison du corps et de l'esprit."},
+       "it": {"title": "Le Due Insegne", "description": "La dimora degli inizi e del fuoco vitale. Favorisce le iniziative coraggiose, le nuove imprese e la guarigione del corpo e dello spirito."}
+     }},
+    {"number": 2, "name": "Al-Botein", "ruler": "Moon", "image": "image/lunarMansions/mansion_02.svg",
+     "translations": {
+       "en": {"title": "The Little Belly", "description": "The mansion of fertility and material gain. It supports trade, sowing, and the patient building of resources."},
+       "de": {"title": "Der Kleine Bauch", "description": "Die Dimension der Fruchtbarkeit und des materiellen Gewinns. Sie unterstützt Handel, Aussaat und den geduldigen Aufbau von Ressourcen."},
+       "fr": {"title": "Le Petit Ventre", "description": "La demeure de la fertilité et du gain matériel. Elle soutient le commerce, les semailles et la construction patiente des ressources."},
+       "it": {"title": "Il Ventre dell'Ariete", "description": "La dimora della fertilità e del guadagno materiale. Sostiene il commercio, la semina e la costruzione paziente delle risorse."}
+     }},
+    {"number": 3, "name": "Al-Thuraiya", "ruler": "Mercury", "image": "image/lunarMansions/mansion_03.svg",
+     "translations": {
+       "en": {"title": "The Pleiades", "description": "The mansion of the many little ones. It protects abundance, family bonds and success obtained through gentleness."},
+       "de": {"title": "Die Plejaden", "description": "Die Dimension der vielen Kleinen. Sie schützt Fülle, familiäre Bindungen und Erfolg, der durch Sanftheit erlangt wird."},
+       "fr": {"title": "Les Pléiades", "description": "La demeure des nombreux petits. Elle protège l'abondance, les liens familiaux et le succès obtenu par la douceur."},
+       "it": {"title": "Le Pleiadi", "description": "La dimora delle molte piccole. Protegge l'abbondanza, i legami familiari e il successo ottenuto con la dolcezza."}
+     }},
+    {"number": 4, "name": "Al-Debaran", "ruler": "Venus", "image": "image/lunarMansions/mansion_04.svg",
+     "translations": {
+       "en": {"title": "The Follower", "description": "The mansion of the Eye of the Bull. It grants strength and determination, but asks to master anger and haste."},
+       "de": {"title": "Der Verfolger", "description": "Die Dimension des Auges des Stiers. Sie verleiht Kraft und Entschlossenheit, verlangt aber, Zorn und Eile zu beherrschen."},
+       "fr": {"title": "Le Suiveur", "description": "La demeure de l'Œil du Taureau. Elle donne force et détermination, mais demande de maîtriser la colère et la précipitation."},
+       "it": {"title": "L'Occhio del Toro", "description": "La dimora dell'Occhio del Toro. Dona forza e determinazione, ma chiede di dominare la collera e la fretta."}
+     }},
+    {"number": 5, "name": "Al-Haqa", "ruler": "Mars", "image": "image/lunarMansions/mansion_05.svg",
+     "translations": {
+       "en": {"title": "The White Spot", "description": "The mansion of the clear mind. It favors study, research, health and relationships built on trust."},
+       "de": {"title": "Der Weiße Fleck", "description": "Die Dimension des klaren Geistes. Sie begünstigt Studium, Forschung, Gesundheit und Beziehungen, die auf Vertrauen beruhen."},
+       "fr": {"title": "La Tache Blanche", "description": "La demeure de l'esprit clair. Elle favorise l'étude, la recherche, la santé et les relations fondées sur la confiance."},
+       "it": {"title": "La Macchia Bianca", "description": "La dimora della mente limpida. Favorisce lo studio, la ricerca, la salute e le relazioni costruite sulla fiducia."}
+     }},
+    {"number": 6, "name": "Al-Hana", "ruler": "Jupiter", "image": "image/lunarMansions/mansion_06.svg",
+     "translations": {
+       "en": {"title": "The Twins", "description": "The mansion of encounter and exchange. It protects dialogue, agreements and love that grows through words."},
+       "de": {"title": "Die Zwillinge", "description": "Die Dimension der Begegnung und des Austauschs. Sie schützt Dialog, Vereinbarungen und Liebe, die durch Worte wächst."},
+       "fr": {"title": "Les Jumeaux", "description": "La demeure de la rencontre et de l'échange. Elle protège le dialogue, les accords et l'amour qui grandit par les mots."},
+       "it": {"title": "I Gemelli", "description": "La dimora dell'incontro e dello scambio. Protegge il dialogo, gli accordi e l'amore che cresce attraverso le parole."}
+     }},
+    {"number": 7, "name": "Al-Dhira", "ruler": "Saturn", "image": "image/lunarMansions/mansion_07.svg",
+     "translations": {
+       "en": {"title": "The Forearm", "description": "The mansion of the outstretched arm. It brings protection, prosperity and the fruits of constant work."},
+       "de": {"title": "Der Unterarm", "description": "Die Dimension des ausgestreckten Arms. Sie bringt Schutz, Wohlstand und die Früchte beständiger Arbeit."},
+       "fr": {"title": "L'Avant-Bras", "description": "La demeure du bras tendu. Elle apporte protection, prospérité et les fruits d'un travail constant."},
+       "it": {"title": "L'Avambraccio", "description": "La dimora del braccio teso. Porta protezione, prosperità e i frutti del lavoro costante."}
+     }},
+    {"number": 8, "name": "Al-Nathrah", "ruler": "Sun", "image": "image/lunarMansions/mansion_08.svg",
+     "translations": {
+       "en": {"title": "The Nose", "description": "The mansion of deep emotion. It asks to transform fear into love and to heal the wounds of the heart."},
+       "de": {"title": "Die Nase", "description": "Die Dimension der tiefen Emotion. Sie verlangt, Angst in Liebe zu verwandeln und die Wunden des Herzens zu heilen."},
+       "fr": {"title": "Le Nez", "description": "La demeure de l'émotion profonde. Elle demande de transformer la peur en amour et de guérir les blessures du cœur."},
+       "it": {"title": "Il Naso", "description": "La dimora dell'emozione profonda. Chiede di trasformare la paura in amore e di guarire le ferite del cuore."}
+     }},
+    {"number": 9, "name": "Al-Tarf", "ruler": "Moon", "image": "image/lunarMansions/mansion_09.svg",
+     "translations": {
+       "en": {"title": "The Glance", "description": "The mansion of the watchful eye. It favors intuition, dreams and the vision of what is hidden."},
+       "de": {"title": "Der Blick", "description": "Die Dimension des wachsamen Auges. Sie begünstigt Intuition, Träume und die Vision dessen, was verborgen ist."},
+       "fr": {"title": "Le Regard", "description": "La demeure de l'œil vigilant. Elle favorise l'intuition, les rêves et la vision de ce qui est caché."},
+       "it": {"title": "Lo Sguardo", "description": "La dimora dell'occhio vigile. Favorisce l'intuizione, i sogni e la visione di ciò che è nascosto."}
+     }},
+    {"number": 10, "name": "Al-Jabhah", "ruler": "Mercury", "image": "image/lunarMansions/mansion_10.svg",
+     "translations": {
+       "en": {"title": "The Forehead", "description": "The mansion of the Lion's brow. It grants dignity, strength in adversity and victory over obstacles."},
+       "de": {"title": "Die Stirn", "description": "Die Dimension der Stirn des Löwen. Sie verleiht Würde, Stärke in Widrigkeiten und Sieg über Hindernisse."},
+       "fr": {"title": "Le Front", "description": "La demeure du front du Lion. Elle donne dignité, force dans l'adversité et victoire sur les obstacles."},
+       "it": {"title": "La Fronte del Leone", "description": "La dimora della fronte del Leone. Dona dignità, forza nelle avversità e vittoria sugli ostacoli."}
+     }},
+    {"number": 11, "name": "Al-Zubrah", "ruler": "Venus", "image": "image/lunarMansions/mansion_11.svg",
+     "translations": {
+       "en": {"title": "The Mane", "description": "The mansion of generous power. It favors prosperity, noble actions and the respect earned through merit."},
+       "de": {"title": "Die Mähne", "description": "Die Dimension der großzügigen Macht. Sie begünstigt Wohlstand, edle Taten und den Respekt, der durch Verdienst erworben wird."},
+       "fr": {"title": "La Crinière", "description": "La demeure du pouvoir généreux. Elle favorise la prospérité, les actions nobles et le respect gagné par le mérite."},
+       "it": {"title": "La Criniera", "description": "La dimora del potere generoso. Favorisce la prosperità, le azioni nobili e il rispetto guadagnato con il merito."}
+     }},
+    {"number": 12, "name": "Al-Sarfah", "ruler": "Mars", "image": "image/lunarMansions/mansion_12.svg",
+     "translations": {
+       "en": {"title": "The Changer", "description": "The mansion of transformation. It supports the end of what is worn out and the courageous beginning of the new."},
+       "de": {"title": "Die Wandlerin", "description": "Die Dimension der Verwandlung. Sie unterstützt das Ende dessen, was verbraucht ist, und den mutigen Anfang des Neuen."},
+       "fr": {"title": "La Transformatrice", "description": "La demeure de la transformation. Elle soutient la fin de ce qui est usé et le commencement courageux du nouveau."},
+       "it": {"title": "Il Cambiamento", "description": "La dimora della trasformazione. Sostiene la fine di ciò che è logoro e l'inizio coraggioso del nuovo."}
+     }},
+    {"number": 13, "name": "Al-Awwa", "ruler": "Jupiter", "image": "image/lunarMansions/mansion_13.svg",
+     "translations": {
+       "en": {"title": "The Barker", "description": "The mansion of the good word. It favors reconciliation, healing, friendships and blessings on the home."},
+       "de": {"title": "Der Rufer", "description": "Die Dimension des guten Wortes. Sie begünstigt Versöhnung, Heilung, Freundschaften und Segen für das Heim."},
+       "fr": {"title": "L'Aboyeur", "description": "La demeure de la bonne parole. Elle favorise la réconciliation, la guérison, les amitiés et les bénédictions sur la maison."},
+       "it": {"title": "L'Abbaiatore", "description": "La dimora della buona parola. Favorisce la riconciliazione, la guarigione, le amicizie e le benedizioni sulla casa."}
+     }},
+    {"number": 14, "name": "Al-Simak", "ruler": "Saturn", "image": "image/lunarMansions/mansion_14.svg",
+     "translations": {
+       "en": {"title": "The Unarmed", "description": "The mansion of the ear of wheat. It protects harvests, unions and the patient maturation of every fruit."},
+       "de": {"title": "Die Wehrlose", "description": "Die Dimension der Ähre. Sie schützt Ernten, Verbindungen und die geduldige Reifung jeder Frucht."},
+       "fr": {"title": "La Désarmée", "description": "La demeure de l'épi de blé. Elle protège les moissons, les unions et la maturation patiente de tout fruit."},
+       "it": {"title": "La Spiga", "description": "La dimora della spiga di grano. Protegge i raccolti, le unioni e la paziente maturazione di ogni frutto."}
+     }},
+    {"number": 15, "name": "Al-Ghafr", "ruler": "Sun", "image": "image/lunarMansions/mansion_15.svg",
+     "translations": {
+       "en": {"title": "The Covering", "description": "The mansion of the hidden treasure. It favors the search for wealth, justice and protection from deceit."},
+       "de": {"title": "Die Bedeckung", "description": "Die Dimension des verborgenen Schatzes. Sie begünstigt die Suche nach Reichtum, Gerechtigkeit und Schutz vor Betrug."},
+       "fr": {"title": "La Couverture", "description": "La demeure du trésor caché. Elle favorise la recherche de la richesse, la justice et la protection contre la tromperie."},
+       "it": {"title": "La Copertura", "description": "La dimora del tesoro nascosto. Favorisce la ricerca della ricchezza, la giustizia e la protezione dagli inganni."}
+     }},
+    {"number": 16, "name": "Al-Zubana", "ruler": "Moon", "image": "image/lunarMansions/mansion_16.svg",
+     "translations": {
+       "en": {"title": "The Claws", "description": "The mansion of the Scorpion's claws. It teaches right measure in exchanges and loyalty in agreements."},
+       "de": {"title": "Die Scheren", "description": "Die Dimension der Scheren des Skorpions. Sie lehrt das rechte Maß im Austausch und Loyalität in Vereinbarungen."},
+       "fr": {"title": "Les Pinces", "description": "La demeure des pinces du Scorpion. Elle enseigne la juste mesure dans les échanges et la loyauté dans les accords."},
+       "it": {"title": "Le Chele", "description": "La dimora delle chele dello Scorpione. Insegna la giusta misura negli scambi e la lealtà negli accordi."}
+     }},
+    {"number": 17, "name": "Al-Iklil", "ruler": "Mercury", "image": "image/lunarMansions/mansion_17.svg",
+     "translations": {
+       "en": {"title": "The Crown", "description": "The mansion of the crown of the forehead. It protects against loss, strengthens memory and favors healing."},
+       "de": {"title": "Die Krone", "description": "Die Dimension der Stirnkrone. Sie schützt vor Verlust, stärkt das Gedächtnis und begünstigt Heilung."},
+       "fr": {"title": "La Couronne", "description": "La demeure de la couronne du front. Elle protège contre la perte, renforce la mémoire et favorise la guérison."},
+       "it": {"title": "La Corona", "description": "La dimora della corona della fronte. Protegge dalle perdite, rafforza la memoria e favorisce la guarigione."}
+     }},
+    {"number": 18, "name": "Al-Qalb", "ruler": "Venus", "image": "image/lunarMansions/mansion_18.svg",
+     "translations": {
+       "en": {"title": "The Heart", "description": "The mansion of the Scorpion's heart. It gives depth, magnetism and the courage to face one's own shadows."},
+       "de": {"title": "Das Herz", "description": "Die Dimension des Herzens des Skorpions. Sie verleiht Tiefe, Magnetismus und den Mut, den eigenen Schatten zu begegnen."},
+       "fr": {"title": "Le Cœur", "description": "La demeure du cœur du Scorpion. Elle donne profondeur, magnétisme et le courage d'affronter ses propres ombres."},
+       "it": {"title": "Il Cuore", "description": "La dimora del cuore dello Scorpione. Dona profondità, magnetismo e il coraggio di affrontare le proprie ombre."}
+     }},
+    {"number": 19, "name": "Al-Shaulah", "ruler": "Mars", "image": "image/lunarMansions/mansion_19.svg",
+     "translations": {
+       "en": {"title": "The Sting", "description": "The mansion of the raised tail. It protects in danger and transforms poison into medicine."},
+       "de": {"title": "Der Stachel", "description": "Die Dimension des erhobenen Schwanzes. Sie schützt in Gefahr und verwandelt Gift in Medizin."},
+       "fr": {"title": "Le Dard", "description": "La demeure de la queue dressée. Elle protège dans le danger et transforme le poison en remède."},
+       "it": {"title": "Il Pungiglione", "description": "La dimora della coda sollevata. Protegge nel pericolo e trasforma il veleno in medicina."}
+     }},
+    {"number": 20, "name": "Al-Na'am", "ruler": "Jupiter", "image": "image/lunarMansions/mansion_20.svg",
+     "translations": {
+       "en": {"title": "The Ostriches", "description": "The mansion of the caravan. It favors travel, encounters between peoples and swift fortune."},
+       "de": {"title": "Die Strauße", "description": "Die Dimension der Karawane. Sie begünstigt Reisen, Begegnungen zwischen Völkern und schnelles Glück."},
+       "fr": {"title": "Les Autruches", "description": "La demeure de la caravane. Elle favorise les voyages, les rencontres entre les peuples et la fortune rapide."},
+       "it": {"title": "Gli Struzzi", "description": "La dimora della carovana. Favorisce i viaggi, gli incontri tra i popoli e la fortuna veloce."}
+     }},
+    {"number": 21, "name": "Al-Baldah", "ruler": "Saturn", "image": "image/lunarMansions/mansion_21.svg",
+     "translations": {
+       "en": {"title": "The City", "description": "The mansion of the empty place. It teaches detachment, silence and the strength that comes from letting go."},
+       "de": {"title": "Die Stadt", "description": "Die Dimension des leeren Ortes. Sie lehrt Loslösung, Stille und die Kraft, die aus dem Loslassen entsteht."},
+       "fr": {"title": "La Ville", "description": "La demeure du lieu vide. Elle enseigne le détachement, le silence et la force qui naît du lâcher-prise."},
+       "it": {"title": "La Città", "description": "La dimora del luogo vuoto. Insegna il distacco, il silenzio e la forza che nasce dal lasciare andare."}
+     }},
+    {"number": 22, "name": "Sa'd al-Dhabih", "ruler": "Sun", "image": "image/lunarMansions/mansion_22.svg",
+     "translations": {
+       "en": {"title": "Fortune of the Sacrificer", "description": "The mansion of sacred offering. It blesses sincere sacrifices and turns renunciation into freedom."},
+       "de": {"title": "Glück des Opfernden", "description": "Die Dimension des heiligen Opfers. Sie segnet aufrichtige Opfer und verwandelt Verzicht in Freiheit."},
+       "fr": {"title": "Fortune du Sacrificateur", "description": "La demeure de l'offrande sacrée. Elle bénit les sacrifices sincères et transforme le renoncement en liberté."},
+       "it": {"title": "Fortuna del Sacrificatore", "description": "La dimora dell'offerta sacra. Benedice i sacrifici sinceri e trasforma la rinuncia in libertà."}
+     }},
+    {"number": 23, "name": "Sa'd al-Bula", "ruler": "Moon", "image": "image/lunarMansions/mansion_23.svg",
+     "translations": {
+       "en": {"title": "Fortune of the Swallower", "description": "The mansion that dissolves. It favors liberation from bonds, divorces and the healing of what divides."},
+       "de": {"title": "Glück des Verschlingers", "description": "Die Dimension, die auflöst. Sie begünstigt Befreiung von Bindungen, Trennungen und die Heilung dessen, was trennt."},
+       "fr": {"title": "Fortune de l'Avaleur", "description": "La demeure qui dissout. Elle favorise la libération des liens, les séparations et la guérison de ce qui divise."},
+       "it": {"title": "Fortuna dell'Ingoiatore", "description": "La dimora che dissolve. Favorisce la liberazione dai vincoli, le separazioni e la guarigione di ciò che divide."}
+     }},
+    {"number": 24, "name": "Sa'd al-Su'ud", "ruler": "Mercury", "image": "image/lunarMansions/mansion_24.svg",
+     "translations": {
+       "en": {"title": "Fortune of Fortunes", "description": "The luckiest mansion. It opens roads, crowns ventures and spreads joy and good news."},
+       "de": {"title": "Glück der Glücksfälle", "description": "Die glücklichste Dimension. Sie öffnet Wege, krönt Unternehmungen und verbreitet Freude und gute Nachrichten."},
+       "fr": {"title": "Fortune des Fortunes", "description": "La plus chanceuse des demeures. Elle ouvre les chemins, couronne les entreprises et répand joie et bonnes nouvelles."},
+       "it": {"title": "Fortuna delle Fortune", "description": "La dimora più fortunata. Apre le strade, incorona le imprese e diffonde gioia e buone notizie."}
+     }},
+    {"number": 25, "name": "Sa'd al-Akhbiyah", "ruler": "Venus", "image": "image/lunarMansions/mansion_25.svg",
+     "translations": {
+       "en": {"title": "Fortune of the Tents", "description": "The mansion of shelter. It protects the home, the land and the roots that nourish every growth."},
+       "de": {"title": "Glück der Zelte", "description": "Die Dimension des Schutzes. Sie schützt das Heim, das Land und die Wurzeln, die jedes Wachstum nähren."},
+       "fr": {"title": "Fortune des Tentes", "description": "La demeure de l'abri. Elle protège la maison, la terre et les racines qui nourrissent toute croissance."},
+       "it": {"title": "Fortuna delle Tende", "description": "La dimora del rifugio. Protegge la casa, la terra e le radici che nutrono ogni crescita."}
+     }},
+    {"number": 26, "name": "Al Fargh al-Mukdim", "ruler": "Mars", "image": "image/lunarMansions/mansion_26.svg",
+     "translations": {
+       "en": {"title": "The First Spout", "description": "The mansion of the water that flows. It brings abundance, generosity and love that purifies."},
+       "de": {"title": "Der Erste Ausguss", "description": "Die Dimension des fließenden Wassers. Sie bringt Fülle, Großzügigkeit und Liebe, die reinigt."},
+       "fr": {"title": "Le Premier Bec", "description": "La demeure de l'eau qui coule. Elle apporte abondance, générosité et un amour qui purifie."},
+       "it": {"title": "Il Primo Beccuccio", "description": "La dimora dell'acqua che scorre. Porta abbondanza, generosità e un amore che purifica."}
+     }},
+    {"number": 27, "name": "Al Fargh al-Thani", "ruler": "Jupiter", "image": "image/lunarMansions/mansion_27.svg",
+     "translations": {
+       "en": {"title": "The Second Spout", "description": "The mansion of completed outpouring. It favors the increase of goods, gratitude and lasting unions."},
+       "de": {"title": "Der Zweite Ausguss", "description": "Die Dimension der vollendeten Ausgießung. Sie begünstigt die Vermehrung der Güter, Dankbarkeit und dauerhafte Verbindungen."},
+       "fr": {"title": "Le Second Bec", "description": "La demeure de l'épanchement accompli. Elle favorise l'accroissement des biens, la gratitude et les unions durables."},
+       "it": {"title": "Il Secondo Beccuccio", "description": "La dimora dell'effusione compiuta. Favorisce l'aumento dei beni, la gratitudine e le unioni durature."}
+     }},
+    {"number": 28, "name": "Al-Batn al-Hut", "ruler": "Saturn", "image": "image/lunarMansions/mansion_28.svg",
+     "translations": {
+       "en": {"title": "The Belly of the Fish", "description": "The last mansion, of completion and return. It blesses the end of the cycle and prepares the soul for a new beginning."},
+       "de": {"title": "Der Bauch des Fisches", "description": "Die letzte Dimension, der Vollendung und Rückkehr. Sie segnet das Ende des Zyklus und bereitet die Seele auf einen neuen Anfang vor."},
+       "fr": {"title": "Le Ventre du Poisson", "description": "La dernière demeure, de l'accomplissement et du retour. Elle bénit la fin du cycle et prépare l'âme à un nouveau commencement."},
+       "it": {"title": "Il Ventre del Pesce", "description": "L'ultima dimora, del compimento e del ritorno. Benedice la fine del ciclo e prepara l'anima a un nuovo inizio."}
+     }}
+  ]
+}
